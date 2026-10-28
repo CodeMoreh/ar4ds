@@ -14,6 +14,29 @@ website:
     type: warning
     position: above-navbar
     content: "**Under active development.** These course materials are being revised and may change at any time, so please do not rely on them as they currently stand."
+  favicon: assets/logo.png
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Setup
+        menu:
+          - href: setup.qmd
+            text: "Install and check"
+          - href: help.qmd
+            text: "Setup help"
+      - href: git-github.qmd
+        text: "Git and GitHub"
+      - text: The cases
+        menu:
+          - href: "https://codemoreh.github.io/ar4ds-housing/"
+            text: "Housing audit"
+          - href: "https://codemoreh.github.io/ar4ds-immigration/"
+            text: "Immigration and trust"
+          - href: "https://codemoreh.github.io/ar4ds-cohabitation/"
+            text: "Cohabitation"
+          - href: "https://codemoreh.github.io/ar4ds-eu/"
+            text: "EU frames"
   page-footer:
     left: "Content licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
     right: "Built with [Quarto](https://quarto.org/)"
@@ -21,3 +44,5 @@ website:
 format:
   html:
     theme: cosmo
+    css: styles.css
+    toc: true
