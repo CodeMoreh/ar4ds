@@ -1,0 +1,12 @@
+---
+title: "Applied Replication for Data Skills"
+---
+
+Applied Replication for Data Skills (AR4DS) teaches the reproduction and replication of published research on four claims from the social sciences, each of which five analysts reanalysed for the Multi100 project. Each case has a site of its own:
+
+- [The housing-audit case](https://codemoreh.github.io/ar4ds-housing/): emails signed with Hispanic names were greeted by name less often (Einstein and Glick 2017).
+- [The immigration-and-trust case](https://codemoreh.github.io/ar4ds-immigration/): concern about immigration lowers trust in politics (McLaren 2012).
+- [The cohabitation case](https://codemoreh.github.io/ar4ds-cohabitation/): cohabitors became less likely to marry (Kuo and Raley 2016).
+- [The EU-frames case](https://codemoreh.github.io/ar4ds-eu/): poor national economic performance lowers the positive framing of the EU (Teney 2016).
+
+This site and the sites of the cases are being assembled and are not yet ready for use.
