@@ -1,12 +1,358 @@
 ---
-title: "Applied Replication for Data Skills"
+pagetitle: "Applied Replication for Data Skills"
+page-layout: custom
+toc: false
+bibliography: [references.bib, references-new.bib]
+css: style/home.css
+include-after-body: _includes/home-script.html
 ---
 
-Applied Replication for Data Skills (AR4DS) teaches the reproduction and replication of published research on four claims from the social sciences, each of which five analysts reanalysed for the Multi100 project. Each case has a site of its own:
+<!-- The opening page of AR4DS, in the layout of the opening pages of the case
+sites: every section is a fenced div with a home- class (styled in
+style/home.css), and the case cards, the format cards, the map and all the text
+are ordinary Markdown below. Each case card shows the paragraph that introduces
+the case and folds the rest into a details element (class home-more); the
+cards of the two sites still being assembled carry the class home-soon.
 
-- [The housing-audit case](https://codemoreh.github.io/ar4ds-housing/): emails signed with Hispanic names were greeted by name less often (Einstein and Glick 2017).
-- [The immigration-and-trust case](https://codemoreh.github.io/ar4ds-immigration/): concern about immigration lowers trust in politics (McLaren 2012).
-- [The cohabitation case](https://codemoreh.github.io/ar4ds-cohabitation/): cohabitors became less likely to marry (Kuo and Raley 2016).
-- [The EU-frames case](https://codemoreh.github.io/ar4ds-eu/): poor national economic performance lowers the positive framing of the EU (Teney 2016).
+The page runs no code, because the data of the cases live on their own sites.
+Its figures are those of the record of SCORE and Multi100, which do not change
+with the data of the course, and each comes from the facts file of its case
+(D:\ACADEMIC\TEACHING\2026_OR_NCL\_planning\<slug>\<slug>-facts.md) or from the
+committed data of the case in the course repository: analysts5.csv for the
+conclusions of the five analysts, reference_marks.csv for the reproductions and
+replications of the trust and cohabitation cases. Check them there before
+changing any of them. The cards follow the ladder of difficulty (housing, trust,
+cohabitation, eu-frames). -->
 
-This site and the sites of the cases are being assembled and are not yet ready for use.
+:::::: {.home-hero}
+::::: {.home-inner .home-reveal}
+
+::: {.home-eyebrow}
+Hands-on training in {{< var workshop.format >}}
+:::
+
+# {{< var workshop.name >}} {.unnumbered .unlisted}
+
+::: {.home-lead}
+The course takes published claims, the reanalyses that each of them received in a many-analyst study and the replications that tested them with new data, and teaches reproduction, robustness and replication in R, from the data and code of real studies. One exercise runs through four cases, ordered from the simplest statistics to the hardest, and each case has a site of its own.
+:::
+
+::: {.home-cta}
+[The cases](#cases) [SCORE and Multi100](#score)
+:::
+
+:::::
+::::::
+
+:::::: {.home-section #cases}
+::::: {.home-wrap}
+
+## The cases {.unnumbered .home-reveal}
+
+::: {.home-intro .home-reveal}
+Every case teaches the same exercise in the same order. The cases differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case allows, with slide decks of its own and a companion of the methods that the case can teach, although the sites of the immigration-and-trust and cohabitation cases are still being assembled.
+:::
+
+:::: {.home-cases}
+
+::: {.home-casecard .home-reveal}
+[1]{.home-rung}
+
+### [The housing-audit case](https://codemoreh.github.io/ar4ds-housing/) {.unnumbered .unlisted}
+
+[A field experiment, taught in a short session or in one day]{.home-meta}
+
+A field experiment published in 2017 sent the same short email to about a thousand public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which Multi100 gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
+
+<details class="home-more">
+<summary>More about the case</summary>
+
+**What it teaches.** Proportions and the chi-square test, the linear probability model set against the logit, what conditioning on a reply does to an experiment, randomisation inference and statistical power.
+
+**The data.** One file of 1,014 emails, released into the public domain (CC0) and shipped with the workspace.
+
+::: {.home-3r}
+- **Reproduction.** SCORE never attempted one, although the data and code are public. The four statistics that Multi100 recorded for the analysts reproduce exactly from the public file.
+- **Robustness.** Three of the five Multi100 analysts found evidence for the claim, and the other two found evidence neither way.
+- **Replication.** A preregistered audit of 3,050 housing authorities, with new names, found no significant gap (z = 0.66, p = 0.51).
+:::
+
+</details>
+
+[Go to the site of the case](https://codemoreh.github.io/ar4ds-housing/){.home-go}
+:::
+
+::: {.home-casecard .home-soon .home-reveal}
+[2]{.home-rung} [Being assembled]{.home-badge}
+
+### [The immigration-and-trust case](https://codemoreh.github.io/ar4ds-immigration/) {.unnumbered .unlisted}
+
+[A cross-national survey, taught over three days]{.home-meta}
+
+A paper of 2012 in *World Politics* asked, from the European Social Survey, whether citizens of Western European countries who see immigration as a threat to the national community trust their national politics less. The claim is that "... concerns about the effect of immigration on the national community have a(n) \[reducing\] impact on trust in politics" [@McLaren2012CulturalDivideEurope, p. 199].
+
+<details class="home-more">
+<summary>More about the case</summary>
+
+**What it teaches.** Attitude scales and their reliability, regression with controls and what a causal graph says about them, survey weights, country fixed effects set against random intercepts, inference with 16 countries, and the question of reverse causation.
+
+**The data.** Rounds 1 to 4 of the European Social Survey in 16 countries, 110,732 respondents in the sample of the paper, as a derived extract released under CC BY-NC-SA 4.0.
+
+::: {.home-3r}
+- **Reproduction.** The paper came without data or code. Two SCORE reproductions rebuilt the data from the survey files and found coefficients of 0.178 and 0.181 against the published 0.17, on about 69,000 respondents rather than 110,732.
+- **Robustness.** All five Multi100 analysts found evidence for the claim, with partial correlations from 0.122 to 0.198 recorded for their results.
+- **Replication.** Two SCORE replications on later rounds of the survey, 2010 and 2010–2018, found 0.183 and 0.186, both meeting the criterion of SCORE.
+:::
+
+</details>
+
+[Go to the site of the case](https://codemoreh.github.io/ar4ds-immigration/){.home-go}
+:::
+
+::: {.home-casecard .home-soon .home-reveal}
+[3]{.home-rung} [Being assembled]{.home-badge}
+
+### [The cohabitation case](https://codemoreh.github.io/ar4ds-cohabitation/) {.unnumbered .unlisted}
+
+[Life histories, taught over three days]{.home-meta}
+
+A paper of 2016 in *Demography* compared the first cohabitations of American women begun in the early 1990s with those begun in the late 2000s, and found that the couples of the later cohort married less often. The claim is that "cohabitors have increasingly become less likely to progress to marriage" [@KuoRaley2016DivergingPatternsUnion, p. 932].
+
+<details class="home-more">
+<summary>More about the case</summary>
+
+**What it teaches.** Censoring and the life table, person-period data, discrete-time event-history models, competing risks, comparisons between periods, and what a reproduction does not show.
+
+**The data.** The first premarital cohabitations of 19,183 women in five surveys of the National Survey of Family Growth, 1995 to 2013–2015, rebuilt from the public-use files, which are in the public domain, beside the file that Multi100 gave the analysts.
+
+::: {.home-3r}
+- **Reproduction.** SCORE recorded none. The course rebuilt the unions from the public-use files and refits the published coefficient at −0.686 against −0.683.
+- **Robustness.** Two of the five Multi100 analysts found evidence for the claim, one evidence neither way and two the opposite, all on the file that Multi100 gave them.
+- **Replication.** The SCORE replication tested another coefficient of the paper, the interaction of some college and period, and did not replicate it (z = −1.62, p = 0.11). The decline described by the claim holds on later surveys rebuilt by the course, at −0.450 between 2002 and 2011–2015.
+:::
+
+</details>
+
+[Go to the site of the case](https://codemoreh.github.io/ar4ds-cohabitation/){.home-go}
+:::
+
+::: {.home-casecard .home-reveal}
+[4]{.home-rung}
+
+### [The EU-frames case](https://codemoreh.github.io/ar4ds-eu/) {.unnumbered .unlisted}
+
+[Repeated cross-sections, taught in one day or over three days]{.home-meta}
+
+A sociological paper of 2016 asked whether the economic crisis changed how citizens of the European Union frame the Union. The claim, in the form in which Multi100 gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
+
+<details class="home-more">
+<summary>More about the case</summary>
+
+**What it teaches.** Aggregating repeated cross-sections into a panel, fixed and random effects and the within–between model, inference with few clusters, and a multiverse of 864 specifications.
+
+**The data.** A panel of 270 country-years built from Eurobarometer surveys and shipped with the workspace. The respondent files behind it come from the GESIS archive, under a free account and terms that do not allow them to be passed on.
+
+::: {.home-3r}
+- **Reproduction.** Two attempts to reproduce the published result from the original materials did not succeed.
+- **Robustness.** All five Multi100 analysts concluded that the data support the claim, while the partial correlations recorded for their results run from −0.006 to −0.452.
+- **Replication.** A replication on later Eurobarometer waves was judged not successful.
+:::
+
+</details>
+
+[Go to the site of the case](https://codemoreh.github.io/ar4ds-eu/){.home-go}
+:::
+
+::::
+
+:::::
+::::::
+
+:::::: {.home-section .home-alt #formats}
+::::: {.home-wrap}
+
+## Formats {.unnumbered .home-reveal}
+
+::: {.home-intro .home-reveal}
+The course is taught in four formats, and the facilitator of each course chooses its format and its case. Each format is an ordered route through the pages of the site of its case, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a course leads straight to its route.
+:::
+
+:::: {.home-grid .home-formats}
+
+::: {.home-track .home-reveal}
+### [Short session](https://codemoreh.github.io/ar4ds-housing/tracks/housing-short/) {.unnumbered .unlisted}
+
+[About two and a half hours, in the browser]{.home-meta}
+
+The housing-audit case in its browser lab, with nothing to install and nothing to submit: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, a look at the menu of analyses and the curve of the claim, and the replication with new data.
+:::
+
+::: {.home-track .home-reveal}
+### One day {.unnumbered .unlisted}
+
+[Four parts of ninety minutes, mainly in the browser]{.home-meta}
+
+The housing-audit case, or the EU-frames case on its country-year panel, taught mainly in the browser lab of the case, with the downloadable workspace as an option for anyone who has installed R. Each day has one of three focuses. The open-science day takes the reproduction of a reanalysis and the replication of the claim, and ends on what a preregistration fixes. The data-tools day uses the case to practise R, the IDE and data management. The methods day puts the menu of defensible analyses and the class chart at its centre.
+
+Housing audit: [open science](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day-open-science/), [data tools](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day-data-tools/), [methods](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day-methods/). EU frames: [open science](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day-open-science/), [data tools](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day-data-tools/), [methods](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day-methods/).
+:::
+
+::: {.home-track .home-reveal}
+### Three days {.unnumbered .unlisted}
+
+[Four sessions of ninety minutes a day, in R]{.home-meta}
+
+One of the three harder cases, taken from its raw data. Day 1 introduces open research and its infrastructures, SCORE and Multi100, and the paper of the case in detail, and ends with the tools and the data installed. Day 2 teaches R and the IDE on the data of the case, builds the analysis file from the raw surveys, and reproduces one of the five reanalyses, chosen by each participant. Day 3 turns to robustness: the menu of specifications, the multiverse, and an analysis of your own design, preregistered and added to the class chart.
+
+[EU frames](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-three-days/); immigration and trust, and cohabitation, on their sites once these are assembled.
+:::
+
+::: {.home-track .home-reveal}
+### Self-study {.unnumbered .unlisted}
+
+[At your own pace, in R]{.home-meta}
+
+The site of each case holds a route for a reader who works alone, which takes the case through the five tasks with the modules of its companion between them and ends on a project of your own. Taken in the order of the ladder, from the housing audit to the EU frames, the routes bring in each method at the point at which a case first needs it, and a semester course can follow the same order in class.
+
+[Housing audit](https://codemoreh.github.io/ar4ds-housing/tracks/self-study/), [EU frames](https://codemoreh.github.io/ar4ds-eu/tracks/self-study/).
+:::
+
+::::
+
+:::::
+::::::
+
+:::::: {.home-section #methods}
+::::: {.home-wrap}
+
+## Methods and tools {.unnumbered .home-reveal}
+
+::: {.home-intro .home-reveal}
+The companion of each site holds only the methods and tools that its case can teach, written from the data of that case, so that a method met in two cases is taught twice, from two angles. The table maps each case onto its formats and onto the modules of its companion; a linked name is a module that is already on the site of the case, and the rest are planned. Setup, the setup help, and Git and GitHub serve every case and live on this site.
+:::
+
+::: {.home-map .home-reveal}
+
+| Case | Formats | Tools | Data and sharing | Methods |
+|:--|:--|:--|:--|:--|
+| [Housing audit](https://codemoreh.github.io/ar4ds-housing/) | short session; one day, with open science, data tools or methods in focus; self-study | [R](https://codemoreh.github.io/ar4ds-housing/companion/intro-r.html), [the IDE](https://codemoreh.github.io/ar4ds-housing/companion/ide.html), [Quarto](https://codemoreh.github.io/ar4ds-housing/companion/quarto.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [simulation](https://codemoreh.github.io/ar4ds-housing/companion/simulation.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
+| [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) | three days; self-study | – | data sources, building the analysis file, repositories | causal graphs, the items behind the scales, weights, missing answers, multilevel models, Bayesian estimation, meta-analysis, the multiverse |
+| [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | three days; self-study | – | data sources, building the analysis file, repositories | binary outcomes, causal graphs, weights, event-history analysis, Bayesian estimation, meta-analysis, the multiverse |
+| [EU frames](https://codemoreh.github.io/ar4ds-eu/) | one day, with open science, data tools or methods in focus; three days; self-study | [R](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [binary outcomes](https://codemoreh.github.io/ar4ds-eu/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [weights](https://codemoreh.github.io/ar4ds-eu/companion/weighting.html), [missing answers](https://codemoreh.github.io/ar4ds-eu/companion/missingness.html), multilevel models, panel data, Bayesian estimation, meta-analysis, [simulation](https://codemoreh.github.io/ar4ds-eu/companion/simulation.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
+
+:::
+
+:::::
+::::::
+
+:::::: {.home-section .home-alt #score}
+::::: {.home-wrap}
+
+## SCORE and Multi100 {.unnumbered .home-reveal}
+
+::: {.home-intro .home-reveal}
+The four claims come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. The robustness study was Multi100, in which 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the exercise of the course follows its design on a smaller scale.
+:::
+
+:::: {.home-cases .home-reveal}
+
+::: {.home-r}
+### [SCORE and Multi100](score-multi100.qmd) {.unnumbered .unlisted}
+
+The programme and its three studies, how Multi100 chose its claims and set its two tasks, and what the record holds for each of the four cases.
+:::
+
+::: {.home-r}
+### [The Multi100 article](multi100-article.qmd) {.unnumbered .unlisted}
+
+How Multi100 placed 504 reanalyses on one scale, what that scale assumes, what the article found, and what to ask of an effect size converted for comparison.
+:::
+
+::::
+
+:::::
+::::::
+
+:::::: {.home-section #start}
+::::: {.home-wrap}
+
+## Getting started {.unnumbered .home-reveal}
+
+::: {.home-intro .home-reveal}
+The short session and the one-day courses need only a browser, with the workspace as an option. The three-day courses and the self-study routes need R, an IDE and the workspace of the case, installed before the course starts.
+:::
+
+:::: {.home-steps .home-reveal}
+
+::: {.home-step}
+### R and an IDE {.unnumbered .unlisted}
+
+Install R, Quarto and an IDE (Positron, RStudio, VS Code, etc.), following the steps for your operating system. [Install and check](setup.qmd)
+:::
+
+::: {.home-step}
+### The workspace {.unnumbered .unlisted}
+
+Download the workspace of your case as a zip file, open it in your IDE and run the check script. [The workspaces](setup.qmd#the-workspace)
+:::
+
+::: {.home-step}
+### Setup help {.unnumbered .unlisted}
+
+The checks to run first, the problems that participants have met, and what to ask an AI assistant or a person when something fails. [Setup help](help.qmd)
+:::
+
+::: {.home-step}
+### Git and GitHub {.unnumbered .unlisted}
+
+Putting your own reanalysis under version control and publishing the rendered report, once the course is over. [Git and GitHub](git-github.qmd)
+:::
+
+::::
+
+:::::
+::::::
+
+:::::: {.home-section .home-alt #facilitator}
+::::: {.home-wrap .home-about}
+
+::: {.home-portrait .home-reveal role="img" aria-label="Portrait of Chris Moreh"}
+:::
+
+:::: {.home-reveal}
+
+## Chris Moreh {.unnumbered}
+
+::: {.home-role}
+Lecturer in Sociology, Newcastle University
+:::
+
+<!-- The biography is quoted from chrismoreh.com (source: D:/GitHub/chrismoreh-source/index.qmd), as CM asked on 2026-10-25, and copied verbatim from the opening page of the EU-frames site. -->
+
+A social scientist interested in the political sociology of migration, mobility, ethnicity and nationalism.
+
+Hailing from Transylvania, trained in anthropology and sociology at [Eötvös Loránd University of Budapest](https://tatk.elte.hu/en/) and [Central European University](https://sociology.ceu.edu/), and with a PhD from [Northumbria University](https://www.northumbria.ac.uk/), I currently work as a Lecturer (Assistant Professor) in Sociology at [Newcastle University (UK)](https://www.ncl.ac.uk/gps/staff/profile/chrismoreh.html).
+
+I approach social research as a comparative, interdisciplinary and multimethodological endeavour. My work has combined ethnographic observation, document analysis, survey methods and statistical modelling.
+
+I'm enthusiastic about transparency and reproducibility in the social sciences, and my [pedagogical approach](https://www.ncl.ac.uk/mediav8/library/file-downloads/research-services/open-research/moreh.pdf) seeks to develop skills that facilitate open and credible research practices.
+
+[chrismoreh.com](https://chrismoreh.com)
+
+::::
+
+:::::
+::::::
+
+:::::: {.home-section #references}
+::::: {.home-wrap}
+
+::: {.home-group}
+References
+:::
+
+::: {#refs}
+:::
+
+:::::
+::::::

@@ -3,6 +3,8 @@
 
 workshop:
   name: "Applied Replication for Data Skills"
+  # The formats across the four cases, as the eyebrow of the opening page reads them
+  format: "a short session, one day, three days or self-study"
   organiser: "Chris Moreh"
 
 site-url: "https://codemoreh.github.io/ar4ds/"
@@ -12,22 +14,27 @@ org: "https://github.com/CodeMoreh"
 # always read (frozen class-results pipeline)
 template-repo: "https://github.com/CodeMoreh/replication-lab"
 
-# The workspaces of the cases. Those of the trust and cohabitation cases do
-# not exist yet; their addresses are the names reserved for them.
+# The sites and workspaces of the cases. The workspaces of the trust and
+# cohabitation cases do not exist yet; their addresses are the names reserved
+# for them.
 cases:
   housing:
     name: "the housing-audit case"
+    site: "https://codemoreh.github.io/ar4ds-housing/"
     template-repo: "https://github.com/CodeMoreh/replication-lab-housing"
     workspace-zip: "https://github.com/CodeMoreh/replication-lab-housing/archive/refs/heads/main.zip"
   trust:
     name: "the immigration-and-trust case"
+    site: "https://codemoreh.github.io/ar4ds-immigration/"
     template-repo: "https://github.com/CodeMoreh/replication-lab-trust"
     workspace-zip: "https://github.com/CodeMoreh/replication-lab-trust/archive/refs/heads/main.zip"
   cohabitation:
     name: "the cohabitation case"
+    site: "https://codemoreh.github.io/ar4ds-cohabitation/"
     template-repo: "https://github.com/CodeMoreh/replication-lab-cohabitation"
     workspace-zip: "https://github.com/CodeMoreh/replication-lab-cohabitation/archive/refs/heads/main.zip"
   eu-frames:
     name: "the EU-frames case"
+    site: "https://codemoreh.github.io/ar4ds-eu/"
     template-repo: "https://github.com/CodeMoreh/replication-lab"
     workspace-zip: "https://github.com/CodeMoreh/replication-lab/archive/refs/heads/main.zip"

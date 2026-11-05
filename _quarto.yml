@@ -1,32 +1,32 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - /assets/
 
 website:
   title: "Applied Replication for Data Skills"
   site-url: "https://codemoreh.github.io/ar4ds/"
   repo-url: "https://github.com/CodeMoreh/ar4ds"
-  # Shown at the top of every page while the site is being built; delete the
-  # block once the materials are stable.
+  repo-actions: [issue]
+  favicon: assets/logo.png
+  # Shown at the top of every page while the materials are being revised;
+  # delete the block once they are stable. Not dismissable, so that it
+  # appears on every page a visitor opens.
   announcement:
     icon: exclamation-triangle
     dismissable: false
     type: warning
     position: above-navbar
     content: "**Under active development.** These course materials are being revised and may change at any time, so please do not rely on them as they currently stand."
-  favicon: assets/logo.png
+
   navbar:
+    logo: assets/logo.png
+    logo-alt: "CM logo"
     left:
       - href: index.qmd
         text: Home
-      - text: Setup
-        menu:
-          - href: setup.qmd
-            text: "Install and check"
-          - href: help.qmd
-            text: "Setup help"
-      - href: git-github.qmd
-        text: "Git and GitHub"
+      # The sites of the cases, in the order of the ladder
       - text: The cases
         menu:
           - href: "https://codemoreh.github.io/ar4ds-housing/"
@@ -37,9 +37,27 @@ website:
             text: "Cohabitation"
           - href: "https://codemoreh.github.io/ar4ds-eu/"
             text: "EU frames"
+      - text: SCORE and Multi100
+        menu:
+          - href: score-multi100.qmd
+            text: "SCORE and Multi100"
+          - href: multi100-article.qmd
+            text: "The Multi100 article"
+      - text: Setup
+        menu:
+          - href: setup.qmd
+            text: "Install and check"
+          - href: help.qmd
+            text: "Setup help"
+      - href: git-github.qmd
+        text: "Git and GitHub"
+
   page-footer:
-    left: "Content licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)."
-    right: "Built with [Quarto](https://quarto.org/)"
+    left: |
+      Content licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+      [GitHub repository](https://github.com/CodeMoreh/ar4ds)
+    right: |
+      Built with [Quarto](https://quarto.org/)
 
 format:
   html:

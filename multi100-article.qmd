@@ -1,0 +1,68 @@
+---
+title: "The Multi100 article"
+bibliography: [references.bib, references-new.bib]
+---
+
+<!-- Every quotation on this page was checked against the PDF of the article
+(D:\ACADEMIC\LIBRARY\ZOTERO\, journal pages 135–142 for the main text; the
+Methods carry no journal page numbers) and against the first preregistration
+(osf.io/4ev9t). The conversion rules are those of standard_correlation_coefficient.R
+and cohens_d.R in github.com/marton-balazs-kovacs/multi100, copied in
+D:\ACADEMIC\TEACHING\2026_OR_NCL\_planning\multi100\. The EU-frames figures come
+from the evidence file
+D:\ACADEMIC\TEACHING\2026_OR_NCL\_planning\presentation-2026-10\04-standardisation-findings.md,
+section 3, and the processed data of Multi100. -->
+
+The results of Multi100 appeared in *Nature* in 2026 [@AczelEtAl2026InvestigatingAnalyticalRobustness], in an article that reports two kinds of agreement between the 504 reanalyses and the 100 original studies: whether the analysts reached the same conclusion as the original authors, which the first task of the project recorded, and whether they arrived at the same effect size, which came from the second. This page sets out how the article placed the results of so many different analyses on one scale, what that scale assumes and what the article found, and it ends on the questions that a reader can put to any effect size converted for such a comparison. The meta-analysis module of each case site takes those questions to the five analysts of its own case, and the [background on SCORE and Multi100](score-multi100.qmd) describes the two tasks.
+
+## A common scale {#sec-scale}
+
+The five analysts of one claim seldom report the same kind of statistic, since one may fit a regression and report the t of its coefficient, another run a chi-square test on a table, and a third report the z of a mixed model fitted to respondents. The article states the problem, and the solution that it chose, in one passage:
+
+> A challenge in any multi-analyst project is to find a common metric that allows the results of the different analyses to be compared. A practical solution is to transform the reported point estimates into a standard effect-size measure. Although these transformations have limitations and their calculation relies on assumptions that may not hold in all considered analysis settings, for the sake of comparability, we decided to compute Cohen's d for each reanalysis, wherever it was feasible. [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136]
+
+The conversion ran in two steps in the code published by the project, which first turned each reported statistic into a correlation r and then turned r into Cohen's d, as $d = 2r / \sqrt{1 - r^2}$. The first step takes a different rule for each family of statistics, and each rule needs a second number besides the statistic itself:
+
+| Reported statistic | Rule of the code, as a formula | The number that enters beside the statistic |
+|:--|:--|:--|
+| t | $r = t / \sqrt{t^2 + df}$ | the degrees of freedom, as reported |
+| z | $r = \tanh\left(\lvert z \rvert / \sqrt{N - 3}\right)$, with the sign of z | the sample size N |
+| $\chi^2$ | $r = \tanh\left(\sqrt{\chi^2} / \sqrt{N - 3}\right)$, which is never negative | the sample size N |
+| F | $r = \sqrt{F / (F + df_2)}$ | the second degrees of freedom |
+| r | taken as it is | – |
+
+: The rules of `standard_correlation_coefficient.R` and `cohens_d.R`, in the repository of the Multi100 team at [github.com/marton-balazs-kovacs/multi100](https://github.com/marton-balazs-kovacs/multi100). {.striped}
+
+The direction of each result was then set by a convention of the project: "All original effect sizes are reported as positive values, whereas the reanalysis effect sizes are negative only when they indicate an opposite effect compared with the original study" [@AczelEtAl2026InvestigatingAnalyticalRobustness, Methods]. The sign of a reanalysis in the record therefore states its direction relative to the claim, as the analyst reported that direction in the second task, rather than the sign of the estimate itself. In the EU-frames case, one analyst whose estimate ran in the direction of the claim ticked the opposite direction, and the effect size of that reanalysis entered the record with a negative sign.
+
+## What the conversion assumes {#sec-assumptions}
+
+The rules for t, z and $\chi^2$ arguably treat the number that enters them as the number of independent units that carry the evidence. The rule for z, for instance, inverts the test of a simple correlation on N independent observations. That number weighs on the result as much as the statistic does, and it depends on what the software of each analyst counted. In the EU-frames case, two analysts reported almost the same statistic, z = −3.59 and t = −3.80, yet the correlations recorded for them differ by a factor of about 42, at −0.006 and −0.242, because the z was converted on the 394,575 respondents of its analysis and the t on the 233 degrees of freedom of a model fitted to country-years. Neither number is wrong for its own model, and the difference comes from the conversion, which reads the units that the software counted as the units that the claim is about, and for a predictor that varies between countries and years, such as the national unemployment rate of that case, counting every respondent as an independent test of a country-level quantity may well be too strong an assumption.
+
+The comparison with the original study is made on d, within a tolerance region that the preregistration set and justified:
+
+> We will regard a new result to be different from the original one if its effect size is beyond the +/-0.05 Cohen's d tolerance region of the original result (carefully considering the direction of the effect in each analysis). We decided to use this method instead of simply checking whether the effect size estimates are significantly different, because Cohen's ds are independent of sample size, and that way, we will allow the same analytical variability for studies with small sample size as with large sample size. ([osf.io/4ev9t](https://osf.io/4ev9t), p. 9)
+
+Confidence intervals were set aside on purpose, because "this assessment would be misleading as less precise estimates (greater CIs) would appear more robust" (preregistration, p. 9). The article keeps the preregistered region of ±0.05 d and adds analyses with wider regions, ±0.20 d among them [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136]. The independence of d from the sample size holds within a fixed design, however, and across analyses that count different units for the same predictor, as in the example above, the same region is in effect wider for some analyses than for others.
+
+## What the article found {#sec-findings}
+
+The article reports first that analysts who worked on the same data seldom produced the same numbers: "in 81% of the studies, the corresponding analysts reported different statistics about statistical test families (such as t-tests, F-tests and $\chi^2$ tests) and their values (after rounding them to two decimal places)" [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136]. On the common scale, "in 5% (5 out of 95) of the studies for which we could obtain the original effect size, all reanalysis effect sizes were inside the tolerance region (±0.05 Cohen's d) of the result of the original study", and "[o]f the 396 available reanalysis effect sizes, 34% were inside the tolerance region" (p. 136). With the region of ±0.20 d, all the reanalyses of a study fell inside it in 23% of the studies, as did 57% of the reanalysis effect sizes (p. 136). The effects also tended to be smaller on reanalysis, with a mean d of 0.73 in the original studies against 0.49 in the reanalyses, and medians of 0.43 and 0.35 (p. 138).
+
+The conclusions held up better than the effect sizes. "Across all individual reanalyses (n = 504), 74% of analyses arrived at the same conclusion as the original investigation, 24% yielded no effects or inconclusive results and 2% indicated an effect in the opposite direction from the original investigation" (p. 138). Of the 100 claims, 34% were robust in the strict sense that every analyst reported evidence for the claim, a share that depends on how much agreement the definition asks for, since it rises to 39% when more than 80% of the analysts have to agree and to 80% when more than half have to (p. 138).
+
+Observational studies came out less robust than experiments, both on the common scale, where 28% of the reanalyses of observational studies fell inside the region of ±0.05 d against 44% of those of experiments, and in their conclusions, where 69% of the reanalyses of observational studies reached the same conclusion as the original against 82% of those of experiments (pp. 137, 139). Three of the four cases of the course, all but the housing audit, are observational studies. The same variability appears in large studies, since "studies with large sample sizes are not immune to analytical variability" (p. 137).
+
+The authors draw two lessons from these results. They "caution against using blanket rules in aggregating or interpreting results across different analytical approaches within the same investigation" (p. 141), and they argue that "[w]ithout exploring this variability, authors cannot guarantee consumers of their research that the reported conclusions hold a privileged status over alternative conclusions" (p. 140). On the scale itself, the article points to the recent proposal of 'generalized marginal effects', an effect size metric "that is both formally applicable and comparable across different statistical models" (p. 138), which it had not planned to compute from the start.
+
+## Reading a converted effect size {#sec-reading}
+
+Each converted effect size in the record therefore carries a history of choices, some made by the analyst and some by the conversion, and a reader of the article has to reconstruct that history before comparing two of them. The meta-analysis modules of the course reconstruct it for the five analysts of each case, and the same points can be checked for any reanalysis:
+
+- which number of units entered the conversion: the residual degrees of freedom of a fixed-effects model, an approximation such as that of Satterthwaite, or the count of respondents standing in for degrees of freedom that the software did not report;
+- whether the reported statistic carries a sign at all, since a chi-square does not, and how the sign in the record was set;
+- which decisions the instruction of the second task fixed, and which it left to the analyst;
+- in which figures of the article the study appears, since the article "could not determine the original effect size because of missing information" for five studies (p. 137), among them the EU-frames paper, which therefore counts for the conclusions but for no comparison with an original effect size;
+- and whether the conclusions and the effect sizes agree, since a claim can be upheld by every one of its analysts in the first task while their results spread widely on the common scale, as the EU-frames claim was.
+
+The module of the housing-audit case, [Meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), takes these points to its five analysts and adds what a pooled estimate can say about the original audit and its replication with new data, and the modules of the other three cases will follow as their sites are built.
