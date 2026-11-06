@@ -10,6 +10,8 @@ format:
         - datawizard
         - tinyplot
         - gt
+        - dplyr
+        - tibble
 resources:
   - data/housing_audit.csv
 live:
