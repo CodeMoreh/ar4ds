@@ -60,7 +60,7 @@ Every case teaches the same exercise in the same order. The cases differ in the 
 
 ### [The housing-audit case](https://codemoreh.github.io/ar4ds-housing/) {.unnumbered .unlisted}
 
-[A field experiment, taught in a short session or in one day]{.home-meta}
+[A field experiment, taught in a short session, in one day or over three days]{.home-meta}
 
 A field experiment published in 2017 sent the same short email to about a thousand public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which Multi100 gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
 
@@ -87,7 +87,7 @@ A field experiment published in 2017 sent the same short email to about a thousa
 
 ### [The immigration-and-trust case](https://codemoreh.github.io/ar4ds-immigration/) {.unnumbered .unlisted}
 
-[A cross-national survey, taught over three days]{.home-meta}
+[A cross-national survey, taught in one day or over three days]{.home-meta}
 
 A paper of 2012 in *World Politics* asked, from the European Social Survey, whether citizens of Western European countries who see immigration as a threat to the national community trust their national politics less. The claim is that "... concerns about the effect of immigration on the national community have a(n) \[reducing\] impact on trust in politics" [@McLaren2012CulturalDivideEurope, p. 199].
 
@@ -114,7 +114,7 @@ A paper of 2012 in *World Politics* asked, from the European Social Survey, whet
 
 ### [The cohabitation case](https://codemoreh.github.io/ar4ds-cohabitation/) {.unnumbered .unlisted}
 
-[Life histories, taught over three days]{.home-meta}
+[Life histories, taught in one day or over three days]{.home-meta}
 
 A paper of 2016 in *Demography* compared the first cohabitations of American women begun in the early 1990s with those begun in the late 2000s, and found that the couples of the later cohort married less often. The claim is that "cohabitors have increasingly become less likely to progress to marriage" [@KuoRaley2016DivergingPatternsUnion, p. 932].
 
@@ -182,29 +182,29 @@ The course is taught in four formats, and the facilitator of each course chooses
 ::: {.home-track .home-reveal}
 ### [Short session](https://codemoreh.github.io/ar4ds-housing/tracks/housing-short/) {.unnumbered .unlisted}
 
-[About two and a half hours, in the browser]{.home-meta}
+[On the housing-audit case, in the browser]{.home-meta}
 
 The housing-audit case in its browser lab, with nothing to install and nothing to submit: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, a look at the menu of analyses and the curve of the claim, and the replication with new data.
 :::
 
 ::: {.home-track .home-reveal}
-### One day {.unnumbered .unlisted}
+### One-day workshop {.unnumbered .unlisted}
 
-[Four parts of ninety minutes, mainly in the browser]{.home-meta}
+[Four parts, mainly in the browser]{.home-meta}
 
-The housing-audit case, or the EU-frames case on its country-year panel, taught mainly in the browser lab of the case, with the downloadable workspace as an option for anyone who has installed R. Each day has one of three focuses. The open-science day takes the reproduction of a reanalysis and the replication of the claim, and ends on what a preregistration fixes. The data-tools day uses the case to practise R, the IDE and data management. The methods day puts the menu of defensible analyses and the class chart at its centre.
+One case in four parts, taught mainly in the browser lab of the case, with the downloadable workspace as an option: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
 
-Housing audit: [open science](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day-open-science/), [data tools](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day-data-tools/), [methods](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day-methods/). EU frames: [open science](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day-open-science/), [data tools](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day-data-tools/), [methods](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day-methods/).
+[Housing audit](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day/), [EU frames](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-one-day/).
 :::
 
 ::: {.home-track .home-reveal}
-### Three days {.unnumbered .unlisted}
+### Extended course {.unnumbered .unlisted}
 
-[Four sessions of ninety minutes a day, in R]{.home-meta}
+[Three days, built around the workshop]{.home-meta}
 
-One of the three harder cases, taken from its raw data. Day 1 introduces open research and its infrastructures, SCORE and Multi100, and the paper of the case in detail, and ends with the tools and the data installed. Day 2 teaches R and the IDE on the data of the case, builds the analysis file from the raw surveys, and reproduces one of the five reanalyses, chosen by each participant. Day 3 turns to robustness: the menu of specifications, the multiverse, and an analysis of your own design, preregistered and added to the class chart.
+The workshop of a case with a day before it and a day after it. Day 1 is the same for every case: credibility and the three Rs, SCORE and Multi100, repositories and data sources, and then R, Positron and Quarto taught live. Day 2 is the workshop of the case. Day 3 teaches the methods of the case as sessions, and ends with the declared analysis of each participant written up in Quarto and kept under Git.
 
-[EU frames](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-three-days/); immigration and trust, and cohabitation, on their sites once these are assembled.
+[Housing audit](https://codemoreh.github.io/ar4ds-housing/tracks/housing-extended/), [EU frames](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-extended/); immigration and trust, and cohabitation, on their sites once these are assembled.
 :::
 
 ::: {.home-track .home-reveal}
@@ -235,10 +235,10 @@ The companion of each site holds only the methods that its case can teach, writt
 
 | Case | Formats | Tools | Data and sharing | Methods |
 |:--|:--|:--|:--|:--|
-| [Housing audit](https://codemoreh.github.io/ar4ds-housing/) | short session; one day, with open science, data tools or methods in focus; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [simulation](https://codemoreh.github.io/ar4ds-housing/companion/simulation.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
-| [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) | three days; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | causal graphs, the items behind the scales, weights, missing answers, multilevel models, Bayesian estimation, meta-analysis, the multiverse |
-| [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | three days; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | binary outcomes, causal graphs, weights, event-history analysis, Bayesian estimation, meta-analysis, the multiverse |
-| [EU frames](https://codemoreh.github.io/ar4ds-eu/) | one day, with open science, data tools or methods in focus; three days; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [binary outcomes](https://codemoreh.github.io/ar4ds-eu/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [weights](https://codemoreh.github.io/ar4ds-eu/companion/weighting.html), [missing answers](https://codemoreh.github.io/ar4ds-eu/companion/missingness.html), [the statistical methods of the course](https://codemoreh.github.io/ar4ds-eu/companion/stats-methods.html), [the individual level](https://codemoreh.github.io/ar4ds-eu/companion/individual-level.html), multilevel models, panel data, Bayesian estimation, meta-analysis, [simulation](https://codemoreh.github.io/ar4ds-eu/companion/simulation.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
+| [Housing audit](https://codemoreh.github.io/ar4ds-housing/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [simulation](https://codemoreh.github.io/ar4ds-housing/companion/simulation.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
+| [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | causal graphs, the items behind the scales, weights, missing answers, multilevel models, Bayesian estimation, meta-analysis, the multiverse |
+| [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | binary outcomes, causal graphs, weights, event-history analysis, Bayesian estimation, meta-analysis, the multiverse |
+| [EU frames](https://codemoreh.github.io/ar4ds-eu/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [binary outcomes](https://codemoreh.github.io/ar4ds-eu/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [weights](https://codemoreh.github.io/ar4ds-eu/companion/weighting.html), [missing answers](https://codemoreh.github.io/ar4ds-eu/companion/missingness.html), [the statistical methods of the course](https://codemoreh.github.io/ar4ds-eu/companion/stats-methods.html), [the individual level](https://codemoreh.github.io/ar4ds-eu/companion/individual-level.html), multilevel models, panel data, Bayesian estimation, meta-analysis, [simulation](https://codemoreh.github.io/ar4ds-eu/companion/simulation.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
 
 :::
 
@@ -279,7 +279,7 @@ How Multi100 placed 504 reanalyses on one scale, what that scale assumes, what t
 ## Getting started {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The short session needs only a browser. The one-day workshops are taught in the browser lab, and their preparation includes the installation, ending when the setup check prints OK, the module [Getting started with R](tools/r.qmd) and the case study. The three-day courses and the self-study routes need R, an IDE and the workspace of the case, installed before the course starts.
+The short session needs only a browser. The one-day workshop is taught in the browser lab, and its preparation includes the installation, ending when the setup check prints OK, the module [Getting started with R](tools/r.qmd) and the case study. The Extended course and the self-study routes need R, an IDE and the workspace of the case, installed before the course starts.
 :::
 
 :::: {.home-steps .home-reveal}
