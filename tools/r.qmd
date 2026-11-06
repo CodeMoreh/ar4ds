@@ -1,0 +1,914 @@
+---
+title: "Getting started with R"
+subtitle: "Required before a one-day workshop"
+engine: knitr
+format:
+  live-html:
+    toc: true
+    webr:
+      packages:
+        - datawizard
+        - tinyplot
+        - gt
+resources:
+  - data/housing_audit.csv
+live:
+  show-hints: true
+  show-solutions: true
+bibliography: [../references.bib, ../references-new.bib]
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r}
+#| label: page-numbers
+#| include: false
+# The numbers quoted in the prose, computed when the page is rendered from the
+# file that the blocks of the page read in the browser, with the same reader.
+audit <- read.csv("data/housing_audit.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
+
+n_emails    <- format(nrow(audit), big.mark = ",")
+n_bounced   <- sum(is.na(audit$reply))
+n_delivered <- sum(!is.na(audit$reply))
+n_replies   <- sum(audit$reply %in% 1)
+n_coded     <- sum(!is.na(audit$named))
+n_uncoded   <- n_replies - n_coded
+n_no_third  <- sum(is.na(audit$poverty_third))
+reply_pct   <- sprintf("%.2f", 100 * n_replies / n_delivered)
+
+# Replies by the address of the authority (1 = taken from the list kept by HUD)
+by_address <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(delivered = n(), replies = sum(reply), by = "hard_email")
+hard <- datawizard::data_filter(by_address, hard_email == 1)
+easy <- datawizard::data_filter(by_address, hard_email == 0)
+
+# Replies by name, among the delivered emails
+reply_name <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(delivered = n(), rate = mean(reply), by = "name")
+santiago_reply <- datawizard::data_filter(reply_name, name == "Santiago")
+
+# The share greeted by name among the coded replies, in per cent
+greet_group <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(share = 100 * mean(named), replies = n(), by = "group")
+greet_name <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(share = 100 * mean(named), replies = n(), by = "name")
+white_share <- greet_group$share[greet_group$group == "white"]
+black_share <- greet_group$share[greet_group$group == "black"]
+hisp_share  <- greet_group$share[greet_group$group == "hispanic"]
+brett    <- datawizard::data_filter(greet_name, name == "Brett")
+santiago <- datawizard::data_filter(greet_name, name == "Santiago")
+
+# The same share among every delivered email, a missing reply counting as no greeting
+greet_all <- audit |>
+  datawizard::data_filter(!is.na(reply), group %in% c("white", "hispanic")) |>
+  datawizard::data_modify(greeted = dplyr::if_else(reply == 1, named, 0)) |>
+  datawizard::data_filter(!is.na(greeted)) |>
+  datawizard::data_summary(share = 100 * mean(greeted), by = "group")
+white_all <- greet_all$share[greet_all$group == "white"]
+hisp_all  <- greet_all$share[greet_all$group == "hispanic"]
+
+# The gaps in percentage points, with a typographic minus for the prose
+gap_hw    <- sub("^-", "−", sprintf("%.2f", hisp_share - white_share))
+gap_bw    <- sub("^-", "−", sprintf("%.2f", black_share - white_share))
+gap_names <- sub("^-", "−", sprintf("%.2f", santiago$share - brett$share))
+gap_all   <- sub("^-", "−", sprintf("%.2f", hisp_all - white_all))
+
+# The wait lists that a reply gave as a number of months
+waits <- audit |>
+  datawizard::data_filter(grepl("^[0-9.]+$", waitlist)) |>
+  datawizard::data_modify(months = as.numeric(waitlist))
+```
+
+This module teaches the part of R that the course uses, from a first line of code to a table and a figure, and it is written for someone who has never programmed. It is one of three pieces of preparation required before a one-day workshop. The other two are the installation of R and an IDE (Positron, RStudio, VS Code, etc.), which the [setup page](../setup.qmd) describes and which is complete when the check script of the workspace prints OK for every check, and the case study of the case on which your workshop is built. The module takes about two hours, and it can be broken off at any section heading and taken up again later.
+
+Nothing has to be installed for this page. Every block of code on it runs in your browser, on a copy of R that the page downloads when it opens, so the module can be worked before your own installation, alongside it, or on a machine on which you cannot install anything.
+
+The examples work on one file, whichever case your workshop takes. The housing-audit data hold one row for each of the `r n_emails` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The OAs recorded, among other things, whether each email drew a reply and whether the reply greeted the sender by name. The [case study of the housing-audit case](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells the story of the experiment, while here the file serves as a dataset small enough to look at whole, with an outcome that is either yes or no, which makes it a good place to learn.
+
+By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the browser lab of a one-day workshop asks of you. A [second part](r-further.qmd), which is optional, reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
+
+::: {#code-blocks .callout-important icon="false"}
+## The code blocks on this page
+
+Each box headed **R Code** below is a block of R code. When the page opens, it downloads webR, a version of R built to run inside a web browser, together with the three packages that the blocks use. R needs about half a minute to get ready on a good connection, and longer on a slow one, and the **Run Code** buttons stay inactive until then.
+
+Press **Run Code**, or click into the block and press Ctrl+Enter (Cmd+Enter on a Mac), and R runs the whole block and prints its result underneath. Each block therefore holds one step. The blocks are meant to be run in order, from the top of the page, because a later block often uses an object that an earlier block made. You can change the code of any block and run it again, and **Start Over** puts the original code back.
+
+Some blocks, headed **Exercise**, are exercises. Each has a blank, written as `______`, to fill in before you press Run Code, and a **Show Hint** button, which gives way to a **Show Solution** button once the hint is open. Everything that you run stays in the page until you close or refresh it. After a refresh, run the blocks again from the start of the section in which you are working, and if a block answers `object 'audit' not found`, run the block in [section 6](#sec-reading) that reads the data.
+:::
+
+## 1. R and the IDE {#sec-what}
+
+**R** is a programming language built for working with data: reading it, reshaping it, fitting statistical models to it and drawing figures from it. It is free and open source, and it is one of the common languages of quantitative social science, which is why the analysis of the course is written in it. On its own, R is a program that reads instructions and returns answers. The block below holds one instruction, which subtracts the `r n_bounced` emails that bounced from the `r n_emails` that were sent. Press Run Code.
+
+```{webr}
+1014 - 23
+```
+
+R answers `[1] 991`, the number of emails that reached a housing authority. The `[1]` is not part of the answer. R numbers the values that it prints, and the 1 marks the first value on the line, which matters only when an answer runs over several lines.
+
+**The IDE** is the program from which you drive R on your own machine. An IDE, short for integrated development environment, is a window with your files on one side, a place to write and run code, and panels that show results, figures and the objects that you have made. Newcomers often run the language and the environment together, although each is installed separately. You install R once, so that the language is on your machine, and an IDE once, as the place where you work, and when the IDE first opens it finds the R that you installed and connects to it. On this page the browser takes the place of both, and the blocks are where you type. The [setup page](../setup.qmd) walks through both installations, and the [IDE module](ide.qmd) takes you through Positron in detail, with briefer guidance for RStudio, VS Code and the other IDEs.
+
+## 2. The console, the script and the report {#sec-surfaces}
+
+On your own machine there are three places into which you type R, and knowing which is for what saves a good deal of confusion later.
+
+The **console** is the interactive prompt. You type one line, press Enter, and R answers at once, so the console is the place to try something out, check a value or do a quick sum, much as the blocks of this page are. Its weakness is that everything typed there is lost when the session closes, with no record of how a result was reached.
+
+A **script** is a plain text file with the extension `.R`, which holds a sequence of commands that you want to keep. You write the commands in the script and send them to the console from there, all at once or line by line, and the console prints the output as if you had typed each command there. A script runs the same way tomorrow and on someone else's machine, and it records step by step how a result was produced. The course therefore follows a simple rule: try things in the console, and move anything that matters into a script.
+
+A **Quarto document**, with the extension `.qmd`, holds a script and a written report in one file, with ordinary prose and blocks of R code, called chunks, between the paragraphs. When the document is rendered, R runs every chunk and places the results, whether tables, figures or single numbers, into the finished report at the point where each belongs. The workspace of every case holds its report as a Quarto document, `index.qmd`, which you fill in and render, and the [Quarto module](quarto.qmd) shows how such a document is written. This page is itself a Quarto document, rendered into the web page that you are reading, with the difference that its blocks wait for you to run them.
+
+## 3. Objects and vectors {#sec-objects}
+
+R works by putting values into named **objects** and then referring to each object by its name. You assign a value to a name with the arrow `<-`, typed as a less-than sign followed by a hyphen, and from then on the name stands in for the value. The block below makes three objects, a number, a piece of text and a logical value, and running it prints nothing, because an assignment stores a value without showing it.
+
+```{webr}
+emails_sent <- 1014        # a number
+first_name  <- "Santiago"  # text, called a character string, goes in quotes
+bounced     <- FALSE       # a logical value, TRUE or FALSE
+```
+
+The text after a `#` is a comment, which R skips, and the course uses comments to say what a line is for. Typing the name of an object prints its value.
+
+```{webr}
+emails_sent
+```
+
+A name can stand anywhere that its value could, so the block below gives the 991 of section 1 again.
+
+```{webr}
+emails_sent - 23
+```
+
+Names are case-sensitive, and `Emails_sent` would be a different name. Asking for a name that was never assigned in the session gives the error `object 'Emails_sent' not found`, which is the message that you will meet whenever a block uses an object that an earlier block was meant to make.
+
+Most data come as runs of values rather than single ones. A **vector** is an ordered run of values of one type, built with `c()`, for 'combine'. The two vectors below hold, for the white, the Black and the Hispanic names in turn, the number of emails that reached an official and the number of replies that came back.
+
+```{webr}
+delivered <- c(308, 326, 357)   # white, Black and Hispanic names
+replies   <- c(177, 198, 188)
+```
+
+Arithmetic works on a whole vector at once, value by value, so one division gives the three reply rates, the share of the delivered emails that drew a reply for each group of names.
+
+```{webr}
+replies / delivered
+```
+
+The rates print with seven digits, the number that R shows by default. A function such as `sum()` takes a vector and returns one value, here the replies to all three groups.
+
+```{webr}
+sum(replies)
+```
+
+Square brackets pick out the values of a vector by position, so `replies[3]` is the third value, the replies to the Hispanic names.
+
+```{webr}
+replies[3]
+```
+
+These six numbers were typed by hand. [Section 9](#sec-verbs) computes the same numbers from the file, which is how a number typed by hand should be checked.
+
+::: {.callout-tip}
+## Try it
+
+Fill the blank so that the block divides all the replies by all the delivered emails, which gives the share of the delivered emails that drew a reply, whatever the name that signed each email.
+:::
+
+```{webr}
+#| exercise: share-all
+#| envir: global
+sum(replies) / sum(______)
+```
+
+:::: {.hint exercise="share-all"}
+::: {.callout-note collapse="false"}
+## Hint
+
+`sum()` adds the values of a vector, and the vector that holds the delivered emails is called `delivered`.
+:::
+::::
+
+:::: {.solution exercise="share-all"}
+::: {.callout-tip collapse="false"}
+## Solution
+
+``` r
+sum(replies) / sum(delivered)
+```
+
+The answer, 0.568113, is the share of the `r n_delivered` delivered emails that drew a reply, a number that sections 7 and 8 reach again from the file.
+:::
+::::
+
+One small fact carries most of the arithmetic of the course. When a vector holds only 1s and 0s, its **mean is the share of 1s**, because the mean adds the values, which counts the 1s, and divides the sum by the number of values. The outcome of the claim of the housing-audit case, whether a reply opened with the name of the sender, is stored in exactly this way, with 1 for a greeting by name and 0 for none, so the share of replies that greeted the sender by name is the mean of that column. The block below makes the codes of five replies and takes the mean of the five codes.
+
+```{webr}
+greeted <- c(1, 0, 1, 1, 0)   # five replies, 1 = opened with the name of the sender
+mean(greeted)                 # three of the five
+```
+
+Real data also have gaps. R marks a missing value with `NA`, for 'not available', and any calculation that meets one returns `NA` in turn, because the answer cannot be known.
+
+```{webr}
+greeted <- c(1, 0, NA, 1, 0)   # the third reply carries no greeting code
+mean(greeted)
+```
+
+The argument `na.rm = TRUE` tells a summary function to remove the missing values first, and the share is then taken among the four replies that carry a code.
+
+```{webr}
+mean(greeted, na.rm = TRUE)
+```
+
+The housing-audit data have missing values of three kinds, and each means something different. An email that bounced has no reply status, an email without a reply has no greeting, and `r n_uncoded` replies were never coded for the greeting. Deciding what to do with each kind is part of the analysis, which is why the course never uses `na.rm = TRUE` without saying which rows it removes.
+
+## 4. Data frames {#sec-dataframes}
+
+A **data frame** is how R stores a table: a set of vectors of equal length standing side by side as columns, with one row for each observation. Almost everything in the course is a data frame. The block below builds a small one by hand with `tibble()` from the tibble package, holding three emails with the name that signed each, whether a reply came and whether the reply greeted the sender by name, and then prints the table.
+
+```{webr}
+emails <- tibble::tibble(
+  name  = c("Brett", "Santiago", "Emily"),
+  reply = c(1, 1, 0),
+  named = c(1, 0, NA)
+)
+
+emails
+```
+
+A **tibble** is a data frame that prints its size on the first line and the type of each column under its name, `<chr>` for text and `<dbl>` for numbers, and that prints only its first ten rows, so that a large table does not flood the window. The third email also shows why a greeting can be missing, since no reply came and there was no greeting to code. Base R, the core that ships with R itself, reaches into a data frame with two operators, of which the first, the `$` sign, pulls out one column as a vector.
+
+```{webr}
+emails$named
+```
+
+Square brackets take a block of the table by `[rows, columns]`, where an empty slot means all the rows or all the columns, so `emails[1:2, ]` is the first two rows with every column. `1:2` is shorthand for the vector `c(1, 2)`.
+
+```{webr}
+emails[1:2, ]
+```
+
+You will meet both operators in code written by other people, and `$` is often the quickest way to look at a single column. For reshaping a table, the course uses the verbs of [section 9](#sec-verbs), which say in words what each step does.
+
+## 5. Packages {#sec-packages}
+
+Everything in section 3, from `c()` to `mean()`, comes with R itself, while `tibble()` came from a package. **Packages** are bundles of functions, each with its documentation, written by researchers and developers and published on CRAN, the Comprehensive R Archive Network, which holds more than twenty-five thousand packages. The rest of this page leans on three: datawizard for working with tables, gt for formatted tables, and tinyplot for figures. The three were downloaded with R when the page opened, together with the packages on which each of the three depends, since a package often builds on others. gt, for one, builds on many other packages, including dplyr and tibble, which is why `tibble::tibble()` worked in section 4 although tibble is not one of the three.
+
+On your own machine, using a package takes two steps, and the difference between them trips nearly every newcomer at least once. The first step is to install the package, which you do once on each machine, and the course does it with pak, a package that installs other packages. The block below is shown and not run, because installing is something that you do in the console of your IDE.
+
+<!-- r-style: skip -->
+``` r
+install.packages("pak")   # once on a new machine
+pak::pak("readr")         # step 1: install a package on your machine, once
+readr::read_csv("data/housing_audit.csv")   # step 2: call a function by its package and its name
+```
+
+`pak::pak()` downloads a package, together with every package on which it depends, and stores it on your machine. You run it once, and again only when you want an update. The second step is the call itself, and the course writes every function that does not come with R as the name of its package, two colons and the name of the function, as in `readr::read_csv()`. Written that way, a line works in any session on a machine on which the package is installed, and anyone who reads it can tell at once where each function comes from, which matters when two packages offer functions of the same name.
+
+The two error messages that you will meet most often come from these two steps, and this page can produce both, because readr, the package of the example, was not downloaded with it. The block below calls `read_csv()` by its package and its name, and it stops with the first of the two messages.
+
+```{webr}
+readr::read_csv("data/housing_audit.csv")
+```
+
+The message `there is no package called 'readr'` means that step 1 never happened on this machine, and the cure is to install the package, with nothing in the code to change. The next block calls the same function by its name alone.
+
+<!-- r-style: skip -->
+```{webr}
+read_csv("data/housing_audit.csv")
+```
+
+The message `could not find function "read_csv"` means that R looked for a function of that name in the packages attached to the session and found none. You will also meet the older habit of attaching a package to the session with `library(readr)` at the top of a script, after which the functions of the package can be called by name alone, and the same message then means that the `library()` line was never run. When a block or a script prints several errors, read the first one first, since the later ones often follow from it.
+
+Research code that only its authors run, such as the scripts of a paper, is often written the other way, with every function called by its name alone, and the facilitator of the course writes it so. What keeps such code readable is a single import script, run at the top of every other script of the project, which attaches each package with `library()` and lists in `include.only` the functions that the project takes from it, so that anyone who wants to know where a function comes from has one place to look. Two attached packages can offer functions of the same name, and the conflicted package stops with an error when such a name is called, until `conflicts_prefer()` has said which of the two is meant.
+
+``` r
+# R/00_packages.R: the packages of a project and the functions taken from each
+library(readr, include.only = c("read_csv", "write_csv"))
+library(datawizard, include.only = c("data_filter", "data_summary", "data_tabulate"))
+library(dplyr, include.only = c("filter", "if_else"))
+library(conflicted)
+conflicts_prefer(dplyr::filter)   # stats::filter(), which R attaches at start-up, has the same name
+```
+
+The course writes `pkg::fun()` in all of its own code because that code is read a block at a time, by people who did not write it, and each block has to say where its functions come from without an import script beside it. The workspace of every case holds a check script, `R/check_setup.R`, which checks the packages that its exercise needs and prints the line that installs whichever are missing, as step 5 of the [setup page](../setup.qmd#check-that-it-works) describes.
+
+## 6. Reading the data {#sec-reading}
+
+You will rarely type data by hand. Most data arrive as a **CSV** file, short for 'comma-separated values', a plain text table in which each line is a row and commas divide the columns. The course ships its data in this form because any program can open a CSV, and because version control can compare two versions of such a file line by line. `readLines()` prints the first lines of a file as text, here the first four of the housing-audit file, with the names of the columns on the first line.
+
+```{webr}
+readLines("data/housing_audit.csv", n = 4)
+```
+
+The second line is the first email, signed Shanice, which drew no reply, so the four cells that describe a reply are empty, which leaves five commas in a row. The fourth line holds the letters `NA` where the wait list would be, for a reply that gave none. `read.csv()`, a function that comes with R, reads the file into a data frame, and the arrow stores the data frame under the name `audit`, without printing anything.
+
+```{webr}
+audit <- read.csv("data/housing_audit.csv", na.strings = c("", "NA"))
+```
+
+The file thus marks a missing value in two ways, as an empty cell and as the letters `NA`. `read.csv()` treats the letters as missing, while an empty cell in a column of text becomes a piece of text with nothing in it, unless the function is told otherwise, and `na.strings = c("", "NA")` tells it that both forms mean 'missing'. Without that argument, the `r n_no_third` emails whose community has no poverty third in the file would form an empty category in every count of that column. In your IDE, the course reads CSV files with `readr::read_csv()`, which treats both forms as missing without being told, reports the type of each column as it reads, and returns a **tibble**, a data frame that prints only its first ten rows. This page uses `read.csv()` to spare the browser a download, and the data frame that it returns holds the same values.
+
+The path `"data/housing_audit.csv"` is a relative path, which R reads from the folder in which it is working, and on this page the copy of R in your browser keeps the file in a folder called `data` inside that working folder. In the workspace of a case the same kind of path is relative to the folder of the workspace, so it works as written once you open that folder in your IDE, whereas an absolute path such as `C:/Users/yourname/Desktop/...` breaks as soon as the work moves to another machine.
+
+Three functions give a first view of what was read. `nrow()` counts the rows, one for each email.
+
+```{webr}
+nrow(audit)
+```
+
+`names()` lists the sixteen columns.
+
+```{webr}
+names(audit)
+```
+
+`head()` prints the first six rows, which run to several lines each, because sixteen columns do not fit across the window.
+
+```{webr}
+head(audit)
+```
+
+Every column is described in the [codebook of the file](https://codemoreh.github.io/ar4ds-housing/cases/housing/data/housing_audit_codebook.html) on the site of the housing-audit case, and a codebook is the second thing to read after any import. Data also reach researchers in the formats of Stata, SPSS and Excel among others, and [the second part](r-further.qmd#sec-formats) of the module reads files of these kinds. Whatever the source, the result is the same kind of data frame, and everything below applies to it unchanged.
+
+## 7. Looking at the data {#sec-looking}
+
+Before any analysis, look at what you have, and the first question to ask of any dataset is what a row is. Here a row is one email. `data_peek()` from the datawizard package turns the table on its side, with one line for each column, its type and its first values, so that all sixteen columns fit into the window.
+
+```{webr}
+datawizard::data_peek(audit)
+```
+
+The types are those of section 3, `integer` for whole numbers and `character` for text. `data_tabulate()` counts the rows for each value of a column and gives each count as a percentage, which answers the first question about an experiment, how many emails each group of names received.
+
+```{webr}
+datawizard::data_tabulate(audit, select = "group") |>
+  datawizard::print_html()
+```
+
+`print_html()` at the end of the chain sets the counts out as a formatted table, which reads more easily on a web page. In the console of your IDE the same table prints as text if you leave it out, and in a Quarto document `print_md()` takes its place. The second question is how many of the emails drew a reply.
+
+```{webr}
+datawizard::data_tabulate(audit, select = "reply") |>
+  datawizard::print_html()
+```
+
+The row of missing values holds the `r n_bounced` emails that bounced and never reached an official. The column of valid percentages leaves the bounced emails out, so `r reply_pct`% is the share of the delivered emails that drew a reply. Tabulating one column by another shows how the greeting depends on the reply.
+
+```{webr}
+datawizard::data_tabulate(audit, select = "named", by = "reply") |>
+  datawizard::print_html()
+```
+
+Read the table one column at a time, since together the columns explain every missing value in the outcome. An email without a reply, in the column headed 0, has no greeting, so `named` is missing. A reply, in the column headed 1, carries a greeting code of 1 or 0, except for `r n_uncoded` replies that nobody coded. A bounced email, in the column headed (NA), has neither. These are the counts from which every analysis of the case starts: `r n_emails` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies and `r n_coded` replies with a greeting code.
+
+The design of the experiment can be checked in the same way. Each of the six names belongs to one group, so in the table of the names by the group every count of a name sits in the column of its group.
+
+```{webr}
+datawizard::data_tabulate(audit, select = "name", by = "group") |>
+  datawizard::print_html()
+```
+
+Your IDE can also show a data frame as a spreadsheet. `View(audit)` opens the data viewer, in which you can sort and filter the rows by clicking. Filters in the viewer change only what you are looking at and leave the data frame in the session as it was, so the viewer serves for looking at the data, while any change that the analysis needs belongs in the code.
+
+::: {.callout-tip}
+## Try it
+
+The column `hard_email` is 1 where the address of the authority could not be found quickly on its own website and was taken from the list of housing authorities kept by the Department of Housing and Urban Development (HUD), and 0 otherwise. Fill the blank so that the block tabulates the replies by `hard_email`, and work out from the counts whether the harder addresses replied less often. [Section 9](#sec-verbs) computes the answer.
+:::
+
+```{webr}
+#| exercise: tab-hard
+#| envir: global
+datawizard::data_tabulate(audit, select = "reply", by = "______") |>
+  datawizard::print_html()
+```
+
+:::: {.hint exercise="tab-hard"}
+::: {.callout-note collapse="false"}
+## Hint
+
+`by` takes the name of a column in quotes, as `select` does.
+:::
+::::
+
+:::: {.solution exercise="tab-hard"}
+::: {.callout-tip collapse="false"}
+## Solution
+
+``` r
+datawizard::data_tabulate(audit, select = "reply", by = "hard_email") |>
+  datawizard::print_html()
+```
+
+Of the `r hard$delivered` delivered emails sent to a harder address, `r hard$replies` drew a reply, just under half, against `r easy$replies` of the `r easy$delivered` sent to an address found on the website of the authority.
+:::
+::::
+
+## 8. The pipe {#sec-pipe}
+
+Most of the work after reading data is reshaping it, and reshaping is almost always a sequence of steps. The **pipe**, written `|>`, makes such sequences readable. It takes whatever stands on its left and passes it as the first argument to the function on its right, so that the steps of a calculation are written from top to bottom, each in its turn, instead of being wrapped inside one another and read from the inside out. The block below takes the mean of the column `reply`, leaving out the bounced emails, and rounds it to three decimals, with each function wrapped inside the next.
+
+<!-- r-style: skip -->
+```{webr}
+round(mean(audit$reply, na.rm = TRUE), 3)
+```
+
+The same calculation with the pipe reads from left to right, in the order of the steps.
+
+```{webr}
+audit$reply |> mean(na.rm = TRUE) |> round(3)
+```
+
+Both lines give 0.568, the share of the delivered emails that drew a reply, which the table of section 7 gave as a percentage. On one short line the gain is small, but it grows with every step of the chains in the next section, which is why nearly all modern R is written this way. You will also meet an older pipe, `%>%`, from a package called magrittr, in code written before 2021, when the native `|>` became part of R. Read the two in the same way, and write `|>`, as all the materials of the course do.
+
+## 9. The datawizard verbs {#sec-verbs}
+
+The datawizard package, one of the easystats family of packages [@LudeckeEtAl2022EasystatsFrameworkEasy], gives each common operation on a table a named verb. Each verb takes a data frame as its first argument and returns a data frame, which is what lets the verbs be chained with the pipe:
+
+- `data_filter()` keeps the rows that meet a condition;
+- `data_select()` keeps the columns that you name;
+- `data_modify()` adds a column or changes one;
+- `data_summary()` collapses many rows into one row of summaries, and with `by` into one row for each group;
+- `data_arrange()` sorts the rows;
+- `data_tabulate()` counts rows, as section 7 did.
+
+The dplyr package of the tidyverse has a verb for each of these, `filter()`, `select()`, `mutate()`, `summarise()`, `arrange()` and `count()`, and you will meet them in code written by others. The course uses datawizard first, so that one family of packages covers the data work and the reading of models, and [the second part](r-further.qmd#sec-dialects) of the module sets the two side by side.
+
+**`data_filter()`** takes a condition, and the operators of a condition are worth learning together: `==` for 'equals', with two signs because one sign assigns, `!=` for 'does not equal', `>` and `<`, `%in%` for 'is one of', `!` for 'not', and `&` for 'and'. `is.na()` asks whether a value is missing, so `!is.na(reply)` keeps the emails that have a reply status, the delivered ones. The chain below keeps the delivered emails and counts the emails of each group of names.
+
+```{webr}
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_tabulate(select = "group") |>
+  datawizard::print_html()
+```
+
+**`data_select()`** narrows the table to the columns that matter for the task in hand, which makes it easier to read. The names of the columns go in quotes, inside `c()`, and `head()` at the end of the chain prints the first six rows of the result.
+
+```{webr}
+audit |>
+  datawizard::data_select(select = c("name", "group", "reply", "named")) |>
+  head()
+```
+
+**`data_modify()`** makes a new column from existing ones. The comparison `group == "hispanic"` is `TRUE` for the emails signed with Hispanic names and `FALSE` for the rest, and storing it as a column lets you count it.
+
+```{webr}
+audit |>
+  datawizard::data_modify(hispanic_name = group == "hispanic") |>
+  datawizard::data_tabulate(select = "hispanic_name") |>
+  datawizard::print_html()
+```
+
+**`data_summary()`** with `by` reports a quantity for each group. Inside it, `n()` counts the rows of a group, and `sum()` and `mean()` work as they did on a vector. The chain below keeps the delivered emails and reports, for each group of names, the delivered emails, the replies and the reply rate, which are the numbers typed by hand in [section 3](#sec-objects).
+
+```{webr}
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered  = n(),
+    replies    = sum(reply),
+    reply_rate = mean(reply),
+    by = "group"
+  )
+```
+
+Read the chain aloud and it is almost English: take the emails, keep the delivered ones, and for each group of names report three numbers. A reviewer who can read the code can check it, which is why the scripts of the course are written in these verbs. `data_summary()` sorts the groups alphabetically, and it prints the reply rates to two decimals while keeping every digit in the table that it returns, so a rate is rounded only when you round it, as section 11 does.
+
+::: {.callout-tip}
+## Try it
+
+Fill the blank so that the chain summarises the delivered emails by the name that signed each email instead of by the group, and find the name with the lowest reply rate. Then replace the name of the column with `"hard_email"`, run the block again, and compare the two reply rates with the counts of the exercise in section 7.
+:::
+
+```{webr}
+#| exercise: summary-name
+#| envir: global
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered  = n(),
+    replies    = sum(reply),
+    reply_rate = mean(reply),
+    by = "______"
+  )
+```
+
+:::: {.hint exercise="summary-name"}
+::: {.callout-note collapse="false"}
+## Hint
+
+The column that holds the name of the sender is called `name`, and `by` takes it in quotes.
+:::
+::::
+
+:::: {.solution exercise="summary-name"}
+::: {.callout-tip collapse="false"}
+## Solution
+
+``` r
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered  = n(),
+    replies    = sum(reply),
+    reply_rate = mean(reply),
+    by = "name"
+  )
+```
+
+Santiago has the lowest reply rate, `r sprintf("%.2f", santiago_reply$rate)` among `r santiago_reply$delivered` delivered emails, just below Gabriela, the other Hispanic name. With `by = "hard_email"`, the reply rate is `r sprintf("%.2f", easy$replies / easy$delivered)` for the addresses found on the websites of the authorities and `r sprintf("%.2f", hard$replies / hard$delivered)` for the addresses taken from the list kept by HUD.
+:::
+::::
+
+## 10. A share and a difference in shares {#sec-shares}
+
+The claim of the housing-audit case is that replies to emails signed with Hispanic names were less likely to greet the sender by name than replies to emails signed with white names. In the terms of [section 3](#sec-objects), that is a comparison of two means of a 0/1 column, so you already have the tools for it. The block below keeps the replies that carry a greeting code and the white and the Hispanic names, summarises the column `named` in each group, and stores the result as `shares` before printing it. A comma between two conditions in `data_filter()` means 'and', so a row is kept only if it meets both conditions.
+
+```{webr}
+shares <- audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "hispanic")) |>
+  datawizard::data_summary(
+    replies = n(),
+    greeted = sum(named),
+    share   = mean(named),
+    by = "group"
+  )
+
+shares
+```
+
+Of the replies to white names, `r sprintf("%.1f", white_share)`% opened with the name of the sender, against `r sprintf("%.1f", hisp_share)`% of the replies to Hispanic names, and the difference between the two shares is the estimate from which the analysis of the case starts. Inside `data_summary()`, square brackets pick out the value of one group, and multiplying by 100 turns a difference in shares into a difference in percentage points.
+
+```{webr}
+shares |>
+  datawizard::data_summary(gap_points = 100 * (share[group == "hispanic"] - share[group == "white"]))
+```
+
+A gap of `r gap_hw` points is the raw difference behind the shares reported in the paper, 61% against 41% [@EinsteinGlick2017DoesRaceAffect], and on the site of the housing-audit case it is the reference specification, the analysis against which every alternative on the [specification menu](https://codemoreh.github.io/ar4ds-housing/cases/housing/menu.html) is compared. The published estimate of −20.0 points comes from a different calculation, a logistic regression with covariates, which the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of that site fits step by step, and the two agree closely.
+
+That gap is counted among the replies only. An email that drew no reply has no greeting, so it plays no part in the calculation. The other way to count is to keep every delivered email and treat a missing reply as a reply without a greeting by name. `if_else()` from dplyr, one of the packages that arrived with gt, makes that column inside `data_modify()`, keeping the greeting code where `reply` is 1 and putting 0 elsewhere. The `r n_uncoded` uncoded replies are still missing after this step, so a second filter removes the five rows.
+
+```{webr}
+audit |>
+  datawizard::data_filter(!is.na(reply), group %in% c("white", "hispanic")) |>
+  datawizard::data_modify(greeted = dplyr::if_else(reply == 1, named, 0)) |>
+  datawizard::data_filter(!is.na(greeted)) |>
+  datawizard::data_summary(emails = n(), share = mean(greeted), by = "group")
+```
+
+Counted this way, `r sprintf("%.1f", white_all)`% of the emails to white names and `r sprintf("%.1f", hisp_all)`% of the emails to Hispanic names drew a reply that greeted the sender by name, and the gap is `r gap_all` points. The two numbers answer two questions. Among the replies, the comparison asks whether the officials who answered wrote differently to the two groups of names. Among all delivered emails, it asks whether the name on the email changed the chance of receiving a reply that greeted the sender by name at all, which mixes the decision to reply with the tone of the reply. Of all the decisions on the specification menu of the case, the choice between the two is the one that moves the estimate furthest. The [causal-graphs module](https://codemoreh.github.io/ar4ds-housing/companion/dags.html#sec-collider) of the housing-audit site explains why the comparison among replies needs care, and its [audit-experiments module](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html#sec-posttreatment) works through what each comparison assumes.
+
+::: {.callout-tip}
+## Try it
+
+Fill the blank so that the block computes the same gap between the Black and the white names, among the coded replies.
+:::
+
+```{webr}
+#| exercise: gap-black
+#| envir: global
+audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "______")) |>
+  datawizard::data_summary(share = mean(named), by = "group") |>
+  datawizard::data_summary(gap_points = 100 * (share[group == "black"] - share[group == "white"]))
+```
+
+:::: {.hint exercise="gap-black"}
+::: {.callout-note collapse="false"}
+## Hint
+
+The column `group` spells the three groups in lower case, as `white`, `black` and `hispanic`.
+:::
+::::
+
+:::: {.solution exercise="gap-black"}
+::: {.callout-tip collapse="false"}
+## Solution
+
+``` r
+audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "black")) |>
+  datawizard::data_summary(share = mean(named), by = "group") |>
+  datawizard::data_summary(gap_points = 100 * (share[group == "black"] - share[group == "white"]))
+```
+
+The gap is `r gap_bw` points, a quarter of the gap between the Hispanic and the white names.
+:::
+::::
+
+A gap between two single names rests on fewer replies than a gap between two groups, so it is more exposed to chance, and it can lie some way from the gap between the groups.
+
+::: {.callout-tip}
+## Try it
+
+Fill the blank so that the block compares Santiago with Brett, the two male names of the Hispanic and the white group, by filtering on `name` instead of `group`.
+:::
+
+```{webr}
+#| exercise: gap-names
+#| envir: global
+audit |>
+  datawizard::data_filter(!is.na(named), name %in% c("Brett", "Santiago")) |>
+  datawizard::data_summary(replies = n(), share = mean(named), by = "name") |>
+  datawizard::data_summary(gap_points = 100 * (share[name == "______"] - share[name == "Brett"]))
+```
+
+:::: {.hint exercise="gap-names"}
+::: {.callout-note collapse="false"}
+## Hint
+
+The gap is the share of the Hispanic name minus the share of the white name, and names are written with a capital letter, as in the column `name`.
+:::
+::::
+
+:::: {.solution exercise="gap-names"}
+::: {.callout-tip collapse="false"}
+## Solution
+
+``` r
+audit |>
+  datawizard::data_filter(!is.na(named), name %in% c("Brett", "Santiago")) |>
+  datawizard::data_summary(replies = n(), share = mean(named), by = "name") |>
+  datawizard::data_summary(gap_points = 100 * (share[name == "Santiago"] - share[name == "Brett"]))
+```
+
+The gap is `r gap_names` points, on `r santiago$replies` coded replies to Santiago and `r brett$replies` to Brett, wider than the gap between the two groups, because Santiago drew the fewest greetings by name of the six names.
+:::
+::::
+
+## 11. A first table {#sec-table}
+
+A summary built with datawizard is already a table, and printing it is enough while you work. A report needs more, with readable column names, sensible rounding and a caption. The chain below builds one row for each group of names, with four counts and two percentages, and stores it as `by_group`.
+
+```{webr}
+by_group <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered = n(),
+    replies   = sum(reply),
+    coded     = sum(!is.na(named)),
+    greeted   = sum(named, na.rm = TRUE),
+    by = "group"
+  ) |>
+  datawizard::data_modify(
+    reply_pct   = 100 * replies / delivered,
+    greeted_pct = 100 * greeted / coded
+  ) |>
+  datawizard::data_arrange("-greeted_pct")
+
+by_group
+```
+
+`sum(!is.na(named))` counts the replies that carry a greeting code, because each `TRUE` counts as 1. `sum(named, na.rm = TRUE)` counts the greetings by name, leaving out the missing codes of the emails without a reply and of the `r n_uncoded` uncoded replies. `data_arrange("-greeted_pct")` sorts the rows from the largest share of greetings to the smallest, the minus sign asking for the descending order.
+
+A formatted table takes one more step, and on this page two tools take it. `datawizard::print_html()`, which section 7 introduced, sets out the output of `data_tabulate()` as a formatted table. The block below keeps the coded replies and sets out the greetings by the group of the name, with `proportions = "column"` adding the percentage of each column, so that each column of the table holds the replies to one group, while the row headed 1 gives the share of each group that was greeted by name. The row and the column headed (NA) stay empty, since the filter left no missing value in either column.
+
+```{webr}
+audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_tabulate(select = "named", by = "group", proportions = "column") |>
+  datawizard::print_html()
+```
+
+The gt package sets out any data frame as a table, but it prints each column as it stands, so the names and the rounding are settled first. The block below rounds the two percentages, gives the groups the labels that a reader should read, and keeps five columns under new names, storing the result as `report_table`. `c(white = "White", black = "Black", hispanic = "Hispanic")[group]` uses a named vector as a lookup table, picking for each row the label whose name matches the value of `group`, and a column name with spaces or symbols in it, such as `` `Replied (%)` ``, goes inside backticks.
+
+```{webr}
+report_table <- by_group |>
+  datawizard::data_modify(
+    group       = c(white = "White", black = "Black", hispanic = "Hispanic")[group],
+    reply_pct   = round(reply_pct, 1),
+    greeted_pct = round(greeted_pct, 1)
+  ) |>
+  datawizard::data_select(select = c(
+    Names                 = "group",
+    Delivered             = "delivered",
+    Replies               = "replies",
+    `Replied (%)`         = "reply_pct",
+    `Greeted by name (%)` = "greeted_pct"
+  ))
+```
+
+`gt::gt()` then draws the table.
+
+```{webr}
+report_table |> gt::gt()
+```
+
+tinytable is the table package of the course, the one to use in your IDE and in a Quarto document, because one call draws the same table as HTML, as a PDF or as a Word document. It cannot yet show its tables in the copy of R that runs on this page, so the chunk below ran when the page was built, as a chunk of a report runs when the report is rendered, and the table under it is the one drawn by `tinytable::tt()` from the same `report_table`. The caption and the label beginning `tbl-` are chunk options, which the [Quarto module](quarto.qmd) explains, and the two options give the table a number to which the prose can refer, as in @tbl-groups.
+
+```{r}
+#| label: report-table-page
+#| include: false
+# The table of the blocks above, built again when the page is rendered, for the
+# chunk below
+report_table <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered = n(),
+    replies   = sum(reply),
+    coded     = sum(!is.na(named)),
+    greeted   = sum(named, na.rm = TRUE),
+    by = "group"
+  ) |>
+  datawizard::data_modify(
+    reply_pct   = 100 * replies / delivered,
+    greeted_pct = 100 * greeted / coded
+  ) |>
+  datawizard::data_arrange("-greeted_pct") |>
+  datawizard::data_modify(
+    group       = c(white = "White", black = "Black", hispanic = "Hispanic")[group],
+    reply_pct   = round(reply_pct, 1),
+    greeted_pct = round(greeted_pct, 1)
+  ) |>
+  datawizard::data_select(select = c(
+    Names                 = "group",
+    Delivered             = "delivered",
+    Replies               = "replies",
+    `Replied (%)`         = "reply_pct",
+    `Greeted by name (%)` = "greeted_pct"
+  ))
+```
+
+```{r}
+#| label: tbl-groups
+#| tbl-cap: "Replies and greetings by the group that the names were meant to indicate. Greetings are counted among the replies that carry a greeting code. Source: `housing_audit.csv`."
+report_table |> tinytable::tt()
+```
+
+tinytable is not among the packages that the workspaces check, so install it with `pak::pak("tinytable")` before you use it in your IDE.
+
+## 12. A first figure {#sec-figure}
+
+tinyplot draws every figure that you make yourself in the course, in the workspaces and in the browser labs, and it runs on this page because it extends the graphics system that comes with R itself and needs no other package [@McDermottEtAl2026TinyplotLightweightExtension]. A plot is one call with two parts: a **formula** with the data, which says what goes on which axis, and a **type**, which says what to draw. The figures below show the share of replies that greeted the sender by name for each of the six names, so the first step computes the six shares, one row for each name, in per cent, and stores the result as `by_name`.
+
+```{webr}
+by_name <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(share = 100 * mean(named), replies = n(), by = c("group", "name"))
+
+by_name
+```
+
+The first draft of the figure takes one line.
+
+```{webr}
+#| fig-width: 7
+#| fig-height: 3.5
+tinyplot::tinyplot(share ~ name, data = by_name, type = "p", flip = TRUE)
+```
+
+The formula `share ~ name` is read 'share by name', as in a model formula, with the column before the tilde on the vertical axis and the column after it on the horizontal one. `type = "p"` draws points, and `flip = TRUE` turns the chart on its side, so that the names are read down the vertical axis, while other types draw other marks, such as `"l"` for lines, `"barplot"` for bars and `"boxplot"` for boxes. The default look writes the labels of the vertical axis along the axis, so that only two of the six names fit, a fault that the theme of the next figure corrects.
+
+Three changes make the figure readable. A vertical bar in the formula, `share ~ name | group`, colours each mark by a third column and adds a legend that explains the colours. `type = "barplot"` draws one bar for each row, with a length equal to the value in the data. And the names are sorted by the value being plotted rather than alphabetically, which `reorder(name, share)` does to the data before the plot. The block below sorts the names and turns `group` into a **factor**, a column of categories with a fixed order and a label for display, storing the result as `by_name_sorted`.
+
+```{webr}
+by_name_sorted <- by_name |>
+  datawizard::data_modify(
+    name  = reorder(name, share),
+    group = factor(group, levels = c("white", "black", "hispanic"),
+                   labels = c("white", "Black", "Hispanic"))
+  )
+```
+
+The next block draws the bars.
+
+```{webr}
+#| fig-width: 8
+#| fig-height: 3.6
+tinyplot::tinyplot(share ~ name | group, data = by_name_sorted, type = "barplot", flip = TRUE,
+                   fill = "by", palette = c("grey60", "#4a78ab", "#8b1538"),
+                   legend = list(title = "Names meant to indicate"),
+                   xlab = NA, ylab = "Replies that greeted the sender by name (%)",
+                   theme = "minimal")
+```
+
+`palette` gives one colour for each group, in the order of the levels of the factor, which is why the groups were made a factor first, with the labels that the legend should show, and `fill = "by"` fills each bar with a light shade of the colour of its group, while the outline of the bar takes the full colour. `legend` sets the title of the legend. `xlab` and `ylab` supply the words on the axes. With `flip = TRUE`, `xlab` still belongs to the column after the tilde, now drawn vertically, and `NA` leaves it blank. `theme = "minimal"` sets the look of everything that carries no data, the gridlines, the frame and the type.
+
+A third column can also split a figure into panels with shared axes, which are called **facets**. The chart below compares the female and the male names of each group, with `facet = ~name_sex`. The column of the facets is made a factor first, so that each panel is headed by its label.
+
+```{webr}
+by_sex <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(share = 100 * mean(named), by = c("group", "name_sex")) |>
+  datawizard::data_modify(name_sex = factor(name_sex, labels = c("female names", "male names")))
+```
+
+```{webr}
+#| fig-width: 8
+#| fig-height: 3.4
+tinyplot::tinyplot(share ~ group, facet = ~name_sex, data = by_sex, type = "barplot",
+                   xlab = NA, ylab = "Greeted by name (%)", theme = "minimal")
+```
+
+The Hispanic name drew fewer greetings than the names of the other two groups in both panels, and the gap is larger for the male name, Santiago, than for the female one, Gabriela. A tinyplot is drawn straight onto the plotting device and is not stored as an object, so in your IDE a figure is written to a file by opening the file first, with `png("names.png", width = 7, height = 4, units = "in", res = 300)`, drawing, and closing the file with `dev.off()`.
+
+Every figure so far reduces a yes-or-no outcome to a share, one number for each name or group. A measure that can take many values, such as a length of time, is better drawn whole, so that the reader can judge its spread and its shape as well as its centre. The usual figure for a single measure of this kind is a histogram, which divides the range of the measure into intervals, called bins, and draws a bar for the number of cases in each. The housing-audit data hold one such measure, the length of the wait list that a reply gave, in months. It is stored as text in `waitlist`, because some replies gave words rather than numbers, `Closed` or `No Housing`, so the block below keeps the entries that are numbers and converts each entry to a number, storing the result as `waits`. `grepl("^[0-9.]+$", waitlist)` is `TRUE` for an entry made only of digits and decimal points, and `FALSE` for a word or a missing value.
+
+```{webr}
+waits <- audit |>
+  datawizard::data_filter(grepl("^[0-9.]+$", waitlist)) |>
+  datawizard::data_modify(months = as.numeric(waitlist))
+```
+
+```{webr}
+#| fig-width: 8
+#| fig-height: 3.4
+tinyplot::tinyplot(~ months, data = waits, type = tinyplot::type_histogram(breaks = seq(0, 120, by = 3)),
+                   xlab = "Wait list given in the reply (months)", ylab = "Replies", theme = "minimal")
+```
+
+A formula with nothing before the tilde, `~ months`, asks for a single variable, and `type_histogram()` sets the edges of the bins with `breaks`, here every three months from 0 to 120, each bin holding the waits above its lower edge up to and including its upper edge. Of the `r nrow(waits)` replies that gave a number, half quoted a wait of between `r quantile(waits$months, 0.25)` and `r quantile(waits$months, 0.75)` months, around a median of `r median(waits$months)` months, while a few quoted far longer waits, up to `r max(waits$months)` months, which is why the distribution has a long tail to the right and its mean, `r sprintf("%.1f", mean(waits$months))` months, lies above the median. The two tall bars, which end at 6 and at 12 months, are made almost entirely of replies that quoted exactly half a year or a year, and the smaller bars that end at 24 and 36 months of replies that quoted two or three years. Such heaping most likely comes from the round numbers in which officials speak of waits, and from the OAs, who converted phrases such as "two years" into months.
+
+::: {.callout-tip}
+## Try it
+
+Fill the blank so that the block draws one histogram for each group of names, in bins of six months, which is how the waits quoted to the three groups would be compared.
+:::
+
+```{webr}
+#| exercise: waits-group
+#| envir: global
+#| fig-width: 8
+#| fig-height: 3.4
+tinyplot::tinyplot(~ months, facet = ~______, data = waits,
+                   type = tinyplot::type_histogram(breaks = seq(0, 120, by = 6)),
+                   xlab = "Wait list given in the reply (months)", ylab = "Replies", theme = "minimal")
+```
+
+:::: {.hint exercise="waits-group"}
+::: {.callout-note collapse="false"}
+## Hint
+
+`facet` takes a formula with the column that divides the panels after the tilde, as `facet = ~name_sex` did for the bars.
+:::
+::::
+
+:::: {.solution exercise="waits-group"}
+::: {.callout-tip collapse="false"}
+## Solution
+
+``` r
+tinyplot::tinyplot(~ months, facet = ~group, data = waits,
+                   type = tinyplot::type_histogram(breaks = seq(0, 120, by = 6)),
+                   xlab = "Wait list given in the reply (months)", ylab = "Replies", theme = "minimal")
+```
+
+The `r nrow(waits)` waits divide into three small panels, too few in each to compare the shapes with any confidence, which is a reason to read a comparison of this kind from a summary of each group as well as from the figure.
+:::
+::::
+
+### ggplot2 {#sec-ggplot2}
+
+The figures on the pages and the slides of the course sites are drawn with another package, ggplot2, whose name abbreviates 'the grammar of graphics', the idea that any chart can be described as a combination of a few standard parts. A ggplot2 figure names the data, a mapping from columns to visual properties such as position and colour, and the shapes that are drawn, which are called geoms, while scales, labels and a theme finish the figure. ggplot2 is not among the packages of this page, so the chunk below ran when the page was built, and it draws the bar chart of the six names again, from the same `by_name`.
+
+```{r}
+#| label: by-name-page
+#| include: false
+# The shares of the blocks above, built again when the page is rendered, for
+# the chunk below
+by_name <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(share = 100 * mean(named), replies = n(), by = c("group", "name"))
+```
+
+```{r}
+#| label: fig-names-ggplot2
+#| fig-cap: "The share of replies that greeted the sender by name, by the name that signed the email, drawn with ggplot2. Source: `housing_audit.csv`."
+#| fig-alt: "Bar chart of six names. Emily, Brett and Tyrone lie near 60%, Shanice near 52%, Gabriela near 46% and Santiago near 37%; the bars of the two Hispanic names are burgundy."
+#| fig-height: 3.4
+ggplot2::ggplot(by_name, ggplot2::aes(x = share, y = reorder(name, share), fill = group)) +
+  ggplot2::geom_col(width = 0.7) +
+  ggplot2::scale_fill_manual(
+    values = c(white = "grey60", black = "#4a78ab", hispanic = "#8b1538"),
+    labels = c(white = "white", black = "Black", hispanic = "Hispanic"),
+    name   = "Names meant to indicate"
+  ) +
+  ggplot2::labs(x = "Replies that greeted the sender by name (%)", y = NULL) +
+  ggplot2::theme_minimal(base_size = 12)
+```
+
+`aes()` is the **aesthetic mapping**, which says that the share governs the horizontal position, the name the vertical position and the group the colour of the fill, so that ggplot2 adds a legend explaining the colours. A colour given outside `aes()`, such as `fill = "#0e3b6a"` in `geom_col()`, is **set** instead, one fixed value for every bar, with no legend because there is nothing to explain. `geom_col()` draws one bar for each row, with a length equal to the value in the data, and `scale_fill_manual()` names a colour for each group. The layers are joined with `+`, never with the pipe, because ggplot2 settled on `+` years before R had a native pipe, and typing `|>` where `+` belongs is among the commonest errors of the first week. Unlike a tinyplot, a ggplot2 figure is an ordinary R object, so it can be stored under a name and written to a file with `ggplot2::ggsave()`.
+
+## Further study {#sec-sources}
+
+The [second part](r-further.qmd) of the module, which is optional, fetches the file deposited by the OAs from the repository that holds it, reads the file in the format of Stata with its labels, sets the same task in the three dialects of R, and fits a first model while naming the quantity that it estimates. The rest of the course repeats on a larger scale the sequence practised on this page: read the data, look at it, reshape it with a few verbs, compute and draw, then fit a model and read what the fit says.
+
+This module was written for the course and adapts no existing lesson. It teaches only the part of R that the materials of the course use, in the order in which the course needs it. For a fuller, self-paced grounding in R, these open resources are recommended:
+
+- **The Carpentries, "R for Reproducible Scientific Analysis" and "Programming with R"**, at <https://swcarpentry.github.io/r-novice-gapminder/> and <https://swcarpentry.github.io/r-novice-inflammation/>. Licensed CC BY 4.0, and the standard hands-on introductions to R for researchers, covering objects, vectors and data frames in far more depth than this page.
+- **The Turing Way, "Guide for Reproducible Research"**, at <https://book.the-turing-way.org/>. Licensed CC BY 4.0. A guide to reproducible research in general, which sets out why the habits that this module practises, scripts over console history, relative paths and one file for analysis and report, are worth building from the first day.
+- **"R for Data Science"**, the free book by the authors of the tidyverse packages, at <https://r4ds.hadley.nz/>. Its chapters on data transformation and on visualisation cover the dplyr counterparts of the verbs of section 9 and the grammar of ggplot2 in full.
+- **The documentation of the packages**, which reads as an introduction as well as a reference: [easystats.github.io/datawizard](https://easystats.github.io/datawizard/), [grantmcdermott.com/tinyplot](https://grantmcdermott.com/tinyplot/), [vincentarelbundock.github.io/tinytable](https://vincentarelbundock.github.io/tinytable/), [gt.rstudio.com](https://gt.rstudio.com/), [readr.tidyverse.org](https://readr.tidyverse.org/), [dplyr.tidyverse.org](https://dplyr.tidyverse.org/) and [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/).
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
