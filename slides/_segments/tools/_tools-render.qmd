@@ -1,0 +1,11 @@
+## What happens when you render {#how-a-document-becomes-a-document}
+
+![](pics/tools/render-pipeline.png){fig-align="center" width="62%" fig-alt="A diagram of rendering: a qmd file goes to knitr, which writes a md file, which pandoc turns into a Word document, a PDF or a web page."}
+
+::: {.small .fs-80}
+You write **one** source file. Rendering runs its code, puts the results in place, and produces whatever output you asked for from that one source. An error in a chunk stops the render, and Quarto names the chunk at which it stopped.
+:::
+
+::: notes
+And this is what happens when you render. You write one source file, with prose and code together. Knitr, or Jupyter if you are working in Python, hands every chunk to R in a fresh session, collects whatever comes back, and writes a plain Markdown file with the results pasted in after the code that produced them. Pandoc, a document converter, then turns that file into whatever you asked for: a Word document for your co-author, a PDF for the journal, a web page for your project, slides like these. So there is one place where a number is computed, and every output shows the same number. Because the code runs before any typesetting, an error in a chunk halts the render, and no new output appears at all. Quarto names the chunk that failed, which is the first reason to give every chunk a label.
+:::

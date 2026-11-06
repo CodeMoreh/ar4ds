@@ -1,0 +1,23 @@
+## Editors and IDEs {#where-you-write-it}
+
+::: {.toolgrid style="--cols: 5"}
+<div class="tool ours"><img src="pics/tools/positron.png" alt="Positron"><span class="name">Positron</span><span class="what">The IDE of the course, from Posit, built on the open-source core of VS Code. R and Python as equals.</span></div>
+<div class="tool"><img src="pics/tools/rstudio.svg" alt="RStudio"><span class="name">RStudio</span><span class="what">Still excellent, still supported. If it is what you know, use it.</span></div>
+<div class="tool"><img src="pics/tools/vscode.png" alt="VS Code"><span class="name">VS Code</span><span class="what">Does anything, once configured. Many extensions.</span></div>
+<div class="tool"><img src="pics/tools/jupyter.png" alt="Jupyter"><span class="name">Jupyter</span><span class="what">Notebook-first. Cells can run out of order.</span></div>
+<div class="tool"><img src="pics/tools/neovim.png" alt="Neovim"><span class="name">Neovim</span><span class="what">For the keyboard only. Steep to learn, and very fast once learned.</span></div>
+:::
+
+::: {.fragment .small .fs-80}
+Of the choices in the toolchain, the editor matters least. It changes how *you* work and nothing about what a reader receives.
+
+**A trap:** a tool that runs code piece by piece lets you run the pieces out of order, so it can show output that no clean run would produce. Restart and run everything before you believe it.
+:::
+
+::: {.src}
+Positron and RStudio are both from Posit; both are free, and RStudio is open source.
+:::
+
+::: notes
+The editor is the least consequential choice in the toolchain, so I will be quick. Positron is the newer environment from Posit, built on the open-source core of VS Code, with R and Python as equals, and it is what I drive on the shared screen. RStudio is still excellent and still supported, and if it is what you know, there is no reason to move. VS Code will do anything once you have configured it. Jupyter is notebook-first and Python-first, and Neovim is for people who never want to touch a mouse. What matters is the trap in the second box, which applies to every tool in which you run code a piece at a time, the console of an IDE included: you can run the pieces out of order, so the output on your screen may be output that no clean run would ever produce. Restart the session and run everything from the top before you believe a number.
+:::

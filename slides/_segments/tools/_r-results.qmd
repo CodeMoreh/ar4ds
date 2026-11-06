@@ -1,0 +1,267 @@
+# Shares, a table and a figure {#shares-a-table-and-a-figure .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 4
+:::
+
+::: notes
+Section four puts the pieces together on the claim of the case. The claim compares two shares, so we compute both and the difference between them, the number that the housing-audit case calls its reference specification, against which every other analysis of the claim is compared. Then the two forms in which a result leaves R for a reader: a table, formatted with tinytable, the table package of the course, and a figure, drawn with tinyplot. The last slide of the section gathers the error messages that you are most likely to meet.
+:::
+
+## A difference in shares {#a-difference-in-shares .smaller}
+
+::: {.fs-130}
+```r
+shares <- audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "hispanic")) |>
+  datawizard::data_summary(replies = n(), greeted = sum(named), share = mean(named),
+                           by = "group")
+shares
+shares |>
+  datawizard::data_summary(
+    gap_points = 100 * (share[group == "hispanic"] - share[group == "white"])
+  )
+```
+:::
+
+```{r}
+#| label: r-out-shares
+print(shares)
+shares |>
+  datawizard::data_summary(
+    gap_points = 100 * (share[group == "hispanic"] - share[group == "white"])
+  ) |>
+  print()
+```
+
+::: {.fragment .small}
+A gap of `r fmt_num(gap_hw, 2)` percentage points, the raw difference behind the shares of 61% and 41% reported by the OAs. The published estimate of −20.0 points comes from a logistic regression with covariates.
+:::
+
+::: notes
+The claim of the housing-audit case is that replies to emails signed with Hispanic names were less likely to greet the sender by name than replies to emails signed with white names. In the terms of the first section, that is a comparison of two means of a column of ones and zeros, so you already have every tool that it needs. The chain keeps the replies that carry a greeting code, from the white and the Hispanic names, and summarises the greeting in each group: sixty-one per cent of the replies to white names opened with the name of the sender, against forty-one per cent of the replies to Hispanic names. Inside data summary, square brackets pick out the value of one group, and multiplying by a hundred gives the difference in percentage points. [advance] The published estimate comes from another calculation, and the two agree closely.
+:::
+
+## Two ways to count {#two-ways-to-count .smaller .deepdive run="r"}
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_filter(!is.na(reply), group %in% c("white", "hispanic")) |>
+  datawizard::data_modify(greeted = dplyr::if_else(reply == 1, named, 0)) |>
+  datawizard::data_filter(!is.na(greeted)) |>
+  datawizard::data_summary(emails = n(), share = mean(greeted), by = "group")
+```
+:::
+
+```{r}
+#| label: r-out-shares-all
+print(shares_all)
+```
+
+::: {.small}
+Among every delivered email, a missing reply counting as no greeting by name, the gap is `r fmt_num(gap_all, 2)` points. Among the replies, the comparison asks whether the officials who replied wrote differently to the two groups of names; among all delivered emails, whether the name changed the chance of a reply that greeted the sender by name at all.
+:::
+
+::: notes
+That gap is counted among the replies only, because an email that drew no reply has no greeting. The other way to count keeps every delivered email and treats a missing reply as a reply without a greeting by name. if else, from dplyr, makes that column, keeping the greeting code where reply is one and putting zero elsewhere, and a second filter removes the five uncoded replies. Counted this way, the gap is `r fmt_num(abs(gap_all), 1)` points instead of twenty. The two numbers answer two questions. Among the replies, did the officials who answered write differently to the two groups of names? Among all delivered emails, did the name change the chance of receiving a greeting by name at all, which mixes the decision to reply with the tone of the reply? In the housing-audit case, no other choice moves the estimate as far as this one.
+:::
+
+## Hands-on 4 – Black and white names {#hands-on-4-black-and-white-names .smaller}
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "______")) |>
+  datawizard::data_summary(share = mean(named), by = "group") |>
+  datawizard::data_summary(
+    gap_points = 100 * (share[group == "black"] - share[group == "white"])
+  )
+```
+:::
+
+::: {.small}
+Fill the blank so that the chain computes the same gap, between the Black and the white names, among the coded replies. The column `group` spells the three groups in lower case.
+:::
+
+::: {.fragment .small}
+The gap is `r fmt_num(gap_bw, 2)` points, a quarter of the gap between the Hispanic and the white names. Between the two male names, Santiago and Brett, it is `r fmt_num(fewest$share[fewest$name == "Santiago"] - fewest$share[fewest$name == "Brett"], 2)` points, on `r fewest$replies[fewest$name == "Santiago"]` and `r fewest$replies[fewest$name == "Brett"]` coded replies.
+:::
+
+::: notes
+Your turn, with the last task of the session. Fill the blank so that the chain computes the same gap, between the Black and the white names, among the coded replies. This chain does in one go what took two steps on the slide before: the first summary gives the two shares, and the second works on the table that the first returned and gives their difference. If you finish early, change the chain to compare two single names, Santiago and Brett, the male names of the Hispanic and the white group, by filtering on name instead of group, and ask yourself why a gap between two names is more exposed to chance than a gap between two groups. Take the time you need. [advance] The gap between Santiago and Brett is wider than the gap between the groups, on about a hundred replies each.
+:::
+
+## A table of the groups {#a-table-of-the-groups .smaller}
+
+::: {.fs-130}
+```r
+by_group <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(delivered = n(), replies = sum(reply),
+                           coded = sum(!is.na(named)),
+                           greeted = sum(named, na.rm = TRUE), by = "group") |>
+  datawizard::data_modify(reply_pct   = 100 * replies / delivered,
+                          greeted_pct = 100 * greeted / coded) |>
+  datawizard::data_arrange("-greeted_pct")
+by_group
+```
+:::
+
+```{r}
+#| label: r-out-by-group
+print(by_group)
+```
+
+::: {.small}
+`sum(!is.na(named))` counts the replies with a greeting code, because each `TRUE` counts as 1. The minus sign in `data_arrange("-greeted_pct")` puts the largest share first.
+:::
+
+::: notes
+A summary is already a table, and printing it is enough while you work. A report needs more: readable names, sensible rounding and a caption. This chain builds one row for each group of names, with four counts and two percentages, and keeps it as by group. The sum of not is na counts the replies that carry a greeting code, because each true counts as one, and the sum of named with na dot rm counts the greetings by name, leaving out the missing codes. data modify turns the counts into percentages, and data arrange, the last of the verbs, sorts the rows, with the minus sign asking for the largest share of greetings first. The white names come first, at sixty-one per cent, and the Hispanic names last, at forty-one.
+:::
+
+## A formatted table {#a-formatted-table .smaller}
+
+:::: {.columns}
+::: {.column width="56%"}
+::: {.fs-110}
+```r
+pak::pak("tinytable")      # once on each machine
+
+report_table <- by_group |>
+  datawizard::data_modify(
+    group = c(white = "White", black = "Black",
+              hispanic = "Hispanic")[group],
+    reply_pct   = round(reply_pct, 1),
+    greeted_pct = round(greeted_pct, 1)
+  ) |>
+  datawizard::data_select(select = c(
+    Names = "group", Delivered = "delivered",
+    Replies = "replies", `Replied (%)` = "reply_pct",
+    `Greeted by name (%)` = "greeted_pct"
+  ))
+
+report_table |> tinytable::tt()
+```
+:::
+:::
+::: {.column width="44%"}
+::: {.fs-70}
+```{r}
+#| label: r-out-tt
+report_table |> tinytable::tt()
+```
+:::
+
+::: {.small}
+tinytable is not among the packages that the workspaces check. In your IDE the table opens in the Viewer, and one call draws it as a web page, a PDF or a Word document.
+:::
+:::
+::::
+
+::: notes
+tinytable is the table package of the course, the one to use in your IDE and in a Quarto document, because one call draws the same table as a web page, a PDF or a Word document. It is not among the packages that the workspaces check, so install it once with pak. The chain gives the groups the labels that a reader should read, rounds the two percentages, and keeps five columns under new names, using a named vector as a lookup table for the labels; a name with spaces or symbols in it goes inside backticks. Then tt draws the table. In Positron it opens in the Viewer, on the right of the window, and in a Quarto document it becomes a table of the report, which the last session of the day gives a caption and a number.
+:::
+
+## A first figure {#a-first-figure .smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.fs-110}
+```r
+by_name <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(
+    share = 100 * mean(named), replies = n(),
+    by = c("group", "name")
+  )
+
+tinyplot::tinyplot(share ~ name, data = by_name,
+                   type = "p", flip = TRUE)
+```
+:::
+
+::: {.small}
+A **formula** says what goes where, the column before `~` on the vertical axis, and a **type** says what to draw. `flip = TRUE` turns the chart on its side.
+:::
+:::
+::: {.column width="45%"}
+```{r}
+#| label: r-out-first-figure
+#| fig-width: 5
+#| fig-height: 4.6
+tinyplot::tinyplot(share ~ name, data = by_name, type = "p", flip = TRUE)
+```
+:::
+::::
+
+::: notes
+tinyplot draws every figure that you make yourself in the course, and it extends the graphics that come with R, so it needs no other package. The first step computes the six shares, one row for each name, in per cent. Then a plot is one call with two parts: a formula with the data, which says what goes on which axis, read share by name, as in a model formula, and a type, which says what to draw, here points. flip turns the chart on its side, so that the names run down the vertical axis. In Positron the figure appears in the Plots pane. The first draft answers the question but is hard to read: the names are written along the axis, so that only some of them fit, and they come in alphabetical order rather than by their share.
+:::
+
+## A readable figure {#a-readable-figure .smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fs-110}
+```r
+by_name_sorted <- by_name |>
+  datawizard::data_modify(
+    name  = reorder(name, share),
+    group = factor(group,
+      levels = c("white", "black", "hispanic"),
+      labels = c("white", "Black", "Hispanic"))
+  )
+
+tinyplot::tinyplot(
+  share ~ name | group, data = by_name_sorted,
+  type = "barplot", flip = TRUE, fill = "by",
+  palette = c("grey60", "#4a78ab", "#8b1538"),
+  legend = list(title = "Names meant to indicate"),
+  xlab = NA, ylab = "Greeted by name (%)",
+  theme = "minimal"
+)
+```
+:::
+:::
+::: {.column width="50%"}
+```{r}
+#| label: r-out-readable-figure
+#| fig-width: 6.4
+#| fig-height: 5
+tinyplot::tinyplot(
+  share ~ name | group, data = by_name_sorted,
+  type = "barplot", flip = TRUE, fill = "by",
+  palette = c("grey60", "#4a78ab", "#8b1538"),
+  legend = list(title = "Names meant to indicate"),
+  xlab = NA, ylab = "Greeted by name (%)",
+  theme = "minimal"
+)
+```
+:::
+::::
+
+::: notes
+Three changes make the figure readable. The vertical bar in the formula, share by name given group, colours each bar by a third column and adds a legend that explains the colours. The barplot type draws one bar for each row, as long as its value. And the names are sorted by their share rather than alphabetically, which reorder does to the data before the plot. The group becomes a factor first, a column of categories with a fixed order and a label for display, because the palette gives one colour to each level of the factor, in its order. theme minimal sets the look of everything that carries no data. Santiago, at the bottom, drew the fewest greetings by name of the six names, `r sprintf("%.1f", fewest$share[1])` per cent of the replies to emails that carried that name.
+:::
+
+## Error messages {#error-messages .smaller}
+
+::: {.fs-80}
+| R says | What it usually means |
+|---|---|
+| `object 'audit' not found` | The line that makes the object has not run in this session: run the script from the top |
+| `could not find function "data_filter"` | The function was written without its package: write `datawizard::data_filter()` |
+| `there is no package called 'tinytable'` | The package is not installed on this machine: `pak::pak("tinytable")` |
+| `'data/housing_audit.csv' does not exist in current working directory` | R works in another folder: open the folder of the workspace |
+| `+` in the console, and nothing happens | An unclosed bracket or quote: press Esc and look for it |
+:::
+
+::: {.fragment .small}
+Read the first error first, since the later ones often follow from it. R error messages are terse, and most of them name the thing that R could not find.
+:::
+
+::: notes
+These five messages will be most of what you meet in the course. Object not found means that the line which makes the object has not run in this session, so go back up and run the script from the top. Could not find function means that the function was written without its package, or that the package is missing. No package called means that the package was never installed on this machine. File does not exist in the current working directory means that R is working in another folder, usually because a single file was opened rather than the folder of the workspace. And a plus sign in the console with nothing happening means that R is waiting for the end of a statement: an unclosed bracket or quote. Press Escape and look for it. [advance] The habit that I would most like you to keep is to read the error, starting with the first one.
+:::

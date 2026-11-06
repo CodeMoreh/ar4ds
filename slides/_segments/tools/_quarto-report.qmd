@@ -1,0 +1,86 @@
+## The report of the workspace {#the-report-of-the-workspace .smaller}
+
+::: {.small}
+- `index.qmd` is the report: the five tasks of the exercise of the case and the preregistration block, with the reasoning written around the code and each result printed beside the sentences that discuss it
+- `working_script.R` holds the same analysis as a plain script, which is quicker to experiment with
+- A render writes the report to `_site/index.html`, because the workspace is a Quarto project whose output goes to `_site`
+:::
+
+::: {.fragment .small}
+Never edit the rendered output. Every render writes it afresh from the source, and the `.qmd` is the file that you keep, version and share.
+:::
+
+::: notes
+Your workspace holds the same analysis twice. The working script takes the tasks as a plain R script that you step through in the console, as we did in the last session. index dot qmd is the same work as a report, with the reasoning written around the code and the results printed beside the sentences that discuss them. The script is quicker to experiment with. The report is the thing that you can hand to somebody, and its results cannot go stale, because they are computed again from the data every time that the file is rendered. The workspace is a Quarto project whose output goes to a folder called underscore site, so the report becomes underscore site slash index dot html. [advance] That file is disposable, since every render writes it afresh, so never edit it: the source is what you keep.
+:::
+
+## Chunks in the console {#chunks-in-the-console .smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.fs-110}
+```{{r}}
+#| label: count-emails
+# How many emails, and what came back?
+audit |>
+  datawizard::data_summary(emails    = n(),
+                           bounced   = sum(is.na(reply)),
+                           delivered = sum(!is.na(reply)),
+                           replies   = sum(reply %in% 1),
+                           coded     = sum(!is.na(named)))
+```
+:::
+
+```{r}
+#| label: q-out-counts
+audit |>
+  datawizard::data_summary(emails    = n(),
+                           bounced   = sum(is.na(reply)),
+                           delivered = sum(!is.na(reply)),
+                           replies   = sum(reply %in% 1),
+                           coded     = sum(!is.na(named))) |>
+  print()
+```
+:::
+::: {.column width="40%"}
+::: {.small}
+- **Run Cell**, **Run Next Cell** and **Run Above** stand over every chunk
+- Ctrl+Shift+Enter runs the chunk under the cursor, and Ctrl+Enter one statement inside it
+- The objects in the console exist only in your session: a render starts a fresh R process and never uses them
+:::
+:::
+::::
+
+::: notes
+While you write a report, you rarely render it after every change. You run its chunks one at a time instead, in the console, where each result appears at once and the objects that a chunk makes stay in the session for the next chunk. Over every chunk stand three links: Run Cell, Run Next Cell, and Run Above, which runs every chunk above, the quick way back to the state of the report at a given point after a restart. Control, Shift and Enter runs the chunk under the cursor, and Control and Enter a single statement inside it, as in a script. This is the first chunk of Task 2, and it prints the counts that you met in the last two sessions. But the objects in the console exist only in your session. A render starts a fresh R process, runs every chunk from the top and discards the process at the end.
+:::
+
+## The preview {#the-preview .smaller}
+
+::: {.small}
+- **Preview** (Ctrl+Shift+K) renders the report and shows it in the Viewer, beside the source
+- A terminal called Quarto Preview lists the chunks as they run, and ends with `Output created: _site\index.html` and `Watching files for changes`
+- Saving alone leaves the preview as it was: press Ctrl+Shift+K again, or tick **Render on Save**
+- RStudio: the **Render** button. VS Code: **Quarto: Preview**, with Quarto installed
+:::
+
+::: notes
+Two commands turn the report into a document. Preview, the button at the top of the editor or Control, Shift and K, renders the report and shows the result in the Viewer on the right of the window, where you can read it beside the source. Positron opens a terminal called Quarto Preview under the editor and runs Quarto there, and the terminal lists the chunks as knitr runs them, which takes a little while, because the report fits several models. It ends with the name of the file that it wrote and the line Watching files for changes. When you change the report, saving alone leaves the preview as it was, so press Control, Shift and K again, or tick Render on Save, which renders the report every time that you save. In RStudio the same button is called Render.
+:::
+
+## Hands-on 1 – Chunks and a preview {#hands-on-1-chunks-and-a-preview .smaller}
+
+::: {.small}
+1. Open `index.qmd`, click into the setup chunk at the top, and press Ctrl+Shift+Enter
+2. Run the chunks of Task 2 one at a time, from `count-emails` to `fig-names`, with Run Cell or Shift+Enter
+3. Read the figure: which name received the fewest greetings by name? Note it in the report as a comment, as its TODO asks
+4. Preview the report with Ctrl+Shift+K, and find the box of Task 2 in the Viewer
+:::
+
+::: {.fragment .small}
+`r as.character(fewest$name[1])`, with `r sprintf("%.1f", fewest$share[1])`% of the replies to emails signed with that name greeting the sender by name.
+:::
+
+::: notes
+Your turn. Open the report, click into the setup chunk at the top and run it with Control, Shift and Enter: it reads the housing-audit data and loads the helpers, and the Variables pane lists what it made. Then run the chunks of Task 2, one at a time, from the counts to the figure of the six names, which appears in the Plots pane. The figure answers the question of the TODO in Task 2, which name received the fewest greetings by name, and the answer goes into the report as a comment in the chunk. Then preview the whole report and find the box of Task 2, where the same counts and the same figure now stand in the document. If you work in RStudio, the green arrow on each chunk runs it, and Render previews the report. Take the time you need.
+:::

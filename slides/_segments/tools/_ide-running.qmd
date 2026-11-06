@@ -1,0 +1,139 @@
+# Running code {#running-code .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 2
+:::
+
+::: notes
+Section two is about running code, which is most of what you do in an IDE. A script can run as a whole, a statement at a time, or in part, and we take each of the three on the files of the workspace. Then we look at the console, where the code runs, and at the Variables pane, which shows what the session holds once it has run. The task at the end finishes with a restart of R, which is the quickest test of whether a script recreates everything that it uses.
+:::
+
+## A script as a whole {#a-script-as-a-whole .smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.small}
+- The run button at the top left of the editor runs **Source R File with Echo** (Ctrl+Shift+Enter), which prints each line before its result
+- The small arrow beside it offers **Source R File**, which runs the file with `source()` and prints the results only
+- On `R/check_setup.R`, Source R File prints an `[OK]` line for each check, the verdict 11 OK and 0 FAIL, and "You are ready"
+:::
+:::
+::: {.column width="45%"}
+![](../tools/images/ide/10-run-menu.png){fig-alt="The run menu of an R script, offering Source R File with Echo with the shortcut Ctrl+Shift+Enter, Source R File, and Execute Code with the shortcut Ctrl+Enter." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::::
+
+::: notes
+The whole file runs from the run button at the top left of the editor. The button itself runs Source R File with Echo, which prints every line of code in the console before its result, and the small arrow beside it opens a menu that also offers Source R File, which runs the file with source and prints the results only. The second suits the check script, whose code you do not need to read in the console, and it does the same as typing source R slash check setup dot R there. The check prints an OK line for each thing that the course needs, and its last check fits the reference specification of the housing-audit case, which must come out at minus nineteen point nine seven percentage points. The check script of every workspace works in the same way.
+:::
+
+## A statement at a time {#a-statement-at-a-time .smaller}
+
+::: {.small}
+Lines 38 to 43 of `working_script.R`, run with one press of **Ctrl+Enter** with the cursor anywhere in them:
+:::
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_summary(emails    = n(),
+                           bounced   = sum(is.na(reply)),
+                           delivered = sum(!is.na(reply)),
+                           replies   = sum(reply %in% 1),
+                           coded     = sum(!is.na(named)))
+```
+:::
+
+```{r}
+#| label: ide-out-counts
+audit |>
+  datawizard::data_summary(emails    = n(),
+                           bounced   = sum(is.na(reply)),
+                           delivered = sum(!is.na(reply)),
+                           replies   = sum(reply %in% 1),
+                           coded     = sum(!is.na(named))) |>
+  print()
+```
+
+::: {.fragment .small}
+Ctrl+Enter sends the **statement** under the cursor, however many lines it runs over, and moves the cursor on to the next statement, so that pressing it again and again steps through the script.
+:::
+
+::: notes
+Ctrl and Enter is the key that you will press most often. With the cursor in a script, it sends the statement under the cursor to the console and moves the cursor down to the next statement. Click at the start of line thirty and press it: R reads the data into audit, and the cursor moves to line thirty-one. Press it again and R loads the helpers of the exercise, and the cursor jumps over the comments to line thirty-eight. Press it once more and the whole statement of lines thirty-eight to forty-three runs, because a statement is a complete piece of R code and may run over several lines. The console prints the counts: a thousand and fourteen emails, twenty-three bounced, nine hundred and ninety-one delivered, five hundred and sixty-three replies, and five hundred and fifty-eight replies with a greeting code. [advance] Pressing the key again and again therefore steps through the script in order.
+:::
+
+## Part of a statement {#part-of-a-statement .smaller}
+
+::: {.small}
+Select from `audit` on line 47 to the closing bracket of `data_filter()` on line 48, without the `|>` after it, and press **Ctrl+Enter**:
+:::
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_filter(!is.na(reply))
+```
+:::
+
+::: {.fs-90}
+```{r}
+#| label: ide-out-selection
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  print()
+```
+:::
+
+::: notes
+With a selection, Control and Enter sends exactly the text that you selected, which lets you run one part of a statement, such as the first steps of a pipe, to look at the data at that point. Select from audit at the start of line forty-seven to the closing bracket of data filter on line forty-eight, leaving out the pipe that follows it, and press the key. The console prints the nine hundred and ninety-one delivered emails as a tibble, the kind of data frame that readr creates, with its first ten rows and a note of how many more rows and columns there are. This is how you take apart a long chain that gives a surprising result: run it a step at a time, and look at what each step hands to the next.
+:::
+
+## The console {#the-console .smaller}
+
+![](../tools/images/ide/15-console.png){fig-alt="The console of Positron. Its header bar shows the path of the workspace folder and buttons to restart R, clear the console and show information. nrow(audit) prints 1014, names(audit) prints the sixteen column names, and getwd() prints the path of the folder replication-lab-housing-main." width="92%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+
+::: {.small}
+- `>` means that R is waiting, `+` that a statement is not finished. The Up arrow brings back earlier commands, and Ctrl+L clears the screen and keeps every object
+- The circular arrow in the bar restarts R (Ctrl+Shift+0), and every object goes with the old session. Positron does not save the objects of a session for the next time
+:::
+
+::: notes
+The console shows a greater-than sign when R is waiting for you and a plus sign at the start of each further line of a statement that runs over several lines. You can type into it directly, and the Up arrow brings back the commands that you ran before, so that a line can be run again or changed without being retyped. Control and L clears what the console shows and leaves every object in place. The bar at the top shows the working directory of the session, which should be the folder of the workspace, as getwd confirms here. The circular arrow restarts R, which ends the session, and every object goes with it. Positron does not save the objects of a session when it closes, and that suits the course: a result is reproducible only when the script recreates every object that it uses.
+:::
+
+## The Variables pane {#the-variables-pane .smaller}
+
+:::: {.columns}
+::: {.column width="48%"}
+::: {.small}
+- The objects of the session, in three groups: **DATA**, **VALUES** and **FUNCTIONS**
+- A data frame unfolds into its columns, each with a preview, its type and its length
+- The grid icon beside a data frame opens it in the Data Explorer
+:::
+:::
+::: {.column width="52%"}
+![](../tools/images/ide/16-variables-pane.png){fig-alt="The Variables pane, with audit described as 1014 rows by 16 columns and unfolded into its columns, from email_id to waitlist, each with a preview of its values, its type and its length." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::::
+
+::: notes
+The Variables pane, in the Session tab on the right, lists the objects of the session in three groups, data frames under data, other values under values, and functions under functions. Each line gives the name of an object and a short preview of what it holds, and a data frame unfolds into its columns, each with its type and its length, so that the sixteen columns of audit appear with numbers marked dbl, text marked str, and every column a thousand and fourteen long. The Filter box at the top narrows the list, which helps once the helpers of the workspace have added their functions to it. And the small grid icon beside each data frame opens it in the Data Explorer, which the next section takes up. In RStudio the same list is the Environment pane.
+:::
+
+## Hands-on 2 – Running the workspace {#hands-on-2-running-the-workspace .smaller}
+
+::: {.small}
+1. Open `R/check_setup.R` and run it with **Source R File**, from the arrow beside the run button
+2. In `working_script.R`, click at the start of line 30 and press Ctrl+Enter three times: the data, the helpers, then the counts
+3. Select the first part of the pipe on lines 47 and 48, and press Ctrl+Enter
+4. Restart R with Ctrl+Shift+0, watch the Variables pane empty, and run line 30 again
+:::
+
+::: {.fragment .small}
+The counts: `r fmt_n(n_emails)` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies and `r n_coded` replies with a greeting code.
+:::
+
+::: notes
+Your turn, and this time all three ways of running code. Run the check script as a whole with Source R File, and read its OK lines. Then step through the beginning of the working script with Control and Enter: the data, the helpers, the counts. Select the first part of the pipe that follows and run only that. And then restart R, with Control, Shift and zero or the circular arrow, and watch the Variables pane empty, because that is what a fresh session looks like and what a render of the report starts from. Run line thirty again to bring the data back. In RStudio and VS Code, Control and Enter does the same from the editor. Take the time you need. [advance] Check your counts against these.
+:::

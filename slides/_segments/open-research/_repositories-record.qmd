@@ -1,0 +1,65 @@
+# The public record {#the-public-record .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 4
+:::
+
+::: notes
+Section four puts the morning together. SCORE kept everything that it did with each paper in one public tree of projects on the OSF, and Multi100 left its records in the same trees and in a public dataset of its own. Reading such a record is a skill in itself, and you practise it on the record of the case of your course. We end on the route by which you would deposit a reanalysis of your own, so that it leaves a record of the same kind.
+:::
+
+## The SCORE dossiers {#the-score-dossiers .smaller}
+
+::: {.fs-80}
+| Case | SCORE project on the OSF | What it holds |
+|:----|:-------|:---------------|
+| Housing audit | [osf.io/3a8bg](https://osf.io/3a8bg/) | the original materials, a power analysis, a reproduction template never filled in, the replication with its preregistration and report, and Multi100 with one component for each analyst |
+| Immigration and trust | [osf.io/3ajr9](https://osf.io/3ajr9/) | the original materials, a power analysis, two reproductions from source data, two replications on later rounds of the survey, and Multi100 |
+| Cohabitation | [osf.io/kv38j](https://osf.io/kv38j/) | the original materials, a power analysis, the replication and Multi100, with no reproduction |
+| EU frames | [osf.io/h7432](https://osf.io/h7432/) | the original materials and the code of the original author (OA), a power analysis, a push-button and a source-data reproduction, Multi100 and the replication |
+:::
+
+::: {.fragment .small}
+The processed results of every Multi100 reanalysis are public as well: github.com/marton-balazs-kovacs/multi100, mirrored at osf.io/q5h2c.
+:::
+
+::: {.src}
+The facts file of each case; the modules Reproducibility repositories of the housing and EU sites.
+:::
+
+::: notes
+Each paper that SCORE selected has a project on the OSF, named by a code built from the first author, the journal, the year and a short identifier, with one component for each kind of work done on the paper. These are the four projects of the course, and they are not alike. The housing-audit project holds a reproduction that was planned and never carried out, the immigration-and-trust project two reproductions and two replications, the cohabitation project no reproduction at all, and the EU-frames project two failed reproductions beside its replication. [advance] And the processed results of every Multi100 reanalysis, the answers to both tasks with the effect sizes converted to the common scale, are public in a repository of their own.
+:::
+
+## Reading a dossier {#reading-a-dossier .questionslide}
+
+::: {.none .nonincremental}
+Open the SCORE project of the case of your course. No account is needed.
+
+- Which components does it hold, and which of the three Rs does each one test?
+- Open the Multi100 component and one analyst inside it: what did the analyst leave behind?
+- Find the replication: does it have a preregistration, and is the plan dated before the report?
+:::
+
+::: notes
+Now you read a record yourselves. Open the SCORE project of the case of your course, from the addresses on the last slide; everything there is public, and you need no account. Work through the three questions in order. First the map: which components are there, and which of the three Rs each one tests. Then one analyst of Multi100: did the analyst leave code, data, a report, or all three? Then the replication: look for its preregistration and its report, and compare their dates. Take the time you need. When we compare what you found, notice how the records differ, because the differences tell you how far each kind of check could go in your case. [wait]
+:::
+
+## Depositing a reanalysis of your own {#depositing-a-reanalysis}
+
+::: {.small .fs-85}
+1. **The code goes on a forge**, with a licence file and a README that says what the repository is
+2. **Each version that you cite is archived** by a release on Zenodo, which gives it a DOI
+3. **The data go where their licence allows.** Public-domain data travel with the code, and data that may not be passed on stay on your machine, with a README that says how to obtain them
+4. **The plan goes on OSF Registries** before the analysis runs, with the DOIs of the code and data in its Resources fields
+5. **The rendered report is part of the release**, so that the numbers shown are those that the code produced
+6. **The data are cited** with their version and the date of download
+:::
+
+::: {.src}
+The modules Reproducibility repositories of the case sites, last section.
+:::
+
+::: notes
+Put together, the session gives a route for depositing a reanalysis like the one that you build in this course, and it works after the change at the OSF as well as before it. The code goes on a forge, with a licence and a README. Each version that you want to cite is archived on Zenodo, which gives it a DOI. The data go where their licence allows: the housing-audit file can travel with the code, while the Eurobarometer files never leave your machine. The plan is registered before the analysis runs, with links to the archived code and data. The rendered report goes into the release, and the data are cited with their versions. The module on Git and GitHub on this site takes you through the first two steps.
+:::

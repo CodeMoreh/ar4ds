@@ -1,0 +1,123 @@
+```{r}
+#| label: setup-tools
+#| include: false
+# The setup of the three decks on the tools (r.qmd, ide.qmd, quarto.qmd),
+# after the shared and the day-1 setup chunks. A slide shows the code of a step
+# as a static block, as the class types it in the workspace of the
+# housing-audit case, and prints what that step gives from the copy of the
+# course file kept with the modules on the tools (byte-identical to the file
+# of the housing site), read as the workspace reads it. Printouts are narrowed
+# to the width of a slide and set without the ## of knitr, as the console
+# prints them.
+options(width = 64)
+knitr::opts_chunk$set(comment = "")
+audit <- readr::read_csv("../tools/data/housing_audit.csv", show_col_types = FALSE)
+
+# The counts from which every analysis of the case starts
+n_emails    <- nrow(audit)
+n_bounced   <- sum(is.na(audit$reply))
+n_delivered <- sum(!is.na(audit$reply))
+n_replies   <- sum(audit$reply %in% 1)
+n_coded     <- sum(!is.na(audit$named))
+n_uncoded   <- n_replies - n_coded
+
+# The slides type some numbers by hand, as the modules do: the emails and the
+# bounces, and the delivered emails and replies of the white, the Black and
+# the Hispanic names. The render stops if the file gives other numbers.
+typed_counts <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(delivered = n(), replies = sum(reply), by = "group") |>
+  datawizard::data_arrange("delivered")
+stopifnot(
+  n_emails == 1014, n_bounced == 23,
+  typed_counts$group == c("white", "black", "hispanic"),
+  typed_counts$delivered == c(308, 326, 357),
+  typed_counts$replies == c(177, 198, 188)
+)
+
+# Replies by the address of the authority (hard_email 1 = taken from the list
+# kept by HUD)
+by_address <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(delivered = n(), replies = sum(reply), by = "hard_email")
+hard <- datawizard::data_filter(by_address, hard_email == 1)
+easy <- datawizard::data_filter(by_address, hard_email == 0)
+
+# Reply rates by name, the lowest first
+reply_name <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(delivered = n(), replies = sum(reply), rate = mean(reply), by = "name") |>
+  datawizard::data_arrange("rate")
+
+# Greetings by name: among the coded replies to white and Hispanic names,
+# among every delivered email to those names (no reply counted as no
+# greeting), and among the coded replies to Black and white names
+shares <- audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "hispanic")) |>
+  datawizard::data_summary(replies = n(), greeted = sum(named), share = mean(named), by = "group")
+shares_all <- audit |>
+  datawizard::data_filter(!is.na(reply), group %in% c("white", "hispanic")) |>
+  datawizard::data_modify(greeted = dplyr::if_else(reply == 1, named, 0)) |>
+  datawizard::data_filter(!is.na(greeted)) |>
+  datawizard::data_summary(emails = n(), share = mean(greeted), by = "group")
+shares_bw <- audit |>
+  datawizard::data_filter(!is.na(named), group %in% c("white", "black")) |>
+  datawizard::data_summary(share = mean(named), by = "group")
+gap_hw  <- 100 * (shares$share[shares$group == "hispanic"] - shares$share[shares$group == "white"])
+gap_all <- 100 * (shares_all$share[shares_all$group == "hispanic"] - shares_all$share[shares_all$group == "white"])
+gap_bw  <- 100 * (shares_bw$share[shares_bw$group == "black"] - shares_bw$share[shares_bw$group == "white"])
+
+# The table of the groups and the shares of the six names, as the module on R
+# builds them
+by_group <- audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered = n(),
+    replies   = sum(reply),
+    coded     = sum(!is.na(named)),
+    greeted   = sum(named, na.rm = TRUE),
+    by = "group"
+  ) |>
+  datawizard::data_modify(
+    reply_pct   = 100 * replies / delivered,
+    greeted_pct = 100 * greeted / coded
+  ) |>
+  datawizard::data_arrange("-greeted_pct")
+report_table <- by_group |>
+  datawizard::data_modify(
+    group       = c(white = "White", black = "Black", hispanic = "Hispanic")[group],
+    reply_pct   = round(reply_pct, 1),
+    greeted_pct = round(greeted_pct, 1)
+  ) |>
+  datawizard::data_select(select = c(
+    Names                 = "group",
+    Delivered             = "delivered",
+    Replies               = "replies",
+    `Replied (%)`         = "reply_pct",
+    `Greeted by name (%)` = "greeted_pct"
+  ))
+by_name <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(share = 100 * mean(named), replies = n(), by = c("group", "name"))
+by_name_sorted <- by_name |>
+  datawizard::data_modify(
+    name  = reorder(name, share),
+    group = factor(group, levels = c("white", "black", "hispanic"),
+                   labels = c("white", "Black", "Hispanic"))
+  )
+fewest <- datawizard::data_arrange(by_name, "share")
+
+# The emails signed Santiago, which the Data Explorer filters in the
+# Positron deck
+santiago <- datawizard::data_filter(audit, name == "Santiago")
+
+# The statistic of 8PTRZ, which the Quarto deck computes inline: the 2 x 2
+# table of the Hispanic names against all other names among the coded
+# replies, from the course file, which gives the same table as the public file
+# of the original authors
+coded_replies <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_modify(hispanic_name = group == "hispanic")
+tab_8ptrz <- xtabs(~ hispanic_name + named, data = coded_replies)  # r-style: keep – the table that chisq.test() takes
+chi_8ptrz <- unname(chisq.test(tab_8ptrz)$statistic)
+```

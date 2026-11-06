@@ -1,0 +1,16 @@
+## Plain-text file formats {#plain-text-is-the-format-that-survives}
+
+::: {.toolgrid style="--cols: 4"}
+<div class="tool"><img src="pics/tools/terminal.png" alt="R script"><span class="name">.R</span><span class="what">Code only, with prose in comments.</span></div>
+<div class="tool"><img src="pics/tools/markdown.png" alt="Markdown"><span class="name">.md</span><span class="what">Prose only: headings, lists, links, and no code.</span></div>
+<div class="tool"><img src="pics/tools/rmarkdown.png" alt="R Markdown"><span class="name">.Rmd</span><span class="what">Prose and R, rendered together. R only.</span></div>
+<div class="tool ours"><img src="pics/tools/quarto.png" alt="Quarto"><span class="name">.qmd</span><span class="what">Prose and R, Python or Julia. The format of the course.</span></div>
+:::
+
+::: {.fragment .small .fs-80}
+Every one of these is a **plain text file**. You can open it in anything, compare two versions of it line by line, email it, and read it in twenty years. A `.docx` with pasted output is not plain text, and nothing in it records which numbers came from which code.
+:::
+
+::: notes
+Four file types, in increasing order of what they hold. A dot R file is code with comments. A Markdown file is prose with no code. An R Markdown file is prose and R together, rendered into one document. And a Quarto file is the same idea, except that the code can be R or Python or Julia. What they have in common is that every one of them is a plain text file. You can open it in any editor, see exactly what changed between two versions, email it, and still read it in twenty years. Compare that with a Word document holding numbers that you pasted in from somewhere. It looks the same on the page, but nothing in it records which number came from which line of code, which is how the old value of a number that you have since recomputed can still be sitting in the paper.
+:::

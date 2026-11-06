@@ -1,0 +1,9 @@
+# The three Rs {#the-three-rs .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 2
+:::
+
+::: notes
+Section two. Twenty-nine teams that disagree about one dataset show that something went wrong, and this section asks what kind of thing. For that we need the vocabulary that the debate lacked for a decade: three operations that all went under the word 'replication', laid out as a grid of data against analysis. We then read the short glossary behind the grid, which keeps credibility apart from truth, and try the grid on one paper that goes out to three reviewers, each of whom checks something different.
+:::

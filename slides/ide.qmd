@@ -1,0 +1,25 @@
+---
+title: "Positron"
+subtitle: "Extended course – day 1"
+format: revealjs
+# Session 5 of day 1 of the Extended course, the same for every case: the IDE
+# taught live in the workspace of the housing-audit case, with Positron on the
+# shared screen and RStudio and VS Code users following in their own IDE.
+# Four sections: the folder and the window, running code, data, plots and
+# help, the terminal and other IDEs. The screenshots come from the module
+# tools/ide.qmd. One optional slide stays on the d toggle (run "ide"): the
+# Command Palette.
+core-runs: []
+---
+
+{{< include _segments/shared/_setup.qmd >}}
+{{< include _segments/day-1/_setup.qmd >}}
+{{< include _segments/tools/_setup.qmd >}}
+{{< include _segments/tools/_ide-opening.qmd >}}
+{{< include _segments/tools/_tools-editors.qmd >}}
+{{< include _segments/tools/_ide-window.qmd >}}
+{{< include _segments/tools/_ide-running.qmd >}}
+{{< include _segments/tools/_ide-data.qmd >}}
+{{< include _segments/tools/_ide-terminal.qmd >}}
+{{< include _segments/tools/_ide-close.qmd >}}
+{{< include _segments/day-1/_references.qmd >}}

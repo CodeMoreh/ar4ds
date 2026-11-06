@@ -1,0 +1,15 @@
+## The next session and the reading {#next-session}
+
+::: {.small .nonincremental}
+- **The next session** takes up SCORE and Multi100: the programme that put published claims through all three Rs, the many-analysts study inside it, and what the four cases of the course recorded
+- **The reading of this session** is the glossary on the Resources page of the site of your case, which sets out the four terms of repetition with the place of each in the case
+- The glossary follows the four-page paper by Nosek and colleagues, which is open at the address below [@NosekEtAl2025BriefGlossaryTerms]
+:::
+
+::: {.urlbox}
+[doi.org/10.31222/osf.io/mqfp4_v1](https://doi.org/10.31222/osf.io/mqfp4_v1)
+:::
+
+::: notes
+That is the vocabulary that the rest of the course uses: three kinds of repetition, kept apart, and the practices that make each kind possible for somebody other than the author. Whether published findings hold up when somebody does check them has now been measured on a large scale, and that is the next session. SCORE put hundreds of published findings through all three kinds of repetition, and Multi100, the many-analysts study inside it, is where the four cases of this course come from. The reading for this session is short: the glossary on the Resources page of the site of your case, which follows a four-page paper by Nosek and colleagues and says where each term turns up in your case.
+:::

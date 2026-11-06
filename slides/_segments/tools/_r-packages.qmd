@@ -1,0 +1,37 @@
+# Packages and the data {#packages-and-the-data .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 2
+:::
+
+::: notes
+Section two brings in the data. First the packages, the bundles of functions written by other people on which nearly all of the work depends, with the two steps of using one and the two error messages that go with those steps. Then we read the housing-audit file into R and look at it, first as a whole and then column by column, before any analysis touches it. The section ends with a task that counts the replies by the kind of address to which each email went.
+:::
+
+## Packages {#packages .smaller}
+
+::: {.fs-130}
+<!-- r-style: skip -->
+```r
+install.packages("pak")                      # once on a new machine
+pak::pak("readr")                            # step 1: install a package, once
+readr::read_csv("data/housing_audit.csv")    # step 2: call a function by its
+                                             #   package and its name
+```
+:::
+
+::: {.small}
+- **Install** a package once on each machine, with `pak::pak()`. The check script of the workspace prints the line that installs whatever its exercise needs and you lack
+- **Call** every function that does not come with R as `package::function()`, so that each line says where its functions come from
+:::
+
+::: {.fragment .small}
+| R says | It means |
+|---|---|
+| `there is no package called 'readr'` | Step 1 never happened on this machine: install the package |
+| `could not find function "read_csv"` | The function was called without its package, and no `library()` line attached the package |
+:::
+
+::: notes
+Everything that we typed so far comes with R itself, apart from tibble, which came from a package. Packages are bundles of functions with their documentation, published on CRAN, the archive of R packages, and using one takes two steps, a difference that trips nearly every newcomer at least once. Step one installs the package on your machine, once, and the course does it with pak, a package that installs other packages. The check script of your workspace prints the line that installs every package that its exercise needs and that you lack. Step two is the call itself, and the course writes every function that does not come with R as the name of its package, two colons and the name of the function, so that anyone reading a line can tell where it comes from. [advance] The two messages that you will meet most often come from these two steps.
+:::

@@ -1,0 +1,26 @@
+---
+title: "Quarto"
+subtitle: "Extended course – day 1"
+format: revealjs
+# Session 6 of day 1 of the Extended course, the same for every case: the
+# report of the workspace of the housing-audit case taken apart. Four
+# sections: source and output, the header and the chunks, numbers, figures
+# and references, a clean render. Chunks shown and not run are written with
+# doubled braces. Two optional slides stay on the d toggle (run "quarto"):
+# where options are set, and the project file of the workspace.
+core-runs: []
+---
+
+{{< include _segments/shared/_setup.qmd >}}
+{{< include _segments/day-1/_setup.qmd >}}
+{{< include _segments/tools/_setup.qmd >}}
+{{< include _segments/tools/_quarto-opening.qmd >}}
+{{< include _segments/tools/_tools-formats.qmd >}}
+{{< include _segments/tools/_quarto-qmd.qmd >}}
+{{< include _segments/tools/_tools-render.qmd >}}
+{{< include _segments/tools/_quarto-report.qmd >}}
+{{< include _segments/tools/_quarto-header.qmd >}}
+{{< include _segments/tools/_quarto-numbers.qmd >}}
+{{< include _segments/tools/_quarto-render.qmd >}}
+{{< include _segments/tools/_quarto-close.qmd >}}
+{{< include _segments/day-1/_references.qmd >}}

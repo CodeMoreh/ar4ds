@@ -1,0 +1,31 @@
+## {#overview .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.todaymeta}
+Session 2 of 6 on day 1, the same for every case
+:::
+
+:::: {.todaybox}
+::: {.nonincremental .fs-85}
+1. SCORE – the programme and its three studies, of reproducibility, robustness and replicability
+2. Multi100 – how it chose its claims, set its two tasks and put the results of its analysts on a common scale
+3. The four cases – the claims of the course, and what the record of the programme holds for each
+:::
+::::
+
+::: {.todaytake .fs-85}
+You leave able to say what SCORE and Multi100 found, and where the case of your course sits in their record
+:::
+
+::: notes
+The first session gave us three kinds of repetition. This one is about the programme that measured all three on one body of social-science research, and about the study inside it from which the cases of this course come. The first section takes the programme and its three studies in turn. The second goes inside Multi100: how it picked its claims, what its analysts were asked to do, and how it put their results on one scale. The third brings the four cases of the course into the picture, with the claim of each as the analysts received it and what the record of the programme holds for it. Your own case is one of the four, and the second day of the course works on it.
+:::
+
+# SCORE {#score .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 1
+:::
+
+::: notes
+Section one is SCORE. A single programme, with an unlikely sponsor, drew one sample of published papers and put the central claims of those papers through each of the three repetitions on the grid. Three large studies came out of it, published together in Nature in 2026, and we take them in the order of the grid: reproduction first, then robustness, then replication. Keep one question in mind as we go, because it closes the section: whether a paper that passes one of the three tests is any more likely to pass the others.
+:::

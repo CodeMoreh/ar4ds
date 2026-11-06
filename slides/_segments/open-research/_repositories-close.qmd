@@ -1,0 +1,14 @@
+## The next session and the reading {#next-session}
+
+::: {.small .nonincremental}
+- **The next session** opens the afternoon of the tools with R, taught live on the file of the housing-audit case: objects and data frames, packages, reading a file and looking at it, the pipe and the datawizard verbs, and a first table and figure. Its reading is the module Getting started with R on this site
+- **The reading of this session** is two modules of the companion of your case: Social science data sources, and Reproducibility repositories
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/tools/r.html](https://codemoreh.github.io/ar4ds/tools/r.html)]{.fs-80}
+:::
+
+::: notes
+That closes the morning. The reading for this session is two modules in the companion of your case: one on data sources, with the full map of the archives and the routes of your case step by step, and one on repositories, which treats the second half of this session at greater length. The afternoon turns to the tools, and it starts with R. Whatever the case of your course, we learn R on the file of the housing-audit case, because a file of about a thousand emails is small enough to look at whole. Have the module Getting started with R open, the one at the address on the screen, since it is the reading of the next session.
+:::

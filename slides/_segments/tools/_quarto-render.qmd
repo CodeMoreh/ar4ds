@@ -1,0 +1,124 @@
+# A clean render {#a-clean-render .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 4
+:::
+
+::: notes
+Section four is about the render itself. A render can fail, and the message that it prints says where and why, if you read it from the top. Then the habit that the whole day leads up to: a render from a clean session, which shows whether the report makes everything that it uses or leans on an object that only your console holds. We end with the steps that lead from a folder that renders to a public record, and with a last task.
+:::
+
+## A failed render {#a-failed-render .smaller}
+
+:::: {.columns}
+::: {.column width="65%"}
+![](../tools/images/quarto/positron-render-error.png){fig-alt="The Quarto Preview terminal after a failed render: the counters 1/49 to 4/49 [count-emails], then Error: 'data_sumary' is not an exported object from 'namespace:datawizard', then Quitting from index.qmd:80-89 [count-emails], Execution halted and WARN: Error encountered when rendering files." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::: {.column width="35%"}
+::: {.small .fs-90}
+1. **The error** repeats what R said: datawizard has no function `data_sumary`
+2. **`Quitting from`** names the file, the lines of the chunk and its label
+3. **The counter** `4/49 [count-emails]` shows how far knitr got
+4. Correct the chunk, run it in the console, and render again
+:::
+:::
+::::
+
+::: notes
+A render can fail for many reasons, but in the first weeks most failures come from three places: a chunk that stops with an error, a header that is not valid YAML, and an object that exists in the console but is made by no chunk. Whatever the cause, the render stops, the Viewer keeps the last version that rendered, and the terminal says what went wrong. This one comes from a render in which the name of a function in the chunk that counts the emails was misspelt. Read it in three steps. The error line repeats what R itself said. The line beginning Quitting from names the file, the lines that hold the failing chunk and its label, which takes you straight to it. And the counter above the error shows how far knitr had got. The last two lines only confirm that the render stopped.
+:::
+
+## A render from a clean session {#a-render-from-a-clean-session .smaller}
+
+:::: {.columns}
+::: {.column width="38%"}
+::: {.small .fs-90}
+1. Restart R (Ctrl+Shift+0), and watch the Variables pane empty
+2. Open a new terminal with **+** in the Terminal tab, and type `quarto render`
+3. Every chunk runs from the top, and the render ends with `Output created: _site\index.html`
+4. Preview again, and check that every number is the one that you had before
+:::
+
+::: {.fragment .small .fs-90}
+A render that fails at a chunk which ran in the console has found an object that only the console had. Move the line that makes it into a chunk.
+:::
+:::
+::: {.column width="62%"}
+![](../tools/images/quarto/task-clean-render.png){fig-alt="A terminal in Positron at the end of the command quarto render in the folder replication-lab-housing-main, with the last lines reading Output created: _site\\index.html." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::::
+
+::: notes
+The last step of every working session on a report is a render that starts from nothing, which shows whether the report makes everything that it uses. Quarto renders in a fresh R process of its own, whatever the state of your console, and the restart that comes first empties the console as well, so that the checks that you make afterwards start from the same blank state as the render. So restart R and watch the Variables pane empty. Then open a terminal and type quarto render: every chunk of the report runs from the top, and the render ends by naming the file that it wrote. Preview the report once more and check the numbers. [advance] If the render fails at a chunk that ran happily in the console, that chunk uses an object made by a line that you typed outside the chunks. Find the line and move it into the chunk where it belongs.
+:::
+
+## The project {#the-project .smaller .deepdive run="quarto"}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fs-110}
+```yaml
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+
+execute:
+  freeze: auto
+
+format:
+  html:
+    toc: true
+    theme: cosmo
+    code-fold: false
+    code-tools: true
+```
+:::
+:::
+::: {.column width="50%"}
+::: {.small}
+- `_quarto.yml` makes the folder a **project**, here without its comments and its title
+- `output-dir` sends the report to `_site`, and `render` limits the project to the report
+- `freeze: auto` runs a document again, in a render of the whole project, only when its source has changed, and keeps the results in `_freeze/`
+:::
+:::
+::::
+
+::: notes
+Put a file called underscore quarto dot yml beside a document and the folder becomes a project: a set of documents that share settings, render together and can be published as one thing. This is the configuration of the workspace, without its comments and its title. output dir sends the rendered site to the folder underscore site, which is why the report becomes underscore site slash index dot html, and render limits the project to the report, so that the Markdown codebooks in the data folder stay as they are. freeze auto tells Quarto, when it renders the whole project, to run a document again only when its source file has changed, and to keep the results in a folder called underscore freeze. A render of a single file always runs its code, whatever the setting says. The format block sets the defaults of every page at once.
+:::
+
+## From the folder to the record {#from-the-folder-to-the-record .smaller}
+
+::: {.small}
+- **Render.** The rendered report carries the date of its run, from `date: today` in its header
+- **Version control.** The folder becomes a git repository, and every commit is a dated snapshot with a reason attached
+- **Publish.** Pushed to GitHub, the workspace renders the report and publishes it as a web page, through the workflow that it carries in `.github/`
+- **Archive.** A release deposited on Zenodo or the OSF gets a DOI and a version that does not change
+:::
+
+::: {.fragment .small}
+Today stops at the first step. The module Git and GitHub takes the next two on this same folder.
+:::
+
+::: notes
+Once the report renders, there are four steps between your folder and a public record, and today we take only the first. Rendering gives you a document that carries the date of its run. Version control turns the folder into a git repository, and every commit is then a dated snapshot of everything in it, with a sentence saying why it changed. Publishing pushes that repository to GitHub, and the workspace already carries a small workflow that renders the report there and publishes it as a web page every time that you push. And archiving deposits a release with Zenodo or the OSF, which gives it a DOI and a version that will not change, so that a paper can cite it, as the session on repositories set out this morning. [advance] The module Git and GitHub walks through the next two steps, click by click, on the folder that you have open now.
+:::
+
+## Hands-on 4 – A clean render {#hands-on-4-a-clean-render .smaller}
+
+::: {.small}
+1. Save the report with your edits of today
+2. Restart R with Ctrl+Shift+0, or with the circular arrow at the top of the console
+3. In a new terminal, type `quarto render` and wait for `Output created`
+4. Preview the report with Ctrl+Shift+K, and check the counts, the figure, your computed sentence and your reference to Figure 1
+:::
+
+::: {.fragment .small}
+RStudio: restart R, then **Render**. VS Code: restart the R terminal, then `quarto render` in a terminal of the folder.
+:::
+
+::: notes
+The last task of the day, and the one that I would most like you to make a habit. Save the report with all your edits of today, restart R, render the report from a terminal, and then preview it and check that everything is still there: the counts, the figure, the sentence whose number is now computed, and the reference to the figure. If the render fails, read the message from the top, as we did a few slides ago, and fix the chunk that it names. A report that renders from a clean session is a report that someone else can render on their own machine and get the same numbers, which is the first of the three Rs of this morning. [advance] In RStudio and VS Code the steps have the same shape. Take the time you need.
+:::

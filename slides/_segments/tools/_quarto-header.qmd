@@ -1,0 +1,165 @@
+# The header and the chunks {#the-header-and-the-chunks .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 2
+:::
+
+::: notes
+Section two reads the two parts of the report that tell Quarto what to do. The header at the top sets the title, the date and the format of the whole document, and it is written in YAML, which is fussy in a few ways that are worth learning before they bite. Then the chunks of code, and the options on their first lines that decide what a chunk shows: its code, its results, both or neither, and what happens when it fails. The task at the end changes an option and breaks the header on purpose.
+:::
+
+## The YAML header {#the-yaml-header .smaller}
+
+:::: {.columns}
+::: {.column width="66%"}
+::: {.fs-100}
+```{.yaml code-line-numbers="false"}
+---
+title: "Testing the robustness of a published claim: the housing-audit case"
+author: "Pair: [names]"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+    df-print: paged
+execute:
+  message: false
+  warning: false
+knitr:
+  opts_chunk:
+    fig-width: 8
+    fig-height: 5
+---
+```
+:::
+:::
+::: {.column width="34%"}
+::: {.small .fs-85}
+- `date: today` fills in the date of the render
+- `format:` decides what comes out: a web page with a table of contents, code shown open, and data frames as paged tables
+- `execute:` sets options for every chunk at once
+- `knitr:` passes options to knitr, here the size of every figure
+:::
+:::
+::::
+
+::: notes
+The header of the report uses most of the keys that ordinary work needs. Title and author print at the top of the document. date colon today is a keyword of Quarto that fills in the date at render time, so a report rendered next month carries the date of next month without anybody remembering to change it. Everything under format configures the web page: a table of contents built from the first two levels of headings, the code shown open, and data frames printed as small paged tables. The execute block sets options for every chunk at once, here hiding the start-up messages of packages and the warnings that would clutter a report meant for a reader. And the knitr block fixes the size of every figure unless a chunk asks for another. Adding pdf or docx under format would give those formats as well, from the same file.
+:::
+
+## The rules of YAML {#the-rules-of-yaml .smaller}
+
+:::: {.columns}
+::: {.column width="40%"}
+::: {.small}
+- Indent with spaces, never tabs: two for each level
+- `key: value`, with a space after the colon
+- A string that holds a colon goes in quotes, as the title does
+- `true` and `false` in lower case
+:::
+
+::: {.fragment .small}
+Without the space in `toc: true`, the render stops before any chunk runs. The caret sits under line 8, but the mistake is on line 7, so read the line above it as well.
+:::
+:::
+::: {.column width="60%"}
+![](../tools/images/quarto/task-yaml-error.png){fig-alt="The Quarto Preview terminal reporting ERROR: YAMLException: bad indentation of a mapping entry (8:14), with lines 5 to 10 of the header, toc:true on line 7, a caret under line 8, and the start of a stack trace." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::::
+
+::: notes
+YAML is fussy in a small number of ways, and a malformed header is probably the most common reason why a document that rendered yesterday will not render today. Indentation is by spaces, never tabs, and two spaces for each level is the convention. Every entry is a key, a colon, a space and a value. A string that contains a colon has to be quoted, which is why the title of the report sits inside quotation marks. And true and false are written in lower case. [advance] This is what a broken header looks like: the space after the colon in toc true was deleted, and the render stops before any chunk runs. YAML reads toc colon true as one plain word and notices that something is wrong only on the next line, which is why the caret points one line too low.
+:::
+
+## Chunks and their options {#chunks-and-their-options .smaller}
+
+::: {.fs-110}
+```{{r}}
+#| label: setup
+#| include: false
+audit <- readr::read_csv("data/housing_audit.csv", show_col_types = FALSE)
+source("R/spec_tools.R")
+```
+:::
+
+::: {.fs-65}
+| Option | What it does |
+|---|---|
+| `label` | Names the chunk; Quarto prints the label when the chunk fails |
+| `echo: false` | The code runs and its results appear; the code is hidden |
+| `output: false` | The code runs and is shown; its results are hidden |
+| `include: false` | The code runs; neither the code nor its results appear |
+| `eval: false` | The code is shown and not run |
+| `error: true` | An error is printed in the document instead of stopping the render |
+| `message: false`, `warning: false` | The messages and warnings of R are hidden |
+:::
+
+::: notes
+A chunk opens with three backticks and the name of the engine in braces, and its options follow as comment lines that begin with a hash and a vertical bar. The option lines are YAML again, so the same rules about colons and spaces apply. On the slide is the setup chunk of the report, without its comments, which reads the data and loads the helpers. Seven options cover almost everything that the report needs. The label names the chunk, and Quarto prints it when the chunk fails. echo, output and include are the three that are most easily confused: echo governs the code, output governs the results, and include turns both off while still running the chunk. The setup chunk of the report is marked include false, because it has to run first and no reader needs to see it. Of the seven, output is the only one that Quarto adds to the options of knitr.
+:::
+
+## Two options in the report {#two-options-in-the-report .smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fs-110}
+```{{r}}
+#| label: submit-exploration
+#| eval: false
+submit_exploration()
+```
+:::
+
+::: {.small}
+`eval: false`: the reader sees what to run, and rendering the report never sends a submission to the class chart.
+:::
+:::
+::: {.column width="50%"}
+::: {.fs-110}
+```{{r}}
+#| label: try-off-curve
+#| error: true
+try_spec(model = "three_group")
+```
+:::
+
+::: {.small}
+`error: true`: the helper refuses the option and gives its reason, the message is printed in the report, and the render carries on.
+:::
+:::
+::::
+
+::: notes
+Two chunks of the report show what the options are for. The first is the step that sends your exploratory result to the class chart on the second day. It is marked eval false, so the reader sees what to run, and rendering the report never sends a submission. The second does the opposite job. In Task 4 the report deliberately asks for an option of the menu that is not on the curve, so that you can read the reason why the helper refuses it. Without error true, the refusal would stop the render. With it, the message is printed in the report and the render carries on to the next chunk. In every other chunk an error should stop the render, because a report that carries on past a broken chunk prints results that nobody checked.
+:::
+
+## Where options are set {#where-options-are-set .smaller .deepdive run="quarto"}
+
+::: {.small}
+1. **On the chunk**, in its `#|` lines
+2. **In the header** of the document, under `execute:`
+3. **In `_metadata.yml`**, for every document of a folder
+4. **In `_quarto.yml`**, for the whole project
+:::
+
+::: {.fragment .small}
+The setting nearest to the chunk wins. The report hides messages and warnings in its header, the project file of the workspace sets `freeze: auto`, and the slides of this course share their theme and their bibliography through the `_metadata.yml` of their folder.
+:::
+
+::: notes
+The same options can be written at four levels: on a chunk, in the header of a document under execute, in a file called underscore metadata dot yml that governs every document of a folder, and in the configuration of the whole project. Where an option is set at more than one level, the setting nearest to the chunk wins, so an option on a chunk beats the header, which beats the file of the folder, which beats the configuration of the project. The report suppresses messages and warnings for the whole document in its header, and the project file of the workspace sets freeze auto for every document, which the last section comes back to. These slides are built the same way: the theme, the bibliography and the options shared by every deck are written once, in the metadata file of the folder that holds the decks.
+:::
+
+## Hands-on 2 – Options and the header {#hands-on-2-options-and-the-header .smaller}
+
+::: {.small}
+1. In the chunk `count-emails`, click at the end of `#| label: count-emails`, press Enter, and type `echo: false`. Save, and preview with Ctrl+Shift+K: the counts appear without their code
+2. Replace `echo: false` with `eval: false`, and preview again: the code is back and the counts are gone. Then delete the line
+3. In the header, delete the space in `toc: true`, save, and preview. Read the message, restore the space, and start the preview again
+:::
+
+::: notes
+Your turn, with two small edits and one deliberate mistake. In the chunk that counts the emails, add an option line under the label. Positron starts the new line with the hash and the bar for you, so type echo colon false, save and preview: in the Viewer, the box of Task 2 shows the table of counts with no code above it. Then change echo to eval and preview again, and the code comes back while the counts disappear, because the chunk no longer runs. Delete the line so that the chunk is as it was. Then break the header: delete the space after the colon in toc true, save and preview, and read the message from the top. A broken header also stops the preview itself, so restore the space and press Control, Shift and K to start it again. Take the time you need.
+:::

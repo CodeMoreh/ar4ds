@@ -1,0 +1,126 @@
+# The pipe and the verbs {#the-pipe-and-the-verbs .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 3
+:::
+
+::: notes
+Section three is about reshaping a table, which is most of the work after reading the data, and which almost always comes as a sequence of steps. The pipe lets you write those steps from top to bottom, in the order in which they happen. Then come the verbs of datawizard, one for each common operation on a table, all of which take a data frame and return one, so that they can be chained. By the end of the section you will have computed from the file the six numbers that we typed by hand in the first section.
+:::
+
+## The pipe {#the-pipe .smaller}
+
+::: {.fs-130}
+```r
+round(mean(audit$reply, na.rm = TRUE), 3)          # read from the inside out
+
+audit$reply |> mean(na.rm = TRUE) |> round(3)      # read from left to right
+```
+:::
+
+```{r}
+#| label: r-out-pipe
+round(mean(audit$reply, na.rm = TRUE), 3)
+audit$reply |> mean(na.rm = TRUE) |> round(3)
+```
+
+::: {.small}
+`|>` passes whatever stands on its left as the first argument of the function on its right, so a chain reads as a list of steps, each joined to the next by 'then'. The older pipe `%>%`, from the magrittr package, does the same in code written before 2021, when `|>` became part of R.
+:::
+
+::: notes
+The pipe makes a sequence of steps readable. The first line takes the mean of the reply column, leaving out the bounced emails, and rounds it to three decimals, with each function wrapped inside the next, so you read it from the inside out. The second line does the same from left to right: take the column, then take its mean, then round it. Both give point five six eight, the reply rate that the table of the last section gave as a percentage. On one short line the gain is small, but it grows with every step of the chains that follow, which is why nearly all modern R is written this way. You will meet the older pipe in code written by others: read the two in the same way, and write the native one, as all the materials of the course do.
+:::
+
+## Rows and columns {#rows-and-columns .smaller}
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_select(select = c("name", "group", "reply", "named")) |>
+  datawizard::data_modify(hispanic_name = group == "hispanic") |>
+  head()
+```
+:::
+
+```{r}
+#| label: r-out-verbs
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_select(select = c("name", "group", "reply", "named")) |>
+  datawizard::data_modify(hispanic_name = group == "hispanic") |>
+  head()
+```
+
+::: {.small}
+`data_filter()` keeps rows, `data_select()` keeps columns, `data_modify()` makes a column. The operators of a condition: `==` equals, `!=` does not equal, `%in%` is one of, `!` not, `&` and, and `is.na()` asks whether a value is missing.
+:::
+
+::: notes
+Three verbs from datawizard, chained with the pipe, which you read downwards as a sentence. Take the emails, then keep the rows that have a reply status, the delivered ones, then keep four columns, then make a new column that is true for the Hispanic names, then show the first six rows. data filter takes a condition, and the operators of a condition are worth learning together: two equals signs for equals, because one sign assigns, an exclamation mark for not, percent in percent for is one of, and is dot na for is missing. data select takes the names of the columns, in quotes. data modify makes a column from the columns that exist. Each verb takes a data frame and hands one back, which is what lets the verbs be chained, and the first row shows an email that drew no reply, so its greeting is missing.
+:::
+
+## Summaries by group {#summaries-by-group .smaller}
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered  = n(),
+    replies    = sum(reply),
+    reply_rate = mean(reply),
+    by = "group"
+  )
+```
+:::
+
+```{r}
+#| label: r-out-summary
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered  = n(),
+    replies    = sum(reply),
+    reply_rate = mean(reply),
+    by = "group"
+  ) |>
+  print()
+```
+
+::: {.small}
+`data_summary()` collapses many rows into one row of summaries, and with `by` into one row for each group; `n()` counts the rows of a group. These are the six numbers typed by hand in the first section.
+:::
+
+::: notes
+data summary is the verb that answers most of the questions that you will put to a dataset. It collapses many rows into one row of summaries, and with by, into one row for each group. Inside it, n counts the rows of a group, and sum and mean work as they did on a vector. Read the chain aloud: take the emails, keep the delivered ones, and for each group of names report three numbers. These are the six numbers that we typed by hand in the first section, now computed from the file, and the reply rates agree with the division that we did there. Two details are worth knowing. The groups come out in alphabetical order, and the rates print to two decimals while the table keeps every digit, so a number is rounded only when you round it, with round or in a formatted table.
+:::
+
+## Hands-on 3 – The reply rate by name {#hands-on-3-the-reply-rate-by-name .smaller}
+
+::: {.fs-130}
+```r
+audit |>
+  datawizard::data_filter(!is.na(reply)) |>
+  datawizard::data_summary(
+    delivered  = n(),
+    replies    = sum(reply),
+    reply_rate = mean(reply),
+    by = "______"
+  )
+```
+:::
+
+::: {.small}
+1. Fill the blank so that the chain summarises the delivered emails by the name that signed each, and find the name with the lowest reply rate
+2. Then put `"hard_email"` in the blank, and compare the two rates with your counts from Hands-on 2
+:::
+
+::: {.fragment .small}
+`r reply_name$name[1]` has the lowest reply rate, `r sprintf("%.2f", reply_name$rate[1])` of `r reply_name$delivered[1]` delivered emails. By address, the rate is `r sprintf("%.2f", easy$replies / easy$delivered)` for the addresses found on the websites and `r sprintf("%.2f", hard$replies / hard$delivered)` for those taken from the list kept by HUD.
+:::
+
+::: notes
+Your turn. Edit the chain that you typed, or copy it, and fill the blank so that it summarises the delivered emails by the name that signed each email rather than by the group of the name, then find the name with the lowest reply rate. Then put hard email in the blank, run the chain again, and compare the two rates with the counts that you added up by hand in the second task. That is a habit worth keeping: a number reached in two ways, by two different pieces of code, is a number that you can rely on. Take the time you need. [advance] Santiago has the lowest reply rate, just below Gabriela, the other Hispanic name, and the rates by address agree with the counts of the second task.
+:::

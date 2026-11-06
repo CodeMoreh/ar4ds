@@ -1,0 +1,44 @@
+# Open research {#open-research .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 3
+:::
+
+::: notes
+Section three, and the shortest. The vocabulary tells us what each kind of check is, and open research is about whether anybody can carry one out. A reproduction needs your data and your code, a robustness check needs your data, and running the study again needs your materials. We go through the practices one at a time, asking of each what it lets another person do with your work, and then you put them to a paper that you know well.
+:::
+
+## Open research: the practices {#open-research-the-practices .smaller}
+
+::: {.small}
+| Practice | What it makes possible |
+|---|---|
+| **Open data** | Someone else can re-analyse your evidence |
+| **Open code** | Someone else can rerun your exact analysis |
+| **Open materials** | Someone else can run your study again |
+| **Open access** | Someone else can read the claim in the first place |
+| **Preregistration** | A dated record of the analysis plan, filed in a registry before the results exist |
+| **Registered reports** | Peer review of the plan, with publication decided before results |
+:::
+
+::: {.fragment .small}
+Each one removes a specific obstacle, and none of them guards against every problem. The programme, set out at length: [@MunafoEtAl2017ManifestoReproducibleScience]
+:::
+
+::: notes
+Each of those reviewers needed something from you before they could start – your code, your data, your materials. Open research is a list of practices that supply those things and more, each of which removes a specific, identifiable obstacle. Open data means someone else can re-analyse your evidence rather than taking your word for it. Open code means they can rerun your exact analysis. Open materials means they can run the study again in a new sample. Open access means they can read the thing at all, which sounds trivial until you try to get a paper from outside a wealthy university. Preregistration produces a dated record of the analysis plan, filed in a registry before the results exist. And registered reports go further: the plan is peer-reviewed and the publication decision is made before anyone sees a result, which removes the incentive to find something. Each removes one obstacle, and none of them guards against every problem.
+:::
+
+## Discussion – a paper you know {#discussion-a-paper-you-know .questionslide}
+
+::: {.none .nonincremental}
+Take a published quantitative paper that you know well, one of your own or one from your reading.
+
+- Which of the six practices did it follow?
+- To reproduce its main result, what would you need first, and where would you get stuck?
+- Which of the three Rs could a reader test with what its authors made public?
+:::
+
+::: notes
+Now a short discussion, in pairs if you are together, or in small groups online. Take a quantitative paper that you know well, one of your own or one you have read closely, and put the six practices to it. Then the harder question. If you set out tomorrow to reproduce its main result, what would you need first, and where would you get stuck? If you get stuck on the first step, the data, you are in good company, because the next session shows that this is where most attempts at reproduction stopped when somebody measured it on six hundred papers. Take the time you need. Then I will ask two or three of you which of the three Rs a reader could test from what the authors released, and what was missing for the other two.
+:::

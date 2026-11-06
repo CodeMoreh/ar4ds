@@ -1,0 +1,18 @@
+## The next session and the reading {#next-session}
+
+::: {.small .nonincremental}
+- **The next session** takes up repositories and data sources: the routes by which data reach a researcher, on what terms, and where the materials and plans of a study are kept, the records of SCORE and Multi100 among them
+- **The reading of this session** is two pages of this site: SCORE and Multi100, which tells the story of this session at greater length, and The Multi100 article, on the common scale and what it assumes
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/score-multi100.html](https://codemoreh.github.io/ar4ds/score-multi100.html)]{.fs-70}
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/multi100-article.html](https://codemoreh.github.io/ar4ds/multi100-article.html)]{.fs-70}
+:::
+
+::: notes
+The reading for this session is two pages on this site. The first tells the story of SCORE and Multi100 at greater length, with the quotations from the preregistration and a table of the four cases. The second is about the article that reported Multi100: the common scale, the rules of the conversion, what they assume, and the questions to put to any effect size that has been converted for a comparison of this kind. The next session leaves the findings behind and turns to the infrastructure that made all of them checkable: where data come from and on what terms, and where the materials and the plans of a study are kept. Every record that we used in this session sits in one of those places.
+:::

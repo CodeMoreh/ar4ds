@@ -1,0 +1,121 @@
+## Reading the file {#reading-the-file .smaller}
+
+::: {.small}
+One row for each of the `r fmt_n(n_emails)` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect].
+:::
+
+::: {.fs-130}
+```r
+audit <- readr::read_csv("data/housing_audit.csv")
+```
+:::
+
+```{r}
+#| label: r-out-read
+#| message: true
+audit <- readr::read_csv("../tools/data/housing_audit.csv")
+```
+
+::: {.fragment .small}
+The path is relative to the folder of the workspace, so the line runs on any machine on which the folder is open. The scripts of the workspace add `show_col_types = FALSE`, which keeps the report on the columns quiet.
+:::
+
+::: notes
+Now the data: one row for each email of the field experiment run by the original authors, the OAs, in which emails signed with names meant to indicate a white, a Black or a Hispanic applicant went to public housing authorities in the United States. The file is a CSV, short for comma-separated values, a plain-text table with one line for each row and commas between the columns, which any program can open. In the module, in your browser, you read it with read dot csv, which comes with R. In your IDE the course reads it with read underscore csv from readr, which treats an empty cell as missing without being told, and reports what it read: a thousand and fourteen rows, sixteen columns, and the type of each. [advance] The path is relative, so R looks for the file in the folder in which it works, which is the folder of the workspace once you have opened it.
+:::
+
+## A first look {#a-first-look .smaller}
+
+:::: {.columns}
+::: {.column width="38%"}
+::: {.fs-110}
+```r
+nrow(audit)
+datawizard::data_peek(audit)
+```
+:::
+
+```{r}
+#| label: r-out-nrow
+nrow(audit)
+```
+
+::: {.small}
+The first question to ask of any dataset is what a row is. Here a row is one email, and the codebook beside the file in `data/` describes every column.
+:::
+:::
+::: {.column width="62%"}
+::: {.fs-90}
+```{r}
+#| label: r-out-peek
+print(datawizard::data_peek(audit))
+```
+:::
+:::
+::::
+
+::: notes
+Before any analysis, look at what you have, and the first question to ask of any dataset is what a row is. Here a row is one email. nrow counts the rows, a thousand and fourteen. data peek, from datawizard, turns the table on its side, with one line for each column, its type and its first values, so that all sixteen columns fit on the screen. Notice that reply already shows an NA among its first values: that email bounced and never reached an official. Every column is described in the codebook that sits beside the file in the data folder of the workspace, and a codebook is the second thing to read after any import. Your IDE can also show the data as a spreadsheet, with View of audit, and the next session spends some time in that viewer.
+:::
+
+## Counting values {#counting-values .smaller}
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.fs-110}
+```r
+datawizard::data_tabulate(audit, select = "reply")
+```
+:::
+
+```{r}
+#| label: r-out-tab-reply
+print(datawizard::data_tabulate(audit, select = "reply"))  # r-style: keep – the console text that the class gets
+```
+:::
+::: {.column width="45%"}
+::: {.fs-110}
+```r
+datawizard::data_tabulate(audit,
+  select = "named", by = "reply")
+```
+:::
+
+```{r}
+#| label: r-out-tab-named
+print(datawizard::data_tabulate(audit, select = "named", by = "reply"))  # r-style: keep – the console text that the class gets
+```
+:::
+::::
+
+::: {.fragment .small}
+`r fmt_n(n_emails)` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies, and `r n_coded` replies with a greeting code: the counts from which every analysis of the case starts.
+:::
+
+::: notes
+data tabulate counts the rows for each value of a column. For reply it gives the emails without a reply, the emails with one, and twenty-three NA, the emails that bounced. The column of valid percentages leaves the bounced emails out, so fifty-six point eight per cent is the reply rate among the delivered emails. On the right, the greeting tabulated by the reply explains every missing value in the outcome, if you read it a column at a time. An email without a reply, under the zero, has no greeting. A reply, under the one, carries a greeting code of one or zero, except for five replies that nobody coded. A bounced email has neither. In the console these tables print as text, where the module set them out as formatted tables on the page. [advance] These are the counts from which every analysis of the case starts.
+:::
+
+## Hands-on 2 – The harder addresses {#hands-on-2-the-harder-addresses .smaller}
+
+::: {.small}
+`hard_email` is 1 where the address of the authority could not be found quickly on its own website and was taken from the list kept by the Department of Housing and Urban Development (HUD), and 0 otherwise.
+:::
+
+::: {.fs-130}
+```r
+datawizard::data_tabulate(audit, select = "reply", by = "______")
+```
+:::
+
+::: {.small}
+Fill the blank, run the line, and work out from the counts whether the harder addresses replied less often.
+:::
+
+::: {.fragment .small}
+Of the `r hard$delivered` delivered emails sent to a harder address, `r hard$replies` drew a reply, against `r easy$replies` of the `r easy$delivered` sent to an address found on the website of the authority.
+:::
+
+::: notes
+Your turn again. The column hard email marks the authorities whose address could not be found quickly on their own website and was taken instead from the list kept by the Department of Housing and Urban Development. Fill the blank so that the line tabulates the replies by that column, then read the counts and decide whether the harder addresses replied less often. The table counts emails rather than giving rates, so you will have to add up two cells in each column of the delivered emails, and the next section computes the rates for you. Take the time you need. [advance] Just under half of the delivered emails sent to a harder address drew a reply, against `r round(100 * easy$replies / easy$delivered)` per cent of the others.
+:::

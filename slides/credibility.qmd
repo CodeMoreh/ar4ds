@@ -1,0 +1,20 @@
+---
+title: "Credibility and the three Rs"
+subtitle: "Extended course – day 1"
+format: revealjs
+# Session 1 of day 1 of the Extended course, the same for every case. Three
+# sections: the credibility debate, the three Rs, open research. The deck has
+# no optional runs.
+core-runs: []
+---
+
+{{< include _segments/shared/_setup.qmd >}}
+{{< include _segments/day-1/_setup.qmd >}}
+{{< include _segments/open-research/_credibility-opening.qmd >}}
+{{< include _segments/shared/_credibility.qmd >}}
+{{< include _segments/open-research/_credibility-three-rs.qmd >}}
+{{< include _segments/shared/_matrix.qmd >}}
+{{< include _segments/shared/_matrix-more.qmd >}}
+{{< include _segments/open-research/_credibility-open-research.qmd >}}
+{{< include _segments/open-research/_credibility-close.qmd >}}
+{{< include _segments/day-1/_references.qmd >}}

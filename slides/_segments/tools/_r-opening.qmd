@@ -1,0 +1,26 @@
+## {#overview .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.todaymeta}
+Session 4 of 6 on day 1, the same for every case
+:::
+
+:::: {.todaybox}
+::: {.nonincremental .fs-85}
+1. Objects and data frames – the console and the script, objects and vectors, missing values, and a table of data
+2. Packages and the data – installing and calling a package, then reading the housing-audit file and looking at it
+3. The pipe and the verbs – the steps of a calculation in their order, and the datawizard verbs that filter, select, change and summarise
+4. Shares, a table and a figure – the share of replies that greeted the sender by name, a difference in shares, a first table and a first figure
+:::
+::::
+
+::: {.todaytake .fs-85}
+You leave able to read a data file into R, reshape it with a handful of verbs, and set a result out as a table and as a figure
+:::
+
+::: {.todaymeta}
+Type along in your IDE (Positron, RStudio, VS Code, etc.), in the workspace of the housing-audit case
+:::
+
+::: notes
+The afternoon turns to the tools of the course, and we start with R. You worked through the module Getting started with R before the course, in your browser, so very little of this will be new. What changes is the place: from now on every line runs in your IDE, on your own machine, and on one file, the data of the housing-audit case, whatever the case of your course. I type on the shared screen and you type the same lines on yours. The session has four sections. Objects and data frames come first, then packages and the reading of the file, then the pipe and the verbs of datawizard, and last the three things that the course asks of R most often: a difference between two shares, a table and a figure. Each section ends with a short task of your own.
+:::

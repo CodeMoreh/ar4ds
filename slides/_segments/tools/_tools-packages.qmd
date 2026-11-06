@@ -1,0 +1,16 @@
+## The package layer {#the-package-layer .deepdive run="r"}
+
+::: {.toolgrid style="--cols: 4"}
+<div class="tool"><img src="pics/tools/pkg-easystats.png" alt="easystats"><span class="name">easystats</span><span class="what">Data work with datawizard, and model output as tidy data: parameters, performance, effect sizes.</span></div>
+<div class="tool"><img src="pics/tools/pkg-tidyverse.png" alt="tidyverse"><span class="name">tidyverse</span><span class="what">Reading files, and the verbs that datawizard lacks. One grammar across all of it.</span></div>
+<div class="tool"><img src="pics/tools/pkg-modelsummary.png" alt="modelsummary"><span class="name">modelsummary</span><span class="what">Regression tables ready to publish, built from the fitted models.</span></div>
+<div class="tool"><img src="pics/tools/pkg-marginaleffects.png" alt="marginaleffects"><span class="name">marginaleffects</span><span class="what">Predictions, contrasts and marginal effects from almost any model.</span></div>
+:::
+
+::: {.fragment .small .fs-80}
+The figures of the course come from **`tinyplot`**, its tables from **`tinytable`**, and the causal graphs of the second day from **`dagitty`**. The setup page lists the packages of each workspace, and the check script of the workspace reports any that are missing.
+:::
+
+::: notes
+A word about packages, because this is where the advantage of R lies. Easystats comes first in this course. Its datawizard package does the data work, filtering, selecting and summarising, and the rest of the family turns the output of a model back into tidy data, coefficients, fit statistics and effect sizes, instead of the block of printed text that summary gives you. The tidyverse reads the files and covers the few verbs that datawizard lacks. Modelsummary builds regression tables ready for a journal straight from the fitted models, so the table cannot disagree with the model. And marginaleffects computes predictions, contrasts and marginal effects from almost any model, which is how you get from a coefficient to a statement in the units in which your reader thinks. The figures of the course come from tinyplot, the tables from tinytable and the causal graphs from dagitty.
+:::

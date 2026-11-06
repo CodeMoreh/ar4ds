@@ -1,0 +1,18 @@
+## The next session and the reading {#next-session}
+
+::: {.small .nonincremental}
+- **The next session** opens the second day, the one-day workshop on the case of your course, in four parts: the claim and credibility, the estimand and the causal graph, the reproduction, and robustness. Its work is done in the report of the workspace of your case, a Quarto document of the kind taken apart today
+- **The reading of this session** is the module Quarto documents, which knits small documents in your browser and ends with six tasks in the workspace. The module Git and GitHub then takes the folder of the report into version control
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/tools/quarto.html](https://codemoreh.github.io/ar4ds/tools/quarto.html)]{.fs-80}
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/git-github.html](https://codemoreh.github.io/ar4ds/git-github.html)]{.fs-80}
+:::
+
+::: notes
+That closes the first day. This afternoon you used R on one file, found your way round the IDE, and took apart the report that the rest of the course is written in, ending with a render from a clean session. The reading of this session is the module Quarto documents, whose first sections knit small documents in your browser and whose section of tasks, near the end, holds the six that you did today in the workspace, so that you can repeat them at home. The module Git and GitHub takes the same folder into version control, which is the next step in the life of a report. The next session opens the second day, the one-day workshop on the case of your course, where the report of the workspace of your case holds the five tasks and the preregistration block that you will fill in.
+:::

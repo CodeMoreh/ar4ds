@@ -1,0 +1,116 @@
+# Data, plots and help {#data-plots-and-help .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 3
+:::
+
+::: notes
+Section three is about the places in which you look at things. The Data Explorer shows a data frame as a grid, with a summary of every column beside it, and it is the part of Positron that most changes how it feels to look at data. Then the Plots pane, where every figure lands, the Viewer, which shows tables and web pages, and the help pages of R, which are better reading than most people expect. The task at the end is a look at the data of the case, of the kind that should come before any model.
+:::
+
+## The Data Explorer {#the-data-explorer .smaller}
+
+![](../tools/images/ide/17-data-explorer.png){fig-alt="The Data Explorer showing audit in a tab of the editor: on the left the summary panel lists the sixteen columns with small charts and the share of missing values, and on the right the grid shows the first rows. The status line at the bottom reads 1,014 rows, 16 columns." width="88%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+
+::: {.small}
+It opens from the grid icon in the Variables pane, from `View(audit)` in the console, or from a CSV file clicked in the Explorer. Ctrl+B, Ctrl+J and Ctrl+Alt+B give it the whole window.
+:::
+
+::: notes
+The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet, with summary statistics for every column beside it. It opens from the grid icon in the Variables pane, from View of audit in the console, the call that RStudio users know, and from a CSV file clicked in the Explorer, which it reads without loading the file into R. Three parts make it up. The grid shows the cells, with the name and type of each column at its head. The summary panel on the left lists the columns, each with a small chart of its values and the share of missing values. And the filter bar above the grid and the summary panel holds filters on the rows. The default layout gives it little room, so I hide the other parts of the window while I look, as in this screenshot.
+:::
+
+## Summaries and filters {#summaries-and-filters .smaller}
+
+:::: {.columns}
+::: {.column width="34%"}
+![](../tools/images/ide/18-summary-panel.png){fig-alt="Two columns unfolded in the summary panel of the Data Explorer: name, with six unique values and none missing, and reply, with 23 missing values, a minimum of 0, a median of 1, a mean of 0.5681, a maximum of 1 and a standard deviation of 0.4956." height="470px" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::: {.column width="66%"}
+::: {.small}
+- A column unfolds into a fuller summary: `reply` has `r n_bounced` missing values, the bounced emails, and a mean of `r sprintf("%.4f", mean(audit$reply, na.rm = TRUE))`, the reply rate
+- **+** in the filter bar adds a filter, and the menu at the head of a column sorts it. Filtered to Santiago and sorted by `reply`, the status line reads "Showing `r nrow(santiago)` rows (`r sprintf("%.2f", 100 * nrow(santiago) / n_emails)`% of `r fmt_n(n_emails)` total)"
+- Filters change the view and leave the data alone: `nrow(audit)` still gives `r n_emails`
+- **Convert to Code** writes the view as dplyr code; the course writes it with datawizard
+:::
+
+::: {.fs-110}
+```r
+audit |>
+  datawizard::data_filter(name == "Santiago") |>
+  datawizard::data_arrange("-reply")
+```
+:::
+:::
+::::
+
+::: notes
+A column in the summary panel unfolds into a fuller summary. The column of names has six unique values and none missing, and reply has twenty-three missing values, the bounced emails, with a mean of point five six eight, which is the share of the delivered emails that received a reply. The plus sign in the filter bar adds a filter on the rows, and the menu at the head of each column sorts it. Filtered to the emails signed Santiago and sorted by reply, the status line at the bottom says that two hundred and seven rows are on display out of a thousand and fourteen. Filters and sorts change only what you look at, while the object in the session stays as it was. Convert to Code writes the code that reproduces the view, in dplyr, and the course writes the same steps with datawizard.
+:::
+
+## Plots and the Viewer {#plots-and-the-viewer .smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.fs-100}
+```r
+tinyplot::tinyplot(~ name, data = audit,
+                   type = "barplot")
+```
+:::
+
+![](../tools/images/ide/20-plots-pane.png){fig-alt="The Plots pane with a bar chart of the count of emails for each of the six names, and a toolbar of buttons for the previous and next plot, saving, copying, zoom and sizing." width="88%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::: {.column width="50%"}
+::: {.fs-100}
+```r
+audit |>
+  datawizard::data_summary(emails = n(),
+    replies = sum(reply %in% 1), by = "name") |>
+  tinytable::tt()
+```
+:::
+
+![](../tools/images/ide/22-viewer-pane.png){fig-alt="The Viewer tab showing a table made with tinytable, with the columns name, emails and replies for each of the six names." width="88%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::::
+
+::: notes
+Every figure that R draws in the session appears in the Plots pane, under the Variables pane, labelled with the version of R that drew it and its number in the history of the session. The arrows at the top move back and forth through that history, and the other buttons save the plot to a file, copy it, zoom it, and open it in a window of its own. In the default sizing the figure is drawn to fit the pane, so widening the pane by dragging its edge gives a larger and clearer plot. The Viewer shows output that is a web page rather than text or a plot, such as a table made with tinytable, an interactive figure or the preview of a Quarto document, which the next session uses. RStudio has the same two tabs, in the pane at the bottom right.
+:::
+
+## Help pages {#help-pages .smaller}
+
+::: {.fs-130}
+```r
+?datawizard::data_filter
+```
+:::
+
+::: {.small}
+- `?` and the name of a function open its help page in the Help tab, on the right of the window, with working links and back and forward buttons
+- **F1** with the cursor on the name of a function in the editor does the same
+- A function written with its package opens its help page even when the package is not loaded
+- A page sets out what the function does, how it is called and what each argument means, and most pages end with examples that you can run
+:::
+
+::: notes
+The help pages of R are better than their reputation. A question mark followed by the name of a function opens its page in the Help tab, as a formatted page with working links, and the back and forward buttons return to the pages that you read before. F1, with the cursor on the name of a function in the editor, does the same without typing anything, and because every function in the course is written with its package, its page opens even when the package is not loaded. The page for data filter documents data match and data filter together, because datawizard describes the two functions on one page. Read the description and the arguments first, and then look for the examples near the end of the page, which you can copy into the console and run.
+:::
+
+## Hands-on 3 – Looking at the data {#hands-on-3-looking-at-the-data .smaller}
+
+::: {.small}
+1. Open `audit` in the Data Explorer, from the grid icon in the Variables pane, and unfold `name` and `reply` in the summary panel
+2. Filter the view to the emails signed Santiago, sort it by `reply`, descending, and then run `nrow(audit)` in the console
+3. Draw the bar chart of the emails by name, and find **Save Plot** in the Plots pane
+4. Run `?datawizard::data_filter`, then put the cursor on `read_csv` in line 30 of the script and press F1
+:::
+
+::: {.fragment .small}
+The filtered view shows `r nrow(santiago)` rows, and `nrow(audit)` still prints `r n_emails`. In RStudio, `View(audit)` opens the data viewer, and plots and help appear in the pane at the bottom right.
+:::
+
+::: notes
+Your turn, and the habit behind it is the most useful one of the day, which is to look at the data before any model is fitted. Open audit in the Data Explorer and unfold the two columns. Filter the view to Santiago, sort it by reply, and then check in the console that the data frame itself has not changed. Draw the bar chart of the emails by name, and find the button that saves a plot, which you will need when a figure goes into a document of your own. And open two help pages, one with the question mark and one with F1 from the script. If you work in RStudio or VS Code, use the data viewer, the plots and the help of your own IDE. Take the time you need. [advance] The view shows two hundred and seven rows, and the data frame is unchanged.
+:::

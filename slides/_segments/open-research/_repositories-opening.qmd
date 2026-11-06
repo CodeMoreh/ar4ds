@@ -1,0 +1,22 @@
+## {#overview .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.todaymeta}
+Session 3 of 6 on day 1, the same for every case
+:::
+
+:::: {.todaybox}
+::: {.nonincremental .fs-85}
+1. Data sources – the three routes by which data reach a researcher, the archives, surveys and statistics of social science, and the routes of the four cases
+2. Repositories – what a repository has to do, and the repositories that researchers use
+3. Registrations – frozen plans, the Multi100 preregistration and two templates
+4. The public record – the SCORE dossiers of the four cases, and the deposit of a reanalysis
+:::
+::::
+
+::: {.todaytake .fs-85}
+You leave knowing where the materials of a published study are kept, and on what terms its data may be used
+:::
+
+::: notes
+The last session of the morning is about infrastructure, the places where the evidence of social science is kept. Every record that we used in the last session had to be kept somewhere, under some terms, and that is not a technicality: in SCORE the most common reason why a reproduction could not even start was that the data were not available. We go in four steps. First, where data come from and on what terms, with the four cases of the course as the examples. Second, where finished work goes so that others can find it and cite it. Third, registrations, which freeze a plan before the result. And last, the public record of the four cases, which you open yourselves.
+:::

@@ -1,0 +1,98 @@
+# The terminal and other IDEs {#the-terminal-and-other-ides .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 4
+:::
+
+::: notes
+Section four collects what remains. The terminal is a command line inside the IDE, which the course uses for little, but which renders the report in the next session. The Command Palette is a search box for everything that Positron can do. Then one slide on where the same things sit in RStudio and in VS Code, for those of you who work there, and one on what to do when something in the window goes wrong. The last task ends where the next session begins.
+:::
+
+## The terminal {#the-terminal .smaller}
+
+![](../tools/images/ide/23-terminal.png){fig-alt="The Terminal tab of the Panel in PowerShell, with a prompt that ends in the path of the folder replication-lab-housing-main. quarto --version prints a version number, and ls R lists check_setup.R, dag_starter.R and spec_tools.R." width="90%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+
+::: {.small}
+- **Terminal → New Terminal** opens a command line in the folder of the workspace: PowerShell on Windows, the shell of the system on a Mac or under Linux
+- It speaks the language of the operating system, not R: `quarto --version` checks that Quarto is installed, and `ls R` lists a folder
+- In PowerShell, `R` on its own repeats earlier commands, so ask R for its version in the console, with `R.version.string`
+:::
+
+::: notes
+The Terminal tab of the Panel is a command line that starts in the folder of the workspace, and it speaks the language of the operating system rather than R: PowerShell on Windows, and normally the default shell of the system on a Mac or under Linux. The course uses it for little. It is where you check that Quarto is installed, with quarto dash dash version, and where quarto render runs when you render the report from the command line, which you will do at the end of the next session. One trap on Windows: in PowerShell the letter R typed on its own is a shortcut for a command that repeats earlier commands, so R dash dash version answers with an error instead of the version of R. The console is the place to ask R about itself. Click Console in the Panel to go back to R.
+:::
+
+## The Command Palette {#the-command-palette .smaller .deepdive run="ide"}
+
+:::: {.columns}
+::: {.column width="45%"}
+::: {.small}
+- **Ctrl+Shift+P** opens a search box for every command of Positron, each with its keyboard shortcut beside it
+- Commands are grouped by a prefix: **Interpreter:** for the R sessions, **View:** for the layout, **Git:** for version control
+- **Ctrl+P** opens the same box for the files of the folder
+:::
+:::
+::: {.column width="55%"}
+![](../tools/images/ide/27-command-palette.png){fig-alt="The Command Palette with the text interpreter typed into it, listing the commands that begin with Interpreter, among them Restart Active Interpreter Session with the shortcut Ctrl+Shift+0." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+:::
+::::
+
+::: notes
+Everything that Positron can do is a command, and the Command Palette is a search box for all of them. You type a few letters of what you want, such as interpreter, restart or render, and the matching commands appear, each with its keyboard shortcut beside it, so that the palette also teaches you the shortcuts as you go. Commands are grouped by a prefix: Interpreter for the R sessions, View for the layout, Git for version control, among others. Control and P opens the same box for files instead, and a few letters of a file name are enough to find it. When I name a command on the slides of this course, such as Interpreter: Restart Active Interpreter Session, this is where you type it.
+:::
+
+## RStudio and VS Code {#rstudio-and-vs-code .smaller}
+
+::: {.fs-70}
+| | Positron | RStudio | VS Code |
+|---|---|---|---|
+| **Open the workspace** | File → Open Folder… | the `.Rproj` file | File → Open Folder… |
+| **Run a line or a selection** | Ctrl+Enter | Ctrl+Enter | Ctrl+Enter |
+| **Run the whole file** | Source R File | Source, or Ctrl+Shift+S | Ctrl+Shift+S |
+| **The console** | the Panel, under the editor | the pane at the bottom left | an R terminal, from **R: Create R terminal** |
+| **The objects of the session** | Variables pane | Environment pane | the R icon in the Activity Bar |
+| **Data, plots and help** | Data Explorer, Plots pane, Help tab | `View()`, and the Plots and Help tabs at the bottom right | `View()`, a plot viewer, and help in a tab beside the editor |
+| **Render the report** | Preview | Render | Preview, with Quarto installed |
+:::
+
+::: {.small}
+On a Mac, Cmd takes the place of Ctrl in most shortcuts. The Mac steps are untested, and the course offers no help with a Mac in class.
+:::
+
+::: notes
+For those of you who work in another IDE, this is where the same things sit. RStudio opens the workspace as a project, from the dot Rproj file, which sets the working directory to the folder. Control and Enter runs the current line or the selection in all three IDEs. The whole file runs from the Source button in RStudio, and from Control, Shift and S in RStudio and VS Code. RStudio keeps the console at the bottom left and the objects in the Environment pane, and plots and help appear in the tabs at the bottom right. VS Code runs R in a terminal, which the command R: Create R terminal starts, and shows the objects of the session under the R icon in the Activity Bar. To render the report, RStudio has a Render button, and VS Code a Preview command, which needs Quarto installed on its own.
+:::
+
+## When something goes wrong {#when-something-goes-wrong .smaller}
+
+::: {.fs-75}
+| Problem | What to do |
+|---|---|
+| `'data/housing_audit.csv' does not exist in current working directory` | Positron has no folder open, or another one. Check the path at the top of the console, and open the folder of the workspace |
+| Ctrl+Enter does nothing, or adds a new line | Click in the code first. A new file runs as R only once it is saved with the extension `.R` |
+| R stays busy and does not finish | **Interpreter: Interrupt Active Interpreter Session**. If R does not answer, restart it and run the script from the top |
+| A number differs from the one in the course | Restart R and run the script from the top, and check which R runs the session |
+| A part of the window has disappeared | Ctrl+B, Ctrl+Alt+B or Ctrl+J, or **View: Reset View Locations** |
+| The window behaves oddly | **Developer: Reload Window**, which restarts the interface and keeps the R session |
+:::
+
+::: notes
+Most of what goes wrong in the IDE during the course falls into a handful of cases. A file that does not exist in the current working directory almost always means that no folder is open, or the wrong one, so check the path at the top of the console and open the folder of the workspace. Control and Enter doing nothing usually means that the cursor is not in the editor, or that a new file has not yet been saved as an R file. If R stays busy, interrupt it from the Command Palette, and restart it if it does not answer. A number that differs from the one in the course usually comes from an object left over from earlier work, so restart and run from the top. And a window that behaves oddly can be reloaded without losing the R session. Problems with the installation itself are on the Setup help page.
+:::
+
+## Hands-on 4 – The terminal and the palette {#hands-on-4-the-terminal-and-the-palette .smaller}
+
+::: {.small}
+1. **Terminal → New Terminal**, then type `quarto --version` and press Enter, and `ls R`
+2. Click **Console** in the Panel to go back to R
+3. Press Ctrl+Shift+P, type `interpreter`, find the shortcut of **Interpreter: Restart Active Interpreter Session**, and press Esc
+4. Press Ctrl+P, type `check` and press Enter, which opens `R/check_setup.R`
+:::
+
+::: {.fragment .small}
+If `quarto --version` prints no version, tell me now: the next session renders the report, and Quarto has to be found first.
+:::
+
+::: notes
+The last task of the session. Open a terminal from the Terminal menu, ask Quarto for its version, and list the R folder of the workspace, which holds the three scripts that you have already met. Then click Console to go back to R. Open the Command Palette, type interpreter, and find the shortcut of the command that restarts the session, which you will use at the end of the next session, and press Escape. And open the check script with Control and P and a few letters of its name. [advance] One thing matters for what comes next. If quarto dash dash version does not print a version, tell me now, because the next session renders the report, and the render needs Quarto. Take the time you need.
+:::

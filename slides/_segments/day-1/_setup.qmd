@@ -1,0 +1,8 @@
+```{r}
+#| label: setup-day-1
+#| include: false
+# Day 1 of the Extended course is the same for every case and teaches the
+# tools on the housing-audit file, so the shared segments print the addresses
+# of the housing-audit case. Comes after the shared setup chunk.
+case_vars <- yaml::read_yaml("../_variables.yml")$cases$housing
+```

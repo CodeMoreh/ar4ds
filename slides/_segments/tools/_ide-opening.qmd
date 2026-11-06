@@ -1,0 +1,26 @@
+## {#overview .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.todaymeta}
+Session 5 of 6 on day 1, the same for every case
+:::
+
+:::: {.todaybox}
+::: {.nonincremental .fs-85}
+1. The folder and the window – the workspace opened as a folder, and the parts of the window
+2. Running code – a script as a whole, a statement at a time and in part, the console, and the objects of the session
+3. Data, plots and help – the Data Explorer, the Plots pane, the Viewer and the help pages
+4. The terminal and other IDEs – the command line inside the IDE, and where the same things sit in RStudio and VS Code
+:::
+::::
+
+::: {.todaytake .fs-85}
+You leave knowing what each part of your IDE is for, and able to run, inspect and look at the work of the workspace without leaving it
+:::
+
+::: {.todaymeta}
+Positron on the shared screen, in the workspace of the housing-audit case; RStudio and VS Code users follow in their own IDE
+:::
+
+::: notes
+The last session used your IDE as a place to type. This one is about the IDE itself, and it names Positron throughout, because Positron is the IDE of the course and the one on my screen. If you work in RStudio or VS Code, stay there: every step has its counterpart, and one slide in the last section says where each thing sits. There are four sections. First the folder and the window: how the workspace opens and what each part of the window is for. Then running code, from a whole script to a part of one statement, and the objects that the session holds once the code has run. Then the places where you look at things, the data, the plots and the help pages. And last the terminal, the other IDEs, and what to do when the window misbehaves.
+:::

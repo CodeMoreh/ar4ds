@@ -1,0 +1,18 @@
+## The next session and the reading {#next-session}
+
+::: {.small .nonincremental}
+- **The next session** takes up Positron, the IDE of the course: opening the folder, the panes of the window, running code from the editor, the console and the Variables pane, the Data Explorer, plots and help, and the terminal. Its reading is the module Positron and other IDEs
+- **The reading of this session** is the module Getting started with R, whose blocks run in your browser. Its second part reads the same data in other formats, fetches the public file of the OAs from the Harvard Dataverse and fits a first model
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/tools/r.html](https://codemoreh.github.io/ar4ds/tools/r.html)]{.fs-80}
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/tools/ide.html](https://codemoreh.github.io/ar4ds/tools/ide.html)]{.fs-80}
+:::
+
+::: notes
+That is the R that the course asks of you: read a file, look at it, reshape it with a handful of verbs, and compute, tabulate and draw. The reading of this session is the module that you worked through before the course, Getting started with R, and its second part is there for anyone who wants more. It reads the same data in the formats of Stata and other programs, fetches the public file of the original authors from the Harvard Dataverse, and fits a first model. The next session stays in the same window but turns to the window itself. So far you have used your IDE as a place to type. Next we look at what each part of it is for, from the Variables pane to the Data Explorer, the plots, the help and the terminal, with Positron on the shared screen.
+:::

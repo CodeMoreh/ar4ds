@@ -1,0 +1,19 @@
+## The next session and the reading {#next-session}
+
+::: {.small .nonincremental}
+- **The next session** takes up Quarto: the report of the workspace taken apart, from what a `.qmd` file holds to a render from a clean session. Its reading is the module Quarto documents
+- **The reading of this session** is the module Positron and other IDEs, with a task and a screenshot for every step, brief sections on RStudio, VS Code and other editors, and six steps at the end that work in any IDE
+- **Posit Assistant**, the AI assistant built into Positron, is set out in the module AI assistants, with the free route to GitHub Copilot for students and the licensed data that no assistant may read. Nothing in the course depends on it
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/tools/ide.html](https://codemoreh.github.io/ar4ds/tools/ide.html)]{.fs-80}
+:::
+
+::: {.urlbox}
+[[codemoreh.github.io/ar4ds/tools/quarto.html](https://codemoreh.github.io/ar4ds/tools/quarto.html)]{.fs-80}
+:::
+
+::: notes
+That is the window: a folder opened as the project, a script run as a whole, a statement at a time or in part, and the panes in which you look at the data, the plots and the help. The reading of this session is the module Positron and other IDEs, which has a task and a screenshot for every step that we took, and six steps at the end that work in any IDE, so it is the page to send to anyone who missed today. Positron also has an AI assistant built in, and the module AI assistants describes it, together with the free route to GitHub Copilot for students and the licensed data that no assistant may read. Nothing in the course depends on it. The next session opens the report of the workspace and takes it apart.
+:::

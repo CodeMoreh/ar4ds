@@ -1,0 +1,174 @@
+## The workspace {#the-workspace .smaller}
+
+::: {.small}
+- Every step of the afternoon runs in the **workspace of the housing-audit case**, the folder `replication-lab-housing-main`, whatever the case of your course
+- Open the folder itself, not a file inside it: **File → Open Folder…** in Positron and VS Code, or the file `replication-lab-housing.Rproj` in RStudio
+- Then open a new R script, save it in that folder, and type each step of this session into it
+:::
+
+::: {.fragment .small}
+If the folder is not on your machine yet, its zip is on the setup page, in step 4, under the tab Housing audit.
+:::
+
+::: {.urlbox .fragment}
+[[codemoreh.github.io/ar4ds/setup.html#the-workspace](https://codemoreh.github.io/ar4ds/setup.html#the-workspace)]{.fs-70}
+:::
+
+::: notes
+Before anybody types, the folder. Every step this afternoon runs in the workspace of the housing-audit case, because the modules on the tools use it as their running example, whatever the case of your course. If your course works on that case, you installed the folder before the course and ran its check script. If it works on another case, the folder that you installed belongs to that case, and the housing-audit folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
+:::
+
+# Objects and data frames {#objects-and-data-frames .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 1
+:::
+
+::: notes
+Section one starts at the very bottom, with the places where you type R and the way in which R answers. Then come the two pieces from which everything else is built: objects, which give a value a name, and vectors, which hold a run of values. One small fact about vectors carries most of the arithmetic of the course, that the mean of a run of ones and zeros is a share. We end with the data frame, the table in which R keeps a dataset, and with a first task of your own.
+:::
+
+## The console and the script {#the-console-and-the-script .smaller}
+
+::: {.fs-130}
+```r
+1014 - 23
+```
+:::
+
+```{r}
+#| label: r-out-subtract
+1014 - 23
+```
+
+::: {.small}
+- **The console** runs a line as soon as you press Enter, and keeps no record of how a result was reached
+- **A script** is a plain text file ending in `.R`. Ctrl+Enter (Cmd+Enter on a Mac) sends the line under the cursor to the console, and the script keeps the line
+- Try things in the console, and move anything that matters into the script
+:::
+
+::: notes
+In your IDE there are two places to type R. The console runs a line the moment you press Enter. Type one thousand and fourteen minus twenty-three, and R answers nine hundred and ninety-one, the emails that reached a housing authority out of the thousand and fourteen that were sent. The one in square brackets is not part of the answer, because R numbers the values that it prints. [advance] A script keeps what you type. Put the same line in your new script, leave the cursor on it, and press Control and Enter: the line goes to the console and runs there. [advance] The rule of the course is to try things in the console and to move anything that matters into the script, because the script records how a result was reached, and the console forgets it when the session ends.
+:::
+
+## Objects and vectors {#objects-and-vectors .smaller}
+
+::: {.fs-130}
+```r
+emails_sent <- 1014               # a number
+first_name  <- "Santiago"         # text, called a character string, in quotes
+emails_sent - 23
+
+delivered <- c(308, 326, 357)     # white, Black and Hispanic names
+replies   <- c(177, 198, 188)
+replies / delivered               # one division for each group
+```
+:::
+
+```{r}
+#| label: r-out-vectors
+emails_sent <- 1014
+emails_sent - 23
+delivered <- c(308, 326, 357)
+replies   <- c(177, 198, 188)
+replies / delivered
+```
+
+::: {.small}
+`<-` gives a value a name, and the name then stands in for the value. `c()` combines values of one type into a **vector**, and arithmetic works on a whole vector at once.
+:::
+
+::: notes
+R works by putting values into named objects. The arrow, typed as a less-than sign and a hyphen, assigns: emails sent gets one thousand and fourteen, and from then on the name stands in for the number, so emails sent minus twenty-three gives nine hundred and ninety-one again. Names are case-sensitive, and asking for a name that was never assigned gives the message "object not found", which you will meet whenever a line uses an object that an earlier line was meant to make. A vector is a run of values of one type, made with c, for combine. These two hold, for the white, the Black and the Hispanic names in turn, the emails that reached an official and the replies that came back, and one division gives the three reply rates. The six numbers were typed by hand, and the third section computes them from the file.
+:::
+
+## Means and missing values {#means-and-missing-values .smaller}
+
+::: {.fs-130}
+```r
+greeted <- c(1, 0, 1, 1, 0)       # five replies, 1 = opened with the name of the sender
+mean(greeted)                     # the share of 1s
+
+greeted <- c(1, 0, NA, 1, 0)      # the third reply carries no greeting code
+mean(greeted)
+mean(greeted, na.rm = TRUE)       # the share among the four replies with a code
+```
+:::
+
+```{r}
+#| label: r-out-means
+greeted <- c(1, 0, 1, 1, 0)
+mean(greeted)
+greeted <- c(1, 0, NA, 1, 0)
+mean(greeted)
+mean(greeted, na.rm = TRUE)
+```
+
+::: {.fragment .small}
+The file has missing values of three kinds: the `r n_bounced` emails that bounced have no reply, an email without a reply has no greeting, and `r n_uncoded` replies were never coded. The course never uses `na.rm = TRUE` without saying which rows it removes.
+:::
+
+::: notes
+One small fact carries most of the arithmetic of the course. When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the claim of the housing-audit case, whether a reply opened with the name of the sender, is stored in exactly this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known. The argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
+:::
+
+## Data frames {#data-frames .smaller}
+
+::: {.fs-130}
+```r
+emails <- tibble::tibble(
+  name  = c("Brett", "Santiago", "Emily"),
+  reply = c(1, 1, 0),
+  named = c(1, 0, NA)
+)
+emails
+emails$named                      # one column, as a vector
+```
+:::
+
+```{r}
+#| label: r-out-tibble
+emails <- tibble::tibble(
+  name  = c("Brett", "Santiago", "Emily"),
+  reply = c(1, 1, 0),
+  named = c(1, 0, NA)
+)
+emails
+emails$named
+```
+
+::: {.small}
+A **data frame** is a table: vectors of equal length standing side by side as columns, with one row for each observation. A **tibble** is a data frame that prints its size and the type of each column, `<chr>` for text and `<dbl>` for numbers.
+:::
+
+::: notes
+A data frame is how R stores a table: vectors of the same length standing side by side as columns, with one row for each observation, and almost everything in the course is a data frame. This one is built by hand, with three emails, the name that signed each, whether a reply came and whether the reply greeted the sender by name. The third email shows why a greeting can be missing: no reply came, so there was no greeting to code. The part before the two colons names the package from which the function comes, which the next section explains. A tibble prints its size on the first line and the type of each column under its name. The dollar sign pulls one column out as a vector, which is often the quickest way to look at a single column, and for reshaping a table the course uses the verbs of the third section.
+:::
+
+## Hands-on 1 – The reply rate {#hands-on-1-the-reply-rate .smaller}
+
+::: {.small}
+In your script, with the two vectors of the last slides:
+:::
+
+::: {.fs-130}
+```r
+sum(replies) / sum(______)
+replies[3]
+Emails_sent
+```
+:::
+
+::: {.small}
+1. Fill the blank so that the line divides all the replies by all the delivered emails, which gives the share of the delivered emails that drew a reply, whatever the name
+2. Square brackets pick out a value by its position: the third is the replies to the Hispanic names
+3. A capital E makes another name: read what R says
+:::
+
+::: {.fragment .small}
+The share is `r sprintf("%.6f", n_replies / n_delivered)`, the reply rate of the `r n_delivered` delivered emails, which the second section reaches again from the file.
+:::
+
+::: notes
+Your turn, on your own machine, with three short lines in your script. First, fill the blank so that the line divides all the replies by all the delivered emails, which gives the share of the delivered emails that drew a reply, whatever the name that signed each email. Second, pick out the third value of the replies with square brackets, the replies to the Hispanic names. Third, type the name of the first object with a capital E and read what R says, because you will meet that message many times, and it always means that R has no object of that name in the session. Take the time you need, and if a line stops with an error that you cannot read, tell me. [advance] The share is a little under fifty-seven per cent, and we will reach it again from the file.
+:::

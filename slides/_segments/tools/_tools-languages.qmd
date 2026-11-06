@@ -1,0 +1,16 @@
+## Programming languages {#languages-what-you-are-actually-choosing .deepdive run="r"}
+
+::: {.toolgrid style="--cols: 4"}
+<div class="tool ours"><img src="pics/tools/r.svg" alt="R"><span class="name">R</span><span class="what">Built by statisticians for data analysis. Hard to beat for models, tables and figures, through its packages.</span></div>
+<div class="tool"><img src="pics/tools/python.png" alt="Python"><span class="name">Python</span><span class="what">A general language that also does data. Better for pipelines, scraping, text and machine learning.</span></div>
+<div class="tool"><img src="pics/tools/julia.png" alt="Julia"><span class="name">Julia</span><span class="what">Fast and young, with few packages. Worth it when a model takes hours.</span></div>
+<div class="tool"><img src="pics/tools/stata.svg" alt="Stata"><span class="name">Stata</span><span class="what">Excellent panel and survey estimators, superb documentation, one syntax. Costs money and keeps its source closed.</span></div>
+:::
+
+::: {.fragment .small .fs-80}
+You do not have to choose once and for all. Quarto runs R, Python and Julia chunks in the **same document**, and the blocks of the module Getting started with R run a copy of R built to work inside a web page.
+:::
+
+::: notes
+A slower look at the languages, because people agonise about this and mostly need not. R was built by statisticians for data analysis, and that is still where it is strongest, in models, tables and figures, largely through its packages: whatever estimator your literature uses, somebody has probably written the package for it. Python is a general-purpose language that also does data, so it is the better choice for pipelines, scraping, text and machine learning. Julia is fast and young, with few packages, and earns its place when a model takes hours rather than seconds. Stata deserves respect, with excellent panel and survey estimators, the best documentation in the business and one consistent syntax, but it costs money and its source is closed. None of this is a choice for life, since Quarto runs R, Python and Julia chunks in one document.
+:::

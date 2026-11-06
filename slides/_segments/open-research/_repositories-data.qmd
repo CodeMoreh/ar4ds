@@ -1,0 +1,129 @@
+# Data sources {#data-sources .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 1
+:::
+
+::: notes
+Section one. Data reach a researcher by one of three routes, and the vocabulary of the archives follows those routes. We take the routes first, then the places that hold most of the quantitative data of sociology, political science and demography, with the access rule of each. Then the four cases of the course, which between them use two of the three routes, and the terms of the archive whose rules shape one of the cases more than any other.
+:::
+
+## Three routes to data {#three-routes-to-data .smaller}
+
+::: {.fs-75}
+| Route | What it asks of you | Typical sources |
+|:-----|:-----------|:-----------|
+| **Open download** | the citation, under a licence that permits reuse: CC BY, CC0 or an open government licence | World Bank indicators, the aggregate tables of Eurostat, the public-use files of the US statistical agencies, most replication packages |
+| **Registration and licence** | an account in your own name, and conditions such as no redistribution and no attempt to identify anyone | survey microdata: the European Social Survey, the Eurobarometer at GESIS, the safeguarded collection of the UK Data Service |
+| **Application and secure access** | a project description, often accreditation, then a file sent under contract or work in a secure environment | the microdata of Eurostat, the UK Data Service through SecureLab, the Secure Research Service of the ONS |
+:::
+
+::: {.fragment .small}
+A file with one row per respondent needs the second or third route, while the country-year tables computed from it are usually open.
+:::
+
+::: {.src}
+The modules Social science data sources of the case sites, section 1, from the access pages of the archives.
+:::
+
+::: notes
+Almost every dataset that you will use comes by one of three routes. The first is open download: a public page or an interface for programs, a licence that permits reuse, and nothing asked of you except the citation. The second asks for an account in your own name and your agreement to conditions, typically no passing the files on and no attempt to identify anyone. That is the standard route for survey microdata. The third is for data too detailed to leave the archive: you apply with a project, may have to become an accredited researcher, and work in a secure setting, and access can take weeks or months. [advance] The line between microdata and aggregates runs across all three routes, and it decides what a reanalysis may share.
+:::
+
+## Where the data are held {#where-the-data-are-held .smaller}
+
+::: {.fs-75}
+| Source | What it holds | Access |
+|:-----|:-----------|:-------|
+| **European Social Survey** | attitudes, values and behaviour across Europe, every two years since 2002 | registration, free |
+| **Eurobarometer**, at GESIS | surveys run twice a year for the European Commission since 1974 | registration with GESIS, free for academic use |
+| **ISSP**, **EVS** and **WVS** | themed modules and values surveys in many countries | registration, free |
+| **UK Data Service** | the large UK government surveys, the household panels and the cohorts | three tiers: open, safeguarded, controlled |
+| **NCHS** | the national health surveys of the United States, the National Survey of Family Growth among them | open, without registration, under its data use restrictions |
+| **Eurostat** | the aggregate statistics of the EU by country, region and year, and fourteen collections of microdata | aggregates open, microdata by application |
+| **World Bank**, **OECD**, **ILOSTAT** | indicators by country and year | open |
+| **CESSDA**, **re3data** | catalogues that say where a dataset is held | open |
+:::
+
+::: {.src}
+The modules Social science data sources of the case sites, section 2, which give the addresses.
+:::
+
+::: notes
+This is a map rather than a census, drawn from the module that is the reading of this session, which has the full tables with their addresses. Four kinds of source matter most for us. The cross-national survey programmes, the European Social Survey, the Eurobarometer, the ISSP and the values surveys, all ask for a free registration. The national archives, such as the UK Data Service, sort their holdings into tiers, from open download to a secure lab. The official statistical offices publish their aggregates openly and keep the microdata behind applications. And the international organisations publish indicators by country and year that anyone can download. A catalogue such as CESSDA tells you that a dataset exists and where it is held, and you then register with the archive that holds it.
+:::
+
+## The data of the four cases {#the-data-of-the-four-cases .smaller}
+
+::: {.fs-75}
+| Case | The data, and where they are held | Route and terms | What a reanalysis may share |
+|:----|:-----------|:-----------|:---------|
+| Housing audit | the 1,014 emails of the field experiment, deposited on the Harvard Dataverse by the original authors (OAs) | open download; CC0, a dedication to the public domain | the file itself |
+| Immigration and trust | rounds 1 to 4 of the European Social Survey, from the ESS Data Portal | registration, free; CC BY-NC-SA 4.0 | a derived extract under the same licence, cited as "Adapted from ESS" |
+| Cohabitation | the public-use files of the National Survey of Family Growth, from the National Center for Health Statistics | open download, without registration; public domain, under the NCHS data use restrictions | derived files |
+| EU frames | sixteen Eurobarometer waves held by GESIS; unemployment and growth from the World Bank and Eurostat | registration and a licence for the waves; open, with attribution, for the series | country-year aggregates only, under CC BY 4.0 |
+:::
+
+::: {.src}
+The facts file of each case; the modules Social science data sources of the housing and EU sites.
+:::
+
+::: notes
+The four cases of the course use two of the three routes, and together the cases make a good tour of the terms. The housing-audit file is the easy one: the original authors, the OAs, deposited it on the Harvard Dataverse under CC0, so anyone may copy and redistribute it, and the course ships it as it is. The European Social Survey asks for a free registration, and its data are licensed for non-commercial use with attribution and share-alike, so a derived extract can travel under the same licence, marked as adapted. The National Survey of Family Growth is in the public domain and needs no registration at all, under a short list of rules that protect the respondents. And the EU-frames case rests on the most restrictive terms of the four, which are on the next slide.
+:::
+
+## The terms of a licensed archive {#the-terms-of-a-licensed-archive .smaller}
+
+::: {.claimcard .fs-80}
+"The provision of the database to third parties is not permitted"
+:::
+
+::: {.claimcard .fs-80}
+"The presentation or publication of individual cases, even if there is no direct reference to individuals, is not permitted", while "summary presentations of data, as is customary in scientific papers and lectures, are permitted"
+:::
+
+::: {.claimcard .fs-80}
+"The use of AI systems for processing the database provided to the user by GESIS is prohibited"
+:::
+
+::: {.fragment .small}
+So the EU-frames case shares country-year aggregates only, and the respondent files stay on the machine of each person who downloads them.
+:::
+
+::: {.src}
+The terms of use of GESIS, valid since 4 February 2026, as quoted in the module Social science data sources of the EU-frames site, section 3.1.
+:::
+
+::: notes
+These are three clauses from the terms of use to which every GESIS download dialog links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the EU-frames case is built: no individual cases, while summary presentations of the kind found in papers and lectures are allowed, which is why the course can publish its panel of country-years. The third bears on how you work: the respondent files may not be processed with an AI system. The module on AI assistants on this site sets out what that means in practice, and the EU-frames workspace switches the AI features of Positron and VS Code off for its whole folder.
+:::
+
+## Fetching data from code {#fetching-data-from-code .deepdive run="fetch"}
+
+::: {.fs-90}
+``` r
+deposit <- dataverse::get_dataframe_by_name(
+  "HousingAuditAJPSFinalPublic_Unidentified.tab",
+  dataset  = "doi:10.7910/DVN/1HOVTU",
+  server   = "dataverse.harvard.edu",
+  original = TRUE,             # the Stata file as deposited, not the tab-separated copy
+  .f       = haven::read_dta   # the function that reads it
+)
+
+macro <- WDI::WDI(country = c("DE", "FR", "GB"),
+                  indicator = c(unemp = "SL.UEM.TOTL.NE.ZS", growth = "NY.GDP.MKTP.KD.ZG"),
+                  start = 2004, end = 2013)
+```
+:::
+
+::: {.fragment .small}
+No call of this kind reaches the Eurobarometer: GESIS registers each user through a web form with a captcha, and asks for a purpose of use at every download.
+:::
+
+::: {.src}
+The second page of the module Getting started with R on this site.
+:::
+
+::: notes
+When the route is open, the download can be written down in your script instead of clicked through on a website, and that is what makes it repeatable. The first call reads the data file of the housing-audit case straight from its record on the Harvard Dataverse, in the Stata format in which the OAs deposited it. The second asks the World Bank for the unemployment rate and the growth of the economy in three countries, from 2004 to 2013. Both calls appear, shown but not run, in the second part of the module on R on this site. [advance] The Eurobarometer offers no such interface. Registration is a web form with a captcha, and every download asks for a purpose of use in your own name, so those files are clicked, not scripted.
+:::

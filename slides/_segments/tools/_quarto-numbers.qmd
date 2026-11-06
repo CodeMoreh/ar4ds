@@ -1,0 +1,122 @@
+# Numbers, figures and references {#numbers-figures-and-references .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 3
+:::
+
+::: notes
+Section three is about the places where results enter the text. A number typed into a sentence is a copy, which goes stale as soon as the data or the code change, and inline code computes it at every render instead. Figures and tables get a caption and a number, and the prose can refer to them by that number. And citations come from a bibliography file, so that the list of references is built from what the text actually cites. The task at the end puts a computed number and a reference to a figure into the report.
+:::
+
+## Inline code {#inline-code .smaller}
+
+::: {.small}
+Under the chunk of 8PTRZ, one of the five analysts whose reanalyses Task 3 reproduces, the report gives the value of the test as typed text:
+:::
+
+::: {.fs-110}
+```markdown
+The test gives **X-squared = 14.265** on 1 df,
+the value on record for 8PTRZ.
+```
+:::
+
+::: {.small}
+Inline code computes it from the table made by the chunk above it, at every render:
+:::
+
+::: {.fs-110}
+```markdown
+The test gives X-squared = `r knitr::inline_expr("round(chisq.test(tab_8ptrz)$statistic, 3)")`
+on 1 df, the value on record for 8PTRZ.
+```
+:::
+
+::: {.fragment .small}
+which renders as "The test gives X-squared = `r fmt_num(chi_8ptrz, 3)` on 1 df, the value on record for 8PTRZ." Change a filter, render again, and the sentence follows.
+:::
+
+::: notes
+Here is the habit that separates a report from a document with numbers pasted into it. A number typed into a sentence is a copy, and copies go stale: you change a filter, rerun the analysis, and the old number sits on in paragraph three. Inline code fixes that. Between single backticks, the letter r and a piece of code: when the report renders, the code runs, and its value takes its place in the sentence. Task 3 of the report reproduces the chi-square test of 8PTRZ, one of the five analysts, and the sentence under the chunk gives the value as typed text. The inline expression computes it instead, from the table that the chunk above it made. [advance] The rendered sentence reads exactly as before, but now its number comes from the same run as the tables and the figures, so the three cannot disagree.
+:::
+
+## Captions and cross-references {#captions-and-cross-references .smaller}
+
+::: {.fs-100}
+```{{r}}
+#| label: fig-names
+#| fig-cap: "Replies that greeted the sender by name, by the name that signed the email."
+#| fig-height: 3.6
+# The share greeted by name for each of the six names, from the lowest
+greeted <- audit |>
+  datawizard::data_filter(!is.na(named)) |>
+  datawizard::data_summary(greeted_pct = 100 * mean(named), by = c("group", "name"))
+```
+:::
+
+::: {.small}
+- A label that begins `fig-` and a `fig-cap` make a numbered figure, and `tbl-` with a `tbl-cap` a numbered table
+- `(@fig-names)` after "a gap of about 20 points" renders as "(Figure 1)", a link to the figure
+- A reference that Quarto cannot resolve prints as `?@fig-names`
+:::
+
+::: notes
+A figure drawn by a chunk becomes a numbered, captioned figure that the prose can refer to once two conditions are met: the chunk has a caption, and its label begins with fig dash. The report draws its figure of the six names that way, and the slide shows the opening lines of that chunk, which go on to order the names and draw the bars. With the prefix in place, Quarto numbers the figure, and writing at fig dash names in a sentence gives "Figure 1" in the rendered text, as a link that takes the reader to the figure. Tables work in the same way, with tbl dash and a table caption. The report already has three labelled figures, and nothing in it refers to them yet, so adding a reference is a one-word edit. If the label loses its prefix, the reference prints with a question mark, which is how Quarto reports a reference that it cannot resolve.
+:::
+
+## Citations {#citations .smaller}
+
+:::: {.columns}
+::: {.column width="48%"}
+::: {.fs-100}
+```bibtex
+@article{EinsteinGlick2017DoesRaceAffect,
+  author = {Einstein, Katherine Levine
+            and Glick, David M.},
+  year = 2017,
+  journal = {American Journal of
+             Political Science},
+  doi = {10.1111/ajps.12252}
+}
+```
+:::
+
+::: {.small}
+A record of `references.bib`, shortened. The word after the opening brace is the **citekey**, and `bibliography: references.bib` in the header points at the file.
+:::
+:::
+::: {.column width="52%"}
+::: {.fs-65}
+| You write | It renders as |
+|---|---|
+| `[@EinsteinGlick2017DoesRaceAffect]` | [@EinsteinGlick2017DoesRaceAffect] |
+| `@EinsteinGlick2017DoesRaceAffect` | @EinsteinGlick2017DoesRaceAffect |
+| `[@EinsteinGlick2017DoesRaceAffect, p. 100]` | [@EinsteinGlick2017DoesRaceAffect, p. 100] |
+:::
+
+::: {.small}
+The list of references is built from what the text cites, at the place of `::: {#refs}`. The right-hand column of the table cites the paper of the original authors (OAs), and the last slide of this deck lists it.
+:::
+:::
+::::
+
+::: notes
+Add a bibliography key to the header, pointing at a BibTeX file, and citations start working. A BibTeX file is a plain-text database with one record for each work, and this is the record of the paper behind the housing-audit case, shortened to the fields that a citation needs. The word just after the opening brace is the citekey, the name by which you cite the work. Almost nobody types these records by hand: a reference manager such as Zotero holds the library and exports the file. Square brackets around an at sign and the key give a citation in brackets, the key alone gives one in the text, and a page goes after a comma. The list of references is assembled from what you actually cite. The report of the workspace lists its five references by hand, and turning that list into a bibliography file is a good exercise for after the course.
+:::
+
+## Hands-on 3 – A number and Figure 1 {#hands-on-3-a-number-and-figure-1 .smaller}
+
+::: {.small}
+1. In the box of Task 3, find the section of the analyst whose analysis you would reproduce, and the sentence under its chunk that gives the value as typed text
+2. Replace the typed value with inline code computed from the object made by the chunk, save, and preview: the sentence reads as before
+3. Under the figure of Task 2, add `(@fig-names)` after "a gap of about 20 points", save, and preview: "(Figure 1)"
+4. Change the label of the chunk to `names-figure`, preview, read `?@fig-names`, and change it back
+:::
+
+::: {.fragment .small}
+For 8PTRZ the expression is `round(chisq.test(tab_8ptrz)$statistic, 3)`; for 25N5D, `round(prop.test(counts_25n5d$greetings, counts_25n5d$emails)$statistic, 3)`.
+:::
+
+::: notes
+Your turn, with the two edits that make a report trustworthy. In the box of Task 3, choose the analyst whose analysis you would most like to reproduce, and find the sentence under its chunk, which gives the value of the test as typed text. Replace the typed value with inline code that computes it from the object that the chunk makes, then save and preview: the sentence reads as it did before, but the source now tells you where the number comes from. Then the reference. Under the figure of Task 2, add the reference to the figure after the words "a gap of about 20 points", and preview: the sentence now carries a link to Figure 1. Finally, break the label on purpose, read what Quarto prints, and put the label back. [advance] Two of the expressions are on the slide. Take the time you need.
+:::

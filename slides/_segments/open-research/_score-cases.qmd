@@ -1,0 +1,109 @@
+# The four cases {#the-four-cases .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 3
+:::
+
+::: notes
+Section three brings the programme down to the four cases of this course. Each is a claim that went through Multi100 and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions reached by the five analysts of each claim, side by side, and then the record of each case across the three Rs. Your own case is one of the four. You meet it properly on the second day, so for now the aim is only to place it among the others.
+:::
+
+## The four claims {#the-four-claims .smaller}
+
+::: {.fs-75}
+| Case | The study | The claim, as Multi100 gave it |
+|:----|:-------------|:-------------|
+| Housing audit | A field experiment of 2017: one email to each of about a thousand public housing authorities in the United States, signed with names meant to indicate a white, a Black or a Hispanic sender | "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" |
+| Immigration and trust | An analysis of 2012 of rounds 1 to 4 of the European Social Survey, in 16 Western European countries | "... concerns about the effect of immigration on the national community have a(n) [reducing] impact on trust in politics" |
+| Cohabitation | An analysis of 2016 of the first cohabitations of American women, begun in the early 1990s and in the late 2000s, from the National Survey of Family Growth | "cohabitors have increasingly become less likely to progress to marriage" |
+| EU frames | An analysis of 2016 of sixteen Eurobarometer waves, 2004 to 2013, in 27 member states of the European Union | "... poor economic performances ... decrease positive dimensions of EU framing" |
+:::
+
+::: {.src}
+@EinsteinGlick2017DoesRaceAffect, abstract; @McLaren2012CulturalDivideEurope, p. 199; @KuoRaley2016DivergingPatternsUnion, p. 932; @Teney2016DoesEUEconomic, p. 619.
+:::
+
+::: notes
+Here are the four claims in the form in which Multi100 handed them to the analysts, with the dots and the square brackets of the lead team left in. The housing audit is the only experiment of the four: emails to public housing authorities in the United States that differed only in the name that signed them. The immigration-and-trust claim comes from the European Social Survey, the cohabitation claim from the union histories of American women, and the EU-frames claim from sixteen waves of the Eurobarometer. Read the claims for what they leave out as much as for what they say. The housing claim, for instance, states a direction and no size, because an ellipsis removed the twenty percentage points of the abstract.
+:::
+
+## The conclusions of the analysts {#the-conclusions-of-the-analysts}
+
+```{r}
+#| label: four-case-conclusions
+#| fig-width: 10
+#| fig-height: 4.3
+# The Task 1 conclusions of the five Multi100 analysts of each case, as the
+# page score-multi100.qmd of this site states them (section "The four cases in
+# the record"), from the facts file of each case. One tile per analyst, in no
+# particular order within a case.
+conclusions <- tibble::tribble(
+  ~case,                   ~conclusion,                  ~n,
+  "Housing audit",         "Evidence for the claim",     3,
+  "Housing audit",         "No evidence either way",     2,
+  "Immigration and trust", "Evidence for the claim",     5,
+  "Cohabitation",          "Evidence for the claim",     2,
+  "Cohabitation",          "No evidence either way",     1,
+  "Cohabitation",          "Evidence for the opposite",  2,
+  "EU frames",             "Evidence for the claim",     5
+) |>
+  tidyr::uncount(n) |>
+  dplyr::mutate(analyst = dplyr::row_number(), .by = case) |>
+  datawizard::data_modify(
+    case = factor(case, levels = rev(c("Housing audit", "Immigration and trust",
+                                       "Cohabitation", "EU frames"))),
+    conclusion = factor(conclusion, levels = c("Evidence for the claim",
+                                               "No evidence either way",
+                                               "Evidence for the opposite"))
+  )
+
+ggplot2::ggplot(conclusions, ggplot2::aes(analyst, case, fill = conclusion)) +
+  ggplot2::geom_tile(colour = "white", linewidth = 3, width = 0.96, height = 0.82) +
+  ggplot2::scale_fill_manual(values = c(ncl_blue, grey_mid, d_red), name = NULL) +
+  # without the white border of the tiles, which would cover the legend keys
+  ggplot2::guides(fill = ggplot2::guide_legend(override.aes = list(colour = NA))) +
+  ggplot2::scale_x_continuous(expand = ggplot2::expansion(add = 0.05)) +
+  ggplot2::labs(x = NULL, y = NULL) +
+  theme_slide(16) +
+  ggplot2::theme(legend.position = "bottom",
+                 legend.text = ggplot2::element_text(size = 13, colour = ink),
+                 legend.key.size = ggplot2::unit(1.1, "lines"),
+                 panel.grid = ggplot2::element_blank(),
+                 axis.text.x = ggplot2::element_blank(),
+                 axis.text.y = ggplot2::element_text(face = "bold", colour = ink, size = 17))
+```
+
+::: {.small}
+Every analyst upheld the immigration-and-trust and the EU-frames claims, while the partial correlations recorded for those ten reanalyses run from 0.122 to 0.198 and from −0.006 to −0.452.
+:::
+
+::: {.src}
+The Task 1 conclusions recorded by Multi100 [@AczelEtAl2026InvestigatingAnalyticalRobustness], as the pages SCORE and Multi100 and the opening page of this site state them.
+:::
+
+::: notes
+Each row is one case and each tile one analyst, coloured by the conclusion recorded in the first task. Two of the claims were upheld by all five of their analysts, immigration and trust, and the EU frames. The housing-audit claim split three to two, with the other two analysts finding evidence neither way. The cohabitation claim split three ways: two for, one neither way and two for the opposite, all of them working on the file that Multi100 gave them. Agreeing on the conclusion is a different matter from agreeing on the number. The trust analysts recorded correlations within a narrow band, while those of the EU-frames analysts span nearly two orders of magnitude, for the reason that we met a few slides ago.
+:::
+
+## The four cases in the record {#the-four-cases-in-the-record .smaller}
+
+::: {.fs-75}
+| Case | Reproduction | Robustness (Multi100) | Replication |
+|:----|:----------|:---------|:----------|
+| Housing audit | never attempted, although the data and code are public | 3 of the 5 analysts for the claim, 2 neither way | a preregistered audit of 3,050 housing authorities found no significant gap |
+| Immigration and trust | two reproductions from the survey files, close to the published coefficient but on fewer respondents | all 5 for the claim | two replications on later rounds of the survey, both meeting the criterion of SCORE |
+| Cohabitation | none recorded | 2 for the claim, 1 neither way, 2 the opposite | tested another coefficient of the paper, which did not replicate |
+| EU frames | two attempts from the original materials, neither successful | all 5 for the claim | on later Eurobarometer waves, judged not successful |
+:::
+
+::: {.fragment .small}
+Read across the rows. The EU-frames claim, upheld by every analyst, could be neither reproduced nor replicated, while the immigration-and-trust claim, upheld as consistently, replicated.
+:::
+
+::: {.src}
+The page SCORE and Multi100 on this site, from the facts file of each case.
+:::
+
+::: notes
+And here is the whole record, case by case, across the three Rs. Read down the reproduction column first: one reproduction never attempted although everything needed for it was public, one never recorded, two that came close on fewer respondents, and two that failed. Then read across the rows, which is the point of the slide. [advance] The EU-frames claim, upheld by every one of its analysts, could be neither reproduced from its original materials nor replicated on later waves of its survey. The immigration-and-trust claim, upheld just as consistently, replicated on later rounds of the European Social Survey. Four cases are far too few for a conclusion about the literature, but they show, case by case, why the course keeps the three questions apart.
+:::

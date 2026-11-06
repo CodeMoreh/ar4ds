@@ -1,0 +1,27 @@
+---
+title: "R"
+subtitle: "Extended course – day 1"
+format: revealjs
+# Session 4 of day 1 of the Extended course, the same for every case: R taught
+# live in the IDE, on the housing-audit file, which the modules on the tools
+# use as their running example. Four sections: objects and data frames,
+# packages and the data, the pipe and the verbs, shares, a table and a figure.
+# Three optional slides stay on the d toggle (run "r"): the programming
+# languages, the package layer and the two ways to count the emails.
+core-runs: []
+---
+
+{{< include _segments/shared/_setup.qmd >}}
+{{< include _segments/day-1/_setup.qmd >}}
+{{< include _segments/tools/_setup.qmd >}}
+{{< include _segments/tools/_r-opening.qmd >}}
+{{< include _segments/tools/_tools-languages.qmd >}}
+{{< include _segments/shared/_opensource.qmd >}}
+{{< include _segments/tools/_r-objects.qmd >}}
+{{< include _segments/tools/_r-packages.qmd >}}
+{{< include _segments/tools/_tools-packages.qmd >}}
+{{< include _segments/tools/_r-reading.qmd >}}
+{{< include _segments/tools/_r-verbs.qmd >}}
+{{< include _segments/tools/_r-results.qmd >}}
+{{< include _segments/tools/_r-close.qmd >}}
+{{< include _segments/day-1/_references.qmd >}}

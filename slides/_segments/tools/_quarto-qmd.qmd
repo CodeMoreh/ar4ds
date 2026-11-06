@@ -1,0 +1,34 @@
+## What a .qmd file holds {#what-a-qmd-file-holds .smaller}
+
+:::: {.columns}
+::: {.column width="57%"}
+::: {.fs-110}
+````markdown
+---
+title: "A first report"
+format: html
+---
+
+## What the data hold
+
+The housing-audit data hold one row per email.
+
+```{{r}}
+audit <- readr::read_csv("data/housing_audit.csv")
+nrow(audit)
+```
+````
+:::
+:::
+::: {.column width="43%"}
+::: {.small}
+- **The YAML header**, between two lines of three hyphens: the title and the settings that decide what comes out
+- **The prose**, in Markdown: `##` opens a heading, `**text**` sets text in bold
+- **The code chunks**, opened by three backticks and `{r}`: run while the document is built, with each result placed where its chunk stands
+:::
+:::
+::::
+
+::: notes
+A dot qmd file is plain text, which any editor can open, and it holds three kinds of content. The header comes first, fenced above and below by a line of three hyphens. It is written in YAML and holds the metadata of the document, such as the title, together with the settings that decide what kind of document comes out. The prose is Markdown, a light convention in which two hashes open a heading and two asterisks on each side set a word in bold. And the code chunks are blocks of R, each opened by three backticks and the name of the engine in braces. The chunks run while the document is built, and the result of each is placed in the finished document at the point where its chunk stands. This file is complete: render it, and it gives a page with a heading, a sentence and the number of emails.
+:::

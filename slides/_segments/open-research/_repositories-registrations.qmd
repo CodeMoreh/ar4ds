@@ -1,0 +1,9 @@
+# Registrations {#registrations .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 3
+:::
+
+::: notes
+Section three is about the other thing that the OSF keeps: registrations, which freeze a plan with a date on it before the result is known. An archive freezes materials and a registration freezes a plan, and the two dates, of the plan and of the result, are what let a reader tell an analysis planned in advance from one chosen after the fact. We look at what a registration is and at one that did its job in a case of the course, then at the preregistration of Multi100 itself, and last at the two templates that a reanalysis can use.
+:::

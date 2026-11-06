@@ -1,0 +1,147 @@
+## How Multi100 chose its claims {#how-multi100-chose-its-claims}
+
+::: {.small}
+- **One claim per paper**, from the first phase of SCORE: a sentence of the abstract that "ideally corresponded to one statistically significant inferential test result"
+- **Four checks.** The lead team kept claims that were understandable, held only one claim, indicated the direction of the effect and had a corresponding test in the article
+- **Ellipses.** An expression judged "ambiguous or rhetorical" was replaced by an ellipsis, "while preserving the original wording and the meaning of the claim"
+- **No research question.** The analysts received the claim, and no research question to answer
+:::
+
+::: {.src}
+Multi100 preregistration, osf.io/4ev9t, p. 5.
+:::
+
+::: notes
+Multi100 did not choose its claims from scratch. It took them from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim: was it understandable, was it one claim and not several, did it state a direction, and was there a test in the article that corresponded to it? Where a phrase was judged ambiguous or rhetorical, it was replaced by an ellipsis, so that "dramatically increased" became "increased" with three dots before it, and three of the four claims of this course carry such dots. And the analysts got no research question, because the lead team judged that turning a claim into a question would push the analysts towards its own reading of the claim.
+:::
+
+## What a Multi100 analyst received {#inside-multi100-what-an-analyst-was-sent}
+
+::: {.small}
+- A **published paper**, in full and not blinded, so the original estimates were in view
+- Its **central claim**, in one sentence
+- The **data**, or directions for fetching them
+- No instructions on method: any analysis that you can defend
+:::
+
+::: {.fragment .small}
+And two things that no analyst was told: **who the other analysts were**, and **what they were finding**.
+:::
+
+::: {.src}
+@AczelEtAl2026InvestigatingAnalyticalRobustness; Multi100 preregistration, osf.io/4ev9t, pp. 4–5.
+:::
+
+::: notes
+Multi100 handed a hundred published studies to at least five independent analysts each, and I was one of those analysts, on the paper of the EU-frames case. Let me describe what that was like from the inside, because it shapes how you read the results. What arrived was the published paper, the whole thing and not blinded, so the original estimates were in view, and if anything that pulls you towards the original answer. With it came the central claim of the paper in a single sentence, and the data or directions for fetching them. In my case that meant sixteen Eurobarometer waves that I had to fetch from GESIS myself, under licence. What did not arrive was any instruction on method. And two things stayed hidden throughout: who the other analysts were, and what any of them were finding.
+:::
+
+## The two Multi100 tasks {#two-tasks-months-apart .smaller}
+
+::: {.small}
+**Task 1 – free reanalysis.** Reanalyse the claim however you see fit, then record one conclusion: evidence for the claim, evidence for the opposite, no evidence either way, or evidence for the null hypothesis.
+:::
+
+::: {.fragment .small}
+**Task 2 – constrained reanalysis.** Once Task 1 was in, report a single main result from the family of *z*, *t*, *F* or $\chi^2$ tests, following instructions for the claim on matters such as data selection and exclusions.
+:::
+
+::: {.fragment .small}
+Task 1 measures whether analysts reach the same verdict. Task 2 makes their *numbers* comparable, since five answers to five different questions cannot be averaged.
+:::
+
+::: {.src}
+Multi100 preregistration, osf.io/4ev9t, pp. 7–8; @AczelEtAl2026InvestigatingAnalyticalRobustness, Methods.
+:::
+
+::: notes
+The study ran in two stages, and the distinction matters for everything that follows. Task one was complete freedom: reanalyse the claim however you see fit, and record one categorical conclusion out of four, evidence for the claim, evidence for the opposite, no evidence either way, or evidence for the null hypothesis. [advance] Once that was submitted, and it could no longer be changed, task two arrived. It asked for a single main result in the form of a test statistic, and it came with instructions for the claim, on matters such as which data to use and what to exclude. [advance] The two tasks measure different things. Task one asks whether independent analysts reach the same verdict. Task two asks whether they produce the same number, and that question can only be asked once everyone is answering roughly the same question, which is what the instructions were for.
+:::
+
+## The instructions in the four cases {#the-instructions-in-the-four-cases .smaller .deepdive run="instructions"}
+
+::: {.fs-75}
+| Case | What the instruction of Task 2 asked |
+|:----|:--------------|
+| Housing audit | to leave the ethnic composition of the communities out of the model |
+| Immigration and trust | to include unhappiness among the controls, to measure trust in politics by trust in parliament, and to leave out two interactions with concern about immigration |
+| Cohabitation | to leave out the interactions between education and period |
+| EU frames | to leave out the contextual variables on EU policies and on the positions of parties, to use the positive non-materialist form of EU framing, and to measure poor economic performance by the unemployment rate |
+:::
+
+::: {.fragment .small}
+The preregistration required the instructions to "remain circumstantial (e.g., data selection, exclusions) and never give direct instructions to the choice of statistical approach or full specification of the model". The published Methods add "choice of measurement" to the examples.
+:::
+
+::: {.src}
+The Multi100 record of each claim (osf.io/q5h2c); preregistration, osf.io/4ev9t, p. 6; @AczelEtAl2026InvestigatingAnalyticalRobustness, Methods.
+:::
+
+::: notes
+Here are the four instructions side by side, in my words rather than theirs; on the second day you read the exact wording for your own case. They differ a good deal. The cohabitation instruction removes one set of interactions and says nothing else, and the housing-audit instruction removes the ethnic composition of the communities. The instructions for the immigration-and-trust and EU-frames claims go further and choose measures: the outcome in both cases, and for the EU-frames claim the predictor as well. [advance] The preregistration allowed only instructions that it called circumstantial, about data selection and exclusions, and never about the statistical approach or the full model. The published Methods add the choice of measurement to the examples, and the EU-frames instruction, which I received myself, makes two choices of exactly that kind.
+:::
+
+## Results on a common scale {#how-a-hundred-studies-become-one-number}
+
+::: {.small}
+- Every analyst reports a test statistic in whatever form the model produces – **t**, **z**, **F**, $\chi^2$ – with its degrees of freedom or its sample size
+- Each is converted to a **partial correlation** *r* and then to a standardised **Cohen's *d***, so that a regression fitted in Stata and a test computed in R can be read on one axis
+- A **peer panel** judges whether each pipeline is an appropriate analysis of the claim
+- Only then can you ask how far apart several defensible answers are
+:::
+
+::: {.fragment .small}
+Standardising makes the comparison possible, but it assumes that the analysts are estimating **the same quantity**, and that the numbers fed into each conversion count the units that carry the evidence.
+:::
+
+::: {.src}
+@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136 and Methods.
+:::
+
+::: notes
+Even with the question pinned down, the answers arrive in different forms. Everyone reports the test statistic that their model happens to produce, a t, a z, an F or a chi-square, with its degrees of freedom or its sample size. Multi100 converted those onto a common scale, a partial correlation and then a standardised difference, so that a regression fitted in Stata and a test computed in R could be placed on the same axis. A peer panel judged whether each pipeline was an appropriate analysis of the claim at all, so the spread that comes out of the study is a spread among analyses that passed review. [advance] Putting several numbers on one axis takes two things for granted. One is that they estimate the same quantity, the subject of much of the second day. The other is that each conversion counts the units that actually carry the evidence, which the next slides take up.
+:::
+
+## The conversion rules {#the-conversion-rules .smaller .deepdive run="scale"}
+
+::: {.fs-80}
+| Reported statistic | Rule of the code | The number that enters beside the statistic |
+|:--|:--|:--|
+| *t* | $r = t / \sqrt{t^2 + df}$ | the degrees of freedom |
+| *z* | $r = \tanh\left(\lvert z \rvert / \sqrt{N - 3}\right)$, with the sign of *z* | the sample size *N* |
+| $\chi^2$ | $r = \tanh\left(\sqrt{\chi^2} / \sqrt{N - 3}\right)$, never negative | the sample size *N* |
+| *F* | $r = \sqrt{F / (F + df_2)}$ | the second degrees of freedom |
+:::
+
+::: {.small}
+Then $d = 2r / \sqrt{1 - r^2}$, and the comparison with the original result is made on *d*, within a tolerance region of ±0.05.
+:::
+
+::: {.src}
+standard_correlation_coefficient.R and cohens_d.R in github.com/marton-balazs-kovacs/multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness [p. 136].
+:::
+
+::: notes
+For those who want the arithmetic, here are the rules of the code that the Multi100 team published. Each statistic is first turned into a correlation, and each rule needs a second number besides the statistic: the degrees of freedom for a t or an F, the sample size for a z or a chi-square. A chi-square carries no sign, so the correlation computed from it can never be negative, whatever the direction of the result. The correlation is then turned into a Cohen's d, and the comparison with the original study is made on d, within five hundredths either side. The article itself is candid that these transformations rely on assumptions that may not hold in every setting, and the next slide shows one of them failing.
+:::
+
+## What the conversion assumes {#what-the-conversion-assumes .smaller}
+
+::: {.fs-80}
+| Analyst of the EU-frames claim | Reported | What entered the conversion | *r* recorded |
+|:--|:--|:--|--:|
+| PRL47 | *z* = −3.59 | 394,575 respondents | −0.006 |
+| C6HJR, my own analysis | *t* = −3.80 | 233 degrees of freedom of a model of country-years | −0.242 |
+:::
+
+::: {.fragment .small}
+Almost the same statistic, and correlations about 42 times apart. Neither number is wrong for its own model. The difference comes from the conversion, which reads the units counted by the software as the units that carry the evidence.
+:::
+
+::: {.src}
+The Multi100 processed data (osf.io/q5h2c), as set out on the page The Multi100 article on this site.
+:::
+
+::: notes
+Here is that assumption failing, in the case that I know best, because one of the two rows is my own analysis. Two analysts of the EU-frames claim reported almost the same statistic, a z of minus three point five nine and a t of minus three point eight zero. Yet the correlations recorded for them differ by a factor of about forty-two. The z was converted on the three hundred and ninety-four thousand respondents of its analysis, and the t on the two hundred and thirty-three degrees of freedom of my model of country-years. [advance] Neither number is wrong for its own model. The difference comes from the conversion, which here treats every respondent as an independent test of a national unemployment rate, and that may well be too strong an assumption.
+:::

@@ -1,0 +1,31 @@
+## {#overview .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.todaymeta}
+Session 1 of 6 on day 1, the same for every case
+:::
+
+:::: {.todaybox}
+::: {.nonincremental .fs-85}
+1. The credibility debate – what a claim is for, false positives and forking paths, replications and many-analysts studies, incentives, and the red-card study
+2. The three Rs – reproduction, robustness and replication as a matrix of data against analysis
+3. Open research – the practices that let another person check a claim
+:::
+::::
+
+::: {.todaytake .fs-85}
+You leave able to tell the three Rs apart, and to say what each practice of open research makes possible
+:::
+
+::: notes
+Welcome to the course. The first day is the same whichever case your course runs, and it starts a long way from any dataset, with the question of why the credibility of published social science became a question at all. This session has three sections. The first is the debate itself: what a claim is for, the arguments that made people nervous, the evidence from replications and from studies that gave many analysts the same data, the incentives behind it all, and the red-card study, in which twenty-nine teams analysed one dataset and disagreed. The second gives us the vocabulary of the course, three kinds of repetition that all went under the word 'replication'. The third turns that vocabulary into practice, with the habits of open research and what each habit lets another person do.
+:::
+
+# The credibility debate {#the-credibility-debate .darkslide background-color="rgba(0,0,0,0)"}
+
+::: {.partlabel}
+Section 1
+:::
+
+::: notes
+Section one. We start with what a published claim is for, because the rest of the debate follows from the answer. Then three arguments, from 2005, 2011 and 2014, which explained how a field could fill up with false findings without anybody cheating, and the studies that went and counted: a hundred psychology experiments run again, and seventy-three teams given one hypothesis. Then the incentives that keep the problem going. We end on the study that comes closest to an experiment on analysts themselves, in which twenty-nine teams were sent one dataset on red cards in football and asked the same question.
+:::
