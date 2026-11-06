@@ -1,6 +1,5 @@
 ---
 title: "Getting started with R"
-subtitle: "Required before a one-day workshop"
 engine: knitr
 format:
   live-html:
@@ -85,13 +84,13 @@ waits <- audit |>
   datawizard::data_modify(months = as.numeric(waitlist))
 ```
 
-This module teaches the part of R that the course uses, from a first line of code to a table and a figure, and it is written for someone who has never programmed. It is one of three pieces of preparation required before a one-day workshop. The other two are the installation of R and an IDE (Positron, RStudio, VS Code, etc.), which the [setup page](../setup.qmd) describes and which is complete when the check script of the workspace prints OK for every check, and the case study of the case on which your workshop is built. The module takes about two hours, and it can be broken off at any section heading and taken up again later.
+This module teaches the part of R that the course uses, from a first line of code to a table and a figure, and it is written for someone who has never programmed. The module takes about two hours, and it can be broken off at any section heading and taken up again later.
 
-Nothing has to be installed for this page. Every block of code on it runs in your browser, on a copy of R that the page downloads when it opens, so the module can be worked before your own installation, alongside it, or on a machine on which you cannot install anything.
+Nothing has to be installed for this page. Every block of code on it runs in your browser, on a copy of R that the page downloads when it opens, so the module can be worked before you install R and an IDE (Positron, RStudio, VS Code, etc.) as the [setup page](../setup.qmd) describes, while you install them, or on a machine on which you cannot install anything.
 
 The examples work on one file, whichever case your workshop takes. The housing-audit data hold one row for each of the `r n_emails` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The OAs recorded, among other things, whether each email drew a reply and whether the reply greeted the sender by name. The [case study of the housing-audit case](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells the story of the experiment, while here the file serves as a dataset small enough to look at whole, with an outcome that is either yes or no, which makes it a good place to learn.
 
-By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the browser lab of a one-day workshop asks of you. A [second part](r-further.qmd), which is optional, reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
+By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the browser lab of a one-day workshop asks of you. A [second part](r-further.qmd) reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
 
 ::: {#code-blocks .callout-important icon="false"}
 ## The code blocks on this page
@@ -901,7 +900,7 @@ ggplot2::ggplot(by_name, ggplot2::aes(x = share, y = reorder(name, share), fill 
 
 ## Further study {#sec-sources}
 
-The [second part](r-further.qmd) of the module, which is optional, fetches the file deposited by the OAs from the repository that holds it, reads the file in the format of Stata with its labels, sets the same task in the three dialects of R, and fits a first model while naming the quantity that it estimates. The rest of the course repeats on a larger scale the sequence practised on this page: read the data, look at it, reshape it with a few verbs, compute and draw, then fit a model and read what the fit says.
+The [second part](r-further.qmd) of the module fetches the file deposited by the OAs from the repository that holds it, reads the file in the format of Stata with its labels, sets the same task in the three dialects of R, and fits a first model while naming the quantity that it estimates. The rest of the course repeats on a larger scale the sequence practised on this page: read the data, look at it, reshape it with a few verbs, compute and draw, then fit a model and read what the fit says.
 
 This module was written for the course and adapts no existing lesson. It teaches only the part of R that the materials of the course use, in the order in which the course needs it. For a fuller, self-paced grounding in R, these open resources are recommended:
 

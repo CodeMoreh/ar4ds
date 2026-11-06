@@ -1,6 +1,5 @@
 ---
 title: "Getting started with R, part 2"
-subtitle: "Optional – for a second reading"
 engine: knitr
 format:
   live-html:
@@ -45,7 +44,7 @@ b_hisp_txt <- sub("^-", "−", sprintf("%.4f", b_hisp))
 gap_txt    <- sub("^-", "−", sprintf("%.2f", 100 * b_hisp))
 ```
 
-This page continues [Getting started with R](r.qmd). It takes about an hour, and it is optional, since nothing in a one-day workshop depends on it. It stays with the housing-audit data, the `r n_emails` emails that the original authors (OAs) of a field experiment sent to public housing authorities in the United States [@EinsteinGlick2017DoesRaceAffect], and takes the tools of the first part further. [Section 13](#sec-formats) fetches the file deposited by the OAs, in the format of Stata, from the repository that holds it, reads it with its labels, and introduces the packages that read other formats and query archives. [Section 14](#sec-dialects) sets one small task in the three dialects in which R is written, and [section 15](#sec-estimand) fits a first model while naming the quantity that it estimates.
+This page continues [Getting started with R](r.qmd) and takes about an hour. It stays with the housing-audit data, the `r n_emails` emails that the original authors (OAs) of a field experiment sent to public housing authorities in the United States [@EinsteinGlick2017DoesRaceAffect], and takes the tools of the first part further. [Section 13](#sec-formats) fetches the file deposited by the OAs, in the format of Stata, from the repository that holds it, reads it with its labels, and introduces the packages that read other formats and query archives. [Section 14](#sec-dialects) sets one small task in the three dialects in which R is written, and [section 15](#sec-estimand) fits a first model while naming the quantity that it estimates.
 
 The blocks work as they do in the first part, as the [note on the code blocks](r.qmd#code-blocks) describes. Run Code runs a whole block, each block holds one step, and the blocks are meant to be run in order. This page downloads more packages than the first, including dplyr and haven, so it takes a little longer to be ready, and again nothing has to be installed on your machine. The sections continue the numbering of the first part, so that a reference to section 9 means the same section on both pages.
 
