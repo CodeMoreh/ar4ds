@@ -4,6 +4,11 @@ project:
   resources:
     - /assets/
 
+# Pages with R code are rendered locally and their results committed in
+# _freeze/, so that CI renders the site without executing them.
+execute:
+  freeze: auto
+
 website:
   title: "Applied Replication for Data Skills"
   site-url: "https://codemoreh.github.io/ar4ds/"
@@ -43,14 +48,22 @@ website:
             text: "SCORE and Multi100"
           - href: multi100-article.qmd
             text: "The Multi100 article"
-      - text: Setup
+      # Installation first, then the four self-study modules on the tools
+      - text: Tools
         menu:
           - href: setup.qmd
             text: "Install and check"
           - href: help.qmd
             text: "Setup help"
-      - href: git-github.qmd
-        text: "Git and GitHub"
+          - text: "---"
+          - href: tools/r.qmd
+            text: "Getting started with R"
+          - href: tools/ide.qmd
+            text: "Positron and other IDEs"
+          - href: tools/quarto.qmd
+            text: "Quarto"
+          - href: git-github.qmd
+            text: "Git and GitHub"
 
   page-footer:
     left: |
