@@ -1,6 +1,7 @@
 ---
 title: "Git and GitHub for reproducible research"
 subtitle: "Optional, self-driven – for after the course"
+lightbox: true
 ---
 
 This module on git and GitHub is shared by the four cases of AR4DS, and it is optional. No session of the course asks you to use git, and every format runs without a repository. The workspace of each case is a self-contained zip that you open in your IDE (Positron, RStudio, VS Code, etc.) and render on your own machine, with nothing to clone and no account to create. The browser lab of each case, on which the short session and the one-day courses are mainly taught, runs the same exercise in your browser using webR, with nothing installed at all. Neither asks you to touch git or GitHub at any point.
@@ -12,6 +13,8 @@ A course on reproducibility might reasonably be expected to teach git as a matte
 The module assumes that you are comfortable with R and with the habits of the course: paths relative to the project folder, a rendered Quarto report as the unit of work, and data whose origin is recorded in files that you can point to. It follows naturally from the companion module on [reproducibility repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html). That module is about finding and reading the deposits of other researchers and about depositing your own, and this one is about git, the tool with which you build, inspect and correct such a deposit over time.
 
 The commands on this page are **printed for you to type**, and none of them runs when the page renders. Git is a tool that you drive from a terminal or from your IDE, so the way to learn it is to type the commands yourself against a folder of your own, copying the snippets one at a time and watching what each does.
+
+Each step also has its counterpart in Positron, the default IDE of the course, whose Source Control view does the work of the commands through buttons and lists, and each Positron step ends with a screenshot of what it should produce. These steps work on the folder of the housing-audit case, `replication-lab-housing-main`, which the module on [Positron and other IDEs](tools/ide.qmd) also uses, and are best done in a copy unzipped afresh from the [zip file of the workspace]({{< var cases.housing.workspace-zip >}}), since the tasks of section 2 change the preregistration block of the report and would otherwise overwrite the choices that you made during the course. The screenshots were taken from Positron 2026.10.2 on Windows 11 in such a copy, whose commits all carry an example name, A. Participant, set in the configuration of that copy alone. As in the module on Positron, the keyboard shortcuts are given for Windows, the only system on which the steps were tested, and on a Mac Cmd takes the place of Ctrl in most of the shortcuts.
 
 ## 1. Version control {#sec-why}
 
@@ -73,6 +76,18 @@ git status
 
 At this point it reports that your files are 'untracked', present in the working directory but not yet recorded by git.
 
+::: {.callout-tip}
+## In Positron
+
+1. Open your fresh copy of the workspace with **File → Open Folder…**, as in the module on [Positron and other IDEs](tools/ide.qmd#sec-open), and click the Source Control icon in the Activity Bar (Ctrl+Shift+G). For a folder that is not yet a repository, the view offers **Initialize Repository** and **Publish to GitHub**, as [section 7.2 of that module](tools/ide.qmd#sec-git) shows.
+
+2. Press **Initialize Repository**, which runs `git init` in the open folder. The view now lists every file of the workspace under **Changes**, each marked U for 'untracked', and the Source Control icon carries the number of files that have changed, 32 in a fresh copy. The Status Bar names the branch, `main`, followed by an asterisk while the folder holds changes that are not yet staged (@fig-scm-init).
+
+![The Source Control view just after Initialize Repository. The 32 files of the workspace are listed under Changes, each marked U for untracked, the Graph has no commits yet, and the Status Bar at the bottom names the branch, main.](tools/images/git/initialised-repository.png){#fig-scm-init fig-alt="The left part of the Positron window. In the Activity Bar the Source Control icon is selected and carries a red badge reading 32. The Source Control view holds a message box whose placeholder reads 'Message (Ctrl+Enter to commit on main)', a blue Commit button and a list headed Changes with the count 32, in which _quarto.yml, .gitignore, index.qmd, LICENSE, README.md, replication-lab-housing.Rproj, working_script.R, the files in .devcontainer, .github and _freeze, and the data files with their codebooks are each marked with a green U. Below the list, the Graph section reads 'The selected source control provider does not have any source control history items.' The Status Bar at the bottom shows main followed by an asterisk."}
+:::
+
+Positron gives the first branch the name `main`, as its setting `git.defaultBranchName` asks, whereas `git init` typed in a terminal takes the name from the settings of git itself, and those settings gave `master` on the machine used for the screenshots (@fig-terminal-loop). Either name serves on your own machine, since the commands of section 3 rename the branch to `main`, with `git branch -M main`, before the first push.
+
 ### Staging and committing
 
 Recording a change takes two steps. You stage the file that you want to record, then commit it with a short message describing the change:
@@ -84,10 +99,32 @@ git commit -m "Add reanalysis report skeleton"
 
 A commit message is the one-line explanation that your future self and any collaborator read to understand what a snapshot was for, so it should say what the change accomplishes. Write it in the imperative, as if completing the sentence "this commit will…": "Count every delivered email, a missing reply as no greeting", "Add the covariates of the original model, in thirds". A log full of 'update', 'stuff' and 'changes' is of no use to anyone later. (The advice on commit messages here follows the Software Carpentry lesson and The Turing Way.)
 
+::: {.callout-tip}
+## In Positron
+
+1. Hold the pointer over a file in the list of changes, `index.qmd` for example. Three buttons appear at the right of its row, **Open File**, **Discard Changes** and **Stage Changes**, the last marked with a plus sign (@fig-scm-stage-button). Move the pointer to `.gitignore` and click its plus sign, the equivalent of `git add .gitignore`.
+
+![The three buttons that appear on a file in the list of changes while the pointer rests on it, with the tooltip of Stage Changes.](tools/images/git/stage-changes-button.png){#fig-scm-stage-button fig-alt="The top of the Source Control view, with an empty message box, the Commit button and the list of changes, in which every file is marked U. The pointer rests on the row of index.qmd, which shows three buttons at its right, a file icon, a curved arrow and a plus sign, and a tooltip under the plus sign reads Stage Changes."}
+
+2. `.gitignore` moves to a new list, **Staged Changes**, marked A for added. Type the message `Add .gitignore excluding rendered output and private files` in the box above the lists (@fig-scm-staged).
+
+![The file .gitignore staged on its own, with the message of the commit typed in the box above the Commit button, while the 31 other files of the workspace stay under Changes.](tools/images/git/staged-file-and-message.png){#fig-scm-staged fig-alt="The top of the Source Control view. The message box holds the text 'Add .gitignore excluding rendered output and private files'. Below the Commit button, a list headed Staged Changes with the count 1 holds .gitignore, marked A, and the list headed Changes, with the count 31, begins with _quarto.yml, index.qmd, LICENSE, README.md, replication-lab-housing.Rproj and working_script.R, each marked U. The Source Control icon in the Activity Bar carries the badge 32."}
+
+3. Press **Commit**, or Ctrl+Enter in the box, as its placeholder text says. The staged file leaves the view, and the commit appears in the Graph at the foot of the view.
+
+4. Make two more commits in the same way. The first takes `index.qmd` and `README.md`, staged together, with the message `Add reanalysis report and README`. The second takes everything that is left, staged at once with the plus sign of **Stage All Changes** on the header of the list, with a message such as `Add the data, the helpers and the rest of the workspace`.
+:::
+
+If you press **Commit** with nothing staged, Positron answers "There are no staged changes to commit" and asks "Would you like to stage all your changes and commit them directly?", with the buttons **Yes**, **Always**, **Never** and **Cancel**. **Cancel** leaves everything as it was, and staging the files that belong together keeps the commit to the one change that its message describes.
+
 ::: {.callout-note}
 ## The preregistration commit
 
 In the June 2026 in-person delivery of the course, a git action was tied to a specific research step. Before running a chosen specification, participants committed their choice with a message in a fixed format, `prereg:` followed by the specification, which on the housing-audit case would read `prereg: comparison=white population=all uncoded=drop model=lpm adjust=none`. Git takes the timestamp of a commit from the clock of the computer, and the date can be set by hand when committing or rewritten afterwards, for example with `git commit --amend`. The timestamp is, however, part of the content from which the identifier of the commit (its hash) is computed, so a commit with a changed date is a different commit with a different identifier. Once a commit had been pushed and its identifier was held elsewhere, a rewrite could be detected, and in that sense the pair of message and timestamp was a free, tamper-evident record of a preregistration. But it also meant that stating your analytical choice before running it depended on already knowing git, in a session where many participants were meeting git for the first time. Preregistration in the course now happens in a template block, completed and rendered inside the report itself, which needs no git at all and is explained in [the repositories module](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html#sec-prereg-templates). No session of the course uses the `prereg:` convention, although the last stage of the self-study route asks for something close to it: the preregistration of your own project, made the first commit of its repository and pushed, or registered on OSF Registries, before anything runs. The convention remains useful in projects of your own. If you already work under version control, committing a stated choice, and pushing it to a shared repository, before you run the analysis that tests it is a real, low-effort form of preregistration, and git supplies the timestamp at no cost.
+
+In Positron, a commit of this kind is an ordinary commit whose message begins with `prereg:`, and the Graph at the foot of the Source Control view shows when it was made. Holding the pointer over the commit in the Graph opens a card with the author, the date and time of the commit, the message, the number of lines that it changed and the short form of its identifier, `9f96a0d` in @fig-scm-prereg.
+
+![The card that opens when the pointer rests on a commit in the Graph, here a preregistration commit in the copy of the workspace used for the screenshots. It gives the date and time of the commit and the short form of its identifier.](tools/images/git/preregistration-commit-details.png){#fig-scm-prereg fig-alt="The Graph section of the Source Control view next to a card. The Graph lists Outgoing Changes on main, then the commit 'prereg: comparison=white population=all uncoded=drop model=lpm adjust=none' with the label main, the commit 'Fit the logistic regression of the paper, reported as an average marginal effect' with the label origin/main, and four older commits by A. Participant. The card, opened on the prereg commit, reads 'A. Participant, now (November 6, 2026 at 3:31 PM)', then the message, then '1 file changed, 3 insertions(+), 3 deletions(-)', the label main and the identifier 9f96a0d."}
 :::
 
 The section on your own reanalysis below breaks a reanalysis into the units that make good commits: reading the data, finishing the causal graph, reproducing the recorded value, and adding one choice from the specification menu at a time. Each step is one nameable thing to have done, and each makes a small, self-contained commit. Saved up to the end, the same work becomes one enormous commit that records 'the whole analysis' and explains none of the decisions inside it.
@@ -102,6 +139,18 @@ git log --oneline
 
 The `--oneline` flag prints one compact line per commit, a short identifier and your message, which is usually what you want. Drop it for the full record with dates and authors.
 
+In Positron, the **Graph** at the foot of the Source Control view is the same log, and it reads as a history of the analysis. It lists the commits newest first, each on a line of its own with its message and its author, and puts a label on the commit at which the branch now stands, so that reading down the list gives the order in which the analysis changed, and the message of each commit the reason for the change.
+
+::: {.callout-tip}
+## In Positron
+
+1. Click a commit in the Graph. It unfolds into the files that it changed, each marked with its letter, and clicking one of them opens the diff of that file in that commit (@fig-scm-graph).
+
+2. Hold the pointer over a commit for a card with its date and time and its identifier, as in @fig-scm-prereg.
+
+![The Graph after the five commits of the tasks of this section, with the second unfolded to show the one file that it changed, index.qmd, marked M for modified.](tools/images/git/graph.png){#fig-scm-graph fig-alt="The Graph section of the Source Control view with five commits by A. Participant, newest first: 'Fit the logistic regression of the paper, reported as an average marginal effect' with the label main, 'Count every delivered email, a missing reply as no greeting', unfolded to show index.qmd marked M, 'Add the data, the helpers and the rest of the workspace', 'Add reanalysis report and README' and 'Add .gitignore excluding rendered output and private files'. A line of dots on the left joins the commits."}
+:::
+
 ### Diffs
 
 `diff` is the command that makes a history worth reading, because it shows the exact lines that differ between two states. Before you stage anything, it shows what you have changed since the last commit:
@@ -112,14 +161,104 @@ git diff
 
 After staging, `git diff --staged` shows what you are about to commit. Reading the diff before every commit keeps a history accurate, because you have to look at what you are recording and describe it in the message.
 
+::: {.callout-tip}
+## In Positron
+
+1. Open `index.qmd`, press Ctrl+G, type 408 and press Enter to go to the line of `my_population` in the preregistration block of Task 5, and set it to `"all"` in place of `"replies"`. Then set `my_adjust`, on line 418, to `"email"` in place of `"none"`, and save the file with Ctrl+S. The two changes stand for two decisions of the specification menu taken in one sitting, and the tasks of the next subsection commit the first and discard the second.
+
+2. In the Source Control view, `index.qmd` is back under **Changes**, marked M for modified. Click it, and the diff editor opens with the last committed version on the left and yours on the right, each changed line shaded, in red on the left and in green on the right, with the changed words picked out within it (@fig-scm-diff). This is `git diff`. A file clicked under **Staged Changes** opens instead what `git diff --staged` shows, the comparison of the last commit with the staged version, and in a narrow window both comparisons appear in a single column, each old line above its new one.
+
+![The diff editor of index.qmd, opened from the list of changes, with the two changed lines of the preregistration block shaded on both sides.](tools/images/git/diff-editor.png){#fig-scm-diff fig-alt="The Positron window with the Source Control view on the left, listing index.qmd under Changes, marked M, and the diff editor on the right in a tab named 'index.qmd (Working Tree)'. The left side of the diff shows the committed version and the right side the working version of lines 407 to 421 of the preregistration block. Line 408 is shaded red on the left, where my_population is set to replies, and green on the right, where it is set to all. Line 418 is shaded red on the left, where my_adjust is set to none, and green on the right, where it is set to email. In the narrow strip between the two sides, beside line 408, are an arrow and a plus sign."}
+:::
+
 ### The source-control pane in your IDE {#the-ides-source-control-pane}
 
-Positron, the default IDE of the course, has a **Source Control pane** that does the same work through a graphical interface, and the Git tab in RStudio and the Source Control view in VS Code are the same idea in a different arrangement. Changed files appear in a list with a checkbox beside each one, and ticking a box is `git add`. A text field takes your commit message, and a Commit button records the snapshot. A history view shows the log, and clicking a file shows its diff with additions and deletions in different colours. Nothing new is happening underneath, since the pane issues the same commands, but for many people the visual loop of staging and committing is easier to learn and to live with. For a thorough walkthrough written for R users, including the fiddly business of connecting an IDE to git and to GitHub, the book "Happy Git and GitHub for the useR" by Jennifer Bryan is the standard reference, linked in full in the sources below.
+Positron, the default IDE of the course, does the work of these commands in its **Source Control view**, which the tasks above have used step by step, and the Git tab of RStudio and the Source Control view of VS Code are the same idea in a different arrangement. The view holds the three places of the model at the start of this section. The **Changes** list is the working directory, with every file whose changes are not yet staged, the **Staged Changes** list above it is the staging area, and the **Graph** at the foot of the view is the repository, one commit to a line (@fig-scm-init and @fig-scm-staged). A letter at the right of each file says what has happened to it, U for a file that git does not track yet, A for one added to the staging area, M for one that is modified and D for one that is deleted, and the same letters appear in the Explorer and on the tabs of the editor. The message box and the **Commit** button sit at the top of the view, and the Status Bar names the branch, with an asterisk while some changes are not staged and a plus sign while some are.
+
+Nothing new is happening underneath, since the view runs the same git commands that you would type, and **Show Git Output**, at the foot of the **More Actions** menu that opens from the three dots on the header of **Changes**, lists each command that the view has run. For many people the visual loop of staging and committing is easier to learn and to live with than the commands, and the tasks below add to it what has no section of its own above, namely staging part of a file, discarding a change, the history of a single file and the buttons for a remote. These tasks continue in the same copy of the workspace, with the two changes to the preregistration block still in place.
+
+#### Part of a file
+
+Two decisions are often made in one sitting and end up in one file, as the two changes to the preregistration block have done. Staging the whole file would put both into one commit, under a message that has to describe both, whereas the diff editor can stage one change and leave the other for a commit of its own, so that each commit still records one decision. In the terminal the same selection takes `git add --patch`, which asks about each change in turn.
+
+::: {.callout-tip}
+## Try it
+
+1. Click `index.qmd` under **Changes** to open its diff. Beside the change on line 408, in the narrow strip between the two sides, are two small buttons, an arrow for **Revert Block** and a plus sign for **Stage Block** (@fig-scm-diff).
+
+2. Click the plus sign. Only that change is staged, so `index.qmd` is now listed twice, under **Staged Changes** for the population and under **Changes** for the adjustment, and clicking the first entry shows the staged change alone (@fig-scm-partial). To stage less than a whole change, select the lines on the right-hand side of the diff, right-click the selection and choose **Stage Selected Ranges**.
+
+![The file index.qmd staged in part. It is listed under both Staged Changes and Changes, and the comparison of the staged version with the last commit holds only the change on line 408, while line 418 sets my_adjust to none on both sides.](tools/images/git/part-of-a-file-staged.png){#fig-scm-partial fig-alt="The Positron window with the Source Control view on the left and a diff editor on the right, in a tab named 'index.qmd (Index)' with a padlock. The view lists index.qmd twice, under Staged Changes, where it is selected, and under Changes, both times marked M. The diff shows lines 403 to 419 of the preregistration block. Line 408 is shaded red on the left, where my_population is set to replies, and green on the right, where it is set to all, while line 418 sets my_adjust to none on both sides."}
+
+3. Commit the staged change with the message `Count every delivered email, a missing reply as no greeting`. The adjustment stays under **Changes**, for the next task.
+:::
+
+#### Discarding a change
+
+An exploratory change that you decide not to keep, such as the adjustment set tried on line 418, is best discarded rather than undone by hand. Discarding returns the file to its staged version, or to its last committed version when nothing in it is staged, and in the terminal the same step takes `git restore`. Git never recorded the discarded edit, so Positron asks before it discards, although the local history described under the timeline below may still hold the version that you last saved. For a file that git does not track yet, discarding removes the file itself, which Positron moves to the Recycle Bin (the Trash on a Mac).
+
+::: {.callout-tip}
+## Try it
+
+1. Right-click `index.qmd` under **Changes**, where the adjustment remains, and choose **Discard Changes** (@fig-scm-discard). The curved arrow among the buttons of the row does the same.
+
+![The menu that opens on a right-click on a file in the list of changes, with Discard Changes highlighted.](tools/images/git/discard-changes-menu.png){#fig-scm-discard fig-alt="The Source Control view with index.qmd under Changes and a menu opened from it, listing Open Changes, Open File, Open File (HEAD), Discard Changes, which is highlighted, Stage Changes, Add to .gitignore, Reveal in File Explorer and Reveal in Explorer View."}
+
+2. Positron asks "Are you sure you want to discard changes in 'index.qmd'?", with the buttons **Discard File** and **Cancel**. Press **Discard File**. The file leaves the list, and line 418 reads `"none"` again.
+:::
+
+#### The timeline of a file
+
+The Graph lists every commit of the repository, whereas a question about one file, such as when and why the population of the analysis last changed, is answered more directly by the **Timeline**, a section at the foot of the Explorer that lists only the commits that changed the file open in the editor. The Timeline also lists, as **File Saved**, the versions kept by Positron each time that the file was saved, a local history held outside git, and the funnel button on the header of the Timeline opens a menu with two entries, **Git History** and **Local History**, each of which shows or hides one kind.
+
+::: {.callout-tip}
+## Try it
+
+1. Make the second decision of section 5 a commit of its own. Set `my_model`, on line 417 of `index.qmd`, to `"logit"` in place of `"lpm"`, save the file, stage it and commit it with the message `Fit the logistic regression of the paper, reported as an average marginal effect`.
+
+2. With `index.qmd` open in the editor, click the Explorer icon in the Activity Bar and unfold **Timeline** at the foot of the Explorer. The entries run newest first, each commit with its message and its author (@fig-scm-timeline), and clicking a commit opens the diff of the file in that commit.
+
+![The Timeline of index.qmd, with the three commits that changed the file and two entries of the local history, labelled File Saved.](tools/images/git/timeline.png){#fig-scm-timeline fig-alt="The Timeline section of the Explorer, headed TIMELINE index.qmd, listing five entries, newest first: the commit 'Fit the logistic regression of the paper, reported as an average marginal effect' by A. Participant, 4 minutes old, an entry File Saved, the commit 'Count every delivered email, a missing reply as no greeting', 7 minutes old, a second entry File Saved, 14 minutes old, and the commit 'Add reanalysis report and README', 15 minutes old. The header carries buttons to pin, refresh and filter the Timeline."}
+:::
+
+#### A repository with a remote
+
+Once the repository has a remote, as section 3 sets up on GitHub, the view also counts how far your branch stands from its copy on the remote and offers the buttons that bring the two back in step. For a preregistration commit, the push is the step that matters, since the commit, with its date, is then held elsewhere. The button under the message box changes with the state of the repository. With every change committed and no remote, it reads **Publish Branch**, as section 5 describes (@fig-scm-publish), and after each new commit on a branch that has been pushed before, it reads **Sync Changes**, with the number of commits not yet pushed beside an arrow pointing up. The Graph lists those commits under **Outgoing Changes**, and the Status Bar repeats the number beside its own arrow pointing up, next to an arrow pointing down for any commits on the remote that are not yet in your copy (@fig-scm-sync). That second number dates from the last time that Positron fetched from the remote, and by default Positron fetches only when asked, with **Fetch** in the menu described below.
+
+**Sync** does both jobs in turn. It first pulls, bringing down the commits that are on the remote but not in your copy and adding those commits to your branch, as `git pull` does, and then pushes your own, as `git push` does. The **More Actions** menu of the view offers Pull and Push separately, both at its top level and, with variants of each, in its submenu **Pull, Push** (@fig-scm-pull-push), and the toolbar of the Graph has a button for each, the arrows pointing down and up. Pull brings commits down without sending any of yours, and Push sends yours without bringing any down.
+
+::: {.callout-tip}
+## Try it
+
+These steps need a repository with a remote, such as the one that section 3 creates on GitHub and pushes for the first time.
+
+1. Commit a change after the last push. The button under the message box now reads **Sync Changes** with the number of commits not yet pushed, the Graph lists those commits under **Outgoing Changes**, and the Status Bar shows the same number beside its arrow pointing up (@fig-scm-sync).
+
+![The view after a commit that is not yet on the remote, here the preregistration commit of the copy used for the screenshots. The label origin/main marks the commit at which the copy on the remote stands, one behind main, and the Status Bar reads 0 and 1 beside its two arrows.](tools/images/git/sync-changes.png){#fig-scm-sync fig-alt="The Source Control view and the Status Bar. Under the empty message box a blue button reads Sync Changes 1 with an arrow pointing up. The Graph lists Outgoing Changes on main, then the commit 'prereg: comparison=white population=all uncoded=drop model=lpm adjust=none' with the label main, then 'Fit the logistic regression of the paper, reported as an average marginal effect' with the label origin/main and a cloud icon, and four older commits. The Status Bar reads main, then 0 beside an arrow pointing down and 1 beside an arrow pointing up."}
+
+2. Open the **More Actions** menu from the three dots on the header of **Changes**, point at **Pull, Push** to open its submenu (@fig-scm-pull-push), and close the menu with Escape.
+
+![The More Actions menu of the Source Control view, with Pull and Push at its top level and the submenu Pull, Push open.](tools/images/git/pull-push-menu.png){#fig-scm-pull-push fig-alt="The Source Control view with its More Actions menu open from the three dots on the header of Changes. The menu lists View as Tree, View and Sort, Pull, Push, Clone, Checkout to, Fetch, Commit, Changes, Pull, Push, Branch, Remote, Stash, Tags and Show Git Output. The submenu of Pull, Push is open and lists Sync, Pull, Pull (Rebase), Pull from, Push, Push to, Fetch, Fetch (Prune) and Fetch From All Remotes. Behind the menu, the button of the view reads Sync Changes 1 and the Graph lists the commits."}
+
+3. Press **Sync Changes**. Positron asks you to confirm that it will pull and push commits from and to `origin/main`, with the buttons **OK**, **OK, Don't Show Again** and **Cancel**. Press **OK**. The commit goes up to the remote, **Outgoing Changes** leaves the Graph, and the numbers leave the Status Bar.
+:::
+
+#### RStudio and VS Code
+
+RStudio shows git in a **Git** tab, in the pane at the top right that also holds the Environment, once a project is under version control. For an existing project, version control starts from the **Project Options** command of the project menu, where the version control system is changed from (None) to Git, after which RStudio asks to restart ([Version Control](https://docs.posit.co/ide/user/ide/guide/tools/version-control.html), in the RStudio User Guide). In the tab, a tick in the **Staged** box of a file stages it, and **Commit** opens a window in which files are staged, the message is written and the commit is made, while the other buttons of the tab show a diff or the history, or pull and push.
+
+VS Code has the same Source Control view, since Positron takes it from Code OSS, the open-source core of VS Code, so the steps of this section work there as well. The [VS Code documentation on source control](https://code.visualstudio.com/docs/sourcecontrol/overview) covers the view at greater length, though for a version of VS Code that may be a little newer than the one inside Positron.
+
+For a thorough walkthrough written for R users, including the fiddly business of connecting an IDE to git and to GitHub, the book "Happy Git and GitHub for the useR" by Jennifer Bryan is the standard reference, linked in full in the sources below.
 
 ::: {.callout-tip}
 ## Try it
 
 In a scratch folder, run `git init`, create a small text file, and take it through the full loop yourself: `git status` to find it untracked, `git add` to stage it, `git commit -m "..."` with a message that describes the content, and `git log --oneline` to list your commit. Then change one line of the file, run `git diff` to find that one line reported, and commit the change as a second snapshot. You have now used all the core commands that work on your own machine.
+
+In Positron, make an empty folder, open it with **File → Open Folder…** and open a terminal in it with **Terminal → New Terminal**, then type the commands there. The **New File…** button, which appears on the header of the Explorer when the pointer rests there, creates the text file in the folder, and Ctrl+S saves each change to the file. The terminal should end as in @fig-terminal-loop, with identifiers of your own in place of the ones in the screenshot. Then make one more change and take it through the same loop in the Source Control view, whose Graph already lists your two commits.
+
+![The full loop typed in the terminal of Positron, from git init to the log of the second commit, with the untracked file and the changed line of the diff in colour.](tools/images/git/terminal-git-loop.png){#fig-terminal-loop fig-alt="The Terminal tab of Positron, with the prompt PS D:\\AppData\\Local\\Temp\\positron-shots-git\\git-practice before each command. The command git init reports an empty Git repository initialised in that folder. The command git status reports the branch master, no commits yet and notes.txt, in red, as an untracked file. After git add notes.txt, the command git commit -m 'Add notes on the reanalysis' reports the root commit 7e96076, with 1 file changed and 2 insertions, and git log --oneline lists that commit. The command git diff shows the line 'Population: the replies only' in red and the line 'Population: every delivered email' in green. The second commit, 56e83c2, records 'Change the population to every delivered email', with 1 insertion and 1 deletion, and git log --oneline lists both commits."}
 :::
 
 ## 3. GitHub {#sec-github}
@@ -171,6 +310,8 @@ Three more terms are needed here, though only at the level of the idea. A **fork
 ## Try it
 
 Clone the workspace repository with the `git clone` command above, move into the folder that it creates, and run `git log --oneline` on it. You are reading the real history of the project from which your workspace was built. Scroll through the messages and notice which of them say what each change was for.
+
+In Positron, **Git: Clone** in the Command Palette asks for the address of the repository and then for the folder in which to put the copy, and when the cloning is done it offers to open the copy, whose history then fills the Graph of the Source Control view ([Working with repositories and remotes](https://code.visualstudio.com/docs/sourcecontrol/repos-remotes), in the VS Code documentation).
 :::
 
 ## 4. What to track {#sec-repro}
@@ -212,6 +353,8 @@ Git records your code, but not the exact versions of R and of the packages that 
 ## Try it
 
 Look at the `.gitignore` above and write one sentence for each line, saying why it is there: because the file is regenerated, because it is personal to one copy of the workspace, or because a licence forbids redistributing it. Then decide which of the three reasons covers `.class-tag`, the file that keeps your tag for the class chart.
+
+In Positron, once the folder of your workspace is a repository, the Explorer shows in a paler grey each file matched by a line of `.gitignore`, among them `.class-tag` once the helpers of the workspace have written it, and the list of changes in the Source Control view leaves such files out.
 :::
 
 ## 5. Your own reanalysis {#sec-application}
@@ -232,6 +375,8 @@ git add index.qmd README.md
 git commit -m "Add reanalysis report and README"
 ```
 
+In Positron, the same sequence runs from the Source Control view, as in the tasks of section 2, with **Initialize Repository**, then `.gitignore` staged on its own and committed, then `index.qmd` and `README.md`. After that, the files still listed under **Changes**, which are the data, the codebooks and the helpers of the workspace, can go into a separate commit. The report does not render without these files, and section 4 explains why the files of the housing-audit case may be shared.
+
 **Commit each analysis decision separately.** As you work through the [specification menu](https://codemoreh.github.io/ar4ds-housing/cases/housing/menu.html), resist the urge to save everything in one lump. Each defensible choice among its eleven decisions is its own commit, with a message that states the choice and, ideally, hints at the reason:
 
 ```bash
@@ -242,9 +387,15 @@ git add index.qmd
 git commit -m "Fit the logistic regression of the paper, reported as an average marginal effect"
 ```
 
+In Positron, each decision is a change to the preregistration block of `index.qmd`, staged and committed on its own as in section 2, and the history in @fig-scm-graph ends with these two commits.
+
 A history built this way is a second record of your reasoning, kept alongside the preregistration block in your report. Someone reading it later can follow the analysis as it took shape, one justified decision at a time.
 
 **Publish it, if you want to.** Push the repository to GitHub as in section 3, and the work is backed up and readable. GitHub can also serve a rendered site straight from a repository through a feature called **GitHub Pages**, which turns your rendered HTML into a public web page at a `github.io` address. The `.github/workflows/publish.yml` file in the workspace repository does this on every push once Pages is switched on in the settings of the repository, installing R and the packages of the exercise and rendering the report again, so that your edited chunks run before the page is published. Quarto also has a standalone command, `quarto publish gh-pages`, that automates the same path from source to published site for a project without that workflow file. Publishing is not required by this module or by the course, and it is mentioned here only as an idea. Doing it well means returning to section 4, because a published page is a public artefact, and everything on it must be something that you are free to share and that identifies nobody.
+
+In Positron, a repository with every change committed and no remote offers **Publish Branch** under the message box (@fig-scm-publish). Once you have created an empty repository on GitHub and added it as a remote, with `git remote add` as in section 3 or with **Git: Add Remote…** in the Command Palette, the button pushes the branch there and sets the copy on GitHub as the one that **Sync Changes** later keeps in step. Without a remote, the button first asks you to let the GitHub extension of Positron sign in to GitHub, so that the extension can create the repository there.
+
+![The Source Control view with every change committed and no remote. The button under the message box reads Publish Branch, and the Graph lists the five commits of the tasks of section 2.](tools/images/git/publish-branch.png){#fig-scm-publish fig-alt="The Source Control view with an empty message box and, under it, a blue button reading Publish Branch with a cloud icon. The Graph below lists five commits by A. Participant, newest first, from 'Fit the logistic regression of the paper, reported as an average marginal effect', which carries the label main, to 'Add .gitignore excluding rendered output and private files'."}
 
 ::: {.callout-tip}
 ## Try it
