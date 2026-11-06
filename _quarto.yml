@@ -64,6 +64,8 @@ website:
             text: "Quarto"
           - href: git-github.qmd
             text: "Git and GitHub"
+          - href: tools/ai.qmd
+            text: "AI assistants"
 
   page-footer:
     left: |

@@ -266,7 +266,7 @@ So far everything has stayed on your own machine. GitHub is a website that hosts
 
 ### An account
 
-Creating a GitHub account is free and takes a few minutes at [github.com](https://github.com/): you choose a username, confirm an email address, and set up two-factor authentication, which GitHub now requires. The one step that reliably trips people up is authentication from the command line, because GitHub does not accept your password from git and expects a personal access token or an SSH key instead. Instructions for that setup date quickly, so this module points you to the chapters on accounts and credentials in "Happy Git and GitHub for the useR", which walk R users through it carefully. The setup episode of the Software Carpentry lesson covers the same ground.
+Creating a GitHub account is free and takes a few minutes at [github.com](https://github.com/): you choose a username, confirm an email address, and set up two-factor authentication, which GitHub now requires. The one step that reliably trips people up is authentication from the command line, because GitHub does not accept your password from git and expects a personal access token or an SSH key instead. Instructions for that setup date quickly, so this module points you to the chapters on accounts and credentials in "Happy Git and GitHub for the useR", which walk R users through it carefully. The setup episode of the Software Carpentry lesson covers the same ground. The same account gives students free access to GitHub Copilot through GitHub Education, as the module [AI assistants](tools/ai.qmd) describes.
 
 ### Remotes
 

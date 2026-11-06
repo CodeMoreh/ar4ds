@@ -184,7 +184,7 @@ This step belongs to the EU-frames case only. The one-day workshops run on the c
 3. **Put all sixteen in one folder outside the workspace**, for instance `Documents/eurobarometer_raw`. Two of them arrive as `.zip` archives; leave them as they are.
 4. **Run `prep/01_build_respondents.R`** from the workspace, after setting the folder path at the top of the script. It checks every file against the version from which the course was built, reads the sixteen, and writes one respondent-level file into `data_private/`, a folder that the workspace keeps out of version control. The [data management module](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html) walks through what the script does and takes the next step, from the items to the scales and the panel.
 
-The GESIS terms of use forbid passing the files to anyone else, publishing anything about individual respondents, and processing the files with an AI assistant. Keep the folder to yourself, keep the respondent file out of any repository, and do not open it in a session that an assistant can read.
+The GESIS terms of use forbid passing the files to anyone else, publishing anything about individual respondents, and processing the files with an AI assistant. Keep the folder to yourself, keep the respondent file out of any repository, and do not open it in a session that an assistant can read. For the same reason the workspace of the case switches off the AI features of Positron and VS Code, as the module [AI assistants](tools/ai.qmd#sec-licensed) explains.
 
 ---
 
@@ -209,7 +209,7 @@ The course needs no accounts or sign-ups. In particular, you do **not** need:
 - **git or a GitHub account** – nothing in the course depends on version control. If you want to learn it, the optional [Git and GitHub companion module](git-github.qmd) is there for afterwards.
 - **an OSF account** – you will read the public records of your case on the Open Science Framework as any reader can, and complete a preregistration yourself, in the preregistration block of your own report.
 - **a data archive account** – the data of every case ship with its workspace. The one exception is the optional individual-level work of the EU-frames case, which needs the free GESIS account of step 7.
-- **an AI assistant account** – Posit Assistant in Positron and the assistants in VS Code need a provider account or an API key of your own, and nothing in the course depends on either. The [help page](help.qmd) says how to use one for setup problems if you have one.
+- **an AI assistant account** – nothing in the course depends on an assistant. Students can use GitHub Copilot in Positron free of charge through GitHub Education, which takes a few days to set up, as the module [AI assistants](tools/ai.qmd) describes, and the [help page](help.qmd) says how to put a setup problem to an assistant.
 - **paid software** – everything used is free and open.
 
 You can arrive, take part in full and leave without creating a single account.

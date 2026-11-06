@@ -366,7 +366,7 @@ Extensions add features to Positron, as they do to VS Code. Positron takes its e
 
 ### 8.4 Posit Assistant {#sec-assistant}
 
-Posit Assistant is the AI assistant built into Positron, the default AI feature since the 2026.07 release ([Posit Assistant](https://positron.posit.co/assistant.html)). It works only after you connect it to a language model provider, with an account or a key of your own, and beyond the open files it can read your loaded data, your plots and your console history. The course does not use it, and nothing in the course depends on it. A suggestion accepted from an assistant is an analytical decision of your own, to be stated and justified in your report like any other, and the [Setup help](../help.qmd#asking-an-ai-assistant) page says how to put a setup problem to an assistant, if you have one.
+Posit Assistant is the AI assistant built into Positron, the default AI feature since the 2026.07 release ([Posit Assistant](https://positron.posit.co/assistant.html)). It works only after you connect it to a language model provider, and beyond the open files it can read your loaded data, your plots and your console history. Students can connect it to GitHub Copilot free of charge through GitHub Education, and the module [AI assistants](ai.qmd) describes the steps, together with the licensed data that no assistant may read. The course does not use it, and nothing in the course depends on it. A suggestion accepted from an assistant is an analytical decision of your own, to be stated and justified in your report like any other, and the [Setup help](../help.qmd#asking-an-ai-assistant) page says how to put a setup problem to an assistant, if you have one.
 
 ## 9. Troubleshooting {#sec-troubleshooting}
 
