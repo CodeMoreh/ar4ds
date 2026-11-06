@@ -3,7 +3,7 @@ title: "Setup"
 subtitle: "What to install before the course, and how to check it"
 ---
 
-The three-day courses and the self-study route are worked in R, inside an IDE, with a ready-made workspace that you download once. The short session and the one-day workshops are taught in the browser lab of their case, and there the workspace is an option for anyone who has installed R. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the course is Positron, because Positron is one of the data-science tools that the course teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the [IDE module](https://codemoreh.github.io/ar4ds-housing/companion/ide.html) of the companion curriculum sets the three side by side.
+The three-day courses and the self-study route are worked in R, inside an IDE, with a ready-made workspace that you download once. The one-day workshops are taught in the browser lab of their case, but the installation on this page, ending when the setup check prints OK, is part of the preparation for them, together with the module [Getting started with R](tools/r.qmd) and the case study, so that the workspace is ready for anyone who wants it during the day and for the work that follows. Only the short session of the housing-audit case needs nothing but a browser. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the course is Positron, because Positron is one of the data-science tools that the course teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the module [Positron and other IDEs](tools/ide.qmd) takes you through Positron and says how the tasks are done in the other two.
 
 Steps 1 to 3 and step 5 are the same for every case. Steps 4 and 6, the workspace and the data, depend on the case that your course works on, and each has a tab per case. The site of your course names the case.
 
@@ -33,7 +33,7 @@ Install R from the packages of your distribution or from the repositories mainta
 
 :::
 
-Whichever system you are on, open a terminal afterwards and type `R --version`. If a version line comes back, R is installed and on your path, which is what every IDE below relies on.
+On macOS and Linux, open a terminal afterwards and type `R --version`: a version line means that R is installed and on your path. On Windows that test misleads, because the installer does not add R to the path and PowerShell reads `R` as a command of its own, which repeats an earlier command, so the reply is an error even when R is installed. Look instead for the R entry with the version that you installed in the Start menu. Positron and RStudio find R through the registry entry, and step 5 checks the whole installation.
 
 ---
 
@@ -42,10 +42,10 @@ Whichever system you are on, open a terminal afterwards and type `R --version`. 
 Quarto is the tool that turns your report, a `.qmd` file holding code and prose, into a finished document, and rendering the report is how your preregistration block gets its date. Whether you need to install it depends on the IDE:
 
 - **RStudio** comes with a copy of Quarto inside it, so nothing more is needed to render; installing Quarto separately from [quarto.org](https://quarto.org/docs/get-started/) gets you a newer version than the bundled one, which is worth doing but not required.
-- **Positron** ships with the Quarto extension, which gives it the render and preview commands. Whether the Quarto command-line tool itself comes with a given Positron build has changed between versions, so the check script of the workspace (step 5 below) tells you whether it is present. If it is not, install it from [quarto.org](https://quarto.org/docs/get-started/).
+- **Positron** ships with the Quarto extension, which gives it the render and preview commands. Positron also includes the Quarto command-line tool (Quarto 1.10.18 in Positron 2026.10.2), so its render and preview commands work without a separate installation. In that release the bundled copy is also on the path of the terminals and of the R session that Positron starts, so the check script of the workspace (step 5 below) finds it. If the check reports a FAIL on its Quarto line, which can happen with other releases, install Quarto from [quarto.org](https://quarto.org/docs/get-started/).
 - **VS Code** needs both the Quarto extension and the Quarto command-line tool, which you install from [quarto.org](https://quarto.org/docs/get-started/).
 
-To confirm an installation, open a fresh terminal and type `quarto --version`.
+To confirm a separate installation, open a fresh terminal and type `quarto --version`.
 
 ---
 
@@ -234,4 +234,4 @@ None of these is required, and everything is taught in the course. If you would 
 | The [AsPredicted](https://aspredicted.org) eight-question form | The template on which the preregistration block of your report is modelled. Skim the eight questions once so that the form is familiar when you meet it. |
 | [van den Akker et al. (2021) – Preregistration of secondary data analysis](https://doi.org/10.15626/MP.2020.2625) | The fuller preregistration template, built for our situation of reanalysing data that already exist. It is optional, but it is the more thorough tool for the job you do in the course. |
 | [Reading a specification curve](https://codemoreh.github.io/ar4ds-eu/cases/eu-frames/reading-inference.html) | The reading for the final part of the EU-frames day: what a large set of results together can and cannot establish, and why thousands of estimates do not amount to thousands of independent tests. |
-| [The IDE module](https://codemoreh.github.io/ar4ds-housing/companion/ide.html) | Positron, RStudio and VS Code set side by side: what each pane does, what changes between them, and what is new in the current releases. |
+| [Positron and other IDEs](tools/ide.qmd) | Positron in detail, with screenshots and tasks to do on the workspace of the housing-audit case, and short notes on RStudio and VS Code. |
