@@ -34,7 +34,7 @@ The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet
 - **Convert to Code** writes the view as dplyr code; the course writes it with datawizard
 :::
 
-::: {.fs-110}
+::: {.fs-85}
 ```r
 audit |>
   datawizard::data_filter(name == "Santiago") |>
@@ -52,7 +52,7 @@ A column in the summary panel unfolds into a fuller summary. The column of names
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.fs-100}
+::: {.fs-80}
 ```r
 tinyplot::tinyplot(~ name, data = audit,
                    type = "barplot")
@@ -62,7 +62,7 @@ tinyplot::tinyplot(~ name, data = audit,
 ![](../tools/images/ide/20-plots-pane.png){fig-alt="The Plots pane with a bar chart of the count of emails for each of the six names, and a toolbar of buttons for the previous and next plot, saving, copying, zoom and sizing." width="88%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 :::
 ::: {.column width="50%"}
-::: {.fs-100}
+::: {.fs-80}
 ```r
 audit |>
   datawizard::data_summary(emails = n(),
@@ -81,11 +81,9 @@ Every figure that R draws in the session appears in the Plots pane, under the Va
 
 ## Help pages {#help-pages .smaller}
 
-::: {.fs-130}
 ```r
 ?datawizard::data_filter
 ```
-:::
 
 ::: {.small}
 - `?` and the name of a function open its help page in the Help tab, on the right of the window, with working links and back and forward buttons

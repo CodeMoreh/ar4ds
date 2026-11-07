@@ -10,7 +10,6 @@ Section four puts the pieces together on the claim of the case. The claim compar
 
 ## A difference in shares {#a-difference-in-shares .smaller}
 
-::: {.fs-130}
 ```r
 shares <- audit |>
   datawizard::data_filter(!is.na(named), group %in% c("white", "hispanic")) |>
@@ -22,7 +21,6 @@ shares |>
     gap_points = 100 * (share[group == "hispanic"] - share[group == "white"])
   )
 ```
-:::
 
 ```{r}
 #| label: r-out-shares
@@ -44,7 +42,6 @@ The claim of the housing-audit case is that replies to emails signed with Hispan
 
 ## Two ways to count {#two-ways-to-count .smaller .deepdive run="r"}
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_filter(!is.na(reply), group %in% c("white", "hispanic")) |>
@@ -52,7 +49,6 @@ audit |>
   datawizard::data_filter(!is.na(greeted)) |>
   datawizard::data_summary(emails = n(), share = mean(greeted), by = "group")
 ```
-:::
 
 ```{r}
 #| label: r-out-shares-all
@@ -69,7 +65,6 @@ That gap is counted among the replies only, because an email that drew no reply 
 
 ## Hands-on 4 – Black and white names {#hands-on-4-black-and-white-names .smaller}
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_filter(!is.na(named), group %in% c("white", "______")) |>
@@ -78,7 +73,6 @@ audit |>
     gap_points = 100 * (share[group == "black"] - share[group == "white"])
   )
 ```
-:::
 
 ::: {.small}
 Fill the blank so that the chain computes the same gap, between the Black and the white names, among the coded replies. The column `group` spells the three groups in lower case.
@@ -94,7 +88,6 @@ Your turn, with the last task of the session. Fill the blank so that the chain c
 
 ## A table of the groups {#a-table-of-the-groups .smaller}
 
-::: {.fs-130}
 ```r
 by_group <- audit |>
   datawizard::data_filter(!is.na(reply)) |>
@@ -106,7 +99,6 @@ by_group <- audit |>
   datawizard::data_arrange("-greeted_pct")
 by_group
 ```
-:::
 
 ```{r}
 #| label: r-out-by-group
@@ -125,7 +117,7 @@ A summary is already a table, and printing it is enough while you work. A report
 
 :::: {.columns}
 ::: {.column width="56%"}
-::: {.fs-110}
+::: {.fs-85}
 ```r
 pak::pak("tinytable")      # once on each machine
 
@@ -168,7 +160,7 @@ tinytable is the table package of the course, the one to use in your IDE and in 
 
 :::: {.columns}
 ::: {.column width="55%"}
-::: {.fs-110}
+::: {.fs-85}
 ```r
 by_name <- audit |>
   datawizard::data_filter(!is.na(named)) |>
@@ -204,7 +196,7 @@ tinyplot draws every figure that you make yourself in the course, and it extends
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.fs-110}
+::: {.fs-85}
 ```r
 by_name_sorted <- by_name |>
   datawizard::data_modify(

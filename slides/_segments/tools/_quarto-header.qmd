@@ -12,7 +12,7 @@ Section two reads the two parts of the report that tell Quarto what to do. The h
 
 :::: {.columns}
 ::: {.column width="66%"}
-::: {.fs-100}
+::: {.fs-80}
 ```{.yaml code-line-numbers="false"}
 ---
 title: "Testing the robustness of a published claim: the housing-audit case"
@@ -75,7 +75,7 @@ YAML is fussy in a small number of ways, and a malformed header is probably the 
 
 ## Chunks and their options {#chunks-and-their-options .smaller}
 
-::: {.fs-110}
+::: {.fs-85}
 ```{{r}}
 #| label: setup
 #| include: false
@@ -104,7 +104,7 @@ A chunk opens with three backticks and the name of the engine in braces, and its
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.fs-110}
+::: {.fs-85}
 ```{{r}}
 #| label: submit-exploration
 #| eval: false
@@ -117,7 +117,7 @@ submit_exploration()
 :::
 :::
 ::: {.column width="50%"}
-::: {.fs-110}
+::: {.fs-85}
 ```{{r}}
 #| label: try-off-curve
 #| error: true

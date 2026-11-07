@@ -14,7 +14,7 @@ Section three is about the places where results enter the text. A number typed i
 Under the chunk of 8PTRZ, one of the five analysts whose reanalyses Task 3 reproduces, the report gives the value of the test as typed text:
 :::
 
-::: {.fs-110}
+::: {.fs-85}
 ```markdown
 The test gives **X-squared = 14.265** on 1 df,
 the value on record for 8PTRZ.
@@ -25,7 +25,7 @@ the value on record for 8PTRZ.
 Inline code computes it from the table made by the chunk above it, at every render:
 :::
 
-::: {.fs-110}
+::: {.fs-85}
 ```markdown
 The test gives X-squared = `r knitr::inline_expr("round(chisq.test(tab_8ptrz)$statistic, 3)")`
 on 1 df, the value on record for 8PTRZ.

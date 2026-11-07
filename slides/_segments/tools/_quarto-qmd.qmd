@@ -2,7 +2,7 @@
 
 :::: {.columns}
 ::: {.column width="57%"}
-::: {.fs-110}
+::: {.fs-85}
 ````markdown
 ---
 title: "A first report"

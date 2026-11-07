@@ -10,13 +10,11 @@ Section three is about reshaping a table, which is most of the work after readin
 
 ## The pipe {#the-pipe .smaller}
 
-::: {.fs-130}
 ```r
 round(mean(audit$reply, na.rm = TRUE), 3)          # read from the inside out
 
 audit$reply |> mean(na.rm = TRUE) |> round(3)      # read from left to right
 ```
-:::
 
 ```{r}
 #| label: r-out-pipe
@@ -34,7 +32,6 @@ The pipe makes a sequence of steps readable. The first line takes the mean of th
 
 ## Rows and columns {#rows-and-columns .smaller}
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_filter(!is.na(reply)) |>
@@ -42,7 +39,6 @@ audit |>
   datawizard::data_modify(hispanic_name = group == "hispanic") |>
   head()
 ```
-:::
 
 ```{r}
 #| label: r-out-verbs
@@ -63,7 +59,6 @@ Three verbs from datawizard, chained with the pipe, which you read downwards as 
 
 ## Summaries by group {#summaries-by-group .smaller}
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_filter(!is.na(reply)) |>
@@ -74,7 +69,6 @@ audit |>
     by = "group"
   )
 ```
-:::
 
 ```{r}
 #| label: r-out-summary
@@ -99,7 +93,6 @@ data summary is the verb that answers most of the questions that you will put to
 
 ## Hands-on 3 – The reply rate by name {#hands-on-3-the-reply-rate-by-name .smaller}
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_filter(!is.na(reply)) |>
@@ -110,7 +103,6 @@ audit |>
     by = "______"
   )
 ```
-:::
 
 ::: {.small}
 1. Fill the blank so that the chain summarises the delivered emails by the name that signed each, and find the name with the lowest reply rate

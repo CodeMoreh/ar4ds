@@ -100,7 +100,7 @@ These are three clauses from the terms of use to which every GESIS download dial
 
 ## Fetching data from code {#fetching-data-from-code .deepdive run="fetch"}
 
-::: {.fs-90}
+::: {.fs-65}
 ``` r
 deposit <- dataverse::get_dataframe_by_name(
   "HousingAuditAJPSFinalPublic_Unidentified.tab",

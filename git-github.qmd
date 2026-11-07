@@ -376,6 +376,8 @@ git commit -m "Add reanalysis report and README"
 
 In Positron, the same sequence runs from the Source Control view, as in the tasks of section 2, with **Initialize Repository**, then `.gitignore` staged on its own and committed, then `index.qmd` and `README.md`. After that, the files still listed under **Changes**, which are the data, the codebooks and the helpers of the workspace, can go into a separate commit. The report does not render without these files, and section 4 explains why the files of the housing-audit case may be shared.
 
+On the third day of the Extended course, the first commit holds the whole workspace instead, with the preregistration block completed in Task 5. The workspace arrives with its `.gitignore` in place, and git applies the file from the moment the repository exists, so the files named in it never appear under **Changes**, and the `.gitignore` needs no commit of its own beforehand. The order of this section remains the one for a new project, in which the `.gitignore` has yet to be written.
+
 **Commit each analysis decision separately.** As you work through the [specification menu](https://codemoreh.github.io/ar4ds-housing/cases/housing/menu.html), resist the urge to save everything in one lump. Each defensible choice among its eleven decisions is its own commit, with a message that states the choice and, ideally, hints at the reason:
 
 ```bash

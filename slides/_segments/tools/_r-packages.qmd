@@ -10,7 +10,6 @@ Section two brings in the data. First the packages, the bundles of functions wri
 
 ## Packages {#packages .smaller}
 
-::: {.fs-130}
 <!-- r-style: skip -->
 ```r
 install.packages("pak")                      # once on a new machine
@@ -18,7 +17,6 @@ pak::pak("readr")                            # step 1: install a package, once
 readr::read_csv("data/housing_audit.csv")    # step 2: call a function by its
                                              #   package and its name
 ```
-:::
 
 ::: {.small}
 - **Install** a package once on each machine, with `pak::pak()`. The check script of the workspace prints the line that installs whatever its exercise needs and you lack

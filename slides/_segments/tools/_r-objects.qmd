@@ -30,11 +30,9 @@ Section one starts at the very bottom, with the places where you type R and the 
 
 ## The console and the script {#the-console-and-the-script .smaller}
 
-::: {.fs-130}
 ```r
 1014 - 23
 ```
-:::
 
 ```{r}
 #| label: r-out-subtract
@@ -53,7 +51,6 @@ In your IDE there are two places to type R. The console runs a line the moment y
 
 ## Objects and vectors {#objects-and-vectors .smaller}
 
-::: {.fs-130}
 ```r
 emails_sent <- 1014               # a number
 first_name  <- "Santiago"         # text, called a character string, in quotes
@@ -63,7 +60,6 @@ delivered <- c(308, 326, 357)     # white, Black and Hispanic names
 replies   <- c(177, 198, 188)
 replies / delivered               # one division for each group
 ```
-:::
 
 ```{r}
 #| label: r-out-vectors
@@ -84,7 +80,6 @@ R works by putting values into named objects. The arrow, typed as a less-than si
 
 ## Means and missing values {#means-and-missing-values .smaller}
 
-::: {.fs-130}
 ```r
 greeted <- c(1, 0, 1, 1, 0)       # five replies, 1 = opened with the name of the sender
 mean(greeted)                     # the share of 1s
@@ -93,7 +88,6 @@ greeted <- c(1, 0, NA, 1, 0)      # the third reply carries no greeting code
 mean(greeted)
 mean(greeted, na.rm = TRUE)       # the share among the four replies with a code
 ```
-:::
 
 ```{r}
 #| label: r-out-means
@@ -114,7 +108,6 @@ One small fact carries most of the arithmetic of the course. When a vector holds
 
 ## Data frames {#data-frames .smaller}
 
-::: {.fs-130}
 ```r
 emails <- tibble::tibble(
   name  = c("Brett", "Santiago", "Emily"),
@@ -124,7 +117,6 @@ emails <- tibble::tibble(
 emails
 emails$named                      # one column, as a vector
 ```
-:::
 
 ```{r}
 #| label: r-out-tibble
@@ -151,13 +143,11 @@ A data frame is how R stores a table: vectors of the same length standing side b
 In your script, with the two vectors of the last slides:
 :::
 
-::: {.fs-130}
 ```r
 sum(replies) / sum(______)
 replies[3]
 Emails_sent
 ```
-:::
 
 ::: {.small}
 1. Fill the blank so that the line divides all the replies by all the delivered emails, which gives the share of the delivered emails that drew a reply, whatever the name

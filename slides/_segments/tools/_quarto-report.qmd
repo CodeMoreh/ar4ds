@@ -18,7 +18,7 @@ Your workspace holds the same analysis twice. The working script takes the tasks
 
 :::: {.columns}
 ::: {.column width="60%"}
-::: {.fs-110}
+::: {.fs-85}
 ```{{r}}
 #| label: count-emails
 # How many emails, and what came back?

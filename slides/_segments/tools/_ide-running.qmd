@@ -33,7 +33,6 @@ The whole file runs from the run button at the top left of the editor. The butto
 Lines 38 to 43 of `working_script.R`, run with one press of **Ctrl+Enter** with the cursor anywhere in them:
 :::
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_summary(emails    = n(),
@@ -42,7 +41,6 @@ audit |>
                            replies   = sum(reply %in% 1),
                            coded     = sum(!is.na(named)))
 ```
-:::
 
 ```{r}
 #| label: ide-out-counts
@@ -69,12 +67,10 @@ Ctrl and Enter is the key that you will press most often. With the cursor in a s
 Select from `audit` on line 47 to the closing bracket of `data_filter()` on line 48, without the `|>` after it, and press **Ctrl+Enter**:
 :::
 
-::: {.fs-130}
 ```r
 audit |>
   datawizard::data_filter(!is.na(reply))
 ```
-:::
 
 ::: {.fs-90}
 ```{r}

@@ -4,11 +4,9 @@
 One row for each of the `r fmt_n(n_emails)` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect].
 :::
 
-::: {.fs-130}
 ```r
 audit <- readr::read_csv("data/housing_audit.csv")
 ```
-:::
 
 ```{r}
 #| label: r-out-read
@@ -28,7 +26,7 @@ Now the data: one row for each email of the field experiment run by the original
 
 :::: {.columns}
 ::: {.column width="38%"}
-::: {.fs-110}
+::: {.fs-85}
 ```r
 nrow(audit)
 datawizard::data_peek(audit)
@@ -62,7 +60,7 @@ Before any analysis, look at what you have, and the first question to ask of any
 
 :::: {.columns}
 ::: {.column width="55%"}
-::: {.fs-110}
+::: {.fs-85}
 ```r
 datawizard::data_tabulate(audit, select = "reply")
 ```
@@ -74,7 +72,7 @@ print(datawizard::data_tabulate(audit, select = "reply"))  # r-style: keep – t
 ```
 :::
 ::: {.column width="45%"}
-::: {.fs-110}
+::: {.fs-85}
 ```r
 datawizard::data_tabulate(audit,
   select = "named", by = "reply")
@@ -102,11 +100,9 @@ data tabulate counts the rows for each value of a column. For reply it gives the
 `hard_email` is 1 where the address of the authority could not be found quickly on its own website and was taken from the list kept by the Department of Housing and Urban Development (HUD), and 0 otherwise.
 :::
 
-::: {.fs-130}
 ```r
 datawizard::data_tabulate(audit, select = "reply", by = "______")
 ```
-:::
 
 ::: {.small}
 Fill the blank, run the line, and work out from the counts whether the harder addresses replied less often.

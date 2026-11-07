@@ -56,7 +56,7 @@ The last step of every working session on a report is a render that starts from 
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.fs-110}
+::: {.fs-85}
 ```yaml
 project:
   type: website
