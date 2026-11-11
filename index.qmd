@@ -184,7 +184,7 @@ The course is taught in four formats, and the facilitator of each course chooses
 
 [Two halves, in the browser]{.home-meta}
 
-One case in its browser lab, with nothing to install and nothing preregistered: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
+One case with nothing to install and nothing preregistered, in the browser lab of the housing-audit case and on the slides themselves for the EU-frames case: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
 
 [Housing audit](https://codemoreh.github.io/ar4ds-housing/tracks/housing-short/), [EU frames](https://codemoreh.github.io/ar4ds-eu/tracks/eu-frames-short/).
 :::
