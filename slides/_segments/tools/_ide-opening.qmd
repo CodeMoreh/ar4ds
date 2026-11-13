@@ -1,7 +1,7 @@
 ## {#overview .darkslide background-color="rgba(0,0,0,0)"}
 
 ::: {.todaymeta}
-Session 5 of 6 on day 1, the same for every case
+Session 5 of 6 on day 1, the same for every case study
 :::
 
 :::: {.todaybox}
@@ -18,7 +18,7 @@ You leave knowing what each part of your IDE is for, and able to run, inspect an
 :::
 
 ::: {.todaymeta}
-Positron on the shared screen, in the workspace of the housing-audit case; RStudio and VS Code users follow in their own IDE
+Positron on the shared screen, in the workspace of the Housing and racial bias case study; RStudio and VS Code users follow in their own IDE
 :::
 
 ::: notes

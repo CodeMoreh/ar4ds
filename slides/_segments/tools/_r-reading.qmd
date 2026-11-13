@@ -5,13 +5,13 @@ One row for each of the `r fmt_n(n_emails)` emails that the original authors (OA
 :::
 
 ```r
-audit <- readr::read_csv("data/housing_audit.csv")
+housing <- readr::read_csv("data/housing_emails.csv")
 ```
 
 ```{r}
 #| label: r-out-read
 #| message: true
-audit <- readr::read_csv("../tools/data/housing_audit.csv")
+housing <- readr::read_csv("../tools/data/housing_emails.csv")
 ```
 
 ::: {.fragment .small}
@@ -28,14 +28,14 @@ Now the data: one row for each email of the field experiment run by the original
 ::: {.column width="38%"}
 ::: {.fs-85}
 ```r
-nrow(audit)
-datawizard::data_peek(audit)
+nrow(housing)
+datawizard::data_peek(housing)
 ```
 :::
 
 ```{r}
 #| label: r-out-nrow
-nrow(audit)
+nrow(housing)
 ```
 
 ::: {.small}
@@ -46,14 +46,14 @@ The first question to ask of any dataset is what a row is. Here a row is one ema
 ::: {.fs-90}
 ```{r}
 #| label: r-out-peek
-print(datawizard::data_peek(audit))
+print(datawizard::data_peek(housing))
 ```
 :::
 :::
 ::::
 
 ::: notes
-Before any analysis, look at what you have, and the first question to ask of any dataset is what a row is. Here a row is one email. nrow counts the rows, a thousand and fourteen. data peek, from datawizard, turns the table on its side, with one line for each column, its type and its first values, so that all sixteen columns fit on the screen. Notice that reply already shows an NA among its first values: that email bounced and never reached an official. Every column is described in the codebook that sits beside the file in the data folder of the workspace, and a codebook is the second thing to read after any import. Your IDE can also show the data as a spreadsheet, with View of audit, and the next session spends some time in that viewer.
+Before any analysis, look at what you have, and the first question to ask of any dataset is what a row is. Here a row is one email. nrow counts the rows, a thousand and fourteen. data peek, from datawizard, turns the table on its side, with one line for each column, its type and its first values, so that all sixteen columns fit on the screen. Notice that reply already shows an NA among its first values: that email bounced and never reached an official. Every column is described in the codebook that sits beside the file in the data folder of the workspace, and a codebook is the second thing to read after any import. Your IDE can also show the data as a spreadsheet, with View of housing, and the next session spends some time in that viewer.
 :::
 
 ## Counting values {#counting-values .smaller}
@@ -62,36 +62,36 @@ Before any analysis, look at what you have, and the first question to ask of any
 ::: {.column width="55%"}
 ::: {.fs-85}
 ```r
-datawizard::data_tabulate(audit, select = "reply")
+datawizard::data_tabulate(housing, select = "reply")
 ```
 :::
 
 ```{r}
 #| label: r-out-tab-reply
-print(datawizard::data_tabulate(audit, select = "reply"))  # r-style: keep – the console text that the class gets
+print(datawizard::data_tabulate(housing, select = "reply"))  # r-style: keep – the console text that the class gets
 ```
 :::
 ::: {.column width="45%"}
 ::: {.fs-85}
 ```r
-datawizard::data_tabulate(audit,
+datawizard::data_tabulate(housing,
   select = "named", by = "reply")
 ```
 :::
 
 ```{r}
 #| label: r-out-tab-named
-print(datawizard::data_tabulate(audit, select = "named", by = "reply"))  # r-style: keep – the console text that the class gets
+print(datawizard::data_tabulate(housing, select = "named", by = "reply"))  # r-style: keep – the console text that the class gets
 ```
 :::
 ::::
 
 ::: {.fragment .small}
-`r fmt_n(n_emails)` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies, and `r n_coded` replies with a greeting code: the counts from which every analysis of the case starts.
+`r fmt_n(n_emails)` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies, and `r n_coded` replies with a greeting code: the counts from which every analysis of the case study starts.
 :::
 
 ::: notes
-data tabulate counts the rows for each value of a column. For reply it gives the emails without a reply, the emails with one, and twenty-three NA, the emails that bounced. The column of valid percentages leaves the bounced emails out, so fifty-six point eight per cent is the reply rate among the delivered emails. On the right, the greeting tabulated by the reply explains every missing value in the outcome, if you read it a column at a time. An email without a reply, under the zero, has no greeting. A reply, under the one, carries a greeting code of one or zero, except for five replies that nobody coded. A bounced email has neither. In the console these tables print as text, where the module set them out as formatted tables on the page. [advance] These are the counts from which every analysis of the case starts.
+data tabulate counts the rows for each value of a column. For reply it gives the emails without a reply, the emails with one, and twenty-three NA, the emails that bounced. The column of valid percentages leaves the bounced emails out, so fifty-six point eight per cent is the reply rate among the delivered emails. On the right, the greeting tabulated by the reply explains every missing value in the outcome, if you read it a column at a time. An email without a reply, under the zero, has no greeting. A reply, under the one, carries a greeting code of one or zero, except for five replies that nobody coded. A bounced email has neither. In the console these tables print as text, where the module set them out as formatted tables on the page. [advance] These are the counts from which every analysis of the case study starts.
 :::
 
 ## Hands-on 2 – The harder addresses {#hands-on-2-the-harder-addresses .smaller}
@@ -101,7 +101,7 @@ data tabulate counts the rows for each value of a column. For reply it gives the
 :::
 
 ```r
-datawizard::data_tabulate(audit, select = "reply", by = "______")
+datawizard::data_tabulate(housing, select = "reply", by = "______")
 ```
 
 ::: {.small}

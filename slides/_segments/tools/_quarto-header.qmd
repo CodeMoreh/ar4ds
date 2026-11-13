@@ -15,7 +15,7 @@ Section two reads the two parts of the report that tell Quarto what to do. The h
 ::: {.fs-80}
 ```{.yaml code-line-numbers="false"}
 ---
-title: "Testing the robustness of a published claim: the housing-audit case"
+title: "Testing the robustness of a published claim: the Housing and racial bias case study"
 author: "Pair: [names]"
 date: today
 format:
@@ -79,7 +79,7 @@ YAML is fussy in a small number of ways, and a malformed header is probably the 
 ```{{r}}
 #| label: setup
 #| include: false
-audit <- readr::read_csv("data/housing_audit.csv", show_col_types = FALSE)
+housing <- readr::read_csv("data/housing_emails.csv", show_col_types = FALSE)
 source("R/spec_tools.R")
 ```
 :::

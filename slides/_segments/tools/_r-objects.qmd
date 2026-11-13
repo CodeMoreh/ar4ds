@@ -1,13 +1,13 @@
 ## The workspace {#the-workspace .smaller}
 
 ::: {.small}
-- Every step of the afternoon runs in the **workspace of the housing-audit case**, the folder `replication-lab-housing-main`, whatever the case of your course
+- Every step of the afternoon runs in the **workspace of the Housing case study**, the folder `replication-lab-housing-main`, whatever the case study of your course
 - Open the folder itself, not a file inside it: **File → Open Folder…** in Positron and VS Code, or the file `replication-lab-housing.Rproj` in RStudio
 - Then open a new R script, save it in that folder, and type each step of this session into it
 :::
 
 ::: {.fragment .small}
-If the folder is not on your machine yet, its zip is on the setup page, in step 4, under the tab Housing audit.
+If the folder is not on your machine yet, its zip is on the setup page, in step 4, under the tab Housing.
 :::
 
 ::: {.urlbox .fragment}
@@ -15,7 +15,7 @@ If the folder is not on your machine yet, its zip is on the setup page, in step 
 :::
 
 ::: notes
-Before anybody types, the folder. Every step this afternoon runs in the workspace of the housing-audit case, because the modules on the tools use it as their running example, whatever the case of your course. If your course works on that case, you installed the folder before the course and ran its check script. If it works on another case, the folder that you installed belongs to that case, and the housing-audit folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
+Before anybody types, the folder. Every step this afternoon runs in the workspace of the Housing case study, because the modules on the tools use it as their running example, whatever the case study of your course. If your course works on that case study, you installed the folder before the course and ran its check script. If it works on another case study, the folder that you installed belongs to that case study, and the Housing folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
 :::
 
 # Objects and data frames {#objects-and-data-frames .darkslide background-color="rgba(0,0,0,0)"}
@@ -103,7 +103,7 @@ The file has missing values of three kinds: the `r n_bounced` emails that bounce
 :::
 
 ::: notes
-One small fact carries most of the arithmetic of the course. When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the claim of the housing-audit case, whether a reply opened with the name of the sender, is stored in exactly this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known. The argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
+One small fact carries most of the arithmetic of the course. When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the claim of the Housing case study, whether a reply opened with the name of the sender, is stored in exactly this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known. The argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
 :::
 
 ## Data frames {#data-frames .smaller}

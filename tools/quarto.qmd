@@ -13,7 +13,7 @@ format:
         - tinyplot
         - gt
 resources:
-  - data/housing_audit.csv
+  - data/housing_emails.csv
 live:
   show-hints: true
   show-solutions: true
@@ -27,13 +27,13 @@ bibliography: [../references.bib, ../references-new.bib]
 #| include: false
 # The numbers quoted in the prose, computed when the page is rendered from the
 # file that the blocks of the page read in the browser, with the same reader.
-audit <- read.csv("data/housing_audit.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
 
-n_emails    <- format(nrow(audit), big.mark = ",")
-n_bounced   <- sum(is.na(audit$reply))
-n_delivered <- sum(!is.na(audit$reply))
-n_replies   <- sum(audit$reply %in% 1)
-n_coded     <- sum(!is.na(audit$named))
+n_emails    <- format(nrow(housing), big.mark = ",")
+n_bounced   <- sum(is.na(housing$reply))
+n_delivered <- sum(!is.na(housing$reply))
+n_replies   <- sum(housing$reply %in% 1)
+n_coded     <- sum(!is.na(housing$named))
 n_uncoded   <- n_replies - n_coded
 reply_pct   <- sprintf("%.1f", 100 * n_replies / n_delivered)
 ```
@@ -44,7 +44,7 @@ Quarto is the program that turns a document holding prose and code into a finish
 
 The page alternates between two kinds of work. [Section 2](#sec-knit) and the exercises after it run R in your browser, on a copy of R that the page downloads when it opens, so that you can change a small document and knit it without installing anything. [Section 3](#sec-positron) and the [tasks](#sec-tasks) at the end take you into your IDE (Positron, RStudio, VS Code, etc.), with the steps written for Positron, the IDE that the course uses on the shared screen, and both need R, your IDE and the workspace on your own machine, as the [setup page](../setup.qmd) describes. The rest of the page explains the parts of a Quarto document, with examples that you can read without installing anything.
 
-The examples come from the workspace of the housing-audit case, the folder that you download as a zip file from the setup page and that unzips into a folder named `replication-lab-housing-main`. Its report, `index.qmd`, analyses a field experiment in which the original authors (OAs) emailed public housing authorities in the United States in 2014, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The public file of the experiment holds `r n_emails` emails, and Task 3 of the report reproduces the analyses that five analysts ran on that file for the Multi100 project [@AczelEtAl2026InvestigatingAnalyticalRobustness]. Nothing on this page requires you to know the case, since the report serves here as an example of a document whose numbers are all computed from its data, but the [case study](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells its story.
+The examples come from the workspace of the Housing and racial bias case study, the folder that you download as a zip file from the setup page and that unzips into a folder named `replication-lab-housing-main`. Its report, `index.qmd`, analyses a field experiment in which the original authors (OAs) emailed public housing authorities in the United States in 2014, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The public file of the experiment holds `r n_emails` emails, and Task 3 of the report reproduces the analyses that five analysts ran on that file for the robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness]. Nothing on this page requires you to know the case study, since the report serves here as an example of a document whose numbers are all computed from its data, but the [background page](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells its story.
 
 ::: {#code-blocks .callout-important icon="false"}
 ## The code blocks on this page
@@ -70,11 +70,11 @@ format: html
 
 ## What the data hold
 
-The housing-audit data hold one row per email.
+The Housing data hold one row per email.
 
 ```{{r}}
-audit <- readr::read_csv("data/housing_audit.csv")
-nrow(audit)
+housing <- readr::read_csv("data/housing_emails.csv")
+nrow(housing)
 ```
 ````
 
@@ -82,7 +82,7 @@ nrow(audit)
 
 Three commands, typed in a terminal, cover ordinary use. `quarto render index.qmd` builds one file. `quarto render` builds every file in a project. `quarto preview` builds the document, opens it in a browser and builds it again every time you save, which is how most people work outside an IDE. The README of the workspace puts `quarto preview` at step 5 of setting up, and the check script of the workspace, `R/check_setup.R`, tests whether Quarto is on your PATH (the list of folders in which your system looks for programs) and points you to <https://quarto.org> if it is not.
 
-The workspace holds the same analysis twice, once as a script and once as a document. `working_script.R` takes Tasks 1 to 5 as a plain R script that you step through in the console: it checks the setup, counts the emails and draws the causal graph, reproduces the analysis of whichever of the five Multi100 analysts you choose, tries several specifications with `try_spec()`, and reports the one that you fix in your preregistration with `report_result()`. `index.qmd` is the same work as a report, with the reasoning written around the code and the results printed beside the sentences that discuss them. The script is quicker to experiment with. The report is the thing that you can hand to somebody, and its results cannot go stale, because they are computed again from the data every time that the file is rendered.
+The workspace holds the same analysis twice, once as a script and once as a document. `working_script.R` takes Tasks 1 to 5 as a plain R script that you step through in the console: it checks the setup, counts the emails and draws the causal graph, reproduces the analysis of whichever of the five analysts of the robustness study you choose, tries several specifications with `try_spec()`, and reports the one that you fix in your preregistration with `report_result()`. `index.qmd` is the same work as a report, with the reasoning written around the code and the results printed beside the sentences that discuss them. The script is quicker to experiment with. The report is the thing that you can hand to somebody, and its results cannot go stale, because they are computed again from the data every time that the file is rendered.
 
 It follows that you should never edit the rendered output. The workspace is a Quarto project whose output goes to a folder called `_site`, so the report becomes `_site/index.html`, a file that is disposable and that every render writes afresh from the source, while the `.qmd` is the artefact that you keep, version and share.
 
@@ -90,10 +90,10 @@ It follows that you should never edit the rendered output. The workspace is a Qu
 
 The blocks of this section take you through the first of the two steps of [section 1](#sec-what) inside this page, handing a short document to knitr and showing you what knitr gives back, a Markdown file in which every chunk has been followed by its results and every piece of inline code replaced by its value. The browser has no Pandoc, so the last block turns that Markdown into HTML with a much smaller converter, the markdown package, which is enough to show the result but cannot do everything that Pandoc and Quarto do.
 
-The document is written in R Markdown, the older format from which Quarto grew, and R Markdown, like Quarto, hands its R code to knitr. In everything that the blocks use, a chunk with its `#|` options, inline code and the Markdown of the prose, the two formats are written in the same way, and the Quarto documentation states that an existing R Markdown document can generally be rendered by Quarto without changes. The first block reads the housing-audit data, as section 6 of the R module did, so that the document has something to compute from.
+The document is written in R Markdown, the older format from which Quarto grew, and R Markdown, like Quarto, hands its R code to knitr. In everything that the blocks use, a chunk with its `#|` options, inline code and the Markdown of the prose, the two formats are written in the same way, and the Quarto documentation states that an existing R Markdown document can generally be rendered by Quarto without changes. The first block reads the Housing data, as section 6 of the R module did, so that the document has something to compute from.
 
 ```{webr}
-audit <- read.csv("data/housing_audit.csv", na.strings = c("", "NA"))
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 ```
 
 The next block holds the document. In your IDE a document is a file, but a block can hand knitr only text that R holds, so the document is written here as a character vector with one string for each line, in the order in which the lines would stand in the file. Read the strings without their quotation marks and commas and you have an ordinary R Markdown document: a YAML header with a title, a heading, a sentence with two pieces of inline code, and one chunk with a label.
@@ -106,12 +106,12 @@ report <- c(
   "",
   "## The emails",
   "",
-  "The housing-audit data hold `r nrow(audit)` emails,",
-  "of which `r sum(is.na(audit$reply))` bounced.",
+  "The Housing data hold `r nrow(housing)` emails,",
+  "of which `r sum(is.na(housing$reply))` bounced.",
   "",
   "```{r}",
   "#| label: by-group",
-  "datawizard::data_tabulate(audit, select = 'group')",
+  "datawizard::data_tabulate(housing, select = 'group')",
   "```"
 )
 ```
@@ -158,7 +158,7 @@ report <- c(
   "#| fig-cap: Emails by the group that the names were meant to indicate",
   "#| fig-width: 6",
   "#| fig-height: 3",
-  "tinyplot::tinyplot(~ group, data = audit, type = '______')",
+  "tinyplot::tinyplot(~ group, data = housing, type = '______')",
   "```"
 )
 ```
@@ -184,7 +184,7 @@ report <- c(
   "#| fig-cap: Emails by the group that the names were meant to indicate",
   "#| fig-width: 6",
   "#| fig-height: 3",
-  "tinyplot::tinyplot(~ group, data = audit, type = 'barplot')",
+  "tinyplot::tinyplot(~ group, data = housing, type = 'barplot')",
   "```"
 )
 ```
@@ -206,7 +206,7 @@ Every key binding below is the one for Windows, which the Positron documentation
 
 ### Opening the report {#sec-open}
 
-Positron works on a folder, and opening the folder of the workspace, rather than a single file, matters for the report, because the R session started by Positron then works in that folder, so that the relative paths in the code, such as `data/housing_audit.csv`, find their files.
+Positron works on a folder, and opening the folder of the workspace, rather than a single file, matters for the report, because the R session started by Positron then works in that folder, so that the relative paths in the code, such as `data/housing_emails.csv`, find their files.
 
 1. Choose **File → Open Folder…** (Ctrl+K Ctrl+O, that is, Ctrl+K followed by Ctrl+O), select the unzipped folder `replication-lab-housing-main`, and confirm.
 2. Wait for the console to report `R 4.6.0 started` (or whichever version of R you installed), which takes a few seconds.
@@ -214,7 +214,7 @@ Positron works on a folder, and opening the folder of the workspace, rather than
 
 The report opens in the editor, with its YAML header at the top, the console underneath, and the Variables and Plots panes on the right (@fig-open).
 
-![The housing workspace open in Positron, with `index.qmd` in the editor. The Explorer lists the files of the workspace on the left, the console sits under the editor, and the status bar at the bottom names the version of Quarto in use.](images/quarto/positron-report-open.png){#fig-open fig-alt="The Positron window with the folder replication-lab-housing-main open. The Explorer on the left lists the folders _freeze, .devcontainer, .github, data, prep and R and the files _quarto.yml, .gitignore, index.qmd, LICENSE, README.md, replication-lab-housing.Rproj and working_script.R. The editor shows the YAML header of index.qmd. The console below reports R version 4.6.0, and the status bar reads Quarto: 1.10.18."}
+![The Housing workspace open in Positron, with `index.qmd` in the editor. The Explorer lists the files of the workspace on the left, the console sits under the editor, and the status bar at the bottom names the version of Quarto in use.](images/quarto/positron-report-open.png){#fig-open fig-alt="The Positron window with the folder replication-lab-housing-main open. The Explorer on the left lists the folders _freeze, .devcontainer, .github, data, prep and R and the files _quarto.yml, .gitignore, index.qmd, LICENSE, README.md, replication-lab-housing.Rproj and working_script.R. The editor shows the YAML header of index.qmd. The console below reports R version 4.6.0, and the status bar reads Quarto: 1.10.18."}
 
 The bar above the text of the report, the editor action bar, holds the controls for Quarto documents (@fig-action-bar). On its left are **Run All** (Ctrl+Alt+R), which runs every chunk in the console, **Preview** (Ctrl+Shift+K), whose small arrow opens **Preview Format…** for a format other than the default, the **Render on Save** checkbox, and the button that saves the file. On its right are **Insert Code Cell** (Ctrl+Shift+I), a button for publishing through Posit Publisher, which the course does not use, two buttons that split the editor or move it into a window of its own, and **More Actions…**, a menu that holds, among other things, **Edit in Visual Mode**. The label at the right-hand end of the line under the bar reads **Text Editor** while you edit the source, and **Quarto Visual Editor** while you use the visual editor of [a later subsection](#sec-visual).
 
@@ -228,9 +228,9 @@ While you write a report, you rarely render it after every change. You run its c
 - With the cursor anywhere in a chunk, **Ctrl+Shift+Enter** runs the whole chunk (the command **Quarto: Run Cell**), and **Shift+Enter** runs it and moves the cursor to the next chunk.
 - **Ctrl+Enter** runs only the statement under the cursor, which may run over several lines, or the lines that you have selected, which is the way to take a long chunk apart.
 
-Try it on the first two chunks of the report. Click into the setup chunk at the top, the one labelled `setup`, and press Ctrl+Shift+Enter. The console shows the lines of the chunk and runs them, reading the housing-audit data as `audit` and loading the helpers of Tasks 4 and 5 from `R/spec_tools.R`, and the Variables pane lists what the chunk made. Then scroll down to the chunk labelled `count-emails`, in the box of Task 2, and click **Run Cell** above it. The console prints the table of counts: `r n_emails` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies and `r n_coded` replies with a greeting code (@fig-run-cell).
+Try it on the first two chunks of the report. Click into the setup chunk at the top, the one labelled `setup`, and press Ctrl+Shift+Enter. The console shows the lines of the chunk and runs them, reading the Housing data as `housing` and loading the helpers of Tasks 4 and 5 from `R/spec_tools.R`, and the Variables pane lists what the chunk made. Then scroll down to the chunk labelled `count-emails`, in the box of Task 2, and click **Run Cell** above it. The console prints the table of counts: `r n_emails` emails, `r n_bounced` bounced, `r n_delivered` delivered, `r n_replies` replies and `r n_coded` replies with a greeting code (@fig-run-cell).
 
-![The chunk `count-emails` run in the console with Run Cell. The links Run Cell, Run Next Cell and Run Above stand above the chunk; the console under the editor shows the code that was sent and the table of counts that it printed; the Variables pane lists `audit` and the helpers loaded by the setup chunk.](images/quarto/positron-run-cell.png){#fig-run-cell fig-alt="The Positron editor showing lines 79 to 91 of index.qmd, with the links Run Cell, Run Next Cell and Run Above above the chunk that begins with the label count-emails. The console below shows the setup chunk and the count-emails chunk as they were sent, followed by a table with the columns emails, bounced, delivered, replies and coded and the values 1014, 23, 991, 563 and 558. On the right, the Variables pane lists audit with 1014 rows and 16 columns, and several functions."}
+![The chunk `count-emails` run in the console with Run Cell. The links Run Cell, Run Next Cell and Run Above stand above the chunk; the console under the editor shows the code that was sent and the table of counts that it printed; the Variables pane lists `housing` and the helpers loaded by the setup chunk.](images/quarto/positron-run-cell.png){#fig-run-cell fig-alt="The Positron editor showing lines 79 to 91 of index.qmd, with the links Run Cell, Run Next Cell and Run Above above the chunk that begins with the label count-emails. The console below shows the setup chunk and the count-emails chunk as they were sent, followed by a table with the columns emails, bounced, delivered, replies and coded and the values 1014, 23, 991, 563 and 558. On the right, the Variables pane lists housing with 1014 rows and 16 columns, and several functions."}
 
 The objects in the console exist only in your session, and a render never uses them. Quarto starts a fresh R process of its own for every render, runs every chunk of the report from the top in that process and discards it at the end, so an object that you made by typing in the console, rather than in a chunk, is missing when the report is rendered, and the render fails at the first chunk that needs it. A report that renders is therefore a report whose chunks make everything that it uses, which is what the last of the [tasks](#sec-tasks), rendering from a clean session, puts to the test.
 
@@ -244,7 +244,7 @@ Two commands turn the report into a document. **Quarto: Preview** (Ctrl+Shift+K,
 2. Positron opens a terminal called **Quarto Preview** in the panel under the editor and runs Quarto there. The terminal lists the chunks as knitr runs them, which takes some seconds, because the report fits several models, and ends with `Output created: _site\index.html` and `Watching files for changes`.
 3. The report appears in the Viewer, with its title, the date of today and a table of contents (@fig-preview).
 
-![The report previewed in Positron. The Quarto Preview terminal under the editor ends with the address at which the preview is served, and the Viewer on the right shows the rendered report, from its title to the box of Task 1.](images/quarto/positron-preview.png){#fig-preview fig-alt="The Positron window with the editor showing index.qmd, the terminal below it showing the end of the output of quarto preview, with the lines Output created: _site\\index.html and Watching files for changes, and the Viewer pane on the right showing the rendered report titled Testing the robustness of a published claim: the housing-audit case."}
+![The report previewed in Positron. The Quarto Preview terminal under the editor ends with the address at which the preview is served, and the Viewer on the right shows the rendered report, from its title to the box of Task 1.](images/quarto/positron-preview.png){#fig-preview fig-alt="The Positron window with the editor showing index.qmd, the terminal below it showing the end of the output of quarto preview, with the lines Output created: _site\\index.html and Watching files for changes, and the Viewer pane on the right showing the rendered report under its title."}
 
 The Viewer has a bar of its own, with buttons to go back, forward and reload, the local address at which Quarto serves the preview, and a **Zoom** control. When you change the report, save it and press Ctrl+Shift+K again, which renders the report afresh, or tick **Render on Save** in the action bar, which renders it every time you save. Saving alone leaves the preview as it was, because Positron starts the preview with the option `--no-watch-inputs`, as the command at the top of the terminal shows. The preview keeps running in its terminal until you close that terminal or Positron.
 
@@ -256,7 +256,7 @@ The **visual editor** shows the prose of a Quarto document roughly as it will lo
 
 To switch, press **Ctrl+Shift+F4**, choose **Edit in Visual Mode** from the **More Actions…** menu of the action bar, or click the label **Text Editor** at the right-hand end of the line under the action bar and choose **Quarto Visual Editor**. To return, click the same label, which then reads **Quarto Visual Editor**, and choose **Text Editor**; the Quarto documentation gives Ctrl+Shift+F4 for switching in both directions (@fig-visual).
 
-![The report in the visual editor of Positron, at the box of Task 2. The formatting bar offers the styles of text, bold, italic, code, lists, links, images and the Format, Insert and Table menus, and the outline of the document runs down the left of the editor.](images/quarto/positron-visual-editor.png){#fig-visual fig-alt="The Positron editor in visual mode. A formatting bar runs across the top. Below it, an outline on the left lists Metadata, Code Cell, The claim, How the tasks work and several more Code Cell entries, and the main area shows the text of Task 2 with the bold words housing-audit data and the inline code housing_audit.csv formatted as they will appear in the report."}
+![The report in the visual editor of Positron, at the box of Task 2. The formatting bar offers the styles of text, bold, italic, code, lists, links, images and the Format, Insert and Table menus, and the outline of the document runs down the left of the editor.](images/quarto/positron-visual-editor.png){#fig-visual fig-alt="The Positron editor in visual mode. A formatting bar runs across the top. Below it, an outline on the left lists Metadata, Code Cell, The claim, How the tasks work and several more Code Cell entries, and the main area shows the text of Task 2 with the name of the data in bold and the inline code housing_emails.csv formatted as they will appear in the report."}
 
 The Positron documentation notes that the visual editor has limited support in Positron, without the running of single lines and the other help with code that the source editor gives, so switch back to source mode to run chunks. The Quarto documentation, for its part, explains that the visual editor writes the Markdown through Pandoc, which can rewrite parts of your markup in the conventions of Pandoc, the way it marks lists, escapes special characters or nests the colons of fenced divs, without changing what the rendered document shows. The report of the workspace is already written in those conventions, but a document of your own may come back from its first visit to the visual editor with lines that you did not touch laid out differently, which shows up as changes in version control.
 
@@ -264,7 +264,7 @@ The Positron documentation notes that the visual editor has limited support in P
 
 A report of some five hundred lines is easier to move around with a table of its contents, and the **Outline** at the bottom of the Explorer provides one (@fig-outline). Click its heading to open it, or run **Explorer: Focus on Outline View** from the Command Palette. By default it lists the headings of the document, which in the report are only `The claim` and `References`, because the tasks are callout boxes with titles rather than sections with headings. The command **Quarto: Toggle Code Cells in Outline** adds every chunk, under its label, and the outline of the report then reads as a list of its steps, from `count-emails` to `fig-curve`. Click an entry to move the editor to it. **Go to Symbol in Editor** (Ctrl+Shift+O) offers the same list in a search box at the top of the window.
 
-![The Outline of the report in the Explorer, with the code cells shown. Every chunk appears under its label, nested under the heading that precedes it; clicking `count-emails` has moved the editor to that chunk.](images/quarto/positron-outline.png){#fig-outline fig-alt="The Explorer of Positron with the folder section collapsed and the Outline section open. The outline lists setup with audit under it, then The claim with count-emails highlighted, by-group, fig-names, fig-dag, adjustment-set, paths-replies, paths-adjusted, reproduce-read, five reproduce chunks, reproduce-uncorrected, try-reference, try-one-at-a-time, try-off-curve, my-experiments, submit-exploration, prereg, run-spec, report and fig-curve, and finally References. The editor beside it shows the chunk count-emails."}
+![The Outline of the report in the Explorer, with the code cells shown. Every chunk appears under its label, nested under the heading that precedes it; clicking `count-emails` has moved the editor to that chunk.](images/quarto/positron-outline.png){#fig-outline fig-alt="The Explorer of Positron with the folder section collapsed and the Outline section open. The outline lists setup with housing under it, then The claim with count-emails highlighted, by-group, fig-names, fig-dag, adjustment-set, paths-replies, paths-adjusted, reproduce-read, five reproduce chunks, reproduce-uncorrected, try-reference, try-one-at-a-time, try-off-curve, my-experiments, submit-exploration, prereg, run-spec, report and fig-curve, and finally References. The editor beside it shows the chunk count-emails."}
 
 Labels matter beyond the outline, since a label is also what Quarto prints when a chunk fails, as the next subsection shows.
 
@@ -291,7 +291,7 @@ The header of the report of the workspace is a good one to learn from, because i
 
 ```yaml
 ---
-title: "Testing the robustness of a published claim: the housing-audit case"
+title: "Testing the robustness of a published claim: the Housing and racial bias case study"
 author: "Pair: [names]"
 date: today
 format:
@@ -326,7 +326,7 @@ A chunk opens with three backticks and the name of the engine in braces. Its opt
 ```{{r}}
 #| label: count-emails
 # How many emails, and what came back?
-audit |>
+housing |>
   datawizard::data_summary(emails    = n(),
                            bounced   = sum(is.na(reply)),
                            delivered = sum(!is.na(reply)),
@@ -347,7 +347,7 @@ It runs, its code is shown, and its result appears underneath: `r n_emails` emai
 | `error: true` | An error in the chunk is printed in the document instead of halting the render. |
 | `message: false`, `warning: false` | Hide the messages and warnings that R emits while the chunk runs. |
 
-`echo`, `output` and `include` are the three that are most easily confused. `echo` governs the code, `output` governs the results, and `include` is the switch that turns both off while still running the chunk. The report uses `include: false` on its setup chunk, which reads the housing-audit data as `audit` and loads the helpers of Tasks 4 and 5 from `R/spec_tools.R`. That work has to happen before anything else, and no reader needs to see it. Of the seven, `output` is the only one that Quarto adds. knitr used on its own ignores it and takes `results: hide` for the same purpose, a difference that matters only in the browser blocks of this page.
+`echo`, `output` and `include` are the three that are most easily confused. `echo` governs the code, `output` governs the results, and `include` is the switch that turns both off while still running the chunk. The report uses `include: false` on its setup chunk, which reads the Housing data as `housing` and loads the helpers of Tasks 4 and 5 from `R/spec_tools.R`. That work has to happen before anything else, and no reader needs to see it. Of the seven, `output` is the only one that Quarto adds. knitr used on its own ignores it and takes `results: hide` for the same purpose, a difference that matters only in the browser blocks of this page.
 
 The block below holds the chunk of a report that sets out the counts by group as a formatted table. `datawizard::print_md()` writes the table of `data_tabulate()` in Markdown, the form in which tables reach Pandoc in a document, as section 7 of the R module mentioned.
 
@@ -366,7 +366,7 @@ report <- c(
   "```{r}",
   "#| label: by-group",
   "#| echo: ______",
-  "datawizard::data_tabulate(audit, select = 'group') |> datawizard::print_md()",
+  "datawizard::data_tabulate(housing, select = 'group') |> datawizard::print_md()",
   "```"
 )
 ```
@@ -390,7 +390,7 @@ report <- c(
   "```{r}",
   "#| label: by-group",
   "#| echo: false",
-  "datawizard::data_tabulate(audit, select = 'group') |> datawizard::print_md()",
+  "datawizard::data_tabulate(housing, select = 'group') |> datawizard::print_md()",
   "```"
 )
 ```
@@ -432,7 +432,7 @@ report <- c(
   "",
   "```{r}",
   "#| label: count-emails",
-  "datawizard::data_sumary(audit, emails = n())",
+  "datawizard::data_sumary(housing, emails = n())",
   "```",
   "",
   "After the chunk."
@@ -460,7 +460,7 @@ report <- c(
   "```{r}",
   "#| label: count-emails",
   "#| ______: true",
-  "datawizard::data_sumary(audit, emails = n())",
+  "datawizard::data_sumary(housing, emails = n())",
   "```",
   "",
   "After the chunk."
@@ -486,7 +486,7 @@ report <- c(
   "```{r}",
   "#| label: count-emails",
   "#| error: true",
-  "datawizard::data_sumary(audit, emails = n())",
+  "datawizard::data_sumary(housing, emails = n())",
   "```",
   "",
   "After the chunk."
@@ -510,7 +510,7 @@ The same options can be written on a chunk, in the header of a document under `e
 
 ### Inline code
 
-Code is not confined to chunks. An expression written between single backticks and introduced by the letter `r`, as in `r knitr::inline_expr("nrow(audit)")`, is evaluated during the render, and its value is dropped into the sentence. A workshop on the housing-audit case asks you for one such sentence in the report, under the chunk of the analyst whose analysis you reproduced in Task 3. For 8PTRZ the report, as you download it, reads "The test gives **X-squared = 14.265** on 1 df", with the number typed by hand, and the inline expression `r knitr::inline_expr("round(chisq.test(tab_8ptrz)$statistic, 3)")` computes it instead from the table made by the chunk above it, as [Task 3](#sec-tasks) in section 11 asks you to do.
+Code is not confined to chunks. An expression written between single backticks and introduced by the letter `r`, as in `r knitr::inline_expr("nrow(housing)")`, is evaluated during the render, and its value is dropped into the sentence. A workshop on the Housing case study asks you for one such sentence in the report, under the chunk of the analyst whose analysis you reproduced in Task 3. For 8PTRZ the report, as you download it, reads "The test gives **X-squared = 14.265** on 1 df", with the number typed by hand, and the inline expression `r knitr::inline_expr("round(chisq.test(tab_8ptrz)$statistic, 3)")` computes it instead from the table made by the chunk above it, as [Task 3](#sec-tasks) in section 11 asks you to do.
 
 The habit is worth adopting for anything numeric that you would otherwise type. A number pasted into the text is correct on the day on which it is pasted, and it becomes wrong without any warning as soon as the data, the sample or the model changes. An inline expression is computed again at every render, so it cannot fall out of step with the analysis. The counts of emails in the sentences of this page, from the `r n_emails` emails onwards, are written in its source as inline code, so that they are computed afresh whenever the page is built.
 
@@ -524,9 +524,9 @@ Fill the blank so that the last expression in the document gives the share of th
 #| exercise: knit-inline
 #| envir: global
 report <- c(
-  "Of the `r nrow(audit)` emails, `r sum(!is.na(audit$reply))` reached an official",
-  "and `r sum(audit$reply %in% 1)` drew a reply, a reply rate of",
-  "`r round(100 * mean(audit$reply, na.rm = ______), 1)` per cent."
+  "Of the `r nrow(housing)` emails, `r sum(!is.na(housing$reply))` reached an official",
+  "and `r sum(housing$reply %in% 1)` drew a reply, a reply rate of",
+  "`r round(100 * mean(housing$reply, na.rm = ______), 1)` per cent."
 )
 ```
 
@@ -544,13 +544,13 @@ report <- c(
 
 ``` r
 report <- c(
-  "Of the `r knitr::inline_expr('nrow(audit)')` emails, `r knitr::inline_expr('sum(!is.na(audit$reply))')` reached an official",
-  "and `r knitr::inline_expr('sum(audit$reply %in% 1)')` drew a reply, a reply rate of",
-  "`r knitr::inline_expr('round(100 * mean(audit$reply, na.rm = TRUE), 1)')` per cent."
+  "Of the `r knitr::inline_expr('nrow(housing)')` emails, `r knitr::inline_expr('sum(!is.na(housing$reply))')` reached an official",
+  "and `r knitr::inline_expr('sum(housing$reply %in% 1)')` drew a reply, a reply rate of",
+  "`r knitr::inline_expr('round(100 * mean(housing$reply, na.rm = TRUE), 1)')` per cent."
 )
 ```
 
-The sentence reads "Of the `r n_emails |> gsub(pattern = ",", replacement = "")` emails, `r n_delivered` reached an official and `r n_replies` drew a reply, a reply rate of `r reply_pct` per cent." R prints the first number without the comma that a reader expects, and `format(nrow(audit), big.mark = ",")` inside the expression would add it.
+The sentence reads "Of the `r n_emails |> gsub(pattern = ",", replacement = "")` emails, `r n_delivered` reached an official and `r n_replies` drew a reply, a reply rate of `r reply_pct` per cent." R prints the first number without the comma that a reader expects, and `format(nrow(housing), big.mark = ",")` inside the expression would add it.
 :::
 ::::
 
@@ -575,7 +575,7 @@ A figure produced by a chunk becomes a numbered, captioned figure that the prose
 #| fig-cap: "Replies that greeted the sender by name, by the name that signed the email."
 #| fig-height: 3.6
 # The share greeted by name for each of the six names, from the lowest
-greeted <- audit |>
+greeted <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_summary(greeted_pct = 100 * mean(named), by = c("group", "name"))
 ```
@@ -587,8 +587,8 @@ Tables work in the same way, with a `tbl-cap` and a label beginning `tbl-`. tiny
 
 ```{r}
 #| label: tbl-greetings
-#| tbl-cap: "Replies that greeted the sender by name, by the group that the names were meant to indicate, among the replies that carry a greeting code. Source: `housing_audit.csv`."
-greetings <- audit |>
+#| tbl-cap: "Replies that greeted the sender by name, by the group that the names were meant to indicate, among the replies that carry a greeting code. Source: `housing_emails.csv`."
+greetings <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_summary(Replies = n(), Greeted = sum(named), by = "group") |>
   datawizard::data_modify(`Greeted (%)` = round(100 * Greeted / Replies, 1))
@@ -667,7 +667,7 @@ The addition that you will use most is the **fenced div**, a block of content wr
 
 ````markdown
 ::::: {.callout-note title="Task 3 – The reproduction"}
-This is the **reproducibility** check. **Choose one of the five** and reproduce the analysis from the public file of the OAs, `audit_original.csv`, which keeps their column names.
+This is the **reproducibility** check. **Choose one of the five** and reproduce the analysis from the public file of the OAs, `housing_original.csv`, which keeps their column names.
 
 ::: {.panel-tabset}
 
@@ -694,7 +694,7 @@ Divs nest, and when they do, the outer one takes more colons than the inner. The
 
 Add a `bibliography:` key to the header, pointing at a BibTeX file, and citations start working. The pages of this site write `bibliography: [../references.bib, ../references-new.bib]`, a list of two files, because the course keeps a second file for entries that are not yet in the reference library of the facilitator. A single file is written without the brackets, and both forms are ordinary YAML.
 
-A BibTeX file is a plain-text database with one record for each work. This is the record for the paper behind the housing-audit case, as it stands in `references.bib`, shortened to the fields that a citation needs:
+A BibTeX file is a plain-text database with one record for each work. This is the record for the paper behind the Housing case study, as it stands in `references.bib`, shortened to the fields that a citation needs:
 
 ```bibtex
 @article{EinsteinGlick2017DoesRaceAffect,
@@ -742,7 +742,7 @@ project:
     - index.qmd
 
 website:
-  title: "Replication lab – the housing-audit case"
+  title: "Replication lab – Housing and racial bias"
 
 # freeze: auto means a whole-project render re-runs a document (every chunk in it)
 # only when its source file has changed. The committed _freeze/ folder lets
@@ -761,7 +761,7 @@ format:
 
 `output-dir: _site` sends the rendered site to the folder `_site`, which is why the report becomes `_site/index.html`, and `render:` limits the project to the report, so that the Markdown codebooks in `data/` stay as they are. The `format:` block sets the defaults for every page at once, here the table of contents, the visual theme called cosmo, and `code-tools: true`, which puts a **Code** control at the top of the rendered report, through which a reader can view the source behind it. This site is a much larger project of the same type, whose configuration also defines the menus at the top of this page.
 
-Settings can also be attached to a single folder by putting a `_metadata.yml` inside it, and every `.qmd` in that folder inherits them. The slide decks of the case sites are built this way, with the theme, the bibliography and the options that every deck shares written once, in the `_metadata.yml` of the folder that holds the decks, and only a title and a few keys left in the header of each deck. Four levels are therefore available, and the nearest one wins: an option on a chunk beats the header of the document, which beats the file of the folder, which beats the configuration of the project.
+Settings can also be attached to a single folder by putting a `_metadata.yml` inside it, and every `.qmd` in that folder inherits them. The slide decks of the case-study sites are built this way, with the theme, the bibliography and the options that every deck shares written once, in the `_metadata.yml` of the folder that holds the decks, and only a title and a few keys left in the header of each deck. Four levels are therefore available, and the nearest one wins: an option on a chunk beats the header of the document, which beats the file of the folder, which beats the configuration of the project.
 
 `freeze: auto`, the setting in the middle of that configuration, tells Quarto, when it renders the whole project, to execute a document again only when its source file has changed, and then to run every chunk in it. The results are stored in a folder called `_freeze/`, one record for each document, and a render of a single file always executes its code, whatever the setting says. The workspace and this site both commit that folder to version control, so that the machine that publishes the site can render it without running the analyses again. This site, for one, installs only R, knitr, rmarkdown and yaml on that machine, the packages through which the blocks that run in the browser pass when a page is rendered, and serves the results of every chunk that a page runs at build time, such as the table of section 6, from `_freeze/`.
 
@@ -781,7 +781,7 @@ The six tasks below take the report of the workspace through the edits that a pa
 
 **Task 1. Run the chunks of Task 2.** Open `index.qmd`, run the setup chunk with Ctrl+Shift+Enter, and then run the chunks of Task 2 one at a time, from `count-emails` to `fig-names`, with Run Cell or with Shift+Enter. The console prints the counts and the table of greetings by group, and the figure of the six names appears in the Plots pane (@fig-task-run). The figure answers the question of the TODO in Task 2, which name received the fewest greetings by name, and the answer goes into the report as a comment.
 
-![Task 1: the chunks of Task 2 run one at a time. The console shows the last chunk as it was sent, the Variables pane lists `audit` and `greeted`, and the Plots pane shows the figure of the six names, from the highest share of greetings by name to the lowest.](images/quarto/task-run-chunks.png){#fig-task-run fig-alt="The Positron editor showing the chunk fig-names of index.qmd, with the console below it showing the code of the chunk as it was sent. On the right, the Variables pane lists audit, with 1014 rows and 16 columns, and greeted, with 6 rows and 3 columns, and the Plots pane shows a horizontal bar chart of the share of replies that greeted the sender by name: Emily 62.0%, Brett 60.4%, Tyrone 59.1%, Shanice 51.9%, Gabriela 46.3% and Santiago 37.1%, coloured by the group that the names were meant to indicate."}
+![Task 1: the chunks of Task 2 run one at a time. The console shows the last chunk as it was sent, the Variables pane lists `housing` and `greeted`, and the Plots pane shows the figure of the six names, from the highest share of greetings by name to the lowest.](images/quarto/task-run-chunks.png){#fig-task-run fig-alt="The Positron editor showing the chunk fig-names of index.qmd, with the console below it showing the code of the chunk as it was sent. On the right, the Variables pane lists housing, with 1014 rows and 16 columns, and greeted, with 6 rows and 3 columns, and the Plots pane shows a horizontal bar chart of the share of replies that greeted the sender by name: Emily 62.0%, Brett 60.4%, Tyrone 59.1%, Shanice 51.9%, Gabriela 46.3% and Santiago 37.1%, coloured by the group that the names were meant to indicate."}
 
 **Task 2. Hide the code of a chunk.** In the chunk `count-emails`, click at the end of the line `#| label: count-emails` and press Enter, which starts the new line with `#|` for you, then type `echo: false`, so that the new line reads `#| echo: false`. Save the report and preview it with Ctrl+Shift+K. In the Viewer, the box of Task 2 now shows the table of counts without the code that produced it (@fig-task-echo). Then replace `echo: false` with `eval: false`, preview again, and find the code back in place with the counts gone, before you delete the line, so that the chunk is as it was.
 

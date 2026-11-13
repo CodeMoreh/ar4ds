@@ -5,19 +5,19 @@ Section 3
 :::
 
 ::: notes
-Section three is about the places in which you look at things. The Data Explorer shows a data frame as a grid, with a summary of every column beside it, and it is the part of Positron that most changes how it feels to look at data. Then the Plots pane, where every figure lands, the Viewer, which shows tables and web pages, and the help pages of R, which are better reading than most people expect. The task at the end is a look at the data of the case, of the kind that should come before any model.
+Section three is about the places in which you look at things. The Data Explorer shows a data frame as a grid, with a summary of every column beside it, and it is the part of Positron that most changes how it feels to look at data. Then the Plots pane, where every figure lands, the Viewer, which shows tables and web pages, and the help pages of R, which are better reading than most people expect. The task at the end is a look at the data of the case study, of the kind that should come before any model.
 :::
 
 ## The Data Explorer {#the-data-explorer .smaller}
 
-![](../tools/images/ide/17-data-explorer.png){fig-alt="The Data Explorer showing audit in a tab of the editor: on the left the summary panel lists the sixteen columns with small charts and the share of missing values, and on the right the grid shows the first rows. The status line at the bottom reads 1,014 rows, 16 columns." width="88%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+![](../tools/images/ide/17-data-explorer.png){fig-alt="The Data Explorer showing housing in a tab of the editor: on the left the summary panel lists the sixteen columns with small charts and the share of missing values, and on the right the grid shows the first rows. The status line at the bottom reads 1,014 rows, 16 columns." width="88%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 
 ::: {.small}
-It opens from the grid icon in the Variables pane, from `View(audit)` in the console, or from a CSV file clicked in the Explorer. Ctrl+B, Ctrl+J and Ctrl+Alt+B give it the whole window.
+It opens from the grid icon in the Variables pane, from `View(housing)` in the console, or from a CSV file clicked in the Explorer. Ctrl+B, Ctrl+J and Ctrl+Alt+B give it the whole window.
 :::
 
 ::: notes
-The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet, with summary statistics for every column beside it. It opens from the grid icon in the Variables pane, from View of audit in the console, the call that RStudio users know, and from a CSV file clicked in the Explorer, which it reads without loading the file into R. Three parts make it up. The grid shows the cells, with the name and type of each column at its head. The summary panel on the left lists the columns, each with a small chart of its values and the share of missing values. And the filter bar above the grid and the summary panel holds filters on the rows. The default layout gives it little room, so I hide the other parts of the window while I look, as in this screenshot.
+The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet, with summary statistics for every column beside it. It opens from the grid icon in the Variables pane, from View of housing in the console, the call that RStudio users know, and from a CSV file clicked in the Explorer, which it reads without loading the file into R. Three parts make it up. The grid shows the cells, with the name and type of each column at its head. The summary panel on the left lists the columns, each with a small chart of its values and the share of missing values. And the filter bar above the grid and the summary panel holds filters on the rows. The default layout gives it little room, so I hide the other parts of the window while I look, as in this screenshot.
 :::
 
 ## Summaries and filters {#summaries-and-filters .smaller}
@@ -28,15 +28,15 @@ The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet
 :::
 ::: {.column width="66%"}
 ::: {.small}
-- A column unfolds into a fuller summary: `reply` has `r n_bounced` missing values, the bounced emails, and a mean of `r sprintf("%.4f", mean(audit$reply, na.rm = TRUE))`, the reply rate
+- A column unfolds into a fuller summary: `reply` has `r n_bounced` missing values, the bounced emails, and a mean of `r sprintf("%.4f", mean(housing$reply, na.rm = TRUE))`, the reply rate
 - **+** in the filter bar adds a filter, and the menu at the head of a column sorts it. Filtered to Santiago and sorted by `reply`, the status line reads "Showing `r nrow(santiago)` rows (`r sprintf("%.2f", 100 * nrow(santiago) / n_emails)`% of `r fmt_n(n_emails)` total)"
-- Filters change the view and leave the data alone: `nrow(audit)` still gives `r n_emails`
+- Filters change the view and leave the data alone: `nrow(housing)` still gives `r n_emails`
 - **Convert to Code** writes the view as dplyr code; the course writes it with datawizard
 :::
 
 ::: {.fs-85}
 ```r
-audit |>
+housing |>
   datawizard::data_filter(name == "Santiago") |>
   datawizard::data_arrange("-reply")
 ```
@@ -54,7 +54,7 @@ A column in the summary panel unfolds into a fuller summary. The column of names
 ::: {.column width="50%"}
 ::: {.fs-80}
 ```r
-tinyplot::tinyplot(~ name, data = audit,
+tinyplot::tinyplot(~ name, data = housing,
                    type = "barplot")
 ```
 :::
@@ -64,7 +64,7 @@ tinyplot::tinyplot(~ name, data = audit,
 ::: {.column width="50%"}
 ::: {.fs-80}
 ```r
-audit |>
+housing |>
   datawizard::data_summary(emails = n(),
     replies = sum(reply %in% 1), by = "name") |>
   tinytable::tt()
@@ -99,16 +99,16 @@ The help pages of R are better than their reputation. A question mark followed b
 ## Hands-on 3 – Looking at the data {#hands-on-3-looking-at-the-data .smaller}
 
 ::: {.small}
-1. Open `audit` in the Data Explorer, from the grid icon in the Variables pane, and unfold `name` and `reply` in the summary panel
-2. Filter the view to the emails signed Santiago, sort it by `reply`, descending, and then run `nrow(audit)` in the console
+1. Open `housing` in the Data Explorer, from the grid icon in the Variables pane, and unfold `name` and `reply` in the summary panel
+2. Filter the view to the emails signed Santiago, sort it by `reply`, descending, and then run `nrow(housing)` in the console
 3. Draw the bar chart of the emails by name, and find **Save Plot** in the Plots pane
 4. Run `?datawizard::data_filter`, then put the cursor on `read_csv` in line 30 of the script and press F1
 :::
 
 ::: {.fragment .small}
-The filtered view shows `r nrow(santiago)` rows, and `nrow(audit)` still prints `r n_emails`. In RStudio, `View(audit)` opens the data viewer, and plots and help appear in the pane at the bottom right.
+The filtered view shows `r nrow(santiago)` rows, and `nrow(housing)` still prints `r n_emails`. In RStudio, `View(housing)` opens the data viewer, and plots and help appear in the pane at the bottom right.
 :::
 
 ::: notes
-Your turn, and the habit behind it is the most useful one of the day, which is to look at the data before any model is fitted. Open audit in the Data Explorer and unfold the two columns. Filter the view to Santiago, sort it by reply, and then check in the console that the data frame itself has not changed. Draw the bar chart of the emails by name, and find the button that saves a plot, which you will need when a figure goes into a document of your own. And open two help pages, one with the question mark and one with F1 from the script. If you work in RStudio or VS Code, use the data viewer, the plots and the help of your own IDE. Take the time you need. [advance] The view shows two hundred and seven rows, and the data frame is unchanged.
+Your turn, and the habit behind it is the most useful one of the day, which is to look at the data before any model is fitted. Open housing in the Data Explorer and unfold the two columns. Filter the view to Santiago, sort it by reply, and then check in the console that the data frame itself has not changed. Draw the bar chart of the emails by name, and find the button that saves a plot, which you will need when a figure goes into a document of your own. And open two help pages, one with the question mark and one with F1 from the script. If you work in RStudio or VS Code, use the data viewer, the plots and the help of your own IDE. Take the time you need. [advance] The view shows two hundred and seven rows, and the data frame is unchanged.
 :::

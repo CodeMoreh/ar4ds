@@ -31,23 +31,23 @@ website:
     left:
       - href: index.qmd
         text: Home
-      # The sites of the cases, in the order of the ladder
-      - text: The cases
+      # The sites of the case studies, in the order of the ladder
+      - text: Case studies
         menu:
           - href: "https://codemoreh.github.io/ar4ds-housing/"
-            text: "Housing audit"
+            text: "Housing and racial bias"
           - href: "https://codemoreh.github.io/ar4ds-immigration/"
             text: "Immigration and trust"
           - href: "https://codemoreh.github.io/ar4ds-cohabitation/"
-            text: "Cohabitation"
+            text: "Cohabitation and marriage"
           - href: "https://codemoreh.github.io/ar4ds-eu/"
-            text: "EU frames"
-      - text: SCORE and Multi100
+            text: "Europeanisation and the economy"
+      - text: SCORE
         menu:
-          - href: score-multi100.qmd
-            text: "SCORE and Multi100"
-          - href: multi100-article.qmd
-            text: "The Multi100 article"
+          - href: score.qmd
+            text: "SCORE"
+          - href: robustness-article.qmd
+            text: "The robustness article"
       # Installation first, then the four self-study modules on the tools
       - text: Tools
         menu:

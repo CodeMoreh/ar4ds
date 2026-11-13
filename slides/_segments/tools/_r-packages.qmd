@@ -5,7 +5,7 @@ Section 2
 :::
 
 ::: notes
-Section two brings in the data. First the packages, the bundles of functions written by other people on which nearly all of the work depends, with the two steps of using one and the two error messages that go with those steps. Then we read the housing-audit file into R and look at it, first as a whole and then column by column, before any analysis touches it. The section ends with a task that counts the replies by the kind of address to which each email went.
+Section two brings in the data. First the packages, the bundles of functions written by other people on which nearly all of the work depends, with the two steps of using one and the two error messages that go with those steps. Then we read the file of the Housing case study into R and look at it, first as a whole and then column by column, before any analysis touches it. The section ends with a task that counts the replies by the kind of address to which each email went.
 :::
 
 ## Packages {#packages .smaller}
@@ -14,7 +14,7 @@ Section two brings in the data. First the packages, the bundles of functions wri
 ```r
 install.packages("pak")                      # once on a new machine
 pak::pak("readr")                            # step 1: install a package, once
-readr::read_csv("data/housing_audit.csv")    # step 2: call a function by its
+readr::read_csv("data/housing_emails.csv")    # step 2: call a function by its
                                              #   package and its name
 ```
 

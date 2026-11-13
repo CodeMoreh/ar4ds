@@ -68,7 +68,7 @@ For those of you who work in another IDE, this is where the same things sit. RSt
 ::: {.fs-75}
 | Problem | What to do |
 |---|---|
-| `'data/housing_audit.csv' does not exist in current working directory` | Positron has no folder open, or another one. Check the path at the top of the console, and open the folder of the workspace |
+| `'data/housing_emails.csv' does not exist in current working directory` | Positron has no folder open, or another one. Check the path at the top of the console, and open the folder of the workspace |
 | Ctrl+Enter does nothing, or adds a new line | Click in the code first. A new file runs as R only once it is saved with the extension `.R` |
 | R stays busy and does not finish | **Interpreter: Interrupt Active Interpreter Session**. If R does not answer, restart it and run the script from the top |
 | A number differs from the one in the course | Restart R and run the script from the top, and check which R runs the session |

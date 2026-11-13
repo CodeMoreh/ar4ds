@@ -5,13 +5,13 @@ Section 4
 :::
 
 ::: notes
-Section four puts the pieces together on the claim of the case. The claim compares two shares, so we compute both and the difference between them, the number that the housing-audit case calls its reference specification, against which every other analysis of the claim is compared. Then the two forms in which a result leaves R for a reader: a table, formatted with tinytable, the table package of the course, and a figure, drawn with tinyplot. The last slide of the section gathers the error messages that you are most likely to meet.
+Section four puts the pieces together on the claim of the case study. The claim compares two shares, so we compute both and the difference between them, the number that the Housing case study calls its reference specification, against which every other analysis of the claim is compared. Then the two forms in which a result leaves R for a reader: a table, formatted with tinytable, the table package of the course, and a figure, drawn with tinyplot. The last slide of the section gathers the error messages that you are most likely to meet.
 :::
 
 ## A difference in shares {#a-difference-in-shares .smaller}
 
 ```r
-shares <- audit |>
+shares <- housing |>
   datawizard::data_filter(!is.na(named), group %in% c("white", "hispanic")) |>
   datawizard::data_summary(replies = n(), greeted = sum(named), share = mean(named),
                            by = "group")
@@ -37,13 +37,13 @@ A gap of `r fmt_num(gap_hw, 2)` percentage points, the raw difference behind the
 :::
 
 ::: notes
-The claim of the housing-audit case is that replies to emails signed with Hispanic names were less likely to greet the sender by name than replies to emails signed with white names. In the terms of the first section, that is a comparison of two means of a column of ones and zeros, so you already have every tool that it needs. The chain keeps the replies that carry a greeting code, from the white and the Hispanic names, and summarises the greeting in each group: sixty-one per cent of the replies to white names opened with the name of the sender, against forty-one per cent of the replies to Hispanic names. Inside data summary, square brackets pick out the value of one group, and multiplying by a hundred gives the difference in percentage points. [advance] The published estimate comes from another calculation, and the two agree closely.
+The claim of the Housing case study is that replies to emails signed with Hispanic names were less likely to greet the sender by name than replies to emails signed with white names. In the terms of the first section, that is a comparison of two means of a column of ones and zeros, so you already have every tool that it needs. The chain keeps the replies that carry a greeting code, from the white and the Hispanic names, and summarises the greeting in each group: sixty-one per cent of the replies to white names opened with the name of the sender, against forty-one per cent of the replies to Hispanic names. Inside data summary, square brackets pick out the value of one group, and multiplying by a hundred gives the difference in percentage points. [advance] The published estimate comes from another calculation, and the two agree closely.
 :::
 
 ## Two ways to count {#two-ways-to-count .smaller .deepdive run="r"}
 
 ```r
-audit |>
+housing |>
   datawizard::data_filter(!is.na(reply), group %in% c("white", "hispanic")) |>
   datawizard::data_modify(greeted = dplyr::if_else(reply == 1, named, 0)) |>
   datawizard::data_filter(!is.na(greeted)) |>
@@ -60,13 +60,13 @@ Among every delivered email, a missing reply counting as no greeting by name, th
 :::
 
 ::: notes
-That gap is counted among the replies only, because an email that drew no reply has no greeting. The other way to count keeps every delivered email and treats a missing reply as a reply without a greeting by name. if else, from dplyr, makes that column, keeping the greeting code where reply is one and putting zero elsewhere, and a second filter removes the five uncoded replies. Counted this way, the gap is `r fmt_num(abs(gap_all), 1)` points instead of twenty. The two numbers answer two questions. Among the replies, did the officials who answered write differently to the two groups of names? Among all delivered emails, did the name change the chance of receiving a greeting by name at all, which mixes the decision to reply with the tone of the reply? In the housing-audit case, no other choice moves the estimate as far as this one.
+That gap is counted among the replies only, because an email that drew no reply has no greeting. The other way to count keeps every delivered email and treats a missing reply as a reply without a greeting by name. if else, from dplyr, makes that column, keeping the greeting code where reply is one and putting zero elsewhere, and a second filter removes the five uncoded replies. Counted this way, the gap is `r fmt_num(abs(gap_all), 1)` points instead of twenty. The two numbers answer two questions. Among the replies, did the officials who answered write differently to the two groups of names? Among all delivered emails, did the name change the chance of receiving a greeting by name at all, which mixes the decision to reply with the tone of the reply? In the Housing case study, no other choice moves the estimate as far as this one.
 :::
 
 ## Hands-on 4 – Black and white names {#hands-on-4-black-and-white-names .smaller}
 
 ```r
-audit |>
+housing |>
   datawizard::data_filter(!is.na(named), group %in% c("white", "______")) |>
   datawizard::data_summary(share = mean(named), by = "group") |>
   datawizard::data_summary(
@@ -89,7 +89,7 @@ Your turn, with the last task of the session. Fill the blank so that the chain c
 ## A table of the groups {#a-table-of-the-groups .smaller}
 
 ```r
-by_group <- audit |>
+by_group <- housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_summary(delivered = n(), replies = sum(reply),
                            coded = sum(!is.na(named)),
@@ -162,7 +162,7 @@ tinytable is the table package of the course, the one to use in your IDE and in 
 ::: {.column width="55%"}
 ::: {.fs-85}
 ```r
-by_name <- audit |>
+by_name <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_summary(
     share = 100 * mean(named), replies = n(),
@@ -243,10 +243,10 @@ Three changes make the figure readable. The vertical bar in the formula, share b
 ::: {.fs-80}
 | R says | What it usually means |
 |---|---|
-| `object 'audit' not found` | The line that makes the object has not run in this session: run the script from the top |
+| `object 'housing' not found` | The line that makes the object has not run in this session: run the script from the top |
 | `could not find function "data_filter"` | The function was written without its package: write `datawizard::data_filter()` |
 | `there is no package called 'tinytable'` | The package is not installed on this machine: `pak::pak("tinytable")` |
-| `'data/housing_audit.csv' does not exist in current working directory` | R works in another folder: open the folder of the workspace |
+| `'data/housing_emails.csv' does not exist in current working directory` | R works in another folder: open the folder of the workspace |
 | `+` in the console, and nothing happens | An unclosed bracket or quote: press Esc and look for it |
 :::
 

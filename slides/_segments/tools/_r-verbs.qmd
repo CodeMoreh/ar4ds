@@ -11,15 +11,15 @@ Section three is about reshaping a table, which is most of the work after readin
 ## The pipe {#the-pipe .smaller}
 
 ```r
-round(mean(audit$reply, na.rm = TRUE), 3)          # read from the inside out
+round(mean(housing$reply, na.rm = TRUE), 3)          # read from the inside out
 
-audit$reply |> mean(na.rm = TRUE) |> round(3)      # read from left to right
+housing$reply |> mean(na.rm = TRUE) |> round(3)      # read from left to right
 ```
 
 ```{r}
 #| label: r-out-pipe
-round(mean(audit$reply, na.rm = TRUE), 3)
-audit$reply |> mean(na.rm = TRUE) |> round(3)
+round(mean(housing$reply, na.rm = TRUE), 3)
+housing$reply |> mean(na.rm = TRUE) |> round(3)
 ```
 
 ::: {.small}
@@ -33,7 +33,7 @@ The pipe makes a sequence of steps readable. The first line takes the mean of th
 ## Rows and columns {#rows-and-columns .smaller}
 
 ```r
-audit |>
+housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_select(select = c("name", "group", "reply", "named")) |>
   datawizard::data_modify(hispanic_name = group == "hispanic") |>
@@ -42,7 +42,7 @@ audit |>
 
 ```{r}
 #| label: r-out-verbs
-audit |>
+housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_select(select = c("name", "group", "reply", "named")) |>
   datawizard::data_modify(hispanic_name = group == "hispanic") |>
@@ -60,7 +60,7 @@ Three verbs from datawizard, chained with the pipe, which you read downwards as 
 ## Summaries by group {#summaries-by-group .smaller}
 
 ```r
-audit |>
+housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_summary(
     delivered  = n(),
@@ -72,7 +72,7 @@ audit |>
 
 ```{r}
 #| label: r-out-summary
-audit |>
+housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_summary(
     delivered  = n(),
@@ -94,7 +94,7 @@ data summary is the verb that answers most of the questions that you will put to
 ## Hands-on 3 – The reply rate by name {#hands-on-3-the-reply-rate-by-name .smaller}
 
 ```r
-audit |>
+housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_summary(
     delivered  = n(),

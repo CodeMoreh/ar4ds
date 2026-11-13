@@ -26,7 +26,7 @@ A folder on a laptop, a departmental server and a link in the appendix of a pape
 :::
 
 ::: {.src}
-The modules Reproducibility repositories of the case sites, section 1.
+The modules Reproducibility repositories of the case-study sites, section 1.
 :::
 
 ::: notes
@@ -51,11 +51,11 @@ Beside these repositories sit the archives of the disciplines, such as the UK Da
 :::
 
 ::: {.src}
-The modules Reproducibility repositories of the case sites, section 2, from the guide of the Center for Open Science on choosing a repository.
+The modules Reproducibility repositories of the case-study sites, section 2, from the guide of the Center for Open Science on choosing a repository.
 :::
 
 ::: notes
-These are the generalist repositories that most social scientists meet. Zenodo takes anything and gives every version its own DOI, and it can archive each release of a GitHub repository automatically. The Harvard Dataverse is built for datasets and lets a journal keep a collection of its own, which is how the American Journal of Political Science keeps its replication packages, the housing-audit package among them. Figshare is quick to use, Dryad charges for curation, and ReShare is the route that satisfies the data policy of the ESRC. Which one to use depends on what you deposit: a dataset goes to the archive of its discipline if there is one, and to Dataverse or Zenodo otherwise, while code goes to a forge, which is the next slide.
+These are the generalist repositories that most social scientists meet. Zenodo takes anything and gives every version its own DOI, and it can archive each release of a GitHub repository automatically. The Harvard Dataverse is built for datasets and lets a journal keep a collection of its own, which is how the American Journal of Political Science keeps its replication packages, the package behind the Housing case study among them. Figshare is quick to use, Dryad charges for curation, and ReShare is the route that satisfies the data policy of the ESRC. Which one to use depends on what you deposit: a dataset goes to the archive of its discipline if there is one, and to Dataverse or Zenodo otherwise, while code goes to a forge, which is the next slide.
 :::
 
 ## Code forges and archives {#code-forges-and-archives .smaller}
@@ -78,7 +78,7 @@ A paper cites the archived release, and the forge keeps the working copy.
 ::::
 
 ::: {.src}
-The modules Reproducibility repositories of the case sites, section 3.
+The modules Reproducibility repositories of the case-study sites, section 3.
 :::
 
 ::: notes
@@ -88,7 +88,7 @@ GitHub and its relatives are where most research code is found, which makes them
 ## Versions of a record {#versions-of-a-record .deepdive run="versions"}
 
 ::: {.small}
-- **Dataverse** numbers its versions. The package of the housing-audit OAs went up as version 1.0 on 17 February 2016, while the article was forthcoming, and version 1.1 of 23 April 2017 completed the citation, with every file unchanged
+- **Dataverse** numbers its versions. The package of the OAs of the Housing case study went up as version 1.0 on 17 February 2016, while the article was forthcoming, and version 1.1 of 23 April 2017 completed the citation, with every file unchanged
 - **The OSF** keeps every revision of a file, and nothing in a registration can change once it is submitted
 - **Zenodo** gives each version a DOI of its own, and a concept DOI that always points at the latest
 :::
@@ -102,7 +102,7 @@ The modules Reproducibility repositories of the housing and EU sites, section on
 :::
 
 ::: notes
-A deposit changes after it is made, and a good repository keeps every state of it. The housing-audit package shows the pattern on Dataverse: version one point zero went up in February 2016, before the article appeared in print, and version one point one followed in April 2017, only to complete the citation, with every file the same to the byte. The OSF keeps the revisions of each file, which is why the SCORE replication of the EU-frames claim, whose report was revised in October 2026, still shows both of its reports. Zenodo gives every version a DOI of its own. Whichever repository you use, cite the version, because the reader who follows your citation should get what you used.
+A deposit changes after it is made, and a good repository keeps every state of it. The package of the Housing case study shows the pattern on Dataverse: version one point zero went up in February 2016, before the article appeared in print, and version one point one followed in April 2017, only to complete the citation, with every file the same to the byte. The OSF keeps the revisions of each file, which is why the SCORE replication of the Europeanisation claim, whose report was revised in October 2026, still shows both of its reports. Zenodo gives every version a DOI of its own. Whichever repository you use, cite the version, because the reader who follows your citation should get what you used.
 :::
 
 ## The OSF after 2026 {#the-osf-after-2026}
@@ -119,9 +119,9 @@ For new work, the OSF holds the plan and the links, and the data and the code go
 :::
 
 ::: {.src}
-The help pages of the OSF on the transition, as quoted in the modules Reproducibility repositories of the case sites, section on the OSF after 2026.
+The help pages of the OSF on the transition, as quoted in the modules Reproducibility repositories of the case-study sites, section on the OSF after 2026.
 :::
 
 ::: notes
-This change touches every record of this course. On the twenty-seventh of August 2026 the Center for Open Science announced that it is phasing out OSF Projects, the workspaces in which SCORE and Multi100 kept their records, because it cannot sustain what the projects cost to run. From the sixteenth of November 2026 nobody can create a new project, and from the nineteenth of February 2027 every project is read-only. Nothing in the records of this course is lost, because the SCORE projects of the four cases are public and stay readable at the same addresses. Registrations and preprints carry on as before. For new work the arrangement changes: the plan is registered on the OSF, and the data and code go to a repository such as Zenodo or Dataverse, linked from the registration.
+This change touches every record of this course. On the twenty-seventh of August 2026 the Center for Open Science announced that it is phasing out OSF Projects, the workspaces in which SCORE and its robustness study kept their records, because it cannot sustain what the projects cost to run. From the sixteenth of November 2026 nobody can create a new project, and from the nineteenth of February 2027 every project is read-only. Nothing in the records of this course is lost, because the SCORE projects of the four case studies are public and stay readable at the same addresses. Registrations and preprints carry on as before. For new work the arrangement changes: the plan is registered on the OSF, and the data and code go to a repository such as Zenodo or Dataverse, linked from the registration.
 :::

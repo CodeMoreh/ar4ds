@@ -7,21 +7,21 @@
 :::
 
 ::: {.fragment .small}
-The replication of the housing-audit claim uploaded its preregistration on 5 May 2020, registered it on 14 May 2020 under an embargo until 13 May 2024 (osf.io/v6wd8), and uploaded its final report on 7 October 2020, so the plan came first.
+The replication of the Housing claim uploaded its preregistration on 5 May 2020, registered it on 14 May 2020 under an embargo until 13 May 2024 (osf.io/v6wd8), and uploaded its final report on 7 October 2020, so the plan came first.
 :::
 
 ::: {.src}
-The help pages of the OSF on registrations; the SCORE project of the housing-audit paper, osf.io/3a8bg.
+The help pages of the OSF on registrations; the SCORE project of the paper of the Housing case study, osf.io/3a8bg.
 :::
 
 ::: notes
-A registration is what the OSF calls a frozen document. In the words of its help pages, it is a frozen version of your project that can never be edited or deleted, though you can withdraw it later. It carries a timestamp and an identifier, gets a DOI once it is public, and can stay private under an embargo of up to four years. That is the mechanism behind preregistration. For new data it records the plan before the data are collected, and for a reanalysis, before the specific choices are made. [advance] Here is one that did its job, in the housing-audit case: the replication registered its plan in May 2020, kept it under embargo while the work ran, and reported in October. Because the plan is dated before the report, nobody can say that the analysis was chosen to fit the result.
+A registration is what the OSF calls a frozen document. In the words of its help pages, it is a frozen version of your project that can never be edited or deleted, though you can withdraw it later. It carries a timestamp and an identifier, gets a DOI once it is public, and can stay private under an embargo of up to four years. That is the mechanism behind preregistration. For new data it records the plan before the data are collected, and for a reanalysis, before the specific choices are made. [advance] Here is one that did its job, in the Housing case study: the replication registered its plan in May 2020, kept it under embargo while the work ran, and reported in October. Because the plan is dated before the report, nobody can say that the analysis was chosen to fit the result.
 :::
 
-## The Multi100 preregistration {#the-study-you-are-inside-was-preregistered}
+## The preregistration of the robustness study {#the-study-you-are-inside-was-preregistered}
 
 ::: {.small}
-- Multi100 was preregistered on the OSF after its analysts had been recruited and before any analysis began
+- The robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness] was preregistered on the OSF after its analysts had been recruited and before any analysis began
 - The registration fixed the aim, the two questions and the rule for comparing effect sizes: a new result counts as different when it lies beyond ±0.05 Cohen's *d* of the original
 - A second preregistration covered the peer evaluation of the reanalyses
 - The outcome: 74% of the reanalyses reached the same conclusion, and 34% came within ±0.05 *d*
@@ -32,7 +32,7 @@ Preregistrations osf.io/4ev9t (pp. 2 and 9) and osf.io/y4evp; @AczelEtAl2026Inve
 :::
 
 ::: notes
-Multi100 practised what it measured. Its first preregistration was filed after the analysts had been recruited and before any of them had started, and it fixed the questions and, above all, the judging: two results count as the same when their effect sizes lie within five hundredths of a Cohen's d. It even explains why it sets confidence intervals aside, since a less precise estimate would look more robust. A second registration covered the peer evaluation. That is why the seventy-four per cent and the thirty-four per cent of the last session mean something, because nobody could move the goalposts once the results were in. The course repeats this design on the second day, with you as a sixth analyst who declares an analysis before running it.
+The robustness study practised what it measured. Its first preregistration was filed after the analysts had been recruited and before any of them had started, and it fixed the questions and, above all, the judging: two results count as the same when their effect sizes lie within five hundredths of a Cohen's d. It even explains why it sets confidence intervals aside, since a less precise estimate would look more robust. A second registration covered the peer evaluation. That is why the seventy-four per cent and the thirty-four per cent of the last session mean something, because nobody could move the goalposts once the results were in. The course repeats this design on the second day, with you as a sixth analyst who declares an analysis before running it.
 :::
 
 ## Preregistration templates {#two-templates-one-choice}

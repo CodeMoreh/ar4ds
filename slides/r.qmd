@@ -2,8 +2,8 @@
 title: "R"
 subtitle: "Extended course – day 1"
 format: revealjs
-# Session 4 of day 1 of the Extended course, the same for every case: R taught
-# live in the IDE, on the housing-audit file, which the modules on the tools
+# Session 4 of day 1 of the Extended course, the same for every case study: R taught
+# live in the IDE, on the file of the Housing case study, which the modules on the tools
 # use as their running example. Four sections: objects and data frames,
 # packages and the data, the pipe and the verbs, shares, a table and a figure.
 # Three optional slides stay on the d toggle (run "r"): the programming

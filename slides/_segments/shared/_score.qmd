@@ -27,7 +27,7 @@ The three papers that we look at next all come from one programme, SCORE, short 
 score_cells <- tibble::tribble(
   ~analysis,           ~sample,          ~study,             ~detail,                                                        ~fill,
   "SAME METHODS",      "SAME DATA",      "Reproducibility",  "Miske et al. 2026\n600 papers, 143 assessed",                  ncl_blue,
-  "DIFFERENT METHODS", "SAME DATA",      "Robustness",       "Aczel et al. 2026, Multi100\n100 studies, 504 reanalyses",    orange,
+  "DIFFERENT METHODS", "SAME DATA",      "Robustness",       "Aczel et al. 2026\n100 studies, 504 reanalyses",              orange,
   "SAME METHODS",      "DIFFERENT DATA", "Replicability",    "Tyner et al. 2026\n274 claims, on new or existing data",      green,
   "DIFFERENT METHODS", "DIFFERENT DATA", "Generalisability", "no SCORE study",                                             "#b6bcc3"
 ) |>
@@ -57,7 +57,7 @@ ggplot2::ggplot(score_cells, ggplot2::aes(sample, analysis)) +
 :::
 
 ::: notes
-This is the grid from the first session, with the SCORE study that sits in each cell. Same data and the same methods, top left, is the reproducibility study: six hundred papers, of which a hundred and forty-three could be assessed in the end. Same data and different methods, bottom left, is Multi100, the robustness study, with a hundred studies and five hundred and four reanalyses. New data and the same methods, top right, is the replicability study, with two hundred and seventy-four claims tested on data that the original studies did not use. The fourth cell, generalisation, has no SCORE study, and we leave it aside as before. We take the three in turn, starting with reproduction.
+This is the grid from the first session, with the SCORE study that sits in each cell. Same data and the same methods, top left, is the reproducibility study: six hundred papers, of which a hundred and forty-three could be assessed in the end. Same data and different methods, bottom left, is the robustness study, known as Multi100, with a hundred studies and five hundred and four reanalyses. New data and the same methods, top right, is the replicability study, with two hundred and seventy-four claims tested on data that the original studies did not use. The fourth cell, generalisation, has no SCORE study, and we leave it aside as before. We take the three in turn, starting with reproduction.
 :::
 
 ## Reproducibility – Miske et al.
@@ -138,21 +138,21 @@ Read it left to right. Six hundred papers sampled. Data were available for twent
 And access follows policy. Where journals have a data-sharing policy, availability runs from about two thirds to one hundred per cent, depending on the policy; without one, it is sixteen. By field, political science and economics are far ahead of the rest, and education comes last. The first quotation opens the discussion of the paper: the biggest barrier was simply that the data were not there. The second is the one to remember: "reproducibility success does not mean that the finding is correct." Reproducing a number tells you that the computation was faithful, and nothing about whether the claim about the world is true.
 :::
 
-## Robustness – Aczel et al. (Multi100)
+## Robustness – Aczel et al. {#robustness-aczel-et-al.}
 
 ::: {.small}
 - **100 studies**, each reanalysed by **at least 5 independent analysts**: 457 analysts and 504 reanalyses in all
 - The same data for every analyst of a study, each free to choose any *justifiable* analysis
 - A panel of peers judged whether each analysis was appropriate
-- I was one of its analysts, on the paper of the EU-frames case
+- I was one of its analysts, on the paper of the Europeanisation and the economy case study
 :::
 
 ::: {.src}
-@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136.
+The robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136].
 :::
 
 ::: notes
-The middle paper is the one that I took part in, as one of the five analysts of the paper of the EU-frames case, one of the four cases of this course. One hundred studies, and for each one at least five analysts working independently, everyone handed the same data and the same claim. You were free to analyse it in any way you could justify, and a panel of peers later judged whether each analysis was appropriate. Most of the hundred studies had been through a reproduction check by SCORE before Multi100 began, and for nine of them the reproduction was never attempted. The record of the four cases of the course, which closes this session, shows how differently those checks turned out, case by case.
+The middle paper is the one that I took part in, as one of the five analysts of the paper of the Europeanisation case study, one of the four case studies of this course. One hundred studies, and for each one at least five analysts working independently, everyone handed the same data and the same claim. You were free to analyse it in any way you could justify, and a panel of peers later judged whether each analysis was appropriate. Most of the hundred studies had been through a reproduction check by SCORE before the robustness study began, and for nine of them the reproduction was never attempted. The record of the four case studies of the course, which closes this session, shows how differently those checks turned out, case by case.
 :::
 
 ## Robustness results – Aczel et al. {#same-data-five-analysts-different-answers}
@@ -169,7 +169,7 @@ The middle paper is the one that I took part in, as one of the five analysts of 
 :::
 
 ::: notes
-Free, justifiable choices on the same data move the answer a long way. The d here is a standardised effect size, Cohen's d, and how every analysis was converted to it is the subject of the next section. Only about a third of the reanalyses fell within five hundredths of a d of the original, and in just five of the ninety-five studies whose original effect size could be recovered did every analyst come that close. Conclusions held up better than magnitudes, with three quarters of the reanalyses agreeing with the original conclusion. But the effect sizes shrank, from a mean d of point seven three to point four nine. And observational studies came out less robust than experiments, which matters here, because three of the four cases of this course are observational studies, all but the housing audit.
+Free, justifiable choices on the same data move the answer a long way. The d here is a standardised effect size, Cohen's d, and how every analysis was converted to it is the subject of the next section. Only about a third of the reanalyses fell within five hundredths of a d of the original, and in just five of the ninety-five studies whose original effect size could be recovered did every analyst come that close. Conclusions held up better than magnitudes, with three quarters of the reanalyses agreeing with the original conclusion. But the effect sizes shrank, from a mean d of point seven three to point four nine. And observational studies came out less robust than experiments, which matters here, because three of the four case studies of this course are observational studies, all but the Housing and racial bias case study.
 :::
 
 ## Replicability – Tyner et al.
@@ -243,5 +243,5 @@ Knowing that a finding was reproduced tells you next to nothing about whether it
 :::
 
 ::: notes
-You would hope that these three properties go together, that a reproducible finding is more likely to be robust and a robust one more likely to replicate. Across SCORE they do not, or at least not detectably. In the words of the glossary that we met in the first session, the correlations between the three kinds of outcome were not distinguishable from zero. So there is no single trust score for a finding. "Is it reliable?" is an incomplete question until you say which kind of repetition you mean, and for any one paper the useful question is which of the three tests it was put through and how it fared. We put exactly that question to the four cases of the course at the end of the session.
+You would hope that these three properties go together, that a reproducible finding is more likely to be robust and a robust one more likely to replicate. Across SCORE they do not, or at least not detectably. In the words of the glossary that we met in the first session, the correlations between the three kinds of outcome were not distinguishable from zero. So there is no single trust score for a finding. "Is it reliable?" is an incomplete question until you say which kind of repetition you mean, and for any one paper the useful question is which of the three tests it was put through and how it fared. We put exactly that question to the four case studies of the course at the end of the session.
 :::

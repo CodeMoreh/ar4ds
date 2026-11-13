@@ -13,7 +13,7 @@ format:
         - parameters
         - gt
 resources:
-  - data/housing_audit.csv
+  - data/housing_emails.csv
 live:
   show-hints: true
   show-solutions: true
@@ -27,13 +27,13 @@ bibliography: [../references.bib, ../references-new.bib]
 #| include: false
 # The numbers quoted in the prose, computed when the page is rendered from the
 # file that the blocks of the page read in the browser, with the same reader.
-audit <- read.csv("data/housing_audit.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
 
-n_emails    <- format(nrow(audit), big.mark = ",")
-n_delivered <- sum(!is.na(audit$reply))
+n_emails    <- format(nrow(housing), big.mark = ",")
+n_delivered <- sum(!is.na(housing$reply))
 
 # The model of section 15, fitted to the replies that carry a greeting code
-replies <- audit |>
+replies <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_rename(select = "group", replacement = "names_of") |>
   datawizard::data_modify(names_of = factor(names_of, levels = c("white", "black", "hispanic")))
@@ -44,14 +44,14 @@ b_hisp_txt <- sub("^-", "−", sprintf("%.4f", b_hisp))
 gap_txt    <- sub("^-", "−", sprintf("%.2f", 100 * b_hisp))
 ```
 
-This page continues [Getting started with R](r.qmd) and takes about an hour. It stays with the housing-audit data, the `r n_emails` emails that the original authors (OAs) of a field experiment sent to public housing authorities in the United States [@EinsteinGlick2017DoesRaceAffect], and takes the tools of the first part further. [Section 13](#sec-formats) fetches the file deposited by the OAs, in the format of Stata, from the repository that holds it, reads it with its labels, and introduces the packages that read other formats and query archives. [Section 14](#sec-dialects) sets one small task in the three dialects in which R is written, and [section 15](#sec-estimand) fits a first model while naming the quantity that it estimates.
+This page continues [Getting started with R](r.qmd) and takes about an hour. It stays with the data of the Housing and racial bias case study, the `r n_emails` emails that the original authors (OAs) of a field experiment sent to public housing authorities in the United States [@EinsteinGlick2017DoesRaceAffect], and takes the tools of the first part further. [Section 13](#sec-formats) fetches the file deposited by the OAs, in the format of Stata, from the repository that holds it, reads it with its labels, and introduces the packages that read other formats and query archives. [Section 14](#sec-dialects) sets one small task in the three dialects in which R is written, and [section 15](#sec-estimand) fits a first model while naming the quantity that it estimates.
 
 The blocks work as they do in the first part, as the [note on the code blocks](r.qmd#code-blocks) describes. Run Code runs a whole block, each block holds one step, and the blocks are meant to be run in order. This page downloads more packages than the first, including dplyr and haven, so it takes a little longer to be ready, and again nothing has to be installed on your machine. The sections continue the numbering of the first part, so that a reference to section 9 means the same section on both pages.
 
-Run the block below first. It reads the data as section 6 of the first part did, and every later block on the page works from the object `audit` that it makes.
+Run the block below first. It reads the data as section 6 of the first part did, and every later block on the page works from the object `housing` that it makes.
 
 ```{webr}
-audit <- read.csv("data/housing_audit.csv", na.strings = c("", "NA"))
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 ```
 
 ## 13. Other formats, and fetching data {#sec-formats}
@@ -72,7 +72,7 @@ A download ends with a check that the file is the one that was meant. The MD5 su
 tools::md5sum("deposit.dta")
 ```
 
-The code under the name of the file should read `68084f97c57e9792c58cf071a4774e58`, the sum that the record publishes for the data file, which the [data sources module](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html#sec-dataverse) of the housing-audit site lists with the other files of the record. R reads Stata files, and the SPSS files with the extension `.sav`, through the haven package, with one function for each format. The block below reads the deposited file into a data frame called `deposit` and prints the names of its columns.
+The code under the name of the file should read `68084f97c57e9792c58cf071a4774e58`, the sum that the record publishes for the data file, which the [data sources module](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html#sec-dataverse) of the Housing site lists with the other files of the record. R reads Stata files, and the SPSS files with the extension `.sav`, through the haven package, with one function for each format. The block below reads the deposited file into a data frame called `deposit` and prints the names of its columns.
 
 ```{webr}
 deposit <- haven::read_dta("deposit.dta")   # haven::read_sav() reads SPSS files
@@ -85,7 +85,7 @@ The fourteen columns keep the names given by the OAs, such as `Response_Dichotom
 head(deposit$NumberAssignment)
 ```
 
-The first line of the output gives the variable label, `Number Assignment`, the second the codes of the first six emails, and the table underneath the value labels. `as_label()` from the sjlabelled package turns each code into its label, which gives a factor, and `data_tabulate()` then counts the emails signed with each name, the counts of the first table in the [codebook of the course file](https://codemoreh.github.io/ar4ds-housing/cases/housing/data/housing_audit_codebook.html).
+The first line of the output gives the variable label, `Number Assignment`, the second the codes of the first six emails, and the table underneath the value labels. `as_label()` from the sjlabelled package turns each code into its label, which gives a factor, and `data_tabulate()` then counts the emails signed with each name, the counts of the first table in the [codebook of the course file](https://codemoreh.github.io/ar4ds-housing/cases/housing/data/housing_emails_codebook.html).
 
 ```{webr}
 deposit$NumberAssignment |>
@@ -155,7 +155,7 @@ Treat what arrives from a spreadsheet with mild suspicion. Excel displays one th
 **Parquet** and **Feather** are newer formats, which store a table column by column, and you will increasingly meet files of these kinds where datasets are large or move between programming languages. Both formats are compressed and fast to read, and unlike a CSV both store the type of each column inside the file, so that nothing has to be inferred on reading. The arrow package reads both, and the smaller nanoparquet package reads and writes Parquet without needing any other package.
 
 ``` r
-emails <- arrow::read_parquet("housing_audit.parquet")   # arrow::read_feather() for Feather
+emails <- arrow::read_parquet("housing_emails.parquet")   # arrow::read_feather() for Feather
 ```
 
 Whatever the source format, what you end up with in R is the same data frame, and everything downstream, from the verbs of section 9 to the model of section 15, proceeds identically. Every reading function here also has a writing counterpart, among them `readr::write_csv()`, `haven::write_dta()`, `arrow::write_parquet()` and `writexl::write_xlsx()` from the writexl package, so R also serves to convert files from one format to another. The course ships its data as CSV all the same, because for tables of a few hundred or a thousand rows the efficiency of the binary formats buys nothing, while plain text can be opened in any program, compared line by line or read in an email.
@@ -198,7 +198,7 @@ R is old enough to have grown dialects, families of packages that share a vocabu
 
 <!-- r-style: skip -->
 ```{webr}
-delivered <- audit[!is.na(audit$reply), c("name", "group", "reply", "named")]
+delivered <- housing[!is.na(housing$reply), c("name", "group", "reply", "named")]
 nrow(delivered)
 ```
 
@@ -207,7 +207,7 @@ The block prints `r n_delivered`, the number of the delivered emails. The line w
 **The tidyverse** is arguably the most widely taught of the modern dialects, a family of packages that share one design and can be installed and attached under the single name `tidyverse` [@WickhamEtAl2019WelcomeTidyverse]. readr, whose `read_csv()` appeared in section 5 of the first part, belongs to it, and so does dplyr, whose `if_else()` section 10 used. In dplyr, the same task reads as a list of named steps.
 
 ```{webr}
-delivered <- audit |>
+delivered <- housing |>
   dplyr::filter(!is.na(reply)) |>            # the delivered emails only
   dplyr::select(name, group, reply, named)   # the columns of interest
 nrow(delivered)
@@ -216,7 +216,7 @@ nrow(delivered)
 `dplyr::mutate()` derives a new column from existing ones, and `dplyr::summarise()` reduces the table to a single row, or, after `dplyr::group_by()`, to one row for each group. The chain below keeps the delivered emails, adds the greeting counted among every delivered email, as the second calculation of section 10 did, groups the emails by the group of the name, and reports three numbers for each group. dplyr returns a tibble, which prints the type of each column under its name.
 
 ```{webr}
-audit |>
+housing |>
   dplyr::filter(!is.na(reply)) |>
   dplyr::mutate(greeted = dplyr::if_else(reply == 1, named, 0)) |>   # no reply counts as no greeting
   dplyr::group_by(group) |>                                         # one set of rows for each group of names
@@ -232,7 +232,7 @@ Read the chain aloud and it is almost English: take the emails, keep the deliver
 **easystats** is the third dialect, and the one to which the course turns first. It is likewise a family of packages under one installable name, `easystats` [@LudeckeEtAl2022EasystatsFrameworkEasy]. Its member for the preparation of data is datawizard, the package of sections 7 to 11, whose verbs are modelled on the verbs of dplyr, and the course uses datawizard wherever it has the verb that a task needs, before turning to dplyr.
 
 ```{webr}
-delivered <- audit |>
+delivered <- housing |>
   datawizard::data_filter(!is.na(reply)) |>
   datawizard::data_select(select = c("name", "group", "reply", "named"))
 nrow(delivered)
@@ -249,7 +249,7 @@ Fill the blank so that the chain keeps only the emails signed by Santiago, selec
 ```{webr}
 #| exercise: dialect-santiago
 #| envir: global
-audit |>
+housing |>
   datawizard::data_filter(name == "______") |>
   datawizard::data_select(select = c("reply", "named")) |>
   datawizard::data_summary(reply_rate = mean(reply, na.rm = TRUE))
@@ -268,24 +268,24 @@ The condition compares the column `name` with the name in quotes, written as it 
 ## Solution
 
 ``` r
-audit |>
+housing |>
   datawizard::data_filter(name == "Santiago") |>
   datawizard::data_select(select = c("reply", "named")) |>
   datawizard::data_summary(reply_rate = mean(reply, na.rm = TRUE))
 ```
 
-The reply rate of 0.52 is the one that the exercise of section 9 found for Santiago. In base R the first step is `audit[audit$name == "Santiago", c("reply", "named")]`, and in dplyr `dplyr::filter(name == "Santiago")`.
+The reply rate of 0.52 is the one that the exercise of section 9 found for Santiago. In base R the first step is `housing[housing$name == "Santiago", c("reply", "named")]`, and in dplyr `dplyr::filter(name == "Santiago")`.
 :::
 ::::
 
 ## 15. Naming the estimand {#sec-estimand}
 
-Fitting models is the subject of the methods modules of the case sites. On the housing-audit data, the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of that site builds from the table of counts of section 10 up to the logistic regression of the paper. Nothing that follows is needed for a workshop. It is here because it completes the map of the dialects, and because it ties the tools of R to the habit that the course asks of you throughout, which is to name the quantity that you want before you estimate it, the **estimand**.
+Fitting models is the subject of the methods modules of the case-study sites. On the Housing data, the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of the Housing site builds from the table of counts of section 10 up to the logistic regression of the paper. Nothing that follows is needed for a workshop. It is here because it completes the map of the dialects, and because it ties the tools of R to the habit that the course asks of you throughout, which is to name the quantity that you want before you estimate it, the **estimand**.
 
 The simplest model of the claim is a linear model of the greeting on the group of the name, fitted to the replies that carry a greeting code. With an outcome of 0s and 1s and a predictor made of groups, each coefficient of such a model is a difference between two shares, the quantity of section 10. One step comes first. The modelbased package used further below works through the marginaleffects package, which refuses a column called `group` because its own output has a column of that name, so the block below renames the column as `names_of`, with `data_rename()`, and makes it a factor with the white names first.
 
 ```{webr}
-replies <- audit |>
+replies <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_rename(select = "group", replacement = "names_of") |>
   datawizard::data_modify(names_of = factor(names_of, levels = c("white", "black", "hispanic")))
@@ -318,7 +318,7 @@ performance::check_model(m)         # the diagnostic checks in one figure: resid
 report::report(m)                   # the model written out in sentences
 ```
 
-`check_model()` draws the standard diagnostic checks in one figure [@LudeckeEtAl2021PerformanceRPackage], and `report()` writes the results paragraph itself, with the numbers drawn from the model object. Its words are generic, though. It calls each coefficient an effect, a word that a comparison among replies earns only under the assumptions that the [audit-experiments module](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html#sec-posttreatment) of the housing-audit site sets out, and a sentence written for any model needs editing before it describes this one.
+`check_model()` draws the standard diagnostic checks in one figure [@LudeckeEtAl2021PerformanceRPackage], and `report()` writes the results paragraph itself, with the numbers drawn from the model object. Its words are generic, though. It calls each coefficient an effect, a word that a comparison among replies earns only under the assumptions that the [audit-experiments module](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html#sec-posttreatment) of the Housing site sets out, and a sentence written for any model needs editing before it describes this one.
 
 ::: {.callout-tip}
 ## Try it
@@ -329,7 +329,7 @@ The coefficients of the table are differences from the first level of the factor
 ```{webr}
 #| exercise: reference-group
 #| envir: global
-replies <- audit |>
+replies <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_rename(select = "group", replacement = "names_of") |>
   datawizard::data_modify(names_of = factor(names_of, levels = c("______", "black", "white")))
@@ -348,7 +348,7 @@ The column spells the groups in lower case, and the first level in `levels` beco
 ## Solution
 
 ``` r
-replies <- audit |>
+replies <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_rename(select = "group", replacement = "names_of") |>
   datawizard::data_modify(names_of = factor(names_of, levels = c("hispanic", "black", "white")))
@@ -370,11 +370,11 @@ modelbased::estimate_means(m, by = "names_of")   # the expected share greeted by
 modelbased::estimate_contrasts(m, contrast = "names_of")   # the differences between those shares
 ```
 
-The expected outcome under each condition and the contrast between two conditions are each a quantity that you can state in words before touching the software, and the contrast of the Hispanic with the white names is the gap of section 10 once more. Under the bonnet these functions call the marginaleffects package, which does the job that users of Stata will know from `margins`. The intervals above rest on the ordinary standard errors of a linear model, which assume that the outcome varies as much in every group, and `estimate_contrasts(m, contrast = "names_of", vcov = "HC2")` asks instead for standard errors that allow the variance of a 0/1 outcome to differ from group to group, the kind that the estimator of the housing-audit case uses. Saying what you want to estimate first, and only then deriving the analysis that estimates it, is what the exercise of every case practises with the estimand statement and the causal graph, and again in the preregistration, where you state your specification and the quantity that it estimates before running it.
+The expected outcome under each condition and the contrast between two conditions are each a quantity that you can state in words before touching the software, and the contrast of the Hispanic with the white names is the gap of section 10 once more. Under the bonnet these functions call the marginaleffects package, which does the job that users of Stata will know from `margins`. The intervals above rest on the ordinary standard errors of a linear model, which assume that the outcome varies as much in every group, and `estimate_contrasts(m, contrast = "names_of", vcov = "HC2")` asks instead for standard errors that allow the variance of a 0/1 outcome to differ from group to group, the kind that the estimator of the Housing case study uses. Saying what you want to estimate first, and only then deriving the analysis that estimates it, is what the exercise of every case study practises with the estimand statement and the causal graph, and again in the preregistration, where you state your specification and the quantity that it estimates before running it.
 
 ## Further study {#sec-sources}
 
-The documentation of the packages reads as an introduction as well as a reference, above all for the packages on this page: [haven.tidyverse.org](https://haven.tidyverse.org/), [strengejacke.github.io/sjlabelled](https://strengejacke.github.io/sjlabelled/), [readxl.tidyverse.org](https://readxl.tidyverse.org/), the arrow R package site at [arrow.apache.org/docs/r](https://arrow.apache.org/docs/r/), [dplyr.tidyverse.org](https://dplyr.tidyverse.org/), [easystats.github.io/easystats](https://easystats.github.io/easystats/), [easystats.github.io/parameters](https://easystats.github.io/parameters/) and [easystats.github.io/modelbased](https://easystats.github.io/modelbased/). "R for Data Science", the free book by the authors of the tidyverse packages, at <https://r4ds.hadley.nz/>, covers dplyr and the import of data in full. The [data sources module](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html) of the housing-audit site maps the archives from which social scientists draw data and works through the route of the housing-audit file, and its [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) starts from the table of counts of section 10 and builds up to the logistic regression of the paper.
+The documentation of the packages reads as an introduction as well as a reference, above all for the packages on this page: [haven.tidyverse.org](https://haven.tidyverse.org/), [strengejacke.github.io/sjlabelled](https://strengejacke.github.io/sjlabelled/), [readxl.tidyverse.org](https://readxl.tidyverse.org/), the arrow R package site at [arrow.apache.org/docs/r](https://arrow.apache.org/docs/r/), [dplyr.tidyverse.org](https://dplyr.tidyverse.org/), [easystats.github.io/easystats](https://easystats.github.io/easystats/), [easystats.github.io/parameters](https://easystats.github.io/parameters/) and [easystats.github.io/modelbased](https://easystats.github.io/modelbased/). "R for Data Science", the free book by the authors of the tidyverse packages, at <https://r4ds.hadley.nz/>, covers dplyr and the import of data in full. The [data sources module](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html) of the Housing site maps the archives from which social scientists draw data and works through the route of the file of the Housing case study, and its [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) starts from the table of counts of section 10 and builds up to the logistic regression of the paper.
 
 ## References {.unnumbered}
 

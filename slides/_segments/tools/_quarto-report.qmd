@@ -1,7 +1,7 @@
 ## The report of the workspace {#the-report-of-the-workspace .smaller}
 
 ::: {.small}
-- `index.qmd` is the report: the five tasks of the exercise of the case and the preregistration block, with the reasoning written around the code and each result printed beside the sentences that discuss it
+- `index.qmd` is the report: the five tasks of the exercise of the case study and the preregistration block, with the reasoning written around the code and each result printed beside the sentences that discuss it
 - `working_script.R` holds the same analysis as a plain script, which is quicker to experiment with
 - A render writes the report to `_site/index.html`, because the workspace is a Quarto project whose output goes to `_site`
 :::
@@ -22,7 +22,7 @@ Your workspace holds the same analysis twice. The working script takes the tasks
 ```{{r}}
 #| label: count-emails
 # How many emails, and what came back?
-audit |>
+housing |>
   datawizard::data_summary(emails    = n(),
                            bounced   = sum(is.na(reply)),
                            delivered = sum(!is.na(reply)),
@@ -33,7 +33,7 @@ audit |>
 
 ```{r}
 #| label: q-out-counts
-audit |>
+housing |>
   datawizard::data_summary(emails    = n(),
                            bounced   = sum(is.na(reply)),
                            delivered = sum(!is.na(reply)),
@@ -82,5 +82,5 @@ Two commands turn the report into a document. Preview, the button at the top of 
 :::
 
 ::: notes
-Your turn. Open the report, click into the setup chunk at the top and run it with Control, Shift and Enter: it reads the housing-audit data and loads the helpers, and the Variables pane lists what it made. Then run the chunks of Task 2, one at a time, from the counts to the figure of the six names, which appears in the Plots pane. The figure answers the question of the TODO in Task 2, which name received the fewest greetings by name, and the answer goes into the report as a comment in the chunk. Then preview the whole report and find the box of Task 2, where the same counts and the same figure now stand in the document. If you work in RStudio, the green arrow on each chunk runs it, and Render previews the report. Take the time you need.
+Your turn. Open the report, click into the setup chunk at the top and run it with Control, Shift and Enter: it reads the Housing data and loads the helpers, and the Variables pane lists what it made. Then run the chunks of Task 2, one at a time, from the counts to the figure of the six names, which appears in the Plots pane. The figure answers the question of the TODO in Task 2, which name received the fewest greetings by name, and the answer goes into the report as a comment in the chunk. Then preview the whole report and find the box of Task 2, where the same counts and the same figure now stand in the document. If you work in RStudio, the green arrow on each chunk runs it, and Render previews the report. Take the time you need.
 :::

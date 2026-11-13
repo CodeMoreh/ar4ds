@@ -1,0 +1,20 @@
+---
+title: "SCORE"
+subtitle: "Extended course – day 1"
+format: revealjs
+# Session 2 of day 1 of the Extended course, the same for every case study. Three
+# sections: SCORE, the robustness study, the four case studies. Two optional slides stay on the d
+# toggle: the instructions of Task 2 in the four case studies (run "instructions")
+# and the conversion rules of the robustness study (run "scale").
+core-runs: []
+---
+
+{{< include _segments/shared/_setup.qmd >}}
+{{< include _segments/day-1/_setup.qmd >}}
+{{< include _segments/open-research/_score-opening.qmd >}}
+{{< include _segments/shared/_score.qmd >}}
+{{< include _segments/open-research/_score-divider.qmd >}}
+{{< include _segments/shared/_robustness.qmd >}}
+{{< include _segments/open-research/_score-cases.qmd >}}
+{{< include _segments/open-research/_score-close.qmd >}}
+{{< include _segments/day-1/_references.qmd >}}
