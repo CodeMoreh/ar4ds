@@ -17,10 +17,13 @@ cards of the two sites still being assembled carry the class home-soon.
 The page runs no code, because the data of the case studies live on their own sites.
 Its figures are those of the record of SCORE and its robustness study, which do not change
 with the data of the course, and each comes from the facts file of its case study
-(D:\ACADEMIC\TEACHING\2026_OR_NCL\_planning\<slug>\<slug>-facts.md, under the slugs housing, trust, cohabitation and eu-frames) or from the
-committed data of the case study in the course repository: analysts5.csv for the
-conclusions of the five analysts, reference_marks.csv for the reproductions and
-replications of the Immigration and Cohabitation case studies. Check them there before
+(D:\ACADEMIC\TEACHING\AR4DS\_planning\<slug>\<slug>-facts.md, under the slugs housing, immigration and
+cohabitation, and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation) or from
+the committed data of the case study: analysts5.csv for the conclusions of the five
+analysts, reference_marks.csv for the reproductions and replications of the
+Immigration and Cohabitation case studies, whose data are, until their sites are
+built, in the copy of the former course repository, D:\ACADEMIC\TEACHING\AR4DS\_planning\legacy\applied-replication\
+(cases/trust/ and cases/cohabitation/). Check them there before
 changing any of them. The cards put the two case studies with built sites first (Housing,
 Europeanisation) and then the two still being assembled (Immigration,
 Cohabitation). -->
