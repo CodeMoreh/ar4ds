@@ -66,7 +66,7 @@ Every case study teaches the same exercise in the same order. The case studies d
 
 [A field experiment, taught in a short session, in one day or over three days]{.home-meta}
 
-A field experiment published in 2017 sent the same short email to about a thousand public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
+A field experiment published in 2017 sent the same short email to about a thousand public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
 
 <details class="home-more">
 <summary>More about the case study</summary>
@@ -188,7 +188,7 @@ The course is taught in four formats, and the facilitator of each course chooses
 
 [Two halves, in the browser]{.home-meta}
 
-One case study with nothing to install and nothing preregistered, in the browser lab of the Housing case study and on the slides themselves for the Europeanisation case study: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
+One case study with nothing to install and nothing preregistered, worked on the slides themselves, which run R inside the browser: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-short/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-short/).
 :::
@@ -196,9 +196,9 @@ One case study with nothing to install and nothing preregistered, in the browser
 ::: {.home-track .home-reveal}
 ### One-day workshop {.unnumbered .unlisted}
 
-[Four parts, mainly in the browser]{.home-meta}
+[Four parts, in your IDE]{.home-meta}
 
-One case study in four parts, taught mainly in the browser lab of the case study, with the downloadable workspace as an option: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
+One case study in four parts, worked in the downloadable workspace in your IDE, while the slides, which run R inside the browser, show each step with its output and stand in for the workspace if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-one-day/).
 :::
@@ -285,7 +285,7 @@ How the robustness study placed 504 reanalyses on one scale, what that scale ass
 ## Getting started {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The short session needs only a browser. The one-day workshop is taught in the browser lab, and its preparation includes the installation, ending when the setup check prints OK, the module [Getting started with R](tools/r.qmd) and the background page of the case study. The Extended course and the self-study routes need R, an IDE and the workspace of the case study, installed before the course starts.
+The short session needs only a browser, because its tasks are done on the slides, which run R inside the browser. The one-day workshop, the Extended course and the self-study route are worked in the workspace of the case study, with R and an IDE installed beforehand, and the preparation of the workshop includes that installation, ending when the setup check prints OK, the module [Getting started with R](tools/r.qmd) and the background page of the case study.
 :::
 
 :::: {.home-steps .home-reveal}

@@ -148,7 +148,7 @@ And access follows policy. Where journals have a data-sharing policy, availabili
 :::
 
 ::: {.src}
-The robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136].
+The robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136].
 :::
 
 ::: notes

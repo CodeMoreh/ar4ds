@@ -79,7 +79,7 @@ This is not mostly a story about fraud, and I want to be emphatic about that. Fr
 :::
 
 ::: {.fragment .small}
-The robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness], from which the case studies of this course come, applied the same approach to a hundred published studies.
+The robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness], from which the case studies of this course come, applied the same approach to a hundred published studies.
 :::
 
 ::: {.src}
