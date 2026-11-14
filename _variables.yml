@@ -10,10 +10,6 @@ workshop:
 site-url: "https://codemoreh.github.io/ar4ds/"
 org: "https://github.com/CodeMoreh"
 
-# The workspace of the Europeanisation case study, under the name that its
-# pages have always read (frozen class-results pipeline)
-template-repo: "https://github.com/CodeMoreh/replication-lab"
-
 # The sites and workspaces of the case studies. The workspaces of the
 # Immigration and Cohabitation case studies do not exist yet; their addresses
 # are the names reserved for them.
@@ -21,20 +17,20 @@ cases:
   housing:
     name: "the Housing and racial bias case study"
     site: "https://codemoreh.github.io/ar4ds-housing/"
-    template-repo: "https://github.com/CodeMoreh/replication-lab-housing"
-    workspace-zip: "https://github.com/CodeMoreh/replication-lab-housing/archive/refs/heads/main.zip"
+    template-repo: "https://github.com/CodeMoreh/ar4ds-housing-workspace"
+    workspace-zip: "https://github.com/CodeMoreh/ar4ds-housing-workspace/archive/refs/heads/main.zip"
   immigration:
     name: "the Immigration and trust case study"
     site: "https://codemoreh.github.io/ar4ds-immigration/"
-    template-repo: "https://github.com/CodeMoreh/replication-lab-immigration"
-    workspace-zip: "https://github.com/CodeMoreh/replication-lab-immigration/archive/refs/heads/main.zip"
+    template-repo: "https://github.com/CodeMoreh/ar4ds-immigration-workspace"
+    workspace-zip: "https://github.com/CodeMoreh/ar4ds-immigration-workspace/archive/refs/heads/main.zip"
   cohabitation:
     name: "the Cohabitation and marriage case study"
     site: "https://codemoreh.github.io/ar4ds-cohabitation/"
-    template-repo: "https://github.com/CodeMoreh/replication-lab-cohabitation"
-    workspace-zip: "https://github.com/CodeMoreh/replication-lab-cohabitation/archive/refs/heads/main.zip"
+    template-repo: "https://github.com/CodeMoreh/ar4ds-cohabitation-workspace"
+    workspace-zip: "https://github.com/CodeMoreh/ar4ds-cohabitation-workspace/archive/refs/heads/main.zip"
   europeanisation:
     name: "the Europeanisation and the economy case study"
     site: "https://codemoreh.github.io/ar4ds-eu/"
-    template-repo: "https://github.com/CodeMoreh/replication-lab"
-    workspace-zip: "https://github.com/CodeMoreh/replication-lab/archive/refs/heads/main.zip"
+    template-repo: "https://github.com/CodeMoreh/ar4ds-eu-workspace"
+    workspace-zip: "https://github.com/CodeMoreh/ar4ds-eu-workspace/archive/refs/heads/main.zip"

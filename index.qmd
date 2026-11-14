@@ -21,8 +21,9 @@ with the data of the course, and each comes from the facts file of its case stud
 committed data of the case study in the course repository: analysts5.csv for the
 conclusions of the five analysts, reference_marks.csv for the reproductions and
 replications of the Immigration and Cohabitation case studies. Check them there before
-changing any of them. The cards follow the ladder of difficulty (Housing, Immigration,
-Cohabitation, Europeanisation). -->
+changing any of them. The cards put the two case studies with built sites first (Housing,
+Europeanisation) and then the two still being assembled (Immigration,
+Cohabitation). -->
 
 :::::: {.home-hero}
 ::::: {.home-inner .home-reveal}
@@ -82,6 +83,33 @@ A field experiment published in 2017 sent the same short email to about a thousa
 [Go to the site of the case study](https://codemoreh.github.io/ar4ds-housing/){.home-go}
 :::
 
+::: {.home-casecard .home-reveal}
+[4]{.home-rung}
+
+### [Europeanisation and the economy](https://codemoreh.github.io/ar4ds-eu/) {#europeanisation-and-the-economy .unnumbered .unlisted}
+
+[Repeated cross-sections, taught in one day or over three days]{.home-meta}
+
+A sociological paper of 2016 asked whether the economic crisis changed how citizens of the European Union frame the Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
+
+<details class="home-more">
+<summary>More about the case study</summary>
+
+**What it teaches.** Aggregating repeated cross-sections into a panel, fixed and random effects and the within–between model, inference with few clusters, and a multiverse of 864 specifications.
+
+**The data.** A panel of 270 country-years built from Eurobarometer surveys and shipped with the workspace. The respondent files behind it come from the GESIS archive, under a free account and terms that do not allow them to be passed on.
+
+::: {.home-3r}
+- **Reproduction.** Two attempts to reproduce the published result from the original materials did not succeed.
+- **Robustness.** All five analysts of the robustness study concluded that the data support the claim, while the partial correlations recorded for their results run from −0.006 to −0.452.
+- **Replication.** A replication on later Eurobarometer waves was judged not successful.
+:::
+
+</details>
+
+[Go to the site of the case study](https://codemoreh.github.io/ar4ds-eu/){.home-go}
+:::
+
 ::: {.home-casecard .home-soon .home-reveal}
 [2]{.home-rung} [Being assembled]{.home-badge}
 
@@ -134,33 +162,6 @@ A paper of 2016 in *Demography* compared the first cohabitations of American wom
 </details>
 
 [Go to the site of the case study](https://codemoreh.github.io/ar4ds-cohabitation/){.home-go}
-:::
-
-::: {.home-casecard .home-reveal}
-[4]{.home-rung}
-
-### [Europeanisation and the economy](https://codemoreh.github.io/ar4ds-eu/) {#europeanisation-and-the-economy .unnumbered .unlisted}
-
-[Repeated cross-sections, taught in one day or over three days]{.home-meta}
-
-A sociological paper of 2016 asked whether the economic crisis changed how citizens of the European Union frame the Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
-
-<details class="home-more">
-<summary>More about the case study</summary>
-
-**What it teaches.** Aggregating repeated cross-sections into a panel, fixed and random effects and the within–between model, inference with few clusters, and a multiverse of 864 specifications.
-
-**The data.** A panel of 270 country-years built from Eurobarometer surveys and shipped with the workspace. The respondent files behind it come from the GESIS archive, under a free account and terms that do not allow them to be passed on.
-
-::: {.home-3r}
-- **Reproduction.** Two attempts to reproduce the published result from the original materials did not succeed.
-- **Robustness.** All five analysts of the robustness study concluded that the data support the claim, while the partial correlations recorded for their results run from −0.006 to −0.452.
-- **Replication.** A replication on later Eurobarometer waves was judged not successful.
-:::
-
-</details>
-
-[Go to the site of the case study](https://codemoreh.github.io/ar4ds-eu/){.home-go}
 :::
 
 ::::
@@ -238,9 +239,9 @@ The companion of each site holds only the methods that its case study can teach,
 | Case study | Formats | Tools | Data and sharing | Methods |
 |:--|:--|:--|:--|:--|
 | [Housing](https://codemoreh.github.io/ar4ds-housing/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [simulation](https://codemoreh.github.io/ar4ds-housing/companion/simulation.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
+| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [binary outcomes](https://codemoreh.github.io/ar4ds-eu/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [weights](https://codemoreh.github.io/ar4ds-eu/companion/weighting.html), [missing answers](https://codemoreh.github.io/ar4ds-eu/companion/missingness.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [multilevel models](https://codemoreh.github.io/ar4ds-eu/companion/multilevel.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-eu/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
 | [Immigration](https://codemoreh.github.io/ar4ds-immigration/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | causal graphs, the items behind the scales, weights, missing answers, multilevel models, Bayesian estimation, meta-analysis, the multiverse |
 | [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | binary outcomes, causal graphs, weights, event-history analysis, Bayesian estimation, meta-analysis, the multiverse |
-| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [binary outcomes](https://codemoreh.github.io/ar4ds-eu/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [weights](https://codemoreh.github.io/ar4ds-eu/companion/weighting.html), [missing answers](https://codemoreh.github.io/ar4ds-eu/companion/missingness.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [multilevel models](https://codemoreh.github.io/ar4ds-eu/companion/multilevel.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-eu/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
 
 :::
 
@@ -342,19 +343,6 @@ I'm enthusiastic about transparency and reproducibility in the social sciences, 
 [chrismoreh.com](https://chrismoreh.com)
 
 ::::
-
-:::::
-::::::
-
-:::::: {.home-section #references}
-::::: {.home-wrap}
-
-::: {.home-group}
-References
-:::
-
-::: {#refs}
-:::
 
 :::::
 ::::::

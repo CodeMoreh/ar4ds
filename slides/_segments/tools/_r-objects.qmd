@@ -1,8 +1,8 @@
 ## The workspace {#the-workspace .smaller}
 
 ::: {.small}
-- Every step of the afternoon runs in the **workspace of the Housing case study**, the folder `replication-lab-housing-main`, whatever the case study of your course
-- Open the folder itself, not a file inside it: **File → Open Folder…** in Positron and VS Code, or the file `replication-lab-housing.Rproj` in RStudio
+- Every step of the afternoon runs in the **workspace of the Housing case study**, the folder `ar4ds-housing-workspace-main`, whatever the case study of your course
+- Open the folder itself, not a file inside it: **File → Open Folder…** in Positron and VS Code, or the file `ar4ds-housing-workspace.Rproj` in RStudio
 - Then open a new R script, save it in that folder, and type each step of this session into it
 :::
 

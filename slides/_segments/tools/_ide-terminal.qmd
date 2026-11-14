@@ -10,7 +10,7 @@ Section four collects what remains. The terminal is a command line inside the ID
 
 ## The terminal {#the-terminal .smaller}
 
-![](../tools/images/ide/23-terminal.png){fig-alt="The Terminal tab of the Panel in PowerShell, with a prompt that ends in the path of the folder replication-lab-housing-main. quarto --version prints a version number, and ls R lists check_setup.R, dag_starter.R and spec_tools.R." width="90%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+![](../tools/images/ide/23-terminal.png){fig-alt="The Terminal tab of the Panel in PowerShell, with a prompt that ends in the path of the folder ar4ds-housing-workspace-main. quarto --version prints a version number, and ls R lists check_setup.R, dag_starter.R and spec_tools.R." width="90%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 
 ::: {.small}
 - **Terminal → New Terminal** opens a command line in the folder of the workspace: PowerShell on Windows, the shell of the system on a Mac or under Linux

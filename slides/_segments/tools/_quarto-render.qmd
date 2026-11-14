@@ -44,7 +44,7 @@ A render that fails at a chunk which ran in the console has found an object that
 :::
 :::
 ::: {.column width="62%"}
-![](../tools/images/quarto/task-clean-render.png){fig-alt="A terminal in Positron at the end of the command quarto render in the folder replication-lab-housing-main, with the last lines reading Output created: _site\\index.html." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+![](../tools/images/quarto/task-clean-render.png){fig-alt="A terminal in Positron at the end of the command quarto render in the folder ar4ds-housing-workspace-main, with the last lines reading Output created: _site\\index.html." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 :::
 ::::
 

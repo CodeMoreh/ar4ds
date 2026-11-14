@@ -31,17 +31,17 @@ website:
     left:
       - href: index.qmd
         text: Home
-      # The sites of the case studies, in the order of the ladder
+      # The sites of the case studies, the two that are built first
       - text: Case studies
         menu:
           - href: "https://codemoreh.github.io/ar4ds-housing/"
             text: "Housing and racial bias"
+          - href: "https://codemoreh.github.io/ar4ds-eu/"
+            text: "Europeanisation and the economy"
           - href: "https://codemoreh.github.io/ar4ds-immigration/"
             text: "Immigration and trust"
           - href: "https://codemoreh.github.io/ar4ds-cohabitation/"
             text: "Cohabitation and marriage"
-          - href: "https://codemoreh.github.io/ar4ds-eu/"
-            text: "Europeanisation and the economy"
       - text: SCORE
         menu:
           - href: score.qmd
@@ -66,6 +66,8 @@ website:
             text: "Git and GitHub"
           - href: tools/ai.qmd
             text: "AI assistants"
+      - href: references.qmd
+        text: References
 
   page-footer:
     left: |

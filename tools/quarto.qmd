@@ -44,7 +44,7 @@ Quarto is the program that turns a document holding prose and code into a finish
 
 The page alternates between two kinds of work. [Section 2](#sec-knit) and the exercises after it run R in your browser, on a copy of R that the page downloads when it opens, so that you can change a small document and knit it without installing anything. [Section 3](#sec-positron) and the [tasks](#sec-tasks) at the end take you into your IDE (Positron, RStudio, VS Code, etc.), with the steps written for Positron, the IDE that the course uses on the shared screen, and both need R, your IDE and the workspace on your own machine, as the [setup page](../setup.qmd) describes. The rest of the page explains the parts of a Quarto document, with examples that you can read without installing anything.
 
-The examples come from the workspace of the Housing and racial bias case study, the folder that you download as a zip file from the setup page and that unzips into a folder named `replication-lab-housing-main`. Its report, `index.qmd`, analyses a field experiment in which the original authors (OAs) emailed public housing authorities in the United States in 2014, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The public file of the experiment holds `r n_emails` emails, and Task 3 of the report reproduces the analyses that five analysts ran on that file for the robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness]. Nothing on this page requires you to know the case study, since the report serves here as an example of a document whose numbers are all computed from its data, but the [background page](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells its story.
+The examples come from the workspace of the Housing and racial bias case study, the folder that you download as a zip file from the setup page and that unzips into a folder named `ar4ds-housing-workspace-main`. Its report, `index.qmd`, analyses a field experiment in which the original authors (OAs) emailed public housing authorities in the United States in 2014, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The public file of the experiment holds `r n_emails` emails, and Task 3 of the report reproduces the analyses that five analysts ran on that file for the robustness study of SCORE [Multi100; @AczelEtAl2026InvestigatingAnalyticalRobustness]. Nothing on this page requires you to know the case study, since the report serves here as an example of a document whose numbers are all computed from its data, but the [background page](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells its story.
 
 ::: {#code-blocks .callout-important icon="false"}
 ## The code blocks on this page
@@ -208,13 +208,13 @@ Every key binding below is the one for Windows, which the Positron documentation
 
 Positron works on a folder, and opening the folder of the workspace, rather than a single file, matters for the report, because the R session started by Positron then works in that folder, so that the relative paths in the code, such as `data/housing_emails.csv`, find their files.
 
-1. Choose **File → Open Folder…** (Ctrl+K Ctrl+O, that is, Ctrl+K followed by Ctrl+O), select the unzipped folder `replication-lab-housing-main`, and confirm.
+1. Choose **File → Open Folder…** (Ctrl+K Ctrl+O, that is, Ctrl+K followed by Ctrl+O), select the unzipped folder `ar4ds-housing-workspace-main`, and confirm.
 2. Wait for the console to report `R 4.6.0 started` (or whichever version of R you installed), which takes a few seconds.
 3. In the Explorer on the left, click `index.qmd`.
 
 The report opens in the editor, with its YAML header at the top, the console underneath, and the Variables and Plots panes on the right (@fig-open).
 
-![The Housing workspace open in Positron, with `index.qmd` in the editor. The Explorer lists the files of the workspace on the left, the console sits under the editor, and the status bar at the bottom names the version of Quarto in use.](images/quarto/positron-report-open.png){#fig-open fig-alt="The Positron window with the folder replication-lab-housing-main open. The Explorer on the left lists the folders _freeze, .devcontainer, .github, data, prep and R and the files _quarto.yml, .gitignore, index.qmd, LICENSE, README.md, replication-lab-housing.Rproj and working_script.R. The editor shows the YAML header of index.qmd. The console below reports R version 4.6.0, and the status bar reads Quarto: 1.10.18."}
+![The Housing workspace open in Positron, with `index.qmd` in the editor. The Explorer lists the files of the workspace on the left, the console sits under the editor, and the status bar at the bottom names the version of Quarto in use.](images/quarto/positron-report-open.png){#fig-open fig-alt="The Positron window with the folder ar4ds-housing-workspace-main open. The Explorer on the left lists the folders _freeze, .devcontainer, .github, data, prep and R and the files _quarto.yml, .gitignore, index.qmd, LICENSE, README.md, ar4ds-housing-workspace.Rproj and working_script.R. The editor shows the YAML header of index.qmd. The console below reports R version 4.6.0, and the status bar reads Quarto: 1.10.18."}
 
 The bar above the text of the report, the editor action bar, holds the controls for Quarto documents (@fig-action-bar). On its left are **Run All** (Ctrl+Alt+R), which runs every chunk in the console, **Preview** (Ctrl+Shift+K), whose small arrow opens **Preview Format…** for a format other than the default, the **Render on Save** checkbox, and the button that saves the file. On its right are **Insert Code Cell** (Ctrl+Shift+I), a button for publishing through Posit Publisher, which the course does not use, two buttons that split the editor or move it into a window of its own, and **More Actions…**, a menu that holds, among other things, **Edit in Visual Mode**. The label at the right-hand end of the line under the bar reads **Text Editor** while you edit the source, and **Quarto Visual Editor** while you use the visual editor of [a later subsection](#sec-visual).
 
@@ -282,7 +282,7 @@ Read such a message in three steps. The error line repeats what R itself said, h
 
 The report renders in the same way in the other two IDEs, and the commands differ mainly in their names.
 
-- **RStudio** includes Quarto. Open the workspace with `replication-lab-housing.Rproj`, then open `index.qmd`. The **Render** button above the editor (Ctrl+Shift+K) renders the report and shows it beside the editor, the **Render on Save** checkbox sits beside it, and the green arrow at the top right of each chunk runs it in the console, as do Ctrl+Shift+Enter and the **Run** menu. The **Source** and **Visual** buttons at the top left of the editor switch between the two editors, and the **Outline** button at the top right lists the headings and, optionally, the chunks.
+- **RStudio** includes Quarto. Open the workspace with `ar4ds-housing-workspace.Rproj`, then open `index.qmd`. The **Render** button above the editor (Ctrl+Shift+K) renders the report and shows it beside the editor, the **Render on Save** checkbox sits beside it, and the green arrow at the top right of each chunk runs it in the console, as do Ctrl+Shift+Enter and the **Run** menu. The **Source** and **Visual** buttons at the top left of the editor switch between the two editors, and the **Outline** button at the top right lists the headings and, optionally, the chunks.
 - **VS Code** needs the Quarto extension and the R extension, together with Quarto itself, installed as the [setup page](../setup.qmd) describes. The Quarto extension is the one that Positron includes, so the commands of this section, from **Quarto: Preview** (Ctrl+Shift+K) and **Quarto: Run Cell** (Ctrl+Shift+Enter) to the visual editor (Ctrl+Shift+F4), carry the same names there, while the chunks run in an R terminal rather than in a console, through the R extension.
 
 ## 4. The YAML header {#sec-yaml}
@@ -720,7 +720,7 @@ Four forms of citation cover ordinary writing:
 | `[@EinsteinGlick2017DoesRaceAffect, p. 100]` | a parenthetical citation with a page locator |
 | `[@EinsteinGlick2017DoesRaceAffect; @AczelEtAl2026InvestigatingAnalyticalRobustness]` | two works in one set of brackets |
 
-The list of references is assembled from whatever you actually cited, and it goes at the end of the document unless you say otherwise. Putting `::: {#refs}` somewhere places the list at that point, which is why the modules of this site end with a `## References` heading and an empty div underneath it. This page ends the same way, and the two entries that you will find there were produced by live citations of the two works named in the table above [@EinsteinGlick2017DoesRaceAffect; @AczelEtAl2026InvestigatingAnalyticalRobustness].
+The list of references is assembled from whatever you actually cited, and it goes at the end of the document unless you say otherwise. Putting `::: {#refs}` somewhere places the list at that point. The pages of this site keep the list but hide it with one rule in the stylesheet of the site, so that resting the pointer on a citation still shows its entry, and the [References](../references.qmd) page lists every work cited on the site in one place. The two works named in the table above are cited live here, so you can try the pop-up on them [@EinsteinGlick2017DoesRaceAffect; @AczelEtAl2026InvestigatingAnalyticalRobustness].
 
 Formatting is controlled by a citation style file, written in the Citation Style Language (CSL). No `csl:` key is set on any page of this site, so every page renders in the default that Pandoc supplies, the Chicago author-date style. Pointing `csl:` at a style file from the repository of CSL styles, which Zotero hosts, switches the whole document to APA or to the house style of a particular journal, without touching a single citation.
 
@@ -742,7 +742,7 @@ project:
     - index.qmd
 
 website:
-  title: "Replication lab – Housing and racial bias"
+  title: "AR4DS workspace – Housing and racial bias"
 
 # freeze: auto means a whole-project render re-runs a document (every chunk in it)
 # only when its source file has changed. The committed _freeze/ folder lets
@@ -801,7 +801,7 @@ The six tasks below take the report of the workspace through the edits that a pa
 
 **Task 6. Render from a clean session.** The last step of every working session on a report is a render that starts from nothing, which shows whether the report makes everything that it uses. Quarto runs a render in a fresh R process of its own, whatever the state of your console, and the restart that comes first empties the console as well, so that the checks that you make afterwards start from the same blank state as the render. First restart R, with **Interpreter: Restart Active Interpreter Session** (Ctrl+Shift+0) or the circular arrow in the bar at the top of the console, and watch the Variables pane empty. Then click the Terminal tab of the panel, open a new terminal with the **+** button if the Quarto Preview terminal is the only one, and type `quarto render`. Quarto runs every chunk of the report from the top, prints each chunk as it goes, and ends with `Output created: _site\index.html` (@fig-task-render). Preview the report once more with Ctrl+Shift+K and check that every number is the one that you had before the restart.
 
-![Task 6: the report rendered from a clean session with `quarto render`. The terminal ends with the line that names the output file.](images/quarto/task-clean-render.png){#fig-task-render fig-alt="A terminal in Positron at the end of the command quarto render in the folder replication-lab-housing-main, with the last lines reading Output created: _site\\index.html."}
+![Task 6: the report rendered from a clean session with `quarto render`. The terminal ends with the line that names the output file.](images/quarto/task-clean-render.png){#fig-task-render fig-alt="A terminal in Positron at the end of the command quarto render in the folder ar4ds-housing-workspace-main, with the last lines reading Output created: _site\\index.html."}
 
 If the render in Task 6 fails at a chunk that ran in the console, the chunk uses an object that only the console had, made by a line that you ran outside the chunks. Find the line, move it into the chunk where it belongs, and render again.
 
@@ -822,8 +822,3 @@ The official documentation is the reference to keep open beside your own documen
 - The documentation of **knitr**, <https://yihui.org/knitr/>, explains the step that the blocks of [section 2](#sec-knit) take, and the **markdown** package, <https://github.com/rstudio/markdown>, whose function `mark()` the blocks use, has been superseded by **litedown**, <https://yihui.org/litedown/>, written by the same author.
 
 Within the course, the natural neighbours are [getting started with R](r.qmd), which this module assumes, the [module on the IDE](ide.qmd), which tours the rest of Positron, and the [Git and GitHub module](../git-github.qmd), which takes the reproducible document into version control. Every other page of the site is also a worked example: open any page in the [repository of the site](https://github.com/CodeMoreh/ar4ds) and you are reading the source of something that you have already read rendered.
-
-## References {.unnumbered}
-
-::: {#refs}
-:::

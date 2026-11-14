@@ -3,7 +3,7 @@ title: "Setup"
 subtitle: "What to install before the course, and how to check it"
 ---
 
-The Extended course and the self-study route are worked in R, inside an IDE, with a ready-made workspace that you download once. The one-day workshop is taught in the browser lab of its case study, but the installation on this page, ending when the setup check prints OK, is part of the preparation for them, together with the module [Getting started with R](tools/r.qmd) and the background page of the case study, so that the workspace is ready for anyone who wants it during the day and for the work that follows. Only the short session of the Housing and racial bias case study needs nothing but a browser. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the course is Positron, because Positron is one of the data-science tools that the course teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the module [Positron and other IDEs](tools/ide.qmd) takes you through Positron and says how the tasks are done in the other two.
+The Extended course and the self-study route are worked in R, inside an IDE, with a ready-made workspace that you download once. The one-day workshop is taught in the browser lab of its case study, but the installation on this page, ending when the setup check prints OK, is part of the preparation for them, together with the module [Getting started with R](tools/r.qmd) and the background page of the case study, so that the workspace is ready for anyone who wants it during the day and for the work that follows. Only the short sessions, which the Housing and racial bias and the Europeanisation and the economy case studies offer, need nothing but a browser. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the course is Positron, because Positron is one of the data-science tools that the course teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the module [Positron and other IDEs](tools/ide.qmd) takes you through Positron and says how the tasks are done in the other two.
 
 Steps 1 to 3 and step 5 are the same for every case study. Steps 4 and 6, the workspace and the data, depend on the case study that your course works on, and each has a tab per case study. The site of your course names the case study.
 
@@ -87,7 +87,7 @@ Each case study has a workspace of its own, a single zip file that holds the ana
 
 [Download the workspace of the Housing case study (zip)]({{< var cases.housing.workspace-zip >}})
 
-The zip unzips into a folder called `replication-lab-housing-main`. In RStudio, open the file `replication-lab-housing.Rproj` inside it. The folder holds four things that you will use:
+The zip unzips into a folder called `ar4ds-housing-workspace-main`. In RStudio, open the file `ar4ds-housing-workspace.Rproj` inside it. The folder holds four things that you will use:
 
 - `index.qmd` – the report, with Tasks 1 to 5 and the preregistration block, which renders from the first preview;
 - `working_script.R` – the same steps as a plain script, for working in the console;
@@ -98,7 +98,7 @@ The zip unzips into a folder called `replication-lab-housing-main`. In RStudio, 
 
 [Download the workspace of the Immigration case study (zip)]({{< var cases.immigration.workspace-zip >}})
 
-The zip unzips into a folder called `replication-lab-immigration-main`. In RStudio, open the file `replication-lab-immigration.Rproj` inside it. The folder holds four things that you will use:
+The zip unzips into a folder called `ar4ds-immigration-workspace-main`. In RStudio, open the file `ar4ds-immigration-workspace.Rproj` inside it. The folder holds four things that you will use:
 
 - `index.qmd` – the report, with Tasks 1 to 5 and the preregistration block, which renders from the first preview;
 - `working_script.R` – the same steps as a plain script, for working in the console;
@@ -111,7 +111,7 @@ Task 3 needs one more file, the one given to the analysts by the robustness stud
 
 [Download the workspace of the Cohabitation case study (zip)]({{< var cases.cohabitation.workspace-zip >}})
 
-The zip unzips into a folder called `replication-lab-cohabitation-main`. In RStudio, open the file `replication-lab-cohabitation.Rproj` inside it. The folder holds four things that you will use:
+The zip unzips into a folder called `ar4ds-cohabitation-workspace-main`. In RStudio, open the file `ar4ds-cohabitation-workspace.Rproj` inside it. The folder holds four things that you will use:
 
 - `index.qmd` – the report, with Tasks 1 to 5 and the preregistration block, which renders from the first preview;
 - `working_script.R` – the same steps as a plain script, for working in the console;
@@ -120,9 +120,9 @@ The zip unzips into a folder called `replication-lab-cohabitation-main`. In RStu
 
 ### Europeanisation
 
-[Download the workspace of the Europeanisation case study (zip)]({{< var template-repo >}}/archive/refs/heads/main.zip)
+[Download the workspace of the Europeanisation case study (zip)]({{< var cases.europeanisation.workspace-zip >}})
 
-The zip unzips into a folder called `replication-lab-main`. In RStudio, open the file `replication-lab.Rproj` inside it. The folder holds the report with Tasks 1 to 5 and the preregistration block (`index.qmd`), the same steps as a plain script (`working_script.R`), the check script and the helpers in `R/`, the country-year panel, the curve of the claim and their codebooks in `data/`, and in `prep/` the scripts that rebuild the panel from the Eurobarometer files (step 7), beside two that are kept as exhibits to read.
+The zip unzips into a folder called `ar4ds-eu-workspace-main`. In RStudio, open the file `ar4ds-eu-workspace.Rproj` inside it. The folder holds the report with Tasks 1 to 5 and the preregistration block (`index.qmd`), the same steps as a plain script (`working_script.R`), the check script and the helpers in `R/`, the country-year panel, the curve of the claim and their codebooks in `data/`, and in `prep/` the scripts that rebuild the panel from the Eurobarometer files (step 7), beside two that are kept as exhibits to read.
 
 :::
 

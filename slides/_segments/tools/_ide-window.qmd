@@ -13,7 +13,7 @@ Section one is about the shape of the window. Positron works on a folder, so we 
 :::: {.columns}
 ::: {.column width="56%"}
 ::: {.small}
-- **File → Open Folder…** (Ctrl+K, then Ctrl+O), and select the folder `replication-lab-housing-main` itself, not a file inside it
+- **File → Open Folder…** (Ctrl+K, then Ctrl+O), and select the folder `ar4ds-housing-workspace-main` itself, not a file inside it
 - The Explorer lists the files of the folder, and R starts in a console whose **working directory** is that folder, so that `data/housing_emails.csv` finds the file
 - The button at the top right names the R that runs the session, with a circle that is green while R is idle and blue while it is busy
 :::

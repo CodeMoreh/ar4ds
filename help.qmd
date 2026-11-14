@@ -13,7 +13,7 @@ Most setup failures come from one of three things, and each takes a minute to ru
 
 1. **The IDE was open when you installed something.** An IDE reads the list of installed programs when it starts, so R, Quarto or a package manager installed while it was running is not found until the IDE is restarted. Close the IDE completely and reopen it; on Windows, if that is not enough, sign out and back in.
 2. **A terminal cannot find the program either.** Open a fresh terminal and type `quarto --version`, and on macOS or Linux `R --version` as well. If a version line comes back, the program is installed and on your path, and the problem lies in the settings of the IDE. On Windows R is not on the path after a standard installation, and PowerShell reads `R` as a command of its own, so look for R in the Start menu instead. If nothing comes back, the installation itself needs fixing.
-3. **You opened a file rather than the folder.** Every path in the workspace is relative to the unzipped folder, so the data are "not found" when the IDE has opened a single file inside it. In Positron and VS Code choose File → Open Folder; in RStudio open the `.Rproj` file of the workspace (`replication-lab-housing.Rproj` in the Housing case study, `replication-lab.Rproj` in the Europeanisation case study).
+3. **You opened a file rather than the folder.** Every path in the workspace is relative to the unzipped folder, so the data are "not found" when the IDE has opened a single file inside it. In Positron and VS Code choose File → Open Folder; in RStudio open the `.Rproj` file of the workspace (`ar4ds-housing-workspace.Rproj` in the Housing case study, `ar4ds-eu-workspace.Rproj` in the Europeanisation case study).
 
 ## Known problems
 

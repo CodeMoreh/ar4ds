@@ -375,8 +375,3 @@ The expected outcome under each condition and the contrast between two condition
 ## Further study {#sec-sources}
 
 The documentation of the packages reads as an introduction as well as a reference, above all for the packages on this page: [haven.tidyverse.org](https://haven.tidyverse.org/), [strengejacke.github.io/sjlabelled](https://strengejacke.github.io/sjlabelled/), [readxl.tidyverse.org](https://readxl.tidyverse.org/), the arrow R package site at [arrow.apache.org/docs/r](https://arrow.apache.org/docs/r/), [dplyr.tidyverse.org](https://dplyr.tidyverse.org/), [easystats.github.io/easystats](https://easystats.github.io/easystats/), [easystats.github.io/parameters](https://easystats.github.io/parameters/) and [easystats.github.io/modelbased](https://easystats.github.io/modelbased/). "R for Data Science", the free book by the authors of the tidyverse packages, at <https://r4ds.hadley.nz/>, covers dplyr and the import of data in full. The [data sources module](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html) of the Housing site maps the archives from which social scientists draw data and works through the route of the file of the Housing case study, and its [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) starts from the table of counts of section 10 and builds up to the logistic regression of the paper.
-
-## References {.unnumbered}
-
-::: {#refs}
-:::

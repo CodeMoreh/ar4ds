@@ -87,7 +87,7 @@ With a selection, Control and Enter sends exactly the text that you selected, wh
 
 ## The console {#the-console .smaller}
 
-![](../tools/images/ide/15-console.png){fig-alt="The console of Positron. Its header bar shows the path of the workspace folder and buttons to restart R, clear the console and show information. nrow(housing) prints 1014, names(housing) prints the sixteen column names, and getwd() prints the path of the folder replication-lab-housing-main." width="92%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+![](../tools/images/ide/15-console.png){fig-alt="The console of Positron. Its header bar shows the path of the workspace folder and buttons to restart R, clear the console and show information. nrow(housing) prints 1014, names(housing) prints the sixteen column names, and getwd() prints the path of the folder ar4ds-housing-workspace-main." width="92%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 
 ::: {.small}
 - `>` means that R is waiting, `+` that a statement is not finished. The Up arrow brings back earlier commands, and Ctrl+L clears the screen and keeps every object

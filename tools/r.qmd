@@ -908,8 +908,3 @@ This module was written for the course and adapts no existing lesson. It teaches
 - **The Turing Way, "Guide for Reproducible Research"**, at <https://book.the-turing-way.org/>. Licensed CC BY 4.0. A guide to reproducible research in general, which sets out why the habits that this module practises, scripts over console history, relative paths and one file for analysis and report, are worth building from the first day.
 - **"R for Data Science"**, the free book by the authors of the tidyverse packages, at <https://r4ds.hadley.nz/>. Its chapters on data transformation and on visualisation cover the dplyr counterparts of the verbs of section 9 and the grammar of ggplot2 in full.
 - **The documentation of the packages**, which reads as an introduction as well as a reference: [easystats.github.io/datawizard](https://easystats.github.io/datawizard/), [grantmcdermott.com/tinyplot](https://grantmcdermott.com/tinyplot/), [vincentarelbundock.github.io/tinytable](https://vincentarelbundock.github.io/tinytable/), [gt.rstudio.com](https://gt.rstudio.com/), [readr.tidyverse.org](https://readr.tidyverse.org/), [dplyr.tidyverse.org](https://dplyr.tidyverse.org/) and [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/).
-
-## References {.unnumbered}
-
-::: {#refs}
-:::
