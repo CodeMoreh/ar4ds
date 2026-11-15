@@ -105,7 +105,7 @@ The zip unzips into a folder called `ar4ds-immigration-workspace-main`. In RStud
 - `R/` – the check script, the starter file for the causal graph of Task 2 and the helpers of Tasks 3 to 5;
 - `data/` – the extract of the European Social Survey (about 10 MB), the country variables of the paper, the curve of the 192 specifications and their codebooks.
 
-Task 3 needs one more file, the one given to the analysts by the robustness study of SCORE (Multi100; Aczel et al. 2026). The workspace downloads the file from the OSF (about 29 MB) into the folder `data_private/` the first time the task runs. While you are online before the course, run `source("R/spec_tools.R"); fetch_multi100()` once in the console of your IDE, so that the file is in place on the day.
+Task 3 needs one more file, the one given to the analysts by the robustness study of SCORE (Multi100; Aczel et al. 2026). The workspace downloads the file from the OSF (about 29 MB) into the folder `data_private/` the first time the task runs. While you are online before the course, run `source("R/spec_tools.R"); fetch_analysts_file()` once in the console of your IDE, so that the file is in place on the day.
 
 ### Cohabitation
 

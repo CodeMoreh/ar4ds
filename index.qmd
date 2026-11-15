@@ -91,7 +91,7 @@ A field experiment published in 2017 sent the same short email to about a thousa
 
 ### [Europeanisation and the economy](https://codemoreh.github.io/ar4ds-eu/) {#europeanisation-and-the-economy .unnumbered .unlisted}
 
-[Repeated cross-sections, taught in one day or over three days]{.home-meta}
+[Repeated cross-sections, taught in a short session, in one day or over three days]{.home-meta}
 
 A sociological paper of 2016 asked whether the economic crisis changed how citizens of the European Union frame the Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
 
@@ -118,7 +118,7 @@ A sociological paper of 2016 asked whether the economic crisis changed how citiz
 
 ### [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) {#the-immigration-and-trust-case .unnumbered .unlisted}
 
-[A cross-national survey, taught in a short session, in one day or over three days]{.home-meta}
+[A cross-national survey, taught in one day or over three days]{.home-meta}
 
 A paper of 2012 in *World Politics* asked, from the European Social Survey, whether citizens of Western European countries who see immigration as a threat to the national community trust their national politics less. The claim is that "... concerns about the effect of immigration on the national community have a(n) \[reducing\] impact on trust in politics" [@McLaren2012CulturalDivideEurope, p. 199].
 
