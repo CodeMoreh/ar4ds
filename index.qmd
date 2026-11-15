@@ -24,9 +24,9 @@ the committed data of the case study: analysts5.csv for the conclusions of the f
 analysts and reference_marks.csv for the reproductions and replications of the
 Immigration and Cohabitation case studies, in cases/immigration/data/ and
 cases/cohabitation/data/ of their sites. Check them there before changing any of
-them. The cards put Housing and Europeanisation first, the order chosen by CM on
-14 November 2026, when only these two sites were built, and then Immigration and
-Cohabitation. -->
+them. The cards are numbered in the order chosen by CM on 15 November 2026: Housing,
+Europeanisation, Immigration, Cohabitation. The self-study card names the order
+in which a reader of several case studies meets each general treatment first. -->
 
 :::::: {.home-hero}
 ::::: {.home-inner .home-reveal}
@@ -38,7 +38,7 @@ Hands-on training in {{< var workshop.format >}}
 # {{< var workshop.name >}} {.unnumbered .unlisted}
 
 ::: {.home-lead}
-The course takes published claims, the reanalyses that each of them received in a many-analyst study and the replications that tested them with new data, and teaches reproduction, robustness and replication in R, from the data and code of real studies. One exercise runs through four case studies, ordered from the simplest statistics to the hardest, and each case study has a site of its own.
+The course takes published claims, the reanalyses that each of them received in a many-analyst study and the replications that tested them with new data, and teaches reproduction, robustness and replication in R, from the data and code of real studies. One exercise runs through four case studies, and each case study has a site of its own.
 :::
 
 ::: {.home-cta}
@@ -87,7 +87,7 @@ A field experiment published in 2017 sent the same short email to about a thousa
 :::
 
 ::: {.home-casecard .home-reveal}
-[4]{.home-rung}
+[2]{.home-rung}
 
 ### [Europeanisation and the economy](https://codemoreh.github.io/ar4ds-eu/) {#europeanisation-and-the-economy .unnumbered .unlisted}
 
@@ -114,7 +114,7 @@ A sociological paper of 2016 asked whether the economic crisis changed how citiz
 :::
 
 ::: {.home-casecard .home-reveal}
-[2]{.home-rung}
+[3]{.home-rung}
 
 ### [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) {#the-immigration-and-trust-case .unnumbered .unlisted}
 
@@ -141,7 +141,7 @@ A paper of 2012 in *World Politics* asked, from the European Social Survey, whet
 :::
 
 ::: {.home-casecard .home-reveal}
-[3]{.home-rung}
+[4]{.home-rung}
 
 ### [Cohabitation and marriage](https://codemoreh.github.io/ar4ds-cohabitation/) {#the-cohabitation-case .unnumbered .unlisted}
 
@@ -218,7 +218,7 @@ The workshop of a case study with a day before it and a day after it. Day 1 is t
 
 [At your own pace, in R]{.home-meta}
 
-The site of each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own. Taken in the order of the ladder, from Housing to Europeanisation, the routes bring in each method at the point at which a case study first needs it, and a semester course can follow the same order in class.
+The site of each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own. A reader who takes several case studies, or a semester course that teaches all four, is best served by the order Housing, Immigration, Cohabitation, Europeanisation, because the Europeanisation site sends its readers to the Immigration site for the general treatment of multilevel models and to the Cohabitation site for survey design.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/self-study/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/self-study/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/self-study/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/self-study/).
 :::
