@@ -11,8 +11,9 @@ include-after-body: _includes/home-script.html
 sites: every section is a fenced div with a home- class (styled in
 style/home.css), and the case-study cards, the format cards, the map and all the text
 are ordinary Markdown below. Each case-study card shows the paragraph that introduces
-the case study and folds the rest into a details element (class home-more); the
-cards of the two sites still being assembled carry the class home-soon.
+the case study and folds the rest into a details element (class home-more). A card of a site
+that is still being assembled takes the class home-soon and the badge Being
+assembled; no card has them at present.
 
 The page runs no code, because the data of the case studies live on their own sites.
 Its figures are those of the record of SCORE and its robustness study, which do not change
@@ -20,13 +21,12 @@ with the data of the course, and each comes from the facts file of its case stud
 (D:\ACADEMIC\TEACHING\AR4DS\_planning\<slug>\<slug>-facts.md, under the slugs housing, immigration and
 cohabitation, and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation) or from
 the committed data of the case study: analysts5.csv for the conclusions of the five
-analysts, reference_marks.csv for the reproductions and replications of the
-Immigration and Cohabitation case studies, whose data are, until their sites are
-built, in the copy of the former course repository, D:\ACADEMIC\TEACHING\AR4DS\_planning\legacy\applied-replication\
-(cases/trust/ and cases/cohabitation/). Check them there before
-changing any of them. The cards put the two case studies with built sites first (Housing,
-Europeanisation) and then the two still being assembled (Immigration,
-Cohabitation). -->
+analysts and reference_marks.csv for the reproductions and replications of the
+Immigration and Cohabitation case studies, in cases/immigration/data/ and
+cases/cohabitation/data/ of their sites. Check them there before changing any of
+them. The cards put Housing and Europeanisation first, the order chosen by CM on
+14 November 2026, when only these two sites were built, and then Immigration and
+Cohabitation. -->
 
 :::::: {.home-hero}
 ::::: {.home-inner .home-reveal}
@@ -54,7 +54,7 @@ The course takes published claims, the reanalyses that each of them received in 
 ## Case studies {#the-cases .unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-Every case study teaches the same exercise in the same order. The case studies differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case study allows, with slide decks of its own and a companion of the methods that the case study can teach, although two of the sites, for Immigration and trust and for Cohabitation and marriage, are still being assembled.
+Every case study teaches the same exercise in the same order. The case studies differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case study allows, with slide decks of its own and a companion of the methods that the case study can teach.
 :::
 
 :::: {.home-cases}
@@ -113,8 +113,8 @@ A sociological paper of 2016 asked whether the economic crisis changed how citiz
 [Go to the site of the case study](https://codemoreh.github.io/ar4ds-eu/){.home-go}
 :::
 
-::: {.home-casecard .home-soon .home-reveal}
-[2]{.home-rung} [Being assembled]{.home-badge}
+::: {.home-casecard .home-reveal}
+[2]{.home-rung}
 
 ### [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) {#the-immigration-and-trust-case .unnumbered .unlisted}
 
@@ -140,8 +140,8 @@ A paper of 2012 in *World Politics* asked, from the European Social Survey, whet
 [Go to the site of the case study](https://codemoreh.github.io/ar4ds-immigration/){.home-go}
 :::
 
-::: {.home-casecard .home-soon .home-reveal}
-[3]{.home-rung} [Being assembled]{.home-badge}
+::: {.home-casecard .home-reveal}
+[3]{.home-rung}
 
 ### [Cohabitation and marriage](https://codemoreh.github.io/ar4ds-cohabitation/) {#the-cohabitation-case .unnumbered .unlisted}
 
@@ -200,7 +200,7 @@ One case study with nothing to install and nothing preregistered, worked on the 
 
 One case study in four parts, worked in the downloadable workspace in your IDE, while the slides, which run R inside the browser, show each step with its output and stand in for the workspace if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
 
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-one-day/).
+[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-one-day/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/immigration-one-day/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/cohabitation-one-day/).
 :::
 
 ::: {.home-track .home-reveal}
@@ -210,7 +210,7 @@ One case study in four parts, worked in the downloadable workspace in your IDE, 
 
 The workshop of a case study with a day before it and a day after it. Day 1 is the same for every case study: credibility and the three Rs, SCORE and its robustness study, repositories and data sources, and then R, Positron and Quarto taught live. Day 2 is the workshop of the case study. Day 3 teaches the methods of the case study as sessions, and ends with the declared analysis of each participant written up in Quarto and kept under Git.
 
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-extended/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-extended/); Immigration and Cohabitation on their sites once these are assembled.
+[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-extended/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-extended/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/immigration-extended/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/cohabitation-extended/).
 :::
 
 ::: {.home-track .home-reveal}
@@ -220,7 +220,7 @@ The workshop of a case study with a day before it and a day after it. Day 1 is t
 
 The site of each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own. Taken in the order of the ladder, from Housing to Europeanisation, the routes bring in each method at the point at which a case study first needs it, and a semester course can follow the same order in class.
 
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/self-study/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/self-study/).
+[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/self-study/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/self-study/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/self-study/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/self-study/).
 :::
 
 ::::
@@ -234,7 +234,7 @@ The site of each case study holds a route for a reader who works alone, which ta
 ## Methods and tools {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data, so that each method is taught where it belongs and the other sites link to it. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the setup help, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion; a linked name is a module that already exists, and the rest are planned.
+The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data, so that each method is taught where it belongs and the other sites link to it. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the setup help, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
 :::
 
 ::: {.home-map .home-reveal}
@@ -242,9 +242,9 @@ The companion of each site holds the methods that arise from its case study, fro
 | Case study | Formats | Tools | Data and sharing | Methods |
 |:--|:--|:--|:--|:--|
 | [Housing](https://codemoreh.github.io/ar4ds-housing/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
-| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales and the missing answers](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [weights](https://codemoreh.github.io/ar4ds-eu/companion/weighting.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [multilevel models](https://codemoreh.github.io/ar4ds-eu/companion/multilevel.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-eu/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
-| [Immigration](https://codemoreh.github.io/ar4ds-immigration/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | multilevel models, scales and their items, missing data and imputation, causal graphs, meta-analysis, the multiverse |
-| [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | data sources, building the analysis file, repositories | event history and competing risks, weights and survey design, causal graphs, meta-analysis, the multiverse |
+| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales and the missing answers](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [multilevel models and the survey weights](https://codemoreh.github.io/ar4ds-eu/companion/multilevel.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-eu/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
+| [Immigration](https://codemoreh.github.io/ar4ds-immigration/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | [data sources](https://codemoreh.github.io/ar4ds-immigration/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-immigration/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-immigration/companion/repositories.html) | [multilevel models](https://codemoreh.github.io/ar4ds-immigration/companion/multilevel.html), [scales and their items](https://codemoreh.github.io/ar4ds-immigration/companion/measurement.html), [missing data and imputation](https://codemoreh.github.io/ar4ds-immigration/companion/missingness.html), [causal graphs](https://codemoreh.github.io/ar4ds-immigration/companion/dags.html), [meta-analysis](https://codemoreh.github.io/ar4ds-immigration/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-immigration/companion/multiverse.html) |
+| [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | [data sources](https://codemoreh.github.io/ar4ds-cohabitation/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-cohabitation/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-cohabitation/companion/repositories.html) | [event history and competing risks](https://codemoreh.github.io/ar4ds-cohabitation/companion/event-history.html), [weights and survey design](https://codemoreh.github.io/ar4ds-cohabitation/companion/weighting.html), [causal graphs](https://codemoreh.github.io/ar4ds-cohabitation/companion/dags.html), [meta-analysis](https://codemoreh.github.io/ar4ds-cohabitation/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-cohabitation/companion/multiverse.html) |
 
 :::
 
