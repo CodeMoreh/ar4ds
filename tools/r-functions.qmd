@@ -50,7 +50,7 @@ gap_hb <- sub("^-", "−", sprintf("%.2f", 100 * (share[["hispanic"]] - share[["
 
 # The curve of the claim as committed on the Housing site; its reference
 # specification must give the gap that greeting_gap() computes on this page
-curve    <- readr::read_csv("../../ar4ds-housing/cases/housing/data/spec_curve.csv", show_col_types = FALSE)
+curve    <- readr::read_csv("../../ar4ds-housing/data/spec_curve.csv", show_col_types = FALSE)
 n_curve  <- nrow(curve)
 ref_spec <- datawizard::data_filter(curve, is_reference)
 stopifnot(abs(ref_spec$b_pp - 100 * (share[["hispanic"]] - share[["white"]])) < 1e-9)
@@ -130,7 +130,7 @@ The exercise found the same gap, `r gap_bw` points. The data come first among th
 ::: {.callout-warning}
 ## Arguments inside the datawizard verbs
 
-The argument `compared` appears only in the arithmetic at the end of the body, outside the datawizard verbs, for a reason that applies to every function written with these verbs. When a condition inside `data_filter()`, `data_summary()` or `data_modify()` names something that is not a column of the data, datawizard looks the name up among the objects of the session, and never among the arguments of the function from which the verb is called. A condition such as `group == compared` in `data_filter()` would therefore stop the function with the error `Variable "compared" was not found in the dataset`, or, if the session happened to hold an object called `compared`, would use that object without a warning and return the gap of the wrong group. Inside a function, give the datawizard verbs only columns and fixed values such as `"white"`, as this body does, and take whatever depends on an argument out of the result of the verbs. The helpers of the course choose their rows with dplyr for this reason, as [section 18](#sec-fit-spec) shows.
+The argument `compared` appears only in the arithmetic at the end of the body, outside the datawizard verbs, for a reason that applies to every function written with these verbs. When an expression inside `data_summary()` or `data_modify()` names something that is not a column of the data, datawizard looks the name up among the objects of the session, and never among the arguments of the function from which the verb is called, and `data_filter()` did the same in versions of datawizard before 1.5.0. In those versions a condition such as `group == compared` in `data_filter()` would therefore stop the function with the error `Variable "compared" was not found in the dataset`, or, if the session happened to hold an object called `compared`, would use that object without a warning and return the gap of the wrong group. Inside a function, give the datawizard verbs only columns and fixed values such as `"white"`, as this body does, and take whatever depends on an argument out of the result of the verbs. The helpers of the course choose their rows with dplyr for this reason, as [section 18](#sec-fit-spec) shows.
 :::
 
 ::: {.callout-tip}
