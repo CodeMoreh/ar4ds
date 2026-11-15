@@ -58,6 +58,10 @@ website:
           - text: "---"
           - href: tools/r.qmd
             text: "Getting started with R"
+          - href: tools/r-further.qmd
+            text: "Getting started with R, part 2"
+          - href: tools/r-functions.qmd
+            text: "Getting started with R, part 3"
           - href: tools/ide.qmd
             text: "Positron and other IDEs"
           - href: tools/quarto.qmd
