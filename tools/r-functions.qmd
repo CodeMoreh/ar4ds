@@ -100,6 +100,7 @@ R prints the gap of section 10, `r gap_hw` points once rounded. Of everything in
 
 The second step puts the same code inside a function. `function()` makes a function, which the arrow stores under a name, here `greeting_gap`, like any other object. The names inside the round brackets are the arguments, the inputs that a call supplies, and the code inside the curly braces is the **body**, which runs whenever the function is called, with each argument standing for the value that the call gave it. The function below has two arguments, `data`, the data frame to summarise, and `compared`, the group of names to compare with the white names. Running the block prints nothing, because the arrow stores the function without calling it.
 
+<!-- r-style: skip -->
 ```{webr}
 greeting_gap <- function(data, compared) {
   shares <- data |>
@@ -138,6 +139,7 @@ The argument `compared` appears only in the arithmetic at the end of the body, o
 The function compares every group with the white names, because `"white"` is written into its body. Fill the blank so that a third argument, `reference`, names the group with which `compared` is compared. The block defines the function and then calls it, comparing the Hispanic with the Black names.
 :::
 
+<!-- r-style: skip -->
 ```{webr}
 #| exercise: gap-reference
 #| envir: global
@@ -164,6 +166,7 @@ The blank takes the place of `"white"` in the function above. It holds the name 
 ::: {.callout-tip collapse="false"}
 ## Solution
 
+<!-- r-style: skip -->
 ``` r
 greeting_gap <- function(data, compared, reference) {
   shares <- data |>
@@ -184,6 +187,7 @@ The gap is `r gap_hb` points, so the share of the replies to the Hispanic names 
 
 Most calls of `greeting_gap()` will compare the Hispanic with the white names, the comparison of the claim. An argument can carry a **default**, written with `=` inside the brackets of `function()`, and the function uses the default whenever a call leaves the argument out. The block below gives `compared` the default `"hispanic"` and `reference` the default `"white"`, and the body of the function is that of the exercise above.
 
+<!-- r-style: skip -->
 ```{webr}
 greeting_gap <- function(data, compared = "hispanic", reference = "white") {
   shares <- data |>
@@ -214,6 +218,7 @@ greeting_gap(housing, "Hispanic")
 
 R prints `numeric(0)`, a vector of numbers with nothing in it, and no error. The square brackets found no row of `shares` whose group is `"Hispanic"` and picked out nothing, and arithmetic on nothing returns nothing, an empty answer that is easy to miss in a script and that would pass without complaint into a table or a figure. A **check** at the top of the body stops the function with a message instead. `if ()` runs the code inside its braces only when the condition in its brackets is `TRUE`, and `stop()` ends the call with an error whose message is the text of its arguments pasted together. The condition `!compared %in% data$group` is `TRUE` when the value of `compared` is not one of the groups in the data, and `call. = FALSE` leaves the call itself out of the message, so that the message reads as a sentence.
 
+<!-- r-style: skip -->
 ```{webr}
 greeting_gap <- function(data, compared = "hispanic", reference = "white") {
   if (!compared %in% data$group) {
@@ -239,6 +244,7 @@ greeting_gap(housing, "Hispanic")
 The check covers `compared` only, so a misspelt `reference` still returns `numeric(0)`. Fill the blank so that a second check stops the function when `reference` is not one of the groups in the data. The block ends with a call that the new check should stop.
 :::
 
+<!-- r-style: skip -->
 ```{webr}
 #| exercise: check-reference
 #| envir: global
@@ -271,6 +277,7 @@ The second check repeats the first, with the argument that it checks in place of
 ::: {.callout-tip collapse="false"}
 ## Solution
 
+<!-- r-style: skip -->
 ``` r
 greeting_gap <- function(data, compared = "hispanic", reference = "white") {
   if (!compared %in% data$group) {

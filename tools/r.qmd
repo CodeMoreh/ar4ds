@@ -84,7 +84,7 @@ waits <- housing |>
   datawizard::data_modify(months = as.numeric(waitlist))
 ```
 
-This module teaches the part of R that the course uses, from a first line of code to a table and a figure, and it is written for someone who has never programmed. The module takes about two hours, and it can be broken off at any section heading and taken up again later.
+This module teaches the part of R that the course uses, from a first line of code to a table and a figure, and it is written for someone who has never programmed. The module can be broken off at any section heading and taken up again later.
 
 Nothing has to be installed for this page. Every block of code on it runs in your browser, on a copy of R that the page downloads when it opens, so the module can be worked before you install R and an IDE (Positron, RStudio, VS Code, etc.) as the [setup page](../setup.qmd) describes, while you install them, or on a machine on which you cannot install anything.
 
