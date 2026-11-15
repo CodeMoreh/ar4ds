@@ -88,9 +88,9 @@ This module teaches the part of R that the course uses, from a first line of cod
 
 Nothing has to be installed for this page. Every block of code on it runs in your browser, on a copy of R that the page downloads when it opens, so the module can be worked before you install R and an IDE (Positron, RStudio, VS Code, etc.) as the [setup page](../setup.qmd) describes, while you install them, or on a machine on which you cannot install anything.
 
-The examples work on one file, whichever case study your workshop takes. The data of the Housing and racial bias case study hold one row for each of the `r n_emails` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The OAs recorded, among other things, whether each email drew a reply and whether the reply greeted the sender by name. The [background page of the Housing case study](https://codemoreh.github.io/ar4ds-housing/cases/housing/index.html) tells the story of the experiment, while here the file serves as a dataset small enough to look at whole, with an outcome that is either yes or no, which makes it a good place to learn.
+The examples work on one file, whichever case study your course takes. The data of the Housing and racial bias case study hold one row for each of the `r n_emails` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The OAs recorded, among other things, whether each email drew a reply and whether the reply greeted the sender by name. The [background page of the Housing case study](https://codemoreh.github.io/ar4ds-housing/background.html) tells the story of the experiment, while here the file serves as a dataset small enough to look at whole, with an outcome that is either yes or no, which makes it a good place to learn.
 
-By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the browser lab of a one-day workshop asks of you. A [second part](r-further.qmd) reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
+By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the tasks of the course ask of you. A [second part](r-further.qmd) reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
 
 ::: {#code-blocks .callout-important icon="false"}
 ## The code blocks on this page
@@ -298,7 +298,7 @@ library(conflicted)
 conflicts_prefer(dplyr::filter)   # stats::filter(), which R attaches at start-up, has the same name
 ```
 
-The course writes `pkg::fun()` in all of its own code because that code is read a block at a time, by people who did not write it, and each block has to say where its functions come from without an import script beside it. The workspace of every case study holds a check script, `R/check_setup.R`, which checks the packages that its exercise needs and prints the line that installs whichever are missing, as step 5 of the [setup page](../setup.qmd#check-that-it-works) describes.
+The course writes `pkg::fun()` in all of its own code because that code is read a block at a time, by people who did not write it, and each block has to say where its functions come from without an import script beside it. The workspace of every case study holds a check script, `R/check_setup.R`, which checks the packages that its exercise needs and prints the line that installs whichever are missing, as step 4 of the [setup page](../setup.qmd#check-that-it-works) describes.
 
 ## 6. Reading the data {#sec-reading}
 
@@ -336,7 +336,7 @@ names(housing)
 head(housing)
 ```
 
-Every column is described in the [codebook of the file](https://codemoreh.github.io/ar4ds-housing/cases/housing/data/housing_emails_codebook.html) on the site of the Housing case study, and a codebook is the second thing to read after any import. Data also reach researchers in the formats of Stata, SPSS and Excel among others, and [the second part](r-further.qmd#sec-formats) of the module reads files of these kinds. Whatever the source, the result is the same kind of data frame, and everything below applies to it unchanged.
+Every column is described in the [codebook of the file](https://codemoreh.github.io/ar4ds-housing/data/housing_emails_codebook.html) on the site of the Housing case study, and a codebook is the second thing to read after any import. Data also reach researchers in the formats of Stata, SPSS and Excel among others, and [the second part](r-further.qmd#sec-formats) of the module reads files of these kinds. Whatever the source, the result is the same kind of data frame, and everything below applies to it unchanged.
 
 ## 7. Looking at the data {#sec-looking}
 
@@ -553,7 +553,7 @@ shares |>
   datawizard::data_summary(gap_points = 100 * (share[group == "hispanic"] - share[group == "white"]))
 ```
 
-A gap of `r gap_hw` points is the raw difference behind the shares reported in the paper, 61% against 41% [@EinsteinGlick2017DoesRaceAffect], and on the site of the Housing case study it is the reference specification, the analysis against which every alternative on the [specification menu](https://codemoreh.github.io/ar4ds-housing/cases/housing/menu.html) is compared. The published estimate of −20.0 points comes from a different calculation, a logistic regression with covariates, which the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of that site fits step by step, and the two agree closely.
+A gap of `r gap_hw` points is the raw difference behind the shares reported in the paper, 61% against 41% [@EinsteinGlick2017DoesRaceAffect], and on the site of the Housing case study it is the reference specification, the analysis against which every alternative on the [specification menu](https://codemoreh.github.io/ar4ds-housing/menu.html) is compared. The published estimate of −20.0 points comes from a different calculation, a logistic regression with covariates, which the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of that site fits step by step, and the two agree closely.
 
 That gap is counted among the replies only. An email that drew no reply has no greeting, so it plays no part in the calculation. The other way to count is to keep every delivered email and treat a missing reply as a reply without a greeting by name. `if_else()` from dplyr, one of the packages that arrived with gt, makes that column inside `data_modify()`, keeping the greeting code where `reply` is 1 and putting 0 elsewhere. The `r n_uncoded` uncoded replies are still missing after this step, so a second filter removes the five rows.
 

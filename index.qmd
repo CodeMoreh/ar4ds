@@ -15,18 +15,16 @@ the case study and folds the rest into a details element (class home-more). A ca
 that is still being assembled takes the class home-soon and the badge Being
 assembled; no card has them at present.
 
-The page runs no code, because the data of the case studies live on their own sites.
-Its figures are those of the record of SCORE and its robustness study, which do not change
-with the data of the course, and each comes from the facts file of its case study
-(D:\ACADEMIC\TEACHING\AR4DS\_planning\<slug>\<slug>-facts.md, under the slugs housing, immigration and
-cohabitation, and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation) or from
-the committed data of the case study: analysts5.csv for the conclusions of the five
-analysts and reference_marks.csv for the reproductions and replications of the
-Immigration and Cohabitation case studies, in cases/immigration/data/ and
-cases/cohabitation/data/ of their sites. Check them there before changing any of
-them. The cards are numbered in the order chosen by CM on 15 November 2026: Housing,
-Europeanisation, Immigration, Cohabitation. The self-study card names the order
-in which a reader of several case studies meets each general treatment first. -->
+The page presents the published case studies only, Housing and Europeanisation,
+numbered in that order; the other case studies stay unnamed and unlinked until CM
+has vetted them. The page runs no code, because the data of the case studies live
+on their own sites. Its figures are those of the record of SCORE and its robustness
+study, which do not change with the data of the course, and each comes from the
+facts file of its case study (D:\ACADEMIC\TEACHING\AR4DS\_planning\housing\housing-facts.md,
+and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation),
+apart from the 270 country-years and the 864 specifications of the Europeanisation
+card, which are the rows of data/europeanisation_cy.csv and data/spec_curve.csv on
+that site. Check them there before changing any of them. -->
 
 :::::: {.home-hero}
 ::::: {.home-inner .home-reveal}
@@ -38,7 +36,7 @@ Hands-on training in {{< var workshop.format >}}
 # {{< var workshop.name >}} {.unnumbered .unlisted}
 
 ::: {.home-lead}
-The course takes published claims, the reanalyses that each of them received in a many-analyst study and the replications that tested them with new data, and teaches reproduction, robustness and replication in R, from the data and code of real studies. One exercise runs through four case studies, and each case study has a site of its own.
+The course takes published claims, the reanalyses that each of them received in a many-analyst study and the replications that tested them with new data, and teaches reproduction, robustness and replication in R, from the data and code of real studies. One exercise runs through every case study, and each case study has a site of its own.
 :::
 
 ::: {.home-cta}
@@ -54,7 +52,7 @@ The course takes published claims, the reanalyses that each of them received in 
 ## Case studies {#the-cases .unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-Every case study teaches the same exercise in the same order. The case studies differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case study allows, with slide decks of its own and a companion of the methods that the case study can teach.
+The case studies differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case study allows, with slide decks of its own and a companion of the methods that the case study can teach. Further case studies are in preparation.
 :::
 
 :::: {.home-cases}
@@ -64,7 +62,7 @@ Every case study teaches the same exercise in the same order. The case studies d
 
 ### [Housing and racial bias](https://codemoreh.github.io/ar4ds-housing/) {#housing-and-racial-bias .unnumbered .unlisted}
 
-[A field experiment, taught in a short session, in one day or over three days]{.home-meta}
+[A field experiment]{.home-meta}
 
 A field experiment published in 2017 sent the same short email to about a thousand public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
 
@@ -91,7 +89,7 @@ A field experiment published in 2017 sent the same short email to about a thousa
 
 ### [Europeanisation and the economy](https://codemoreh.github.io/ar4ds-eu/) {#europeanisation-and-the-economy .unnumbered .unlisted}
 
-[Repeated cross-sections, taught in a short session, in one day or over three days]{.home-meta}
+[Repeated cross-sections]{.home-meta}
 
 A sociological paper of 2016 asked whether the economic crisis changed how citizens of the European Union frame the Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
 
@@ -113,60 +111,6 @@ A sociological paper of 2016 asked whether the economic crisis changed how citiz
 [Go to the site of the case study](https://codemoreh.github.io/ar4ds-eu/){.home-go}
 :::
 
-::: {.home-casecard .home-reveal}
-[3]{.home-rung}
-
-### [Immigration and trust](https://codemoreh.github.io/ar4ds-immigration/) {#the-immigration-and-trust-case .unnumbered .unlisted}
-
-[A cross-national survey, taught in one day or over three days]{.home-meta}
-
-A paper of 2012 in *World Politics* asked, from the European Social Survey, whether citizens of Western European countries who see immigration as a threat to the national community trust their national politics less. The claim is that "... concerns about the effect of immigration on the national community have a(n) \[reducing\] impact on trust in politics" [@McLaren2012CulturalDivideEurope, p. 199].
-
-<details class="home-more">
-<summary>More about the case study</summary>
-
-**What it teaches.** Attitude scales and their reliability, multilevel models with country-level predictors and cross-level interactions, inference with 16 countries, missing answers and multiple imputation, what a causal graph says about the controls, and the question of reverse causation.
-
-**The data.** Rounds 1 to 4 of the European Social Survey in 16 countries, 110,732 respondents in the sample of the paper, as a derived extract released under CC BY-NC-SA 4.0.
-
-::: {.home-3r}
-- **Reproduction.** The paper came without data or code. Two SCORE reproductions rebuilt the data from the survey files and found coefficients of 0.178 and 0.181 against the published 0.17, on about 69,000 respondents rather than 110,732.
-- **Robustness.** All five analysts of the robustness study found evidence for the claim, with partial correlations from 0.122 to 0.198 recorded for their results.
-- **Replication.** Two SCORE replications on later rounds of the survey, 2010 and 2010–2018, found 0.183 and 0.186, both meeting the criterion of SCORE.
-:::
-
-</details>
-
-[Go to the site of the case study](https://codemoreh.github.io/ar4ds-immigration/){.home-go}
-:::
-
-::: {.home-casecard .home-reveal}
-[4]{.home-rung}
-
-### [Cohabitation and marriage](https://codemoreh.github.io/ar4ds-cohabitation/) {#the-cohabitation-case .unnumbered .unlisted}
-
-[Life histories, taught in one day or over three days]{.home-meta}
-
-A paper of 2016 in *Demography* compared the first cohabitations of American women begun in the early 1990s with those begun in the late 2000s, and found that the couples of the later cohort married less often. The claim is that "cohabitors have increasingly become less likely to progress to marriage" [@KuoRaley2016DivergingPatternsUnion, p. 932].
-
-<details class="home-more">
-<summary>More about the case study</summary>
-
-**What it teaches.** Censoring and the life table, person-period data, discrete-time event-history models with competing risks, survey weights and design-based standard errors, comparisons between periods and the coefficients of an interaction, and what a reproduction does not show.
-
-**The data.** The first premarital cohabitations of 19,183 women in five surveys of the National Survey of Family Growth, 1995 to 2013–2015, rebuilt from the public-use files, which are in the public domain, beside the file given to the analysts by the robustness study.
-
-::: {.home-3r}
-- **Reproduction.** SCORE recorded none. The course rebuilt the unions from the public-use files and refits the published coefficient at −0.686 against −0.683.
-- **Robustness.** Two of the five analysts of the robustness study found evidence for the claim, one evidence neither way and two the opposite, all on the file that the robustness study gave them.
-- **Replication.** The SCORE replication tested another coefficient of the paper, the interaction of some college and period, and did not replicate it (z = −1.62, p = 0.11). The decline described by the claim holds on later surveys rebuilt by the course, at −0.450 between 2002 and 2011–2015.
-:::
-
-</details>
-
-[Go to the site of the case study](https://codemoreh.github.io/ar4ds-cohabitation/){.home-go}
-:::
-
 ::::
 
 :::::
@@ -178,49 +122,39 @@ A paper of 2016 in *Demography* compared the first cohabitations of American wom
 ## Formats {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The course is taught in four formats, and the facilitator of each course chooses its format and its case study. Each format is an ordered route through the pages of the site of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a course leads straight to its route.
+The course is taught in three formats, and the facilitator of each course chooses its format and its case study. Each format is an ordered route through the pages of the site of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a course leads straight to its route.
 :::
 
-:::: {.home-grid .home-formats}
+:::: {.home-grid}
 
 ::: {.home-track .home-reveal}
-### Short session {.unnumbered .unlisted}
+### Short {.unnumbered .unlisted}
 
 [Two halves, in the browser]{.home-meta}
 
 One case study with nothing to install and nothing preregistered, worked on the slides themselves, which run R inside the browser: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
 
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-short/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-short/).
+[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/short/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/short/).
 :::
 
 ::: {.home-track .home-reveal}
-### One-day workshop {.unnumbered .unlisted}
+### Day {.unnumbered .unlisted}
 
 [Four parts, in your IDE]{.home-meta}
 
 One case study in four parts, worked in the downloadable workspace in your IDE, while the slides, which run R inside the browser, show each step with its output and stand in for the workspace if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
 
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-one-day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-one-day/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/immigration-one-day/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/cohabitation-one-day/).
+[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/day/).
 :::
 
 ::: {.home-track .home-reveal}
-### Extended course {.unnumbered .unlisted}
-
-[Three days, built around the workshop]{.home-meta}
-
-The workshop of a case study with a day before it and a day after it. Day 1 is the same for every case study: credibility and the three Rs, SCORE and its robustness study, repositories and data sources, and then R, Positron and Quarto taught live. Day 2 is the workshop of the case study. Day 3 teaches the methods of the case study as sessions, and ends with the declared analysis of each participant written up in Quarto and kept under Git.
-
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/housing-extended/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/europeanisation-extended/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/immigration-extended/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/cohabitation-extended/).
-:::
-
-::: {.home-track .home-reveal}
-### Self-study {.unnumbered .unlisted}
+### Independent {.unnumbered .unlisted}
 
 [At your own pace, in R]{.home-meta}
 
-The site of each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own. A reader who takes several case studies, or a semester course that teaches all four, is best served by the order Housing, Immigration, Cohabitation, Europeanisation, because the Europeanisation site sends its readers to the Immigration site for the general treatment of multilevel models and to the Cohabitation site for survey design.
+The site of each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own.
 
-[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/self-study/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/self-study/), [Immigration](https://codemoreh.github.io/ar4ds-immigration/tracks/self-study/), [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/tracks/self-study/).
+[Housing](https://codemoreh.github.io/ar4ds-housing/tracks/independent/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/independent/).
 :::
 
 ::::
@@ -234,17 +168,15 @@ The site of each case study holds a route for a reader who works alone, which ta
 ## Methods and tools {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data, so that each method is taught where it belongs and the other sites link to it. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the setup help, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
+The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the setup help, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
 :::
 
 ::: {.home-map .home-reveal}
 
 | Case study | Formats | Tools | Data and sharing | Methods |
 |:--|:--|:--|:--|:--|
-| [Housing](https://codemoreh.github.io/ar4ds-housing/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
-| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | short session; one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales and the missing answers](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [multilevel models and the survey weights](https://codemoreh.github.io/ar4ds-eu/companion/multilevel.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-eu/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
-| [Immigration](https://codemoreh.github.io/ar4ds-immigration/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | [data sources](https://codemoreh.github.io/ar4ds-immigration/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-immigration/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-immigration/companion/repositories.html) | [multilevel models](https://codemoreh.github.io/ar4ds-immigration/companion/multilevel.html), [scales and their items](https://codemoreh.github.io/ar4ds-immigration/companion/measurement.html), [missing data and imputation](https://codemoreh.github.io/ar4ds-immigration/companion/missingness.html), [causal graphs](https://codemoreh.github.io/ar4ds-immigration/companion/dags.html), [meta-analysis](https://codemoreh.github.io/ar4ds-immigration/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-immigration/companion/multiverse.html) |
-| [Cohabitation](https://codemoreh.github.io/ar4ds-cohabitation/) | one-day workshop; Extended course; self-study | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd) | [data sources](https://codemoreh.github.io/ar4ds-cohabitation/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-cohabitation/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-cohabitation/companion/repositories.html) | [event history and competing risks](https://codemoreh.github.io/ar4ds-cohabitation/companion/event-history.html), [weights and survey design](https://codemoreh.github.io/ar4ds-cohabitation/companion/weighting.html), [causal graphs](https://codemoreh.github.io/ar4ds-cohabitation/companion/dags.html), [meta-analysis](https://codemoreh.github.io/ar4ds-cohabitation/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-cohabitation/companion/multiverse.html) |
+| [Housing](https://codemoreh.github.io/ar4ds-housing/) | Short; Day; Independent | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
+| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | Short; Day; Independent | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [the items behind the scales and the missing answers](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
 
 :::
 
@@ -257,7 +189,7 @@ The companion of each site holds the methods that arise from its case study, fro
 ## SCORE {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The four claims come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. In the robustness study, 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the exercise of the course follows its design on a smaller scale.
+The claims of the case studies come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. In the robustness study, 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the exercise of the course follows its design on a smaller scale.
 :::
 
 :::: {.home-cases .home-reveal}
@@ -265,7 +197,7 @@ The four claims come from the work of SCORE, short for Systematizing Confidence 
 ::: {.home-r}
 ### [SCORE](score.qmd) {.unnumbered .unlisted}
 
-The programme and its three studies, how the robustness study chose its claims and set its two tasks, and what the record holds for each of the four case studies.
+The programme and its three studies, how the robustness study chose its claims and set its two tasks, and what the record holds for each case study.
 :::
 
 ::: {.home-r}
@@ -285,7 +217,7 @@ How the robustness study placed 504 reanalyses on one scale, what that scale ass
 ## Getting started {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The short session needs only a browser, because its tasks are done on the slides, which run R inside the browser. The one-day workshop, the Extended course and the self-study route are worked in the workspace of the case study, with R and an IDE installed beforehand, and the preparation of the workshop includes that installation, ending when the setup check prints OK, the module [Getting started with R](tools/r.qmd) and the background page of the case study.
+The short format needs only a browser, because its tasks are done on the slides, which run R inside the browser. The day and independent formats are worked in the workspace of the case study, with R, Quarto and an IDE installed beforehand.
 :::
 
 :::: {.home-steps .home-reveal}
@@ -299,7 +231,7 @@ Install R, Quarto and an IDE (Positron, RStudio, VS Code, etc.), following the s
 ::: {.home-step}
 ### The workspace {.unnumbered .unlisted}
 
-Download the workspace of your case study as a zip file, open it in your IDE and run the check script. [The workspaces](setup.qmd#the-workspace)
+Download the workspace from the site of your case study, open it in your IDE and run the check script. [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/day/before.html#the-workspace)
 :::
 
 ::: {.home-step}

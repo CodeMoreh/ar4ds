@@ -85,7 +85,7 @@ The fourteen columns keep the names given by the OAs, such as `Response_Dichotom
 head(deposit$NumberAssignment)
 ```
 
-The first line of the output gives the variable label, `Number Assignment`, the second the codes of the first six emails, and the table underneath the value labels. `as_label()` from the sjlabelled package turns each code into its label, which gives a factor, and `data_tabulate()` then counts the emails signed with each name, the counts of the first table in the [codebook of the course file](https://codemoreh.github.io/ar4ds-housing/cases/housing/data/housing_emails_codebook.html).
+The first line of the output gives the variable label, `Number Assignment`, the second the codes of the first six emails, and the table underneath the value labels. `as_label()` from the sjlabelled package turns each code into its label, which gives a factor, and `data_tabulate()` then counts the emails signed with each name, the counts of the first table in the [codebook of the course file](https://codemoreh.github.io/ar4ds-housing/data/housing_emails_codebook.html).
 
 ```{webr}
 deposit$NumberAssignment |>
@@ -280,7 +280,7 @@ The reply rate of 0.52 is the one that the exercise of section 9 found for Santi
 
 ## 15. Naming the estimand {#sec-estimand}
 
-Fitting models is the subject of the methods modules of the case-study sites. On the Housing data, the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of the Housing site builds from the table of counts of section 10 up to the logistic regression of the paper. Nothing that follows is needed for a workshop. It is here because it completes the map of the dialects, and because it ties the tools of R to the habit that the course asks of you throughout, which is to name the quantity that you want before you estimate it, the **estimand**.
+Fitting models is the subject of the methods modules of the case-study sites. On the Housing data, the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of the Housing site builds from the table of counts of section 10 up to the logistic regression of the paper. Nothing that follows is needed for the exercise. It is here because it completes the map of the dialects, and because it ties the tools of R to the habit that the course asks of you throughout, which is to name the quantity that you want before you estimate it, the **estimand**.
 
 The simplest model of the claim is a linear model of the greeting on the group of the name, fitted to the replies that carry a greeting code. With an outcome of 0s and 1s and a predictor made of groups, each coefficient of such a model is a difference between two shares, the quantity of section 10. One step comes first. The modelbased package used further below works through the marginaleffects package, which refuses a column called `group` because its own output has a column of that name, so the block below renames the column as `names_of`, with `data_rename()`, and makes it a factor with the white names first.
 

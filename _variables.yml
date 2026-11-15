@@ -3,32 +3,20 @@
 
 workshop:
   name: "Applied Replication for Data Skills"
-  # The formats across the four case studies, as the eyebrow of the opening page reads them
-  format: "a short session, one day, three days or self-study"
+  # The formats of the published case studies, as the eyebrow of the opening page reads them
+  format: "three formats"
   organiser: "Chris Moreh"
 
 site-url: "https://codemoreh.github.io/ar4ds/"
 org: "https://github.com/CodeMoreh"
 
-# The sites and workspaces of the case studies. The workspaces of the
-# Immigration and Cohabitation case studies do not exist yet; their addresses
-# are the names reserved for them.
+# The sites and workspaces of the published case studies.
 cases:
   housing:
     name: "the Housing and racial bias case study"
     site: "https://codemoreh.github.io/ar4ds-housing/"
     template-repo: "https://github.com/CodeMoreh/ar4ds-housing-workspace"
     workspace-zip: "https://github.com/CodeMoreh/ar4ds-housing-workspace/archive/refs/heads/main.zip"
-  immigration:
-    name: "the Immigration and trust case study"
-    site: "https://codemoreh.github.io/ar4ds-immigration/"
-    template-repo: "https://github.com/CodeMoreh/ar4ds-immigration-workspace"
-    workspace-zip: "https://github.com/CodeMoreh/ar4ds-immigration-workspace/archive/refs/heads/main.zip"
-  cohabitation:
-    name: "the Cohabitation and marriage case study"
-    site: "https://codemoreh.github.io/ar4ds-cohabitation/"
-    template-repo: "https://github.com/CodeMoreh/ar4ds-cohabitation-workspace"
-    workspace-zip: "https://github.com/CodeMoreh/ar4ds-cohabitation-workspace/archive/refs/heads/main.zip"
   europeanisation:
     name: "the Europeanisation and the economy case study"
     site: "https://codemoreh.github.io/ar4ds-eu/"

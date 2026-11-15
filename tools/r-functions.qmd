@@ -18,12 +18,13 @@ bibliography: [../references.bib, ../references-new.bib]
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
-<!-- The code quoted in section 18 comes from R/housing/_tools.R of the Housing
-site (the folder ar4ds-housing beside this site) and from R/spec_tools.R of its
-workspace (the folder ar4ds-housing-workspace), as both stood on 15 November
-2026, with the lines left out marked "# ..."; update the quotations whenever
-either file changes. The figures of section 18 come from
-cases/housing/data/spec_curve.csv of the Housing site, which the chunk
+<!-- The code quoted in section 18 comes from R/_tools.R and R/02_spec_curve.R
+of the Housing site (the folder ar4ds-housing beside this site) and from
+R/spec_tools.R of its workspace (the folder ar4ds-housing-workspace), as they
+stood on 15 November 2026, with the lines left out marked "# ..." and without
+the comment "# r-style: approved" that ends the first line of each definition
+there; update the quotations whenever one of these files changes. The figures of
+section 18 come from data/spec_curve.csv of the Housing site, which the chunk
 page-numbers reads from that folder. -->
 
 ```{r}
@@ -354,13 +355,13 @@ The two gaps are `r gap_hw` and `r gap_hb` points, the gap of the claim and the 
 
 ## 18. The helpers of the course {#sec-helpers}
 
-The exercise of the Housing case study fits its specifications with helper functions built from the parts of sections 16 and 17. A **specification** is one complete set of choices for an analysis: which names are compared, which emails are counted, what happens to the uncoded replies, which model is fitted and which covariates it holds. The [specification menu](https://codemoreh.github.io/ar4ds-housing/cases/housing/menu.html) of the case study lists every decision and its options. The estimator, `fit_spec()` with the smaller functions that it calls, is written once, in the file `R/housing/_tools.R` of the Housing site, and the scripts of that site build the [specification curve](https://codemoreh.github.io/ar4ds-housing/cases/housing/curve.html) of the claim with it. The downloadable workspace of the case study holds a verbatim copy in `R/spec_tools.R`, with the functions that participants call, `try_spec()` among them, and the [browser lab](https://codemoreh.github.io/ar4ds-housing/cases/housing/lab.html) holds the same code.
+The exercise of the Housing case study fits its specifications with helper functions built from the parts of sections 16 and 17. A **specification** is one complete set of choices for an analysis: which names are compared, which emails are counted, what happens to the uncoded replies, which model is fitted and which covariates it holds. The [specification menu](https://codemoreh.github.io/ar4ds-housing/menu.html) of the case study lists every decision and its options. The estimator, `fit_spec()` with the smaller functions that it calls, is written once, in the file `R/_tools.R` of the Housing site, and the scripts of that site build the [specification curve](https://codemoreh.github.io/ar4ds-housing/curve.html) of the claim with it. The downloadable workspace of the case study holds a verbatim copy in `R/spec_tools.R`, with the functions that participants call, `try_spec()` among them, and the [browser lab](https://codemoreh.github.io/ar4ds-housing/lab.html) holds the same code.
 
-The [page on the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) on the Housing site shows how `try_spec()` is called and what it prints, and this section reads how `fit_spec()`, `try_spec()` and `r_robustness()` are built. The code below is quoted from the two files and is not run on this page, a line `# ...` marks a passage left out, and the whole of `R/spec_tools.R` is in the workspace of the case study, whose download the [setup page](../setup.qmd#the-workspace) describes.
+The [page on the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) on the Housing site shows how `try_spec()` is called and what it prints, and this section reads how `fit_spec()`, `try_spec()` and `r_robustness()` are built. The code below is quoted from the two files and is not run on this page, and the whole of `R/spec_tools.R` is in the workspace, which the Housing site offers [for download](https://codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace). A line `# ...` marks a passage left out, and the quotations omit the comment `# r-style: approved`, which marks each definition in the files as approved under the coding rules of the course.
 
 ### `fit_spec()` {#sec-fit-spec}
 
-`fit_spec()` fits one specification and returns its result, and it reads as follows in `R/housing/_tools.R`.
+`fit_spec()` fits one specification and returns its result, and it reads as follows in `R/_tools.R`.
 
 <!-- r-style: skip -->
 ``` r
@@ -419,7 +420,7 @@ check_spec <- function(comparison, population, uncoded, model, adjust) {
   bad <- names(chosen)[!purrr::map2_lgl(chosen, SPEC_AXES[names(chosen)], \(v, ok) v %in% ok)]
   if (length(bad) > 0) {
     stop("Not on the curve: ", paste0(bad, " = '", unlist(chosen[bad]), "'", collapse = ", "),
-         ". The options are listed in menu_options.csv.", call. = FALSE)
+         ". The options are listed in data/menu_options.csv.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -482,9 +483,9 @@ spec_frame <- function(housing, comparison = "white", population = "replies", un
 
 The conditions of `dplyr::filter()` name two arguments of the function, `comparison` and `population`, which datawizard would look up among the objects of the session, as the note in section 16 warns. The verbs of dplyr look a name up among the columns of the data first and then among the arguments of the function, and `.env$comparison` names the argument explicitly, so that a column called `comparison`, if the data had one, could not take its place. The comment at the head of the file gives the reason: "The rows are chosen with dplyr, because datawizard evaluates its conditions in a fresh environment and so cannot see the arguments of a function." `fit_spec()` keeps datawizard where a condition names only a column and a fixed value, as in `datawizard::data_filter(coefs, Parameter == "hisp")`, which picks the row of the indicator out of the table of coefficients.
 
-Every estimate and standard error in the body of `fit_spec()` comes from a package. The HC2 standard errors of the linear model, which allow the variance of the 0/1 outcome to differ between the two groups of names, as section 15 described, come from `parameters::model_parameters()`, which computes these errors with the sandwich package. The logistic regression gives its estimate on the scale of percentage points as an average marginal effect, the mean over the analysed emails of the difference between the predicted probability of a greeting by name with a Hispanic name and with a comparison name, and `marginaleffects::avg_comparisons()` computes that average with its standard error. The comments in the code name the papers behind the two calls, and none of these calculations is written out in the helpers. A standard error written by hand can be wrong in ways that no error message reveals, and a reader can find such a fault only by checking the algebra as well as the code. A package that is maintained, described in a methodological paper and used by many researchers has been checked by its authors and users on far more models than one course could try, and its documentation states what it computes. The course checks its own use of the packages as well. The script `R/housing/check_parity.R` of the Housing site fits every specification of the curve again with estimatr for the HC2 standard errors and margins for the average marginal effect, two packages that share none of the code of `fit_spec()`, and stops if any estimate or standard error disagrees.
+Every estimate and standard error in the body of `fit_spec()` comes from a package. The HC2 standard errors of the linear model, which allow the variance of the 0/1 outcome to differ between the two groups of names, as section 15 described, come from `parameters::model_parameters()`, which computes these errors with the sandwich package. The logistic regression gives its estimate on the scale of percentage points as an average marginal effect, the mean over the analysed emails of the difference between the predicted probability of a greeting by name with a Hispanic name and with a comparison name, and `marginaleffects::avg_comparisons()` computes that average with its standard error. The comments in the code name the papers behind the two calls, and none of these calculations is written out in the helpers. A standard error written by hand can be wrong in ways that no error message reveals, and a reader can find such a fault only by checking the algebra as well as the code. A package that is maintained, described in a methodological paper and used by many researchers has been checked by its authors and users on far more models than one course could try, and its documentation states what it computes. The course checks its own use of the packages as well. The script `R/check_parity.R` of the Housing site fits every specification of the curve again with estimatr for the HC2 standard errors and margins for the average marginal effect, two packages that share none of the code of `fit_spec()`, and stops if any estimate or standard error disagrees.
 
-`fit_spec()` returns a single row so that many calls can be stacked into one table. The script `R/housing/02_spec_curve.R` of the Housing site builds the curve of the claim in these lines.
+`fit_spec()` returns a single row so that many calls can be stacked into one table. The script `R/02_spec_curve.R` of the Housing site builds the curve of the claim in these lines.
 
 ``` r
 curve <- tidyr::expand_grid(!!!SPEC_AXES) |>
@@ -536,7 +537,7 @@ Two parts of the body do what no function of sections 16 and 17 does. The two ca
 
 ### `r_robustness()` {#sec-r-robustness}
 
-`r_robustness()` converts the test of a specification into a correlation r, the common scale on which the robustness study set the results of its analysts, as the [page on the robustness article](../robustness-article.qmd#sec-scale) explains with the assumptions of the conversion. The function and the comment above it read as follows in `R/housing/_tools.R`.
+`r_robustness()` converts the test of a specification into a correlation r, the common scale on which the robustness study set the results of its analysts, as the [page on the robustness article](../robustness-article.qmd#sec-scale) explains with the assumptions of the conversion. The function and the comment above it read as follows in `R/_tools.R`.
 
 <!-- r-style: skip -->
 ``` r

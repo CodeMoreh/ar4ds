@@ -1,13 +1,15 @@
 ---
 title: "References"
 bibliography: [references.bib, references-new.bib]
-# The works cited on the pages and slides of the site, which the pages do not list
-# at their foot. Add the key of a work here when a page or a deck first cites it.
+# The works cited on the pages of the site, which the pages do not list at their
+# foot. Add the key of a work here when a page first cites it. The decks of
+# slides/, which stay out of the build, cite twelve works that no page cites;
+# their keys return here if the decks return to the build.
 nocite: |
-  @AczelEtAl2026InvestigatingAnalyticalRobustness, @AlipourfardEtAl2021SystematizingConfidenceOpen, @BreznauEtAl2022ObservingManyResearchers, @EinsteinGlick2017DoesRaceAffect, @GelmanLoken2014StatisticalCrisisScience, @Ioannidis2005WhyMostPublished, @JohnEtAl2012MeasuringPrevalenceQuestionable, @KuoRaley2016DivergingPatternsUnion, @LudeckeEtAl2020ExtractingComputingExploring, @LudeckeEtAl2021PerformanceRPackage, @LudeckeEtAl2022EasystatsFrameworkEasy, @MakowskiEtAl2025ModelbasedRPackage, @McDermottEtAl2026TinyplotLightweightExtension, @McLaren2012CulturalDivideEurope, @MiskeEtAl2026InvestigatingReproducibilitySocial, @MunafoEtAl2017ManifestoReproducibleScience, @NosekEtAl2025BriefGlossaryTerms, @OpenScienceCollaboration2015EstimatingReproducibilityPsychological, @SilberzahnEtAl2018ManyAnalystsOne, @SimmonsEtAl2011FalsePositivePsychology, @Teney2016DoesEUEconomic, @TynerEtAl2026InvestigatingReplicabilitySocial, @VandenAkkerEtAl2021PreregistrationSecondaryData, @WickhamEtAl2019WelcomeTidyverse
+  @AczelEtAl2026InvestigatingAnalyticalRobustness, @AlipourfardEtAl2021SystematizingConfidenceOpen, @EinsteinGlick2017DoesRaceAffect, @LudeckeEtAl2020ExtractingComputingExploring, @LudeckeEtAl2021PerformanceRPackage, @LudeckeEtAl2022EasystatsFrameworkEasy, @MakowskiEtAl2025ModelbasedRPackage, @McDermottEtAl2026TinyplotLightweightExtension, @MiskeEtAl2026InvestigatingReproducibilitySocial, @Teney2016DoesEUEconomic, @TynerEtAl2026InvestigatingReplicabilitySocial, @WickhamEtAl2019WelcomeTidyverse
 ---
 
-Every work cited on the pages and slides of this site. On any page, resting the pointer on a citation shows its entry.
+Every work cited on the pages of this site. On any page, resting the pointer on a citation shows its entry.
 
 ::: {#refs}
 :::
