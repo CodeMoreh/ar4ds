@@ -38,7 +38,7 @@ n_uncoded   <- n_replies - n_coded
 reply_pct   <- sprintf("%.1f", 100 * n_replies / n_delivered)
 ```
 
-This module teaches the part of Quarto that the course uses, from what a `.qmd` file holds to a report rendered from a clean session, and it is written for someone who has worked through [getting started with R](r.qmd) and has never written a document with code in it. The module takes about three hours, and it can be broken off at any section heading and taken up again later.
+This module teaches the part of Quarto that the course uses, from what a `.qmd` file holds to a report rendered from a clean session, and it is written for someone who has worked through [getting started with R](r.qmd) and has never written a document with code in it. The module can be broken off at any section heading and taken up again later.
 
 Quarto is the program that turns a document holding prose and code into a finished report, web page, slide deck or PDF, running the code on the way, so that every table, figure and number in the result is computed from the data at the moment of rendering. The course uses it mainly for the report of the workspace, in which you set out what you did and what came out, and which anyone can render again on their own machine to obtain the same numbers. Most of the materials of the course are Quarto documents as well, this page among them, and the two habits that the page practises, computing every number from the data and rendering from a clean session, are among the habits on which the reproduction of a published result depends.
 
