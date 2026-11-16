@@ -1,3 +1,140 @@
 {
-  "namespaces": "always"
+  "namespaces": "always",
+  "approved": [
+    "check_spec",
+    "fit_spec",
+    "greeting_gap",
+    "r_robustness",
+    "spec_frame",
+    "try_spec"
+  ],
+  "keep": [
+    {
+      "file": "tools/quarto.qmd",
+      "code": "housing <- read.csv(\"data/housing_emails.csv\", na.strings = c(\"\", \"NA\"))",
+      "reason": "the reader of the blocks, for the same values"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "code": "housing <- read.csv(\"data/housing_emails.csv\", na.strings = c(\"\", \"NA\"))",
+      "reason": "the reader of the blocks, for the same values"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "code": "row <- data.frame(ch, b_pp = res$b_pp, ci_low = res$ci_low, ci_high = res$ci_high,",
+      "reason": "data.frame() spreads the list of choices into columns"
+    },
+    {
+      "file": "tools/r-further.qmd",
+      "code": "housing <- read.csv(\"data/housing_emails.csv\", na.strings = c(\"\", \"NA\"))",
+      "reason": "the reader of the blocks, for the same values"
+    },
+    {
+      "file": "tools/r.qmd",
+      "code": "housing <- read.csv(\"data/housing_emails.csv\", na.strings = c(\"\", \"NA\"))",
+      "reason": "the reader of the blocks, for the same values"
+    },
+    {
+      "file": "slides/_segments/tools/_r-reading.qmd",
+      "code": "print(datawizard::data_tabulate(housing, select = \"reply\"))",
+      "reason": "the console text that the class gets"
+    },
+    {
+      "file": "slides/_segments/tools/_r-reading.qmd",
+      "code": "print(datawizard::data_tabulate(housing, select = \"named\", by = \"reply\"))",
+      "reason": "the console text that the class gets"
+    },
+    {
+      "file": "slides/_segments/tools/_setup.qmd",
+      "code": "tab_8ptrz <- xtabs(~ hispanic_name + named, data = coded_replies)",
+      "reason": "the table that chisq.test() takes"
+    }
+  ],
+  "skip": [
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "datawizard::data_summary(share = mean(named), by = \"group\")",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "datawizard::data_summary(share = mean(named), by = \"group\")",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "datawizard::data_summary(share = mean(named), by = \"group\")",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "greeting_gap <- function(data, compared = \"hispanic\", reference = \"white\") {",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "greeting_gap <- function(data, compared = \"hispanic\", reference = \"white\") {",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "greeting_gap <- function(data, compared = \"hispanic\", reference = \"white\") {",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "greeting_gap <- function(data, compared = \"hispanic\", reference = \"white\") {",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "fit_spec <- function(housing, comparison = \"white\", population = \"replies\", uncoded = \"drop\",",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "bad <- names(chosen)[!purrr::map2_lgl(chosen, SPEC_AXES[names(chosen)], \\(v, ok) v %in% ok)]",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "spec_frame <- function(housing, comparison = \"white\", population = \"replies\", uncoded = \"drop\") {",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "row <- data.frame(ch, b_pp = res$b_pp, ci_low = res$ci_low, ci_high = res$ci_high,  # r-style: keep – data.frame() spreads the list of choices into columns",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-functions.qmd",
+      "block": "# The conversion rules of the robustness study (standard_correlation_coefficient.R in",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r-further.qmd",
+      "block": "delivered <- housing[!is.na(housing$reply), c(\"name\", \"group\", \"reply\", \"named\")]",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r.qmd",
+      "block": "readr::read_csv(\"data/housing_emails.csv\")   # step 2: call a function by its package and its name",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r.qmd",
+      "block": "read_csv(\"data/housing_emails.csv\")",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "tools/r.qmd",
+      "block": "round(mean(housing$reply, na.rm = TRUE), 3)",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    },
+    {
+      "file": "slides/_segments/tools/_r-packages.qmd",
+      "block": "pak::pak(\"readr\")                            # step 1: install a package, once",
+      "reason": "a block shown or quoted on the page, left out of the checks"
+    }
+  ]
 }

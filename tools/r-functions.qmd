@@ -21,9 +21,8 @@ bibliography: [../references.bib, ../references-new.bib]
 <!-- The code quoted in section 18 comes from R/_tools.R and R/02_spec_curve.R
 of the Housing site (the folder ar4ds-housing beside this site) and from
 R/spec_tools.R of its workspace (the folder ar4ds-housing-workspace), as they
-stood on 15 November 2026, with the lines left out marked "# ..." and without
-the comment "# r-style: approved" that ends the first line of each definition
-there; update the quotations whenever one of these files changes. The figures of
+stood on 16 November 2026, with the lines left out marked "# ..."; update the
+quotations whenever one of these files changes. The figures of
 section 18 come from data/spec_curve.csv of the Housing site, which the chunk
 page-numbers reads from that folder. -->
 
@@ -34,7 +33,7 @@ page-numbers reads from that folder. -->
 # shares and gaps from the file that the blocks of the page read in the
 # browser, with the same reader, and the figures of section 18 from the curve
 # of the Housing case study, read from the copy of that site beside this one.
-housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 
 n_emails <- format(nrow(housing), big.mark = ",")
 
@@ -101,7 +100,6 @@ R prints the gap of section 10, `r gap_hw` points once rounded. Of everything in
 
 The second step puts the same code inside a function. `function()` makes a function, which the arrow stores under a name, here `greeting_gap`, like any other object. The names inside the round brackets are the arguments, the inputs that a call supplies, and the code inside the curly braces is the **body**, which runs whenever the function is called, with each argument standing for the value that the call gave it. The function below has two arguments, `data`, the data frame to summarise, and `compared`, the group of names to compare with the white names. Running the block prints nothing, because the arrow stores the function without calling it.
 
-<!-- r-style: skip -->
 ```{webr}
 greeting_gap <- function(data, compared) {
   shares <- data |>
@@ -140,7 +138,6 @@ The argument `compared` appears only in the arithmetic at the end of the body, o
 The function compares every group with the white names, because `"white"` is written into its body. Fill the blank so that a third argument, `reference`, names the group with which `compared` is compared. The block defines the function and then calls it, comparing the Hispanic with the Black names.
 :::
 
-<!-- r-style: skip -->
 ```{webr}
 #| exercise: gap-reference
 #| envir: global
@@ -167,7 +164,6 @@ The blank takes the place of `"white"` in the function above. It holds the name 
 ::: {.callout-tip collapse="false"}
 ## Solution
 
-<!-- r-style: skip -->
 ``` r
 greeting_gap <- function(data, compared, reference) {
   shares <- data |>
@@ -188,7 +184,6 @@ The gap is `r gap_hb` points, so the share of the replies to the Hispanic names 
 
 Most calls of `greeting_gap()` will compare the Hispanic with the white names, the comparison of the claim. An argument can carry a **default**, written with `=` inside the brackets of `function()`, and the function uses the default whenever a call leaves the argument out. The block below gives `compared` the default `"hispanic"` and `reference` the default `"white"`, and the body of the function is that of the exercise above.
 
-<!-- r-style: skip -->
 ```{webr}
 greeting_gap <- function(data, compared = "hispanic", reference = "white") {
   shares <- data |>
@@ -219,7 +214,6 @@ greeting_gap(housing, "Hispanic")
 
 R prints `numeric(0)`, a vector of numbers with nothing in it, and no error. The square brackets found no row of `shares` whose group is `"Hispanic"` and picked out nothing, and arithmetic on nothing returns nothing, an empty answer that is easy to miss in a script and that would pass without complaint into a table or a figure. A **check** at the top of the body stops the function with a message instead. `if ()` runs the code inside its braces only when the condition in its brackets is `TRUE`, and `stop()` ends the call with an error whose message is the text of its arguments pasted together. The condition `!compared %in% data$group` is `TRUE` when the value of `compared` is not one of the groups in the data, and `call. = FALSE` leaves the call itself out of the message, so that the message reads as a sentence.
 
-<!-- r-style: skip -->
 ```{webr}
 greeting_gap <- function(data, compared = "hispanic", reference = "white") {
   if (!compared %in% data$group) {
@@ -245,7 +239,6 @@ greeting_gap(housing, "Hispanic")
 The check covers `compared` only, so a misspelt `reference` still returns `numeric(0)`. Fill the blank so that a second check stops the function when `reference` is not one of the groups in the data. The block ends with a call that the new check should stop.
 :::
 
-<!-- r-style: skip -->
 ```{webr}
 #| exercise: check-reference
 #| envir: global
@@ -278,7 +271,6 @@ The second check repeats the first, with the argument that it checks in place of
 ::: {.callout-tip collapse="false"}
 ## Solution
 
-<!-- r-style: skip -->
 ``` r
 greeting_gap <- function(data, compared = "hispanic", reference = "white") {
   if (!compared %in% data$group) {
@@ -357,13 +349,12 @@ The two gaps are `r gap_hw` and `r gap_hb` points, the gap of the claim and the 
 
 The exercise of the Housing case study fits its specifications with helper functions built from the parts of sections 16 and 17. A **specification** is one complete set of choices for an analysis: which names are compared, which emails are counted, what happens to the uncoded replies, which model is fitted and which covariates it holds. The [specification menu](https://codemoreh.github.io/ar4ds-housing/menu.html) of the case study lists every decision and its options. The estimator, `fit_spec()` with the smaller functions that it calls, is written once, in the file `R/_tools.R` of the Housing site, and the scripts of that site build the [specification curve](https://codemoreh.github.io/ar4ds-housing/curve.html) of the claim with it. The downloadable workspace of the case study holds a verbatim copy in `R/spec_tools.R`, with the functions that participants call, `try_spec()` among them, and the [browser lab](https://codemoreh.github.io/ar4ds-housing/lab.html) holds the same code.
 
-The [page on the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) on the Housing site shows how `try_spec()` is called and what it prints, and this section reads how `fit_spec()`, `try_spec()` and `r_robustness()` are built. The code below is quoted from the two files and is not run on this page, and the whole of `R/spec_tools.R` is in the workspace, which the Housing site offers [for download](https://codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace). A line `# ...` marks a passage left out, and the quotations omit the comment `# r-style: approved`, which marks each definition in the files as approved under the coding rules of the course.
+The [page on the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) on the Housing site shows how `try_spec()` is called and what it prints, and this section reads how `fit_spec()`, `try_spec()` and `r_robustness()` are built. The code below is quoted from the two files and is not run on this page, with a line `# ...` in place of each passage left out, and the whole of `R/spec_tools.R` is in the workspace, which the Housing site offers [for download](https://codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace).
 
 ### `fit_spec()` {#sec-fit-spec}
 
 `fit_spec()` fits one specification and returns its result, and it reads as follows in `R/_tools.R`.
 
-<!-- r-style: skip -->
 ``` r
 fit_spec <- function(housing, comparison = "white", population = "replies", uncoded = "drop",
                      model = "lpm", adjust = "none") {
@@ -412,7 +403,6 @@ Read from the top, the function has the parts of `greeting_gap()`. Its arguments
 
 `check_spec()` is the check of section 17 written for five arguments at once.
 
-<!-- r-style: skip -->
 ``` r
 check_spec <- function(comparison, population, uncoded, model, adjust) {
   chosen <- list(comparison = comparison, population = population, uncoded = uncoded,
@@ -470,7 +460,6 @@ The answer is `TRUE` for `compared` and `FALSE` for `reference`, because `"White
 
 The analysed rows come from `spec_frame()`, which begins as follows in the same file.
 
-<!-- r-style: skip -->
 ``` r
 spec_frame <- function(housing, comparison = "white", population = "replies", uncoded = "drop") {
   housing |>
@@ -481,7 +470,7 @@ spec_frame <- function(housing, comparison = "white", population = "replies", un
 }
 ```
 
-The conditions of `dplyr::filter()` name two arguments of the function, `comparison` and `population`, which datawizard would look up among the objects of the session, as the note in section 16 warns. The verbs of dplyr look a name up among the columns of the data first and then among the arguments of the function, and `.env$comparison` names the argument explicitly, so that a column called `comparison`, if the data had one, could not take its place. The comment at the head of the file gives the reason: "The rows are chosen with dplyr, because datawizard evaluates its conditions in a fresh environment and so cannot see the arguments of a function." `fit_spec()` keeps datawizard where a condition names only a column and a fixed value, as in `datawizard::data_filter(coefs, Parameter == "hisp")`, which picks the row of the indicator out of the table of coefficients.
+The conditions of `dplyr::filter()` name two arguments of the function, `comparison` and `population`, which `data_filter()` finds only from datawizard 1.5.0, as the note in section 16 warns. The passage left out builds the outcome with `dplyr::mutate()`, where a third argument, `uncoded`, decides what happens to the uncoded replies, and `data_modify()` would not find that argument. The verbs of dplyr look a name up among the columns of the data first and then among the arguments of the function, and `.env$comparison` names the argument explicitly, so that a column called `comparison`, if the data had one, could not take its place. The comment at the head of the file gives the reason: "The rows and the outcome are built with dplyr, because inside a function `datawizard::data_modify()` and `data_summary()` do not find the arguments of that function, and `data_filter()` finds such arguments only from datawizard 1.5.0." `fit_spec()` keeps datawizard where a condition names only a column and a fixed value, as in `datawizard::data_filter(coefs, Parameter == "hisp")`, which picks the row of the indicator out of the table of coefficients.
 
 Every estimate and standard error in the body of `fit_spec()` comes from a package. The HC2 standard errors of the linear model, which allow the variance of the 0/1 outcome to differ between the two groups of names, as section 15 described, come from `parameters::model_parameters()`, which computes these errors with the sandwich package. The logistic regression gives its estimate on the scale of percentage points as an average marginal effect, the mean over the analysed emails of the difference between the predicted probability of a greeting by name with a Hispanic name and with a comparison name, and `marginaleffects::avg_comparisons()` computes that average with its standard error. The comments in the code name the papers behind the two calls, and none of these calculations is written out in the helpers. A standard error written by hand can be wrong in ways that no error message reveals, and a reader can find such a fault only by checking the algebra as well as the code. A package that is maintained, described in a methodological paper and used by many researchers has been checked by its authors and users on far more models than one course could try, and its documentation states what it computes. The course checks its own use of the packages as well. The script `R/check_parity.R` of the Housing site fits every specification of the curve again with estimatr for the HC2 standard errors and margins for the average marginal effect, two packages that share none of the code of `fit_spec()`, and stops if any estimate or standard error disagrees.
 
@@ -511,7 +500,6 @@ Each value is one comparison, as each row of the curve is one specification.
 
 `try_spec()`, the function with which participants explore specifications in Task 4 of the exercise, wraps `fit_spec()` in what a participant needs, and it reads as follows in `R/spec_tools.R`.
 
-<!-- r-style: skip -->
 ``` r
 try_spec <- function(comparison = "white", population = "replies", uncoded = "drop",
                      model = "lpm", adjust = "none", outcome = "named", names = "both",
@@ -522,7 +510,7 @@ try_spec <- function(comparison = "white", population = "replies", uncoded = "dr
                        inference = inference, scale = scale), as_args = TRUE)
   res <- .result(ch)
   .print_result(ch, res, lead = "")
-  row <- data.frame(ch, b_pp = res$b_pp, ci_low = res$ci_low, ci_high = res$ci_high,  # r-style: keep – data.frame() spreads the list of choices into columns
+  row <- data.frame(ch, b_pp = res$b_pp, ci_low = res$ci_low, ci_high = res$ci_high,
                     stat_type = res$stat_type, stat = res$stat, p = res$p, n = res$n,
                     stringsAsFactors = FALSE)
   assign("log", dplyr::bind_rows(.tried$log, row), envir = .tried)
@@ -539,7 +527,6 @@ Two parts of the body do what no function of sections 16 and 17 does. The two ca
 
 `r_robustness()` converts the test of a specification into a correlation r, the common scale on which the robustness study set the results of its analysts, as the [page on the robustness article](../robustness-article.qmd#sec-scale) explains with the assumptions of the conversion. The function and the comment above it read as follows in `R/_tools.R`.
 
-<!-- r-style: skip -->
 ``` r
 # The conversion rules of the robustness study (standard_correlation_coefficient.R in
 # github.com/marton-balazs-kovacs/multi100): t with its df, which is the rule of

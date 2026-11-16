@@ -26,7 +26,7 @@ bibliography: [../references.bib, ../references-new.bib]
 #| include: false
 # The numbers quoted in the prose, computed when the page is rendered from the
 # file that the blocks of the page read in the browser, with the same reader.
-housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 
 n_emails    <- format(nrow(housing), big.mark = ",")
 n_bounced   <- sum(is.na(housing$reply))
@@ -263,7 +263,6 @@ Everything in section 3, from `c()` to `mean()`, comes with R itself, while `tib
 
 On your own machine, using a package takes two steps, and the difference between them trips nearly every newcomer at least once. The first step is to install the package, which you do once on each machine, and the course does it with pak, a package that installs other packages. The block below is shown and not run, because installing is something that you do in the console of your IDE.
 
-<!-- r-style: skip -->
 ``` r
 install.packages("pak")   # once on a new machine
 pak::pak("readr")         # step 1: install a package on your machine, once
@@ -280,7 +279,6 @@ readr::read_csv("data/housing_emails.csv")
 
 The message `there is no package called 'readr'` means that step 1 never happened on this machine, and the cure is to install the package, with nothing in the code to change. The next block calls the same function by its name alone.
 
-<!-- r-style: skip -->
 ```{webr}
 read_csv("data/housing_emails.csv")
 ```
@@ -416,7 +414,6 @@ Of the `r hard$delivered` delivered emails sent to a harder address, `r hard$rep
 
 Most of the work after reading data is reshaping it, and reshaping is almost always a sequence of steps. The **pipe**, written `|>`, makes such sequences readable. It takes whatever stands on its left and passes it as the first argument to the function on its right, so that the steps of a calculation are written from top to bottom, each in its turn, instead of being wrapped inside one another and read from the inside out. The block below takes the mean of the column `reply`, leaving out the bounced emails, and rounds it to three decimals, with each function wrapped inside the next.
 
-<!-- r-style: skip -->
 ```{webr}
 round(mean(housing$reply, na.rm = TRUE), 3)
 ```

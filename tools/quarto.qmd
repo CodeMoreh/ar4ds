@@ -27,7 +27,7 @@ bibliography: [../references.bib, ../references-new.bib]
 #| include: false
 # The numbers quoted in the prose, computed when the page is rendered from the
 # file that the blocks of the page read in the browser, with the same reader.
-housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))  # r-style: keep – the reader of the blocks, for the same values
+housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 
 n_emails    <- format(nrow(housing), big.mark = ",")
 n_bounced   <- sum(is.na(housing$reply))

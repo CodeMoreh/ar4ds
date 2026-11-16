@@ -118,6 +118,6 @@ santiago <- datawizard::data_filter(housing, name == "Santiago")
 coded_replies <- housing |>
   datawizard::data_filter(!is.na(named)) |>
   datawizard::data_modify(hispanic_name = group == "hispanic")
-tab_8ptrz <- xtabs(~ hispanic_name + named, data = coded_replies)  # r-style: keep – the table that chisq.test() takes
+tab_8ptrz <- xtabs(~ hispanic_name + named, data = coded_replies)
 chi_8ptrz <- unname(chisq.test(tab_8ptrz)$statistic)
 ```

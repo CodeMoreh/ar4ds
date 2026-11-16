@@ -10,7 +10,6 @@ Section two brings in the data. First the packages, the bundles of functions wri
 
 ## Packages {#packages .smaller}
 
-<!-- r-style: skip -->
 ```r
 install.packages("pak")                      # once on a new machine
 pak::pak("readr")                            # step 1: install a package, once

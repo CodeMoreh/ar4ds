@@ -68,7 +68,7 @@ datawizard::data_tabulate(housing, select = "reply")
 
 ```{r}
 #| label: r-out-tab-reply
-print(datawizard::data_tabulate(housing, select = "reply"))  # r-style: keep – the console text that the class gets
+print(datawizard::data_tabulate(housing, select = "reply"))
 ```
 :::
 ::: {.column width="45%"}
@@ -81,7 +81,7 @@ datawizard::data_tabulate(housing,
 
 ```{r}
 #| label: r-out-tab-named
-print(datawizard::data_tabulate(housing, select = "named", by = "reply"))  # r-style: keep – the console text that the class gets
+print(datawizard::data_tabulate(housing, select = "named", by = "reply"))
 ```
 :::
 ::::
