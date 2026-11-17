@@ -11,6 +11,8 @@ format:
         - gt
         - dplyr
         - tibble
+      repos:
+        - https://codemoreh.github.io/ar4ds-wasm
 resources:
   - data/housing_emails.csv
 live:
