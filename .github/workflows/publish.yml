@@ -25,27 +25,32 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      # Quarto is fixed at the version that renders the site locally.
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.9.36"
 
       # The code blocks of the tools modules run in the browser through Quarto
       # Live, whose blocks pass through the knitr engine at render time, so R,
-      # knitr and rmarkdown are installed. The packages that a page calls in
-      # its own R chunks are not: such pages are rendered locally and served
-      # from the committed _freeze/ cache, so a change to one of them is
+      # knitr and rmarkdown are needed here. R is the version recorded in
+      # renv.lock, and the packages come from the lockfile, at the versions of
+      # the package date of the course. The packages that a page calls in its
+      # own R chunks are not restored: such pages are rendered locally and
+      # served from the committed _freeze/ cache, so a change to one of them is
       # rendered locally before it is committed.
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
+          r-version: "4.6.2"
           use-public-rspm: true
 
-      - name: Install the R packages of the knitr engine
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::knitr
-            any::rmarkdown
-            any::yaml
+      # The .Rprofile of the repository starts renv, which installs itself and
+      # then restores the named packages with their dependencies.
+      - name: Restore the R packages of the knitr engine from the lockfile
+        shell: Rscript {0}
+        run: |
+          renv::restore(packages = c("knitr", "rmarkdown", "yaml"), prompt = FALSE)
 
       - name: Render site
         run: quarto render
