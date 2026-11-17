@@ -5,9 +5,9 @@
 #               a package by reading the code of the site, and a package that
 #               no code names stays out of the lockfile and out of the library.
 #               Quarto ignores this file.
-# Sourced by:   no script; renv reads it when it writes the lockfile
 # Author:       Chris Moreh
 # Last updated: 2026-11-17
+# Sourced by:   no script; renv reads it when it writes the lockfile
 ##############################################################################
 
 # modelbased::estimate_means() computes its means with marginaleffects
