@@ -35,6 +35,16 @@
       "reason": "the reader of the blocks, for the same values"
     },
     {
+      "file": "tools/package-versions.qmd",
+      "code": "housing <- read.csv(\"https://codemoreh.github.io/ar4ds-housing/data/housing_emails.csv\",",
+      "reason": "the reader of the modules, for the same values"
+    },
+    {
+      "file": "tools/package-versions.qmd",
+      "code": "install.packages(\"datawizard\", lib = \"library-2026-11-03\",",
+      "reason": "the task is the repos argument of install.packages(), the function of the install line of the setup check"
+    },
+    {
       "file": "slides/_segments/tools/_r-reading.qmd",
       "code": "print(datawizard::data_tabulate(housing, select = \"reply\"))",
       "reason": "the console text that the class gets"

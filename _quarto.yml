@@ -52,7 +52,7 @@ website:
             text: "SCORE"
           - href: robustness-article.qmd
             text: "The robustness article"
-      # Installation first, then the four self-study modules on the tools
+      # Installation first, then the self-study modules on the tools
       - text: Tools
         menu:
           - href: setup.qmd
@@ -72,6 +72,8 @@ website:
             text: "Quarto"
           - href: git-github.qmd
             text: "Git and GitHub"
+          - href: tools/package-versions.qmd
+            text: "Package versions"
           - href: tools/ai.qmd
             text: "AI assistants"
       - href: references.qmd

@@ -1,0 +1,105 @@
+---
+title: "Package versions"
+---
+
+<!-- The outputs and the steps of this page come from trials of 17 November 2026
+(R 4.6.2 on Windows 11, a personal library installed from the copy of CRAN of
+that day; datawizard 1.5.0 and 1.4.1, purrr 1.2.2, groundhog 3.4.0, renv 1.3.1).
+The page runs no code. The two dates of the tasks lie on either side of the
+release of datawizard 1.5.0 (4 November 2026) and do not move with the package
+date of the course; the sentence on the setup check in section 2 holds while
+the workspaces install from a dated address. -->
+
+Packages change from one release to the next, so a script can give another result on a machine with another version of a package. This module shows one case in the data of the Housing and racial bias case study, and three ways of fixing the versions of a project: a copy of CRAN as it stood on a chosen day, the package groundhog, and the package renv. The tasks are done in your IDE (Positron, RStudio, VS Code, etc.) and use datawizard and purrr, two of the packages of the workspaces of the course. The module builds on [Getting started with R](r.qmd) and its [third part](r-functions.qmd).
+
+## 1. A change between two releases {#sec-case}
+
+**Task 1.** Make a new folder, open it in your IDE, save the lines below in it as `versions.R`, and run them.
+
+``` r
+housing <- read.csv("https://codemoreh.github.io/ar4ds-housing/data/housing_emails.csv",
+                    na.strings = c("", "NA"))
+
+# The wait in months, in the replies that gave one, and the skewness of its distribution
+waits <- datawizard::data_filter(housing, !is.na(waitlist) & !waitlist %in% c("Closed", "No Housing"))
+datawizard::skewness(as.numeric(waits$waitlist))
+
+# The number of emails sent under the names of each group
+c(black = "black", hispanic = "hispanic", white = "white") |>
+  purrr::map_int(\(g) nrow(datawizard::data_filter(housing, group == g)))
+```
+
+With datawizard 1.5.0 you should get:
+
+```
+Skewness |    SE
+----------------
+   3.670 | 0.220
+
+   black hispanic    white
+     329      368      317
+```
+
+With datawizard 1.4.1, the release before it, the standard error is 0.217, and the last statement stops with the error `Variable "g" was not found in the dataset.` The [release notes](https://easystats.github.io/datawizard/news/index.html) of 1.5.0 record both changes. Until then the standard error printed by `skewness()` belonged to another definition of skewness (type 1) than the one computed by default (type 2), and `data_filter()` did not find a value defined inside a function, such as the `g` of the last statement. The error shows itself at once, whereas the standard error changes without a message. A report therefore has to name the versions with which its numbers were computed, and `packageVersion("datawizard")` prints the installed one.
+
+## 2. A library at a date {#sec-date}
+
+R keeps installed packages in folders called libraries. `.libPaths()` lists the libraries, and R takes each package from the first library of the list that holds it. `install.packages()` fetches the newest release on CRAN unless its argument `repos` names another source. The public package manager of Posit keeps dated copies of CRAN, each at an address that ends in its date.
+
+**Task 2.** With the folder of Task 1 open, install datawizard as CRAN held it on 3 November 2026 into a library of its own.
+
+``` r
+dir.create("library-2026-11-03")
+install.packages("datawizard", lib = "library-2026-11-03",
+                 repos = "https://packagemanager.posit.co/cran/2026-11-03")
+```
+
+Restart R, put that library first in the list, and run `versions.R` again.
+
+``` r
+.libPaths(c("library-2026-11-03", .libPaths()))
+packageVersion("datawizard")
+```
+
+You should get 1.4.1, then the standard error 0.217 and the error. Only datawizard comes from the new library, and every other package from your own. To return to your installed version, delete the folder `library-2026-11-03` and restart R.
+
+The workspaces of the course use such an address for the whole installation. The setup check, `R/check_setup.R`, prints an `install.packages()` line with the address of the date on which the course was tested, and names in a `[NOTE]` every package that is installed at another version.
+
+## 3. groundhog {#sec-groundhog}
+
+[groundhog](https://groundhogr.com/) writes the date into the script. `groundhog.library()` takes the place of `library()`: it installs and attaches the named packages, and the packages on which they depend, at the versions of a date. The package is by Uri Simonsohn and Hugo Gruson and comes from the Wharton Credibility Lab, as does AsPredicted, the service on whose form the preregistration block of the exercise of each case study is modelled.
+
+``` r
+groundhog::groundhog.library(c("datawizard", "purrr"), "2026-11-03")
+source("versions.R", echo = TRUE)
+```
+
+Run in a new session in the folder of Task 1, the two lines give the output of datawizard 1.4.1. Before you try the two lines:
+
+- At its first use on a machine, groundhog asks in the console for permission to keep its packages in a folder `R_groundhog` of your home folder. The newest date that it accepts is two days before the day on which the script runs.
+- groundhog works on your own library. It moves the versions of the date into it and the versions that were there out of it, so every project on the machine runs with the versions of the date until `groundhog::restore.library()` reverses the changes.
+- In a trial of 17 November 2026 with groundhog 3.4.0 on Windows, the restore brought datawizard 1.5.0 back and removed glue, magrittr and vctrs, three packages that had been in the library before, so that purrr no longer loaded. Installing purrr again brought the three back. After a restore, run the setup check of your workspace, which reports such a package as missing and prints the line that installs it.
+
+## 4. renv {#sec-renv}
+
+[renv](https://rstudio.github.io/renv/) gives a project a library of its own, inside the folder of the project, and leaves your own library as it is. Its lockfile, `renv.lock`, records the version of every package in the library of the project and is committed with the code ([Git and GitHub, section 4](../git-github.qmd#sec-repro)).
+
+**Task 3.** With the folder of Task 1 open, install renv with `install.packages("renv")` and work through the steps in the console. Answer `y` where renv asks whether to proceed.
+
+1. `renv::init()` creates the library of the project in the folder `renv`, the lockfile, and a file `.Rprofile` that starts renv whenever R starts in the folder. Restart R if your IDE has not done so, open `renv.lock`, and find datawizard at your installed version.
+2. `renv::checkout(date = "2026-11-03")` brings the library of the project to the versions of that date. `packageVersion("datawizard")` should now give 1.4.1.
+3. `renv::status()` reports that the library and the lockfile differ, and `renv::snapshot()` writes the library into the lockfile, which now records datawizard 1.4.1 and the address from which it came.
+4. Run `versions.R`. You should get the standard error 0.217 and the error of section 1.
+5. `renv::checkout(date = "2026-11-17")` moves the library to datawizard 1.5.0, and `renv::restore()` returns it to the versions of the lockfile. A collaborator who downloads the project runs the same `renv::restore()` to work with your versions.
+
+To end the trial, delete the folder.
+
+renv finds the packages of a project by reading its code, so a package that the code needs without naming it is left out of the library until `renv::install()` adds it. In the workspace of the Housing and racial bias case study that package is sandwich, which parameters calls for the standard errors of the estimator.
+
+## 5. Naming conflicts {#sec-conflicts}
+
+Fixed versions do not settle from which package a function comes when two packages share a name. The course settles it by writing `pkg::fun()` on every call, and [section 5 of Getting started with R](r.qmd#sec-packages) shows the import script with conflicted for code written the other way. Four further tools exist, and the course uses none of them: the option `options(conflicts.policy = "strict")` of R, under which `library()` stops with an error at every unresolved conflict; the function `use()` of R, which attaches the functions named in its argument `include.only`; and the packages [box](https://CRAN.R-project.org/package=box) and [import](https://CRAN.R-project.org/package=import), each of which imports the functions named in its call.
+
+## Sources {#sec-sources}
+
+The outputs and the steps come from trials of 17 November 2026 with R 4.6.2 on Windows 11, in a personal library installed from the copy of CRAN of that day, with datawizard 1.5.0 and 1.4.1, purrr 1.2.2, groundhog 3.4.0 and renv 1.3.1. The facts about groundhog come from its help pages and from its [credits page](https://groundhogr.com/credits/), which names the Wharton Credibility Lab and AsPredicted. The facts about the option and the function of R come from the help pages `?library` and `?use`.
