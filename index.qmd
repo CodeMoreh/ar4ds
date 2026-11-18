@@ -62,7 +62,7 @@ The case studies differ in the statistics and the data handling that they ask fo
 
 ### [Housing and racial bias](https://codemoreh.github.io/ar4ds-housing/) {#housing-and-racial-bias .unnumbered .unlisted}
 
-A field experiment published in 2017 sent the same short email to about a thousand public housing authorities in the United States, each signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
+In a field experiment published in the *American Journal of Political Science* in 2017, the same short email was sent to about a thousand public housing authorities in the United States, each time signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
 
 <details class="home-more">
 <summary>More about the case study</summary>
@@ -87,7 +87,7 @@ A field experiment published in 2017 sent the same short email to about a thousa
 
 ### [Europeanisation and the economy](https://codemoreh.github.io/ar4ds-eu/) {#europeanisation-and-the-economy .unnumbered .unlisted}
 
-A sociological paper of 2016 asked whether the economic crisis changed how citizens of the European Union frame the Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
+An article published in the *European Sociological Review* in 2016 drew on Eurobarometer surveys conducted between 2004 and 2013 to examine whether the economic crisis had changed the meanings that citizens attach to the European Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
 
 <details class="home-more">
 <summary>More about the case study</summary>
