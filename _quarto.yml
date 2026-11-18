@@ -82,9 +82,6 @@ website:
   page-footer:
     left: |
       Content licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-      [GitHub repository](https://github.com/CodeMoreh/ar4ds)
-    right: |
-      Built with [Quarto](https://quarto.org/)
 
 format:
   html:
