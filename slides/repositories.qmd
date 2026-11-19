@@ -1,8 +1,8 @@
 ---
 title: "Repositories and data sources"
-subtitle: "Extended course – day 1"
+subtitle: "Multi-day, day 1"
 format: revealjs
-# Session 3 of day 1 of the Extended course, the same for every case study. Four
+# Session 3 of day 1 of the multi-day format, the same for every case study. Four
 # sections: data sources, repositories, registrations, the public record. Two
 # optional slides stay on the d toggle: fetching data from code (run "fetch")
 # and the versions of a record (run "versions").

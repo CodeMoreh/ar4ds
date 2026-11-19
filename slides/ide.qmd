@@ -1,8 +1,8 @@
 ---
 title: "Positron"
-subtitle: "Extended course – day 1"
+subtitle: "Multi-day, day 1"
 format: revealjs
-# Session 5 of day 1 of the Extended course, the same for every case study: the IDE
+# Session 5 of day 1 of the multi-day format, the same for every case study: the IDE
 # taught live in the workspace of the Housing case study, with Positron on the
 # shared screen and RStudio and VS Code users following in their own IDE.
 # Four sections: the folder and the window, running code, data, plots and

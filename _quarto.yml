@@ -4,7 +4,7 @@ project:
   resources:
     - /assets/
   # Every page at the root and in tools/. The six decks of slides/ serve only
-  # the first day of the long format, and they and data/silberzahn29_codebook.md,
+  # the first day of the multi-day format, and they and data/silberzahn29_codebook.md,
   # the codebook of the red-card file that their figures read, stay in the
   # repository but out of the build until CM has vetted that format.
   render:
