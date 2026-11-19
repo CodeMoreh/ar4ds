@@ -3,6 +3,8 @@ title: "Quarto documents"
 engine: knitr
 format:
   live-html:
+    theme: cosmo
+    css: ../styles.css
     toc: true
     webr:
       packages:

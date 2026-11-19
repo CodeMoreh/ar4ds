@@ -3,6 +3,8 @@ title: "Getting started with R, part 3"
 engine: knitr
 format:
   live-html:
+    theme: cosmo
+    css: ../styles.css
     toc: true
     webr:
       packages:
