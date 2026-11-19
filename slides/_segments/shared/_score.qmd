@@ -57,7 +57,7 @@ ggplot2::ggplot(score_cells, ggplot2::aes(sample, analysis)) +
 :::
 
 ::: notes
-This is the grid from the first session, with the SCORE study that sits in each cell. Same data and the same methods, top left, is the reproducibility study: six hundred papers, of which a hundred and forty-three could be assessed in the end. Same data and different methods, bottom left, is the robustness study, known as Multi100, with a hundred studies and five hundred and four reanalyses. New data and the same methods, top right, is the replicability study, with two hundred and seventy-four claims tested on data that the original studies did not use. The fourth cell, generalisation, has no SCORE study, and we leave it aside as before. We take the three in turn, starting with reproduction.
+This is the grid from the first session, with the SCORE study that sits in each cell. Same data and the same methods, top left, is the SCORE reproducibility study: six hundred papers, of which a hundred and forty-three could be assessed in the end. Same data and different methods, bottom left, is the SCORE robustness study, with a hundred studies and five hundred and four reanalyses. New data and the same methods, top right, is the SCORE replicability study, with two hundred and seventy-four claims tested on data that the original studies did not use. The fourth cell, generalisation, has no SCORE study, and we leave it aside as before. We take the three in turn, starting with reproduction.
 :::
 
 ## Reproducibility – Miske et al.
@@ -148,7 +148,7 @@ And access follows policy. Where journals have a data-sharing policy, availabili
 :::
 
 ::: {.src}
-The robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136].
+The SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136].
 :::
 
 ::: notes

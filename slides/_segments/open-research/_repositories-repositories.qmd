@@ -102,7 +102,7 @@ The modules Reproducibility repositories of the housing and EU sites, section on
 :::
 
 ::: notes
-A deposit changes after it is made, and a good repository keeps every state of it. The package of the Housing case study shows the pattern on Dataverse: version one point zero went up in February 2016, before the article appeared in print, and version one point one followed in April 2017, only to complete the citation, with every file the same to the byte. The OSF keeps the revisions of each file, which is why the SCORE replication of the Europeanisation claim, whose report was revised in October 2026, still shows both of its reports. Zenodo gives every version a DOI of its own. Whichever repository you use, cite the version, because the reader who follows your citation should get what you used.
+A deposit changes after it is made, and a good repository keeps every state of it. The package of the Housing case study shows the pattern on Dataverse: version one point zero went up in February 2016, before the article appeared in print, and version one point one followed in April 2017, only to complete the citation, with every file the same to the byte. The OSF keeps the revisions of each file, which is why the replication of the Europeanisation claim in the SCORE replicability study still shows both of its reports, the first and the one revised in October 2026. Zenodo gives every version a DOI of its own. Whichever repository you use, cite the version, because the reader who follows your citation should get what you used.
 :::
 
 ## The OSF after 2026 {#the-osf-after-2026}

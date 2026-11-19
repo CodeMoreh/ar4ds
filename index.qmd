@@ -62,7 +62,7 @@ The case studies differ in the statistics and the data handling that they ask fo
 
 ### [Housing and racial bias](https://codemoreh.github.io/ar4ds-housing/) {#housing-and-racial-bias .unnumbered .unlisted}
 
-In a field experiment published in the *American Journal of Political Science* in 2017, the same short email was sent to about a thousand public housing authorities in the United States, each time signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
+In a field experiment published in the *American Journal of Political Science* in 2017, the same short email was sent to about a thousand public housing authorities in the United States, each time signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
 
 <details class="home-more">
 <summary>More about the case study</summary>
@@ -72,9 +72,9 @@ In a field experiment published in the *American Journal of Political Science* i
 **The data.** One file of 1,014 emails, released into the public domain (CC0) and shipped with the workspace.
 
 ::: {.home-3r}
-- **Reproduction.** SCORE never attempted one, although the data and code are public. The four statistics recorded for the analysts in the robustness study reproduce exactly from the public file.
+- **Reproduction.** The SCORE reproducibility study never attempted one, although the data and code are public. The four statistics recorded for the analysts in the robustness study reproduce exactly from the public file.
 - **Robustness.** Three of the five analysts of the robustness study found evidence for the claim, and the other two found evidence neither way.
-- **Replication.** A new preregistered experiment, emailing 3,050 housing authorities under new names, found no significant gap (z = 0.66, p = 0.51).
+- **Replication.** In the SCORE replicability study, a new preregistered experiment, emailing 3,050 housing authorities under new names, found no significant gap (z = 0.66, p = 0.51).
 :::
 
 </details>
@@ -97,9 +97,9 @@ An article published in the *European Sociological Review* in 2016 drew on Eurob
 **The data.** A panel of 270 country-years built from Eurobarometer surveys and shipped with the workspace. The respondent files behind it come from the GESIS archive, under a free account and terms that do not allow them to be passed on.
 
 ::: {.home-3r}
-- **Reproduction.** Two attempts to reproduce the published result from the original materials did not succeed.
+- **Reproduction.** Two attempts in the SCORE reproducibility study to reproduce the published result from the original materials did not succeed.
 - **Robustness.** All five analysts of the robustness study concluded that the data support the claim, while the partial correlations recorded for their results run from −0.006 to −0.452.
-- **Replication.** A replication on later Eurobarometer waves was judged not successful.
+- **Replication.** Its replication in the SCORE replicability study, on later Eurobarometer waves, was judged not successful.
 :::
 
 </details>
@@ -124,7 +124,7 @@ The course is taught in three formats, and the facilitator of each course choose
 :::: {.home-grid}
 
 ::: {.home-track .home-reveal}
-### Short {.unnumbered .unlisted}
+### Part-day {#short .unnumbered .unlisted}
 
 [Two halves, in the browser]{.home-meta}
 
@@ -134,7 +134,7 @@ One case study with nothing to install and nothing preregistered, worked on the 
 :::
 
 ::: {.home-track .home-reveal}
-### Day {.unnumbered .unlisted}
+### Full-day {#day .unnumbered .unlisted}
 
 [Four parts, in your IDE]{.home-meta}
 
@@ -144,7 +144,7 @@ One case study in four parts, worked in the downloadable workspace in your IDE, 
 :::
 
 ::: {.home-track .home-reveal}
-### Independent {.unnumbered .unlisted}
+### Self-taught {#independent .unnumbered .unlisted}
 
 [At your own pace, in R]{.home-meta}
 
@@ -171,8 +171,8 @@ The companion of each site holds the methods that arise from its case study, fro
 
 | Case study | Formats | Tools | Data and sharing | Methods |
 |:--|:--|:--|:--|:--|
-| [Housing](https://codemoreh.github.io/ar4ds-housing/) | Short; Day; Independent | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
-| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | Short; Day; Independent | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [scale construction and the missing answers](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
+| [Housing](https://codemoreh.github.io/ar4ds-housing/) | Part-day; Full-day; Self-taught | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [the helpers of the workspace](https://codemoreh.github.io/ar4ds-housing/companion/helpers.html) | [data sources](https://codemoreh.github.io/ar4ds-housing/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-housing/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-housing/companion/repositories.html) | [audit experiments](https://codemoreh.github.io/ar4ds-housing/companion/experiments.html), [binary outcomes](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html), [causal graphs](https://codemoreh.github.io/ar4ds-housing/companion/dags.html), [missing values](https://codemoreh.github.io/ar4ds-housing/companion/missingness.html), [subgroups and multiple comparisons](https://codemoreh.github.io/ar4ds-housing/companion/subgroups.html), [Bayesian estimation](https://codemoreh.github.io/ar4ds-housing/companion/bayesian.html), [meta-analysis](https://codemoreh.github.io/ar4ds-housing/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-housing/companion/multiverse.html) |
+| [Europeanisation](https://codemoreh.github.io/ar4ds-eu/) | Part-day; Full-day; Self-taught | [R](tools/r.qmd), [the IDE](tools/ide.qmd), [Quarto](tools/quarto.qmd), [Git and GitHub](git-github.qmd), [R on the country-year panel](https://codemoreh.github.io/ar4ds-eu/companion/intro-r.html), [the workspace in the IDE](https://codemoreh.github.io/ar4ds-eu/companion/ide.html) | [data sources](https://codemoreh.github.io/ar4ds-eu/companion/data-sources.html), [building the analysis file](https://codemoreh.github.io/ar4ds-eu/companion/data-management.html), [repositories](https://codemoreh.github.io/ar4ds-eu/companion/repositories.html) | [causal graphs](https://codemoreh.github.io/ar4ds-eu/companion/dags.html), [scale construction and the missing answers](https://codemoreh.github.io/ar4ds-eu/companion/measurement.html), [panel data](https://codemoreh.github.io/ar4ds-eu/companion/panel-data.html), [meta-analysis](https://codemoreh.github.io/ar4ds-eu/companion/meta-analysis.html), [the multiverse](https://codemoreh.github.io/ar4ds-eu/companion/multiverse.html) |
 
 :::
 
@@ -213,7 +213,7 @@ How the robustness study placed 504 reanalyses on one scale, what that scale ass
 ## Getting started {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The short format needs only a browser, because its tasks are done on the slides, which run R inside the browser. The day and independent formats are worked in the workspace of the case study, with R, Quarto and an IDE installed beforehand.
+The part-day format needs only a browser, because its tasks are done on the slides, which run R inside the browser. The full-day and self-taught formats are worked in the workspace of the case study, with R, Quarto and an IDE installed beforehand.
 :::
 
 :::: {.home-steps .home-reveal}

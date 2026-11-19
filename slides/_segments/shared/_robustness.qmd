@@ -8,7 +8,7 @@
 :::
 
 ::: {.src}
-Preregistration of the robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness], osf.io/4ev9t, p. 5.
+Preregistration of the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness], osf.io/4ev9t, p. 5.
 :::
 
 ::: notes

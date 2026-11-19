@@ -21,7 +21,7 @@ A registration is what the OSF calls a frozen document. In the words of its help
 ## The preregistration of the robustness study {#the-study-you-are-inside-was-preregistered}
 
 ::: {.small}
-- The robustness study of SCORE [Multi100\; @AczelEtAl2026InvestigatingAnalyticalRobustness] was preregistered on the OSF after its analysts had been recruited and before any analysis began
+- The SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness] was preregistered on the OSF after its analysts had been recruited and before any analysis began
 - The registration fixed the aim, the two questions and the rule for comparing effect sizes: a new result counts as different when it lies beyond ±0.05 Cohen's *d* of the original
 - A second preregistration covered the peer evaluation of the reanalyses
 - The outcome: 74% of the reanalyses reached the same conclusion, and 34% came within ±0.05 *d*

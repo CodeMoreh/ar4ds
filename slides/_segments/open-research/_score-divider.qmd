@@ -5,5 +5,5 @@ Section 2
 :::
 
 ::: notes
-Section two goes inside the robustness study, known as Multi100, because its design is the design that this course repeats, with you in the place of its analysts. We take it in the order in which an analyst met it: how the claims were chosen, what arrived with each claim, and the two tasks, the free one and the constrained one. Then the step that makes a hundred studies comparable at all, the conversion of every result to a common scale, and an assumption of that conversion which is easy to miss, shown on the case study that I know best.
+Section two goes inside the robustness study, because its design is the design that this course repeats, with you in the place of its analysts. We take it in the order in which an analyst met it: how the claims were chosen, what arrived with each claim, and the two tasks, the free one and the constrained one. Then the step that makes a hundred studies comparable at all, the conversion of every result to a common scale, and an assumption of that conversion which is easy to miss, shown on the case study that I know best.
 :::

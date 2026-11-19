@@ -17,7 +17,7 @@ You leave able to say what SCORE and its robustness study found, and where the c
 :::
 
 ::: notes
-The first session gave us three kinds of repetition. This one is about the programme that measured all three on one body of social-science research, and about the study inside it from which the case studies of this course come. The first section takes the programme and its three studies in turn. The second goes inside the robustness study, known as Multi100: how it picked its claims, what its analysts were asked to do, and how it put their results on one scale. The third brings the four case studies of the course into the picture, with the claim of each as the analysts received it and what the record of the programme holds for it. Your own case study is one of the four, and the second day of the course works on it.
+The first session gave us three kinds of repetition. This one is about the programme that measured all three on one body of social-science research, and about the study inside it from which the case studies of this course come. The first section takes the programme and its three studies in turn. The second goes inside the SCORE robustness study: how it picked its claims, what its analysts were asked to do, and how it put their results on one scale. The third brings the four case studies of the course into the picture, with the claim of each as the analysts received it and what the record of the programme holds for it. Your own case study is one of the four, and the second day of the course works on it.
 :::
 
 # SCORE {#score .darkslide background-color="rgba(0,0,0,0)"}
