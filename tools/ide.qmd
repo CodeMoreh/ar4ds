@@ -115,9 +115,9 @@ The whole file runs from the run button at the top left of the editor. The butto
 
 1. In the Explorer, unfold `R` and open `check_setup.R`.
 
-2. Click the small arrow beside the run button and choose **Source R File**. The console runs `source("R/check_setup.R")` and prints an `[OK]` line for each check, followed by the verdict, 11 OK and 0 FAIL, and "You are ready" (@fig-run-file). The last check fits the reference specification of the course, which must come out at −19.97 percentage points.
+2. Click the small arrow beside the run button and choose **Source R File**. The console runs `source("R/check_setup.R")` and prints an `[OK]` line for each check, followed by the verdict, 14 OK and 0 FAIL, and "You are ready" (@fig-run-file). The last check fits the reference specification of the course, which must come out at −19.97 percentage points.
 
-![The check script run as a whole with Source R File. The console prints eleven OK lines, the verdict and the message that the machine is ready.](images/ide/11-run-file.png){#fig-run-file fig-alt="The editor shows the header of check_setup.R, and the console below it shows the call source(\"R/check_setup.R\") followed by the heading of the setup check and eleven lines marked [OK]: R 4.6.0, Quarto on PATH, all 12 required packages installed, six data files present and readable, index.qmd present, and the reference specification reproducing at -19.97 percentage points. Under the heading Verdict it reads 11 OK, 0 FAIL, 0 SKIP, and then 'You are ready. Open index.qmd and run quarto preview in the terminal.'"}
+![The check script run as a whole with Source R File. The console prints fourteen OK lines, the verdict and the message that the machine is ready.](images/ide/11-run-file.png){#fig-run-file fig-alt="The editor shows the header of check_setup.R, and the console below it shows the call source(\"R/check_setup.R\") followed by the heading of the setup check and fourteen lines marked [OK]: R 4.6.2, Quarto on PATH, all 12 required packages installed, 12 packages at the versions of the course, eight data files with their numbers of rows, index.qmd present, and the reference specification reproducing at -19.97 percentage points. Under the heading Verdict it reads 14 OK, 0 FAIL, 0 SKIP, and then 'You are ready. Open index.qmd and run quarto preview in the terminal.'"}
 :::
 
 ::: {.callout-tip}
