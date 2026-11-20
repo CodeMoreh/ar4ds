@@ -65,17 +65,20 @@ The case studies differ in the statistics and the data handling that they ask fo
 In a field experiment published in the *American Journal of Political Science* in 2017, the same short email was sent to about a thousand public housing authorities in the United States, each time signed with one of six names meant to indicate a white, a Black or a Hispanic sender. The claim, in the form in which the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness] gave it to its analysts, is that "Hispanic housing applicants were ... less likely to be greeted by name than were ... white counterparts" [@EinsteinGlick2017DoesRaceAffect, abstract].
 
 <details class="home-more">
-<summary>More about the case study</summary>
+<summary>Learning outcomes</summary>
 
-**What it teaches.** Proportions and the chi-square test, the linear probability model set against the logit, what conditioning on a reply does to an experiment, randomisation inference and statistical power.
+**Reproducible workflows.** Reproducing exactly the four statistics recorded for the robustness study's analysts from the file deposited on the Harvard Dataverse, and tracing the one that a plain chi-square test does not give to a default of the software, the continuity correction; declaring one specification in a short preregistration before running it, and running it again on the data of the replication's new experiment.
 
-**The data.** One file of 1,014 emails, released into the public domain (CC0) and shipped with the workspace.
+**Social data science tools.** R with the datawizard verbs and tinyplot, the models read with parameters and marginaleffects, a causal graph written with dagitty, and a report written in Quarto in an IDE, or the same tasks in the browser through webR.
 
-::: {.home-3r}
-- **Reproduction.** The SCORE reproducibility study never attempted one, although the data and code are public. The four statistics recorded for the analysts in the robustness study reproduce exactly from the public file.
-- **Robustness.** Three of the five analysts of the robustness study found evidence for the claim, and the other two found evidence neither way.
-- **Replication.** In the SCORE replicability study, a new preregistered experiment, emailing 3,050 housing authorities under new names, found no significant gap (z = 0.66, p = 0.51).
-:::
+**Statistical methods.** Proportions and the chi-square test, the linear probability model set against the logit, what conditioning on a reply does to an experiment, randomisation inference and statistical power, and a specification curve of 64 analyses.
+
+</details>
+
+<details class="home-more">
+<summary>Prerequisites</summary>
+
+What a first course in quantitative methods teaches: a proportion, a regression and a test of a hypothesis. No R is assumed, since the preparation includes a module on R written for someone who has never programmed, and the part-day format needs nothing but a browser.
 
 </details>
 
@@ -90,17 +93,20 @@ In a field experiment published in the *American Journal of Political Science* i
 An article published in the *European Sociological Review* in 2016 drew on Eurobarometer surveys conducted between 2004 and 2013 to examine whether the economic crisis had changed the meanings that citizens attach to the European Union. The claim, in the form in which the robustness study gave it to its analysts, is that "... poor economic performances ... decrease positive dimensions of EU framing" [@Teney2016DoesEUEconomic, p. 619].
 
 <details class="home-more">
-<summary>More about the case study</summary>
+<summary>Learning outcomes</summary>
 
-**What it teaches.** Aggregating repeated cross-sections into a panel, fixed and random effects and the within–between model, inference with few clusters, and a multiverse of 864 specifications.
+**Reproducible workflows.** Reproducing the results recorded for three of the robustness study's analysts from panels aggregated from Eurobarometer surveys, reading the terms of use under which GESIS releases the survey files, which forbid passing the files on or processing the files with an AI system, and declaring one of 864 specifications in a short preregistration before running it.
 
-**The data.** A panel of 270 country-years built from Eurobarometer surveys and shipped with the workspace. The respondent files behind it come from the GESIS archive, under a free account and terms that do not allow them to be passed on.
+**Social data science tools.** R with the datawizard verbs and fixest, standard errors with few clusters read with parameters, a report written in Quarto in an IDE, or the same tasks in the browser through webR.
 
-::: {.home-3r}
-- **Reproduction.** Two attempts in the SCORE reproducibility study to reproduce the published result from the original materials did not succeed.
-- **Robustness.** All five analysts of the robustness study concluded that the data support the claim, while the partial correlations recorded for their results run from −0.006 to −0.452.
-- **Replication.** Its replication in the SCORE replicability study, on later Eurobarometer waves, was judged not successful.
-:::
+**Statistical methods.** Aggregating repeated cross-sections into a panel, fixed and random effects and the within–between model, inference with few clusters, how the scales behind the outcome are built, and a multiverse of 864 specifications.
+
+</details>
+
+<details class="home-more">
+<summary>Prerequisites</summary>
+
+What a first course in quantitative methods teaches, including linear regression and its standard errors. No R is assumed, since the preparation includes a module on R written for someone who has never programmed, and the part-day format needs nothing but a browser.
 
 </details>
 
