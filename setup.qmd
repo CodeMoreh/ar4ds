@@ -1,9 +1,9 @@
 ---
 title: "Setup"
-subtitle: "What to install before the course, and how to check it"
+subtitle: "What to install before the workshop, and how to check it"
 ---
 
-The course is worked in R, inside an IDE, with a ready-made workspace that you download once. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the course is Positron, because Positron is one of the data-science tools that the course teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the module [Positron and other IDEs](tools/ide.qmd) takes you through Positron and says how the tasks are done in the other two.
+The workshop is worked in R, inside an IDE, with a ready-made workspace that you download once. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the workshop is Positron, because Positron is one of the data-science tools that the workshop teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the module [Positron and other IDEs](tools/ide.qmd) takes you through Positron and says how the tasks are done in the other two.
 
 The workspace and its setup check come from the site of your case study, and that site says how to download the workspace and what its folder holds. Steps 1 to 3 below cover the three tools that every workspace needs, and step 4 runs the check.
 
@@ -19,11 +19,11 @@ R is the language in which the analysis is written. Positron requires R 4.2 or l
 
 ### Windows
 
-Download the installer from the [CRAN Windows page](https://cran.r-project.org/bin/windows/base/) and run it. Accept the defaults, with one exception: keep the box **"Save version number in registry"** ticked, because RStudio, Positron and the VS Code R extension all use the registry entry to find R. Rtools, the toolchain for compiling packages from source, is not needed for the course, because every package that the course uses installs as a pre-built binary.
+Download the installer from the [CRAN Windows page](https://cran.r-project.org/bin/windows/base/) and run it. Accept the defaults, with one exception: keep the box **"Save version number in registry"** ticked, because RStudio, Positron and the VS Code R extension all use the registry entry to find R. Rtools, the toolchain for compiling packages from source, is not needed for the workshop, because every package that the workshop uses installs as a pre-built binary.
 
 ### macOS
 
-The [CRAN macOS page](https://cran.r-project.org/bin/macosx/) offers two builds of the current release, and you need the one that matches your machine: the **Apple silicon (arm64)** package for an M-series Mac, which requires macOS 14 or later, and the **Intel (x86_64)** package for an Intel Mac, which requires macOS 11 or later. Open the `.pkg` and follow the installer. If macOS refuses the installer access to your Downloads folder, move the file to your home folder and run it from there, as the CRAN page advises. XQuartz is only needed for the X11 graphics device, which the course does not use. The [R for macOS FAQ](https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html) is the reference for anything that the installer does not settle, and the [R-SIG-Mac list](https://stat.ethz.ch/mailman/listinfo/r-sig-mac) is where Mac-specific problems are discussed.
+The [CRAN macOS page](https://cran.r-project.org/bin/macosx/) offers two builds of the current release, and you need the one that matches your machine: the **Apple silicon (arm64)** package for an M-series Mac, which requires macOS 14 or later, and the **Intel (x86_64)** package for an Intel Mac, which requires macOS 11 or later. Open the `.pkg` and follow the installer. If macOS refuses the installer access to your Downloads folder, move the file to your home folder and run it from there, as the CRAN page advises. XQuartz is only needed for the X11 graphics device, which the workshop does not use. The [R for macOS FAQ](https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html) is the reference for anything that the installer does not settle, and the [R-SIG-Mac list](https://stat.ethz.ch/mailman/listinfo/r-sig-mac) is where Mac-specific problems are discussed.
 
 ### Linux
 
@@ -49,7 +49,7 @@ To confirm a separate installation, open a fresh terminal and type `quarto --ver
 
 ## 3. The IDE
 
-Pick one. The default for the course is Positron, and the other two are fully supported for every task.
+Pick one. The default for the workshop is Positron, and the other two are fully supported for every task.
 
 ::: {.panel-tabset}
 
@@ -79,6 +79,6 @@ VS Code is the general-purpose editor on which Positron is built, and it works f
 
 Open the unzipped folder of the workspace in your IDE, because every path in the workspace is relative to that folder. In **Positron** and in **VS Code**, choose **File → Open Folder** and pick the folder; the files appear in a panel on the left. In **RStudio**, open the `.Rproj` file inside the folder, and RStudio opens the folder as a project with the working directory set.
 
-In the folder, open `R/check_setup.R` and run it: click **Run** or **Source** in your IDE, or type `source("R/check_setup.R")` in the R console. The script prints an OK or FAIL line for each check: your R version, Quarto, the packages that the workspace uses and each data file. The script changes nothing on your system. If any package is missing, it prints a line of R that installs all the missing packages at once, at the versions with which the course was tested, so run that line and then run the script again. Quarto cannot be installed from R in this way. If the script says that Quarto is not found, install it (step 2) and run the script again in a fresh session. Fix any FAIL before the day.
+In the folder, open `R/check_setup.R` and run it: click **Run** or **Source** in your IDE, or type `source("R/check_setup.R")` in the R console. The script prints an OK or FAIL line for each check: your R version, Quarto, the packages that the workspace uses and each data file. The script changes nothing on your system. If any package is missing, it prints a line of R that installs all the missing packages at once, at the versions with which the workshop was tested, so run that line and then run the script again. Quarto cannot be installed from R in this way. If the script says that Quarto is not found, install it (step 2) and run the script again in a fresh session. Fix any FAIL before the day.
 
 If something fails and the script does not say why, the [help page](help.qmd) lists the problems that other participants have met, with their fixes and with prompts you can give an AI assistant. If the installation still fails, the slides used in a session and the browser lab of your case study run the same tasks inside the browser.

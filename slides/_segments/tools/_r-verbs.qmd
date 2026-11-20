@@ -27,7 +27,7 @@ housing$reply |> mean(na.rm = TRUE) |> round(3)
 :::
 
 ::: notes
-The pipe makes a sequence of steps readable. The first line takes the mean of the reply column, leaving out the bounced emails, and rounds it to three decimals, with each function wrapped inside the next, so you read it from the inside out. The second line does the same from left to right: take the column, then take its mean, then round it. Both give point five six eight, the reply rate that the table of the last section gave as a percentage. On one short line the gain is small, but it grows with every step of the chains that follow, which is why nearly all modern R is written this way. You will meet the older pipe in code written by others: read the two in the same way, and write the native one, as all the materials of the course do.
+The pipe makes a sequence of steps readable. The first line takes the mean of the reply column, leaving out the bounced emails, and rounds it to three decimals, with each function wrapped inside the next, so you read it from the inside out. The second line does the same from left to right: take the column, then take its mean, then round it. Both give point five six eight, the reply rate that the table of the last section gave as a percentage. On one short line the gain is small, but it grows with every step of the chains that follow, which is why nearly all modern R is written this way. You will meet the older pipe in code written by others: read the two in the same way, and write the native one, as all the materials of the workshop do.
 :::
 
 ## Rows and columns {#rows-and-columns .smaller}

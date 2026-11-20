@@ -60,7 +60,7 @@ housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 
 ## 13. Other formats, and fetching data {#sec-formats}
 
-The course file is a CSV, but the data reached the course as a file in the format of Stata, a statistical package, with the extension `.dta`. The OAs deposited it on the Harvard Dataverse, an open repository for research data, under the persistent identifier [doi:10.7910/DVN/1HOVTU](https://doi.org/10.7910/DVN/1HOVTU) and a CC0 dedication, which places the files in the public domain. Every Dataverse installation answers requests from programs at fixed addresses, which make up its API (application programming interface), and the access address of the API returns a file by the DOI that each file of a record carries. The block below builds that address for the data file and downloads the file into the browser under the name `deposit.dta`.
+The workshop file is a CSV, but the data reached the workshop as a file in the format of Stata, a statistical package, with the extension `.dta`. The OAs deposited it on the Harvard Dataverse, an open repository for research data, under the persistent identifier [doi:10.7910/DVN/1HOVTU](https://doi.org/10.7910/DVN/1HOVTU) and a CC0 dedication, which places the files in the public domain. Every Dataverse installation answers requests from programs at fixed addresses, which make up its API (application programming interface), and the access address of the API returns a file by the DOI that each file of a record carries. The block below builds that address for the data file and downloads the file into the browser under the name `deposit.dta`.
 
 ```{webr}
 url <- paste0("https://dataverse.harvard.edu/api/access/datafile/:persistentId",
@@ -83,13 +83,13 @@ deposit <- haven::read_dta("deposit.dta")   # haven::read_sav() reads SPSS files
 names(deposit)
 ```
 
-The fourteen columns keep the names given by the OAs, such as `Response_Dichotomous` for the reply and `ProperName` for the greeting, which the course file calls `reply` and `named`. Files of this kind differ from a CSV in storing **labelled data**. Each column can carry a variable label, a short description of what it holds, and a column of numeric codes can carry value labels, the words for which the codes stand, and haven keeps both. In the deposited file, `NumberAssignment` records the email account from which each email was sent, coded 1 to 6, and its value labels give the name that signed the emails of each account.
+The fourteen columns keep the names given by the OAs, such as `Response_Dichotomous` for the reply and `ProperName` for the greeting, which the workshop file calls `reply` and `named`. Files of this kind differ from a CSV in storing **labelled data**. Each column can carry a variable label, a short description of what it holds, and a column of numeric codes can carry value labels, the words for which the codes stand, and haven keeps both. In the deposited file, `NumberAssignment` records the email account from which each email was sent, coded 1 to 6, and its value labels give the name that signed the emails of each account.
 
 ```{webr}
 head(deposit$NumberAssignment)
 ```
 
-The first line of the output gives the variable label, `Number Assignment`, the second the codes of the first six emails, and the table underneath the value labels. `as_label()` from the sjlabelled package turns each code into its label, which gives a factor, and `data_tabulate()` then counts the emails signed with each name, the counts of the first table in the [codebook of the course file](https://codemoreh.github.io/ar4ds-housing/data/housing_emails_codebook.html).
+The first line of the output gives the variable label, `Number Assignment`, the second the codes of the first six emails, and the table underneath the value labels. `as_label()` from the sjlabelled package turns each code into its label, which gives a factor, and `data_tabulate()` then counts the emails signed with each name, the counts of the first table in the [codebook of the workshop file](https://codemoreh.github.io/ar4ds-housing/data/housing_emails_codebook.html).
 
 ```{webr}
 deposit$NumberAssignment |>
@@ -98,12 +98,12 @@ deposit$NumberAssignment |>
   datawizard::print_html()
 ```
 
-haven has a function for the same conversion, `as_factor()`. Both functions keep a category for every value label, including the label of a code that no row holds, unless `as_label()` is given `drop.levels = TRUE`, and the course uses `as_label()` for that reason.
+haven has a function for the same conversion, `as_factor()`. Both functions keep a category for every value label, including the label of a code that no row holds, unless `as_label()` is given `drop.levels = TRUE`, and the workshop uses `as_label()` for that reason.
 
 ::: {.callout-tip}
 ## Try it
 
-The column `poverty_pop_third` places the community of each housing authority in a third of the distribution of the poverty rate among the communities of the study, coded 1, 2 and 3. Fill the blank so that the block counts the emails in each third under its label, and compare the counts with the codebook of the course file.
+The column `poverty_pop_third` places the community of each housing authority in a third of the distribution of the poverty rate among the communities of the study, coded 1, 2 and 3. Fill the blank so that the block counts the emails in each third under its label, and compare the counts with the codebook of the workshop file.
 :::
 
 ```{webr}
@@ -134,7 +134,7 @@ deposit$poverty_pop_third |>
   datawizard::print_html()
 ```
 
-The labels are `Lower Third`, `Middle Third` and `Top Third`, and the row of missing values holds the emails whose community has no poverty third in the file, the same counts as the column `poverty_third` of the course file.
+The labels are `Lower Third`, `Middle Third` and `Top Third`, and the row of missing values holds the emails whose community has no poverty third in the file, the same counts as the column `poverty_third` of the workshop file.
 :::
 ::::
 
@@ -146,9 +146,9 @@ deposit |>
   sjlabelled::get_label()
 ```
 
-`HispanicEmailer` records whether the official who replied had a Hispanic name, the column `hispanic_official` of the course file, and yet it carries the label of the column before it, the hard-to-find address. The codebook deposited by the OAs beside the file labels it "Respondent had Hispanic name", and the codebook of the course file records the slip, which is why the labels of a file serve as a first guide while its codebook remains the authority on what each column holds.
+`HispanicEmailer` records whether the official who replied had a Hispanic name, the column `hispanic_official` of the workshop file, and yet it carries the label of the column before it, the hard-to-find address. The codebook deposited by the OAs beside the file labels it "Respondent had Hispanic name", and the codebook of the workshop file records the slip, which is why the labels of a file serve as a first guide while its codebook remains the authority on what each column holds.
 
-Many organisations keep their data in **Excel** workbooks, which the readxl package reads one sheet at a time, since a workbook is really a stack of tables. The file names in this block and the next are illustrative, since the course ships no workbook and no Parquet file, and the two blocks are shown and not run.
+Many organisations keep their data in **Excel** workbooks, which the readxl package reads one sheet at a time, since a workbook is really a stack of tables. The file names in this block and the next are illustrative, since the workshop ships no workbook and no Parquet file, and the two blocks are shown and not run.
 
 ``` r
 rates <- readxl::read_excel("unemployment_rates.xlsx", sheet = "annual")
@@ -162,7 +162,7 @@ Treat what arrives from a spreadsheet with mild suspicion. Excel displays one th
 emails <- arrow::read_parquet("housing_emails.parquet")   # arrow::read_feather() for Feather
 ```
 
-Whatever the source format, what you end up with in R is the same data frame, and everything downstream, from the verbs of section 9 to the model of section 15, proceeds identically. Every reading function here also has a writing counterpart, among them `readr::write_csv()`, `haven::write_dta()`, `arrow::write_parquet()` and `writexl::write_xlsx()` from the writexl package, so R also serves to convert files from one format to another. The course ships its data as CSV all the same, because for tables of a few hundred or a thousand rows the efficiency of the binary formats buys nothing, while plain text can be opened in any program, compared line by line or read in an email.
+Whatever the source format, what you end up with in R is the same data frame, and everything downstream, from the verbs of section 9 to the model of section 15, proceeds identically. Every reading function here also has a writing counterpart, among them `readr::write_csv()`, `haven::write_dta()`, `arrow::write_parquet()` and `writexl::write_xlsx()` from the writexl package, so R also serves to convert files from one format to another. The workshop ships its data as CSV all the same, because for tables of a few hundred or a thousand rows the efficiency of the binary formats buys nothing, while plain text can be opened in any program, compared line by line or read in an email.
 
 ### Fetching data from a repository or an API {#sec-fetching}
 
@@ -230,9 +230,9 @@ housing |>
   )
 ```
 
-Read the chain aloud and it is almost English: take the emails, keep the delivered ones, add a column for the greeting, group the emails by the names, and for each group report the count and two shares. Readability of that kind serves reproducibility, because a reviewer who can read the code can check it, and that is why the scripts of the course are built from chains of named verbs.
+Read the chain aloud and it is almost English: take the emails, keep the delivered ones, add a column for the greeting, group the emails by the names, and for each group report the count and two shares. Readability of that kind serves reproducibility, because a reviewer who can read the code can check it, and that is why the scripts of the workshop are built from chains of named verbs.
 
-**easystats** is the third dialect, and the one to which the course turns first. It is likewise a family of packages under one installable name, `easystats` [@LudeckeEtAl2022EasystatsFrameworkEasy]. Its member for the preparation of data is datawizard, the package of sections 7 to 11, whose verbs are modelled on the verbs of dplyr, and the course uses datawizard wherever it has the verb that a task needs, before turning to dplyr.
+**easystats** is the third dialect, and the one to which the workshop turns first. It is likewise a family of packages under one installable name, `easystats` [@LudeckeEtAl2022EasystatsFrameworkEasy]. Its member for the preparation of data is datawizard, the package of sections 7 to 11, whose verbs are modelled on the verbs of dplyr, and the workshop uses datawizard wherever it has the verb that a task needs, before turning to dplyr.
 
 ```{webr}
 delivered <- housing |>
@@ -283,7 +283,7 @@ The reply rate of 0.52 is the one that the exercise of section 9 found for Santi
 
 ## 15. Naming the estimand {#sec-estimand}
 
-Fitting models is the subject of the methods modules of the case-study sites. On the Housing data, the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of the Housing site builds from the table of counts of section 10 up to the logistic regression of the paper. Nothing that follows is needed for the exercise. It is here because it completes the map of the dialects, and because it ties the tools of R to the habit that the course asks of you throughout, which is to name the quantity that you want before you estimate it, the **estimand**.
+Fitting models is the subject of the methods modules of the case-study sites. On the Housing data, the [binary-outcomes module](https://codemoreh.github.io/ar4ds-housing/companion/binary-outcomes.html) of the Housing site builds from the table of counts of section 10 up to the logistic regression of the paper. Nothing that follows is needed for the exercise. It is here because it completes the map of the dialects, and because it ties the tools of R to the habit that the workshop asks of you throughout, which is to name the quantity that you want before you estimate it, the **estimand**.
 
 The simplest model of the claim is a linear model of the greeting on the group of the name, fitted to the replies that carry a greeting code. With an outcome of 0s and 1s and a predictor made of groups, each coefficient of such a model is a difference between two shares, the quantity of section 10. One step comes first. The modelbased package used further below works through the marginaleffects package, which refuses a column called `group` because its own output has a column of that name, so the block below renames the column as `names_of`, with `data_rename()`, and makes it a factor with the white names first.
 

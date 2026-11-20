@@ -24,7 +24,7 @@ Section two is about running code, which is most of what you do in an IDE. A scr
 ::::
 
 ::: notes
-The whole file runs from the run button at the top left of the editor. The button itself runs Source R File with Echo, which prints every line of code in the console before its result, and the small arrow beside it opens a menu that also offers Source R File, which runs the file with source and prints the results only. The second suits the check script, whose code you do not need to read in the console, and it does the same as typing source R slash check setup dot R there. The check prints an OK line for each thing that the course needs, and its last check fits the reference specification of the Housing case study, which must come out at minus nineteen point nine seven percentage points. The check script of every workspace works in the same way.
+The whole file runs from the run button at the top left of the editor. The button itself runs Source R File with Echo, which prints every line of code in the console before its result, and the small arrow beside it opens a menu that also offers Source R File, which runs the file with source and prints the results only. The second suits the check script, whose code you do not need to read in the console, and it does the same as typing source R slash check setup dot R there. The check prints an OK line for each thing that the workshop needs, and its last check fits the reference specification of the Housing case study, which must come out at minus nineteen point nine seven percentage points. The check script of every workspace works in the same way.
 :::
 
 ## A statement at a time {#a-statement-at-a-time .smaller}
@@ -95,7 +95,7 @@ With a selection, Control and Enter sends exactly the text that you selected, wh
 :::
 
 ::: notes
-The console shows a greater-than sign when R is waiting for you and a plus sign at the start of each further line of a statement that runs over several lines. You can type into it directly, and the Up arrow brings back the commands that you ran before, so that a line can be run again or changed without being retyped. Control and L clears what the console shows and leaves every object in place. The bar at the top shows the working directory of the session, which should be the folder of the workspace, as getwd confirms here. The circular arrow restarts R, which ends the session, and every object goes with it. Positron does not save the objects of a session when it closes, and that suits the course: a result is reproducible only when the script recreates every object that it uses.
+The console shows a greater-than sign when R is waiting for you and a plus sign at the start of each further line of a statement that runs over several lines. You can type into it directly, and the Up arrow brings back the commands that you ran before, so that a line can be run again or changed without being retyped. Control and L clears what the console shows and leaves every object in place. The bar at the top shows the working directory of the session, which should be the folder of the workspace, as getwd confirms here. The circular arrow restarts R, which ends the session, and every object goes with it. Positron does not save the objects of a session when it closes, and that suits the workshop: a result is reproducible only when the script recreates every object that it uses.
 :::
 
 ## The Variables pane {#the-variables-pane .smaller}

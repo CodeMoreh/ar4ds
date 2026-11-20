@@ -5,7 +5,7 @@ Section 2
 :::
 
 ::: notes
-Section two turns to the other side of the exchange: where a finished piece of work is deposited, so that another person can find it, cite it and run it again. We start with what a repository has to do, which gives a checklist for choosing one, then the repositories that researchers actually use, and the difference between a code forge such as GitHub and an archive. We end on a change that touches every record of this course, since the Open Science Framework is closing its projects to new work.
+Section two turns to the other side of the exchange: where a finished piece of work is deposited, so that another person can find it, cite it and run it again. We start with what a repository has to do, which gives a checklist for choosing one, then the repositories that researchers actually use, and the difference between a code forge such as GitHub and an archive. We end on a change that touches every record of this workshop, since the Open Science Framework is closing its projects to new work.
 :::
 
 ## What a repository has to do {#what-a-repository-has-to-do .smaller}
@@ -82,7 +82,7 @@ The modules Reproducibility repositories of the case-study sites, section 3.
 :::
 
 ::: notes
-GitHub and its relatives are where most research code is found, which makes them look like repositories in the sense of the checklist, but they lack most of its properties. A GitHub repository has no DOI, it can be renamed, transferred or deleted by its owner in a minute, and nobody has promised to keep it. The remedy is cheap and standard: tag a release on the forge and let Zenodo archive it, which gives that release a DOI that a paper can cite, while the forge keeps the working copy that goes on changing. The module on Git and GitHub on this site takes you from nothing to a repository of your own, and the third day of the Extended course puts your own report under Git.
+GitHub and its relatives are where most research code is found, which makes them look like repositories in the sense of the checklist, but they lack most of its properties. A GitHub repository has no DOI, it can be renamed, transferred or deleted by its owner in a minute, and nobody has promised to keep it. The remedy is cheap and standard: tag a release on the forge and let Zenodo archive it, which gives that release a DOI that a paper can cite, while the forge keeps the working copy that goes on changing. The module on Git and GitHub on this site takes you from nothing to a repository of your own, and the third day of the multi-day format puts your own report under Git.
 :::
 
 ## Versions of a record {#versions-of-a-record .deepdive run="versions"}
@@ -123,5 +123,5 @@ The help pages of the OSF on the transition, as quoted in the modules Reproducib
 :::
 
 ::: notes
-This change touches every record of this course. On the twenty-seventh of August 2026 the Center for Open Science announced that it is phasing out OSF Projects, the workspaces in which SCORE and its robustness study kept their records, because it cannot sustain what the projects cost to run. From the sixteenth of November 2026 nobody can create a new project, and from the nineteenth of February 2027 every project is read-only. Nothing in the records of this course is lost, because the SCORE projects of the four case studies are public and stay readable at the same addresses. Registrations and preprints carry on as before. For new work the arrangement changes: the plan is registered on the OSF, and the data and code go to a repository such as Zenodo or Dataverse, linked from the registration.
+This change touches every record of this workshop. On the twenty-seventh of August 2026 the Center for Open Science announced that it is phasing out OSF Projects, the workspaces in which SCORE and its robustness study kept their records, because it cannot sustain what the projects cost to run. From the sixteenth of November 2026 nobody can create a new project, and from the nineteenth of February 2027 every project is read-only. Nothing in the records of this workshop is lost, because the SCORE projects of the four case studies are public and stay readable at the same addresses. Registrations and preprints carry on as before. For new work the arrangement changes: the plan is registered on the OSF, and the data and code go to a repository such as Zenodo or Dataverse, linked from the registration.
 :::

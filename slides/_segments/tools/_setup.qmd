@@ -5,7 +5,7 @@
 # after the shared and the day-1 setup chunks. A slide shows the code of a step
 # as a static block, as the class types it in the workspace of the
 # Housing case study, and prints what that step gives from the copy of the
-# course file kept with the modules on the tools (byte-identical to the file
+# workshop file kept with the modules on the tools (byte-identical to the file
 # of the Housing site), read as the workspace reads it. Printouts are narrowed
 # to the width of a slide and set without the ## of knitr, as the console
 # prints them.
@@ -113,7 +113,7 @@ santiago <- datawizard::data_filter(housing, name == "Santiago")
 
 # The statistic of 8PTRZ, which the slides on Quarto compute inline: the 2 x 2
 # table of the Hispanic names against all other names among the coded
-# replies, from the course file, which gives the same table as the public file
+# replies, from the workshop file, which gives the same table as the public file
 # of the original authors
 coded_replies <- housing |>
   datawizard::data_filter(!is.na(named)) |>

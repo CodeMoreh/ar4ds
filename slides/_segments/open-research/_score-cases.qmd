@@ -5,7 +5,7 @@ Section 3
 :::
 
 ::: notes
-Section three brings the programme down to the four case studies of this course. Each is a claim that went through the robustness study and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions reached by the five analysts of each claim, side by side, and then the record of each case study across the three Rs. Your own case study is one of the four. You meet it properly on the second day, so for now the aim is only to place it among the others.
+Section three brings the programme down to the four case studies of this workshop. Each is a claim that went through the robustness study and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions reached by the five analysts of each claim, side by side, and then the record of each case study across the three Rs. Your own case study is one of the four. You meet it properly on the second day, so for now the aim is only to place it among the others.
 :::
 
 ## The four claims {#the-four-claims .smaller}
@@ -105,5 +105,5 @@ The page SCORE on this site, from the facts file of each case study.
 :::
 
 ::: notes
-And here is the whole record, case by case, across the three Rs. Read down the reproduction column first: one reproduction never attempted although everything needed for it was public, one never recorded, two that came close on fewer respondents, and two that failed. Then read across the rows, which is the point of the slide. [advance] The Europeanisation claim, upheld by every one of its analysts, could be neither reproduced from its original materials nor replicated on later waves of its survey. The Immigration claim, upheld just as consistently, replicated on later rounds of the European Social Survey. Four case studies are far too few for a conclusion about the literature, but they show, case by case, why the course keeps the three questions apart.
+And here is the whole record, case by case, across the three Rs. Read down the reproduction column first: one reproduction never attempted although everything needed for it was public, one never recorded, two that came close on fewer respondents, and two that failed. Then read across the rows, which is the point of the slide. [advance] The Europeanisation claim, upheld by every one of its analysts, could be neither reproduced from its original materials nor replicated on later waves of its survey. The Immigration claim, upheld just as consistently, replicated on later rounds of the European Social Survey. Four case studies are far too few for a conclusion about the literature, but they show, case by case, why the workshop keeps the three questions apart.
 :::

@@ -32,17 +32,17 @@ Preregistrations osf.io/4ev9t (pp. 2 and 9) and osf.io/y4evp; @AczelEtAl2026Inve
 :::
 
 ::: notes
-The robustness study practised what it measured. Its first preregistration was filed after the analysts had been recruited and before any of them had started, and it fixed the questions and, above all, the judging: two results count as the same when their effect sizes lie within five hundredths of a Cohen's d. It even explains why it sets confidence intervals aside, since a less precise estimate would look more robust. A second registration covered the peer evaluation. That is why the seventy-four per cent and the thirty-four per cent of the last session mean something, because nobody could move the goalposts once the results were in. The course repeats this design on the second day, with you as a sixth analyst who declares an analysis before running it.
+The robustness study practised what it measured. Its first preregistration was filed after the analysts had been recruited and before any of them had started, and it fixed the questions and, above all, the judging: two results count as the same when their effect sizes lie within five hundredths of a Cohen's d. It even explains why it sets confidence intervals aside, since a less precise estimate would look more robust. A second registration covered the peer evaluation. That is why the seventy-four per cent and the thirty-four per cent of the last session mean something, because nobody could move the goalposts once the results were in. The workshop repeats this design on the second day, with you as a sixth analyst who declares an analysis before running it.
 :::
 
 ## Preregistration templates {#two-templates-one-choice}
 
 ::: {.small}
-- **The AsPredicted form**, on the OSF as the "Preregistration Template from AsPredicted.org": eight short questions, from whether any data have been collected to the sample size. The preregistration block of the course follows it, adapted for data already in hand
+- **The AsPredicted form**, on the OSF as the "Preregistration Template from AsPredicted.org": eight short questions, from whether any data have been collected to the sample size. The preregistration block of the workshop follows it, adapted for data already in hand
 - **The template for secondary data**: 25 questions, written for the analysis of existing data, among them questions on what you already know about the data and their results [@VandenAkkerEtAl2021PreregistrationSecondaryData, p. 3]
 - Both are set out in the reading of this session
 :::
 
 ::: notes
-Two templates matter for a reanalysis. The AsPredicted form asks eight questions in plain language, and the preregistration block of the course follows it. But it was written for people who have not collected their data yet, and its first question, whether any data have been collected, has for us the awkward answer that we already hold everything. The template that van den Akker and colleagues wrote for secondary data is built for exactly that situation: twenty-five questions, among them a set on what you already know about the data and how you came to know it. A preregistration of a reanalysis cannot promise that you approached the data blind, only that your choices were fixed and dated before you ran them, and the block of the course borrows that part as its data-in-hand statement.
+Two templates matter for a reanalysis. The AsPredicted form asks eight questions in plain language, and the preregistration block of the workshop follows it. But it was written for people who have not collected their data yet, and its first question, whether any data have been collected, has for us the awkward answer that we already hold everything. The template that van den Akker and colleagues wrote for secondary data is built for exactly that situation: twenty-five questions, among them a set on what you already know about the data and how you came to know it. A preregistration of a reanalysis cannot promise that you approached the data blind, only that your choices were fixed and dated before you ran them, and the block of the workshop borrows that part as its data-in-hand statement.
 :::

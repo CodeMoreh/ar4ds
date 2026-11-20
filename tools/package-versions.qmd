@@ -7,10 +7,10 @@ title: "Package versions"
 that day; datawizard 1.5.0 and 1.4.1, purrr 1.2.2, groundhog 3.4.0, renv 1.3.1).
 The page runs no code. The two dates of the tasks lie on either side of the
 release of datawizard 1.5.0 (4 November 2026) and do not move with the package
-date of the course; the sentence on the setup check in section 2 holds while
+date of the workshop; the sentence on the setup check in section 2 holds while
 the workspaces install from a dated address. -->
 
-Packages change from one release to the next, so a script can give another result on a machine with another version of a package. This module shows one case in the data of the Housing and racial bias case study, and three ways of fixing the versions of a project: a copy of CRAN as it stood on a chosen day, the package groundhog, and the package renv. The tasks are done in your IDE (Positron, RStudio, VS Code, etc.) and use datawizard and purrr, two of the packages of the workspaces of the course. The module builds on [Getting started with R](r.qmd) and its [third part](r-functions.qmd).
+Packages change from one release to the next, so a script can give another result on a machine with another version of a package. This module shows one case in the data of the Housing and racial bias case study, and three ways of fixing the versions of a project: a copy of CRAN as it stood on a chosen day, the package groundhog, and the package renv. The tasks are done in your IDE (Positron, RStudio, VS Code, etc.) and use datawizard and purrr, two of the packages of the workspaces of the workshop. The module builds on [Getting started with R](r.qmd) and its [third part](r-functions.qmd).
 
 ## 1. A change between two releases {#sec-case}
 
@@ -63,7 +63,7 @@ packageVersion("datawizard")
 
 You should get 1.4.1, then the standard error 0.217 and the error. Only datawizard comes from the new library, and every other package from your own. To return to your installed version, delete the folder `library-2026-11-03` and restart R.
 
-The workspaces of the course use such an address for the whole installation. The setup check, `R/check_setup.R`, prints an `install.packages()` line with the address of the date on which the course was tested, and names in a `[NOTE]` every package that is installed at another version.
+The workspaces of the workshop use such an address for the whole installation. The setup check, `R/check_setup.R`, prints an `install.packages()` line with the address of the date on which the workshop was tested, and names in a `[NOTE]` every package that is installed at another version.
 
 ## 3. groundhog {#sec-groundhog}
 
@@ -98,7 +98,7 @@ renv finds the packages of a project by reading its code, so a package that the 
 
 ## 5. Naming conflicts {#sec-conflicts}
 
-Fixed versions do not settle from which package a function comes when two packages share a name. The course settles it by writing `pkg::fun()` on every call, and [section 5 of Getting started with R](r.qmd#sec-packages) shows the import script with conflicted for code written the other way. Four further tools exist, and the course uses none of them: the option `options(conflicts.policy = "strict")` of R, under which `library()` stops with an error at every unresolved conflict; the function `use()` of R, which attaches the functions named in its argument `include.only`; and the packages [box](https://CRAN.R-project.org/package=box) and [import](https://CRAN.R-project.org/package=import), each of which imports the functions named in its call.
+Fixed versions do not settle from which package a function comes when two packages share a name. The workshop settles it by writing `pkg::fun()` on every call, and [section 5 of Getting started with R](r.qmd#sec-packages) shows the import script with conflicted for code written the other way. Four further tools exist, and the workshop uses none of them: the option `options(conflicts.policy = "strict")` of R, under which `library()` stops with an error at every unresolved conflict; the function `use()` of R, which attaches the functions named in its argument `include.only`; and the packages [box](https://CRAN.R-project.org/package=box) and [import](https://CRAN.R-project.org/package=import), each of which imports the functions named in its call.
 
 ## Sources {#sec-sources}
 

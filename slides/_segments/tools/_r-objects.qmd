@@ -1,7 +1,7 @@
 ## The workspace {#the-workspace .smaller}
 
 ::: {.small}
-- Every step of the afternoon runs in the **workspace of the Housing case study**, the folder `ar4ds-housing-workspace-main`, whatever the case study of your course
+- Every step of the afternoon runs in the **workspace of the Housing case study**, the folder `ar4ds-housing-workspace-main`, whatever the case study of your workshop
 - Open the folder itself, not a file inside it: **File → Open Folder…** in Positron and VS Code, or the file `ar4ds-housing-workspace.Rproj` in RStudio
 - Then open a new R script, save it in that folder, and type each step of this session into it
 :::
@@ -15,7 +15,7 @@ If the folder is not on your machine yet, its zip is on the setup page, in step 
 :::
 
 ::: notes
-Before anybody types, the folder. Every step this afternoon runs in the workspace of the Housing case study, because the modules on the tools use it as their running example, whatever the case study of your course. If your course works on that case study, you installed the folder before the course and ran its check script. If it works on another case study, the folder that you installed belongs to that case study, and the Housing folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
+Before anybody types, the folder. Every step this afternoon runs in the workspace of the Housing case study, because the modules on the tools use it as their running example, whatever the case study of your workshop. If your workshop works on that case study, you installed the folder before the workshop and ran its check script. If it works on another case study, the folder that you installed belongs to that case study, and the Housing folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
 :::
 
 # Objects and data frames {#objects-and-data-frames .darkslide background-color="rgba(0,0,0,0)"}
@@ -25,7 +25,7 @@ Section 1
 :::
 
 ::: notes
-Section one starts at the very bottom, with the places where you type R and the way in which R answers. Then come the two pieces from which everything else is built: objects, which give a value a name, and vectors, which hold a run of values. One small fact about vectors carries most of the arithmetic of the course, that the mean of a run of ones and zeros is a share. We end with the data frame, the table in which R keeps a dataset, and with a first task of your own.
+Section one starts at the very bottom, with the places where you type R and the way in which R answers. Then come the two pieces from which everything else is built: objects, which give a value a name, and vectors, which hold a run of values. One small fact about vectors carries most of the arithmetic of the workshop, that the mean of a run of ones and zeros is a share. We end with the data frame, the table in which R keeps a dataset, and with a first task of your own.
 :::
 
 ## The console and the script {#the-console-and-the-script .smaller}
@@ -46,7 +46,7 @@ Section one starts at the very bottom, with the places where you type R and the 
 :::
 
 ::: notes
-In your IDE there are two places to type R. The console runs a line the moment you press Enter. Type one thousand and fourteen minus twenty-three, and R answers nine hundred and ninety-one, the emails that reached a housing authority out of the thousand and fourteen that were sent. The one in square brackets is not part of the answer, because R numbers the values that it prints. [advance] A script keeps what you type. Put the same line in your new script, leave the cursor on it, and press Control and Enter: the line goes to the console and runs there. [advance] The rule of the course is to try things in the console and to move anything that matters into the script, because the script records how a result was reached, and the console forgets it when the session ends.
+In your IDE there are two places to type R. The console runs a line the moment you press Enter. Type one thousand and fourteen minus twenty-three, and R answers nine hundred and ninety-one, the emails that reached a housing authority out of the thousand and fourteen that were sent. The one in square brackets is not part of the answer, because R numbers the values that it prints. [advance] A script keeps what you type. Put the same line in your new script, leave the cursor on it, and press Control and Enter: the line goes to the console and runs there. [advance] The rule of the workshop is to try things in the console and to move anything that matters into the script, because the script records how a result was reached, and the console forgets it when the session ends.
 :::
 
 ## Objects and vectors {#objects-and-vectors .smaller}
@@ -99,11 +99,11 @@ mean(greeted, na.rm = TRUE)
 ```
 
 ::: {.fragment .small}
-The file has missing values of three kinds: the `r n_bounced` emails that bounced have no reply, an email without a reply has no greeting, and `r n_uncoded` replies were never coded. The course never uses `na.rm = TRUE` without saying which rows it removes.
+The file has missing values of three kinds: the `r n_bounced` emails that bounced have no reply, an email without a reply has no greeting, and `r n_uncoded` replies were never coded. The workshop never uses `na.rm = TRUE` without saying which rows it removes.
 :::
 
 ::: notes
-One small fact carries most of the arithmetic of the course. When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the claim of the Housing case study, whether a reply opened with the name of the sender, is stored in exactly this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known. The argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
+One small fact carries most of the arithmetic of the workshop. When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the claim of the Housing case study, whether a reply opened with the name of the sender, is stored in exactly this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known. The argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
 :::
 
 ## Data frames {#data-frames .smaller}
@@ -134,7 +134,7 @@ A **data frame** is a table: vectors of equal length standing side by side as co
 :::
 
 ::: notes
-A data frame is how R stores a table: vectors of the same length standing side by side as columns, with one row for each observation, and almost everything in the course is a data frame. This one is built by hand, with three emails, the name that signed each, whether a reply came and whether the reply greeted the sender by name. The third email shows why a greeting can be missing: no reply came, so there was no greeting to code. The part before the two colons names the package from which the function comes, which the next section explains. A tibble prints its size on the first line and the type of each column under its name. The dollar sign pulls one column out as a vector, which is often the quickest way to look at a single column, and for reshaping a table the course uses the verbs of the third section.
+A data frame is how R stores a table: vectors of the same length standing side by side as columns, with one row for each observation, and almost everything in the workshop is a data frame. This one is built by hand, with three emails, the name that signed each, whether a reply came and whether the reply greeted the sender by name. The third email shows why a greeting can be missing: no reply came, so there was no greeting to code. The part before the two colons names the package from which the function comes, which the next section explains. A tibble prints its size on the first line and the type of each column under its name. The dollar sign pulls one column out as a vector, which is often the quickest way to look at a single column, and for reshaping a table the workshop uses the verbs of the third section.
 :::
 
 ## Hands-on 1 – The reply rate {#hands-on-1-the-reply-rate .smaller}

@@ -22,7 +22,7 @@ Work along in your IDE, on `index.qmd`, the report of the workspace of the Housi
 :::
 
 ::: notes
-The last session of the day takes apart the document on which the whole course leans, the report of the workspace. It is a Quarto document: a file that holds prose and code together and becomes a finished report when it is rendered, running its code on the way. Every workspace of the course has one, whatever its case study, and the one on my screen is the report of the Housing case study. We take it in four steps. First, what such a file holds and what rendering does to it. Then the header and the chunks of code, with the options that change what a chunk shows. Then the places where numbers, figures and references enter the text. And last a render from a clean session, which is the test that a report makes everything that it uses.
+The last session of the day takes apart the document on which the whole workshop leans, the report of the workspace. It is a Quarto document: a file that holds prose and code together and becomes a finished report when it is rendered, running its code on the way. Every workspace of the workshop has one, whatever its case study, and the one on my screen is the report of the Housing case study. We take it in four steps. First, what such a file holds and what rendering does to it. Then the header and the chunks of code, with the options that change what a chunk shows. Then the places where numbers, figures and references enter the text. And last a render from a clean session, which is the test that a report makes everything that it uses.
 :::
 
 # Source and output {#source-and-output .darkslide background-color="rgba(0,0,0,0)"}
