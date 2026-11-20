@@ -18,7 +18,7 @@ You leave able to read the report of your IDE workspace part by part, change it,
 :::
 
 ::: {.todaymeta}
-Work along in your IDE, on `index.qmd`, the report of the IDE workspace of the Housing and racial bias case study
+Work along, on `index.qmd`, the report of the IDE workspace of the Housing and racial bias case study
 :::
 
 ::: notes

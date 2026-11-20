@@ -77,7 +77,7 @@ VS Code is the general-purpose editor on which Positron is built, and it works f
 
 ## 4. Check that it works {#check-that-it-works}
 
-Open the unzipped folder of the IDE workspace in your IDE, because every path in the workspace is relative to that folder. In **Positron** and in **VS Code**, choose **File → Open Folder** and pick the folder; the files appear in a panel on the left. In **RStudio**, open the `.Rproj` file inside the folder, and RStudio opens the folder as a project with the working directory set.
+Open the unzipped folder of the IDE workspace, because every path in the workspace is relative to that folder. In **Positron** and in **VS Code**, choose **File → Open Folder** and pick the folder; the files appear in a panel on the left. In **RStudio**, open the `.Rproj` file inside the folder, and RStudio opens the folder as a project with the working directory set.
 
 In the folder, open `R/check_setup.R` and run it: click **Run** or **Source** in your IDE, or type `source("R/check_setup.R")` in the R console. The script prints an OK or FAIL line for each check: your R version, Quarto, the packages that the IDE workspace uses and each data file. The script changes nothing on your system. If any package is missing, it prints a line of R that installs all the missing packages at once, at the versions with which the workshop was tested, so run that line and then run the script again. Quarto cannot be installed from R in this way. If the script says that Quarto is not found, install it (step 2) and run the script again in a fresh session. Fix any FAIL before the day.
 

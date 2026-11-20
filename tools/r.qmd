@@ -318,7 +318,7 @@ housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 
 The file thus marks a missing value in two ways, as an empty cell and as the letters `NA`. `read.csv()` treats the letters as missing, while an empty cell in a column of text becomes a piece of text with nothing in it, unless the function is told otherwise, and `na.strings = c("", "NA")` tells it that both forms mean 'missing'. Without that argument, the `r n_no_third` emails whose community has no poverty third in the file would form an empty category in every count of that column. In your IDE, the workshop reads CSV files with `readr::read_csv()`, which treats both forms as missing without being told, reports the type of each column as it reads, and returns a **tibble**, a data frame that prints only its first ten rows. This page uses `read.csv()` to spare the browser a download, and the data frame that it returns holds the same values.
 
-The path `"data/housing_emails.csv"` is a relative path, which R reads from the folder in which it is working, and on this page the copy of R in your browser keeps the file in a folder called `data` inside that working folder. In the IDE workspace of a case study the same kind of path is relative to the folder of the workspace, so it works as written once you open that folder in your IDE, whereas an absolute path such as `C:/Users/yourname/Desktop/...` breaks as soon as the work moves to another machine.
+The path `"data/housing_emails.csv"` is a relative path, which R reads from the folder in which it is working, and on this page the copy of R in your browser keeps the file in a folder called `data` inside that working folder. In the IDE workspace of a case study the same kind of path is relative to the folder of the workspace, so it works as written once you open that folder, whereas an absolute path such as `C:/Users/yourname/Desktop/...` breaks as soon as the work moves to another machine.
 
 Three functions give a first view of what was read. `nrow()` counts the rows, one for each email.
 
@@ -745,7 +745,7 @@ report_table <- housing |>
 report_table |> tinytable::tt()
 ```
 
-tinytable is not among the packages that the IDE workspaces check, so install it with `pak::pak("tinytable")` before you use it in your IDE.
+tinytable is not among the packages that the IDE workspaces check, so install it with `pak::pak("tinytable")` before you use it.
 
 ## 12. A first figure {#sec-figure}
 

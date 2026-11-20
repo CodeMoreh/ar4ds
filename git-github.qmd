@@ -3,7 +3,7 @@ title: "Git and GitHub for reproducible research"
 lightbox: true
 ---
 
-This module on git and GitHub is shared by the case studies of AR4DS. The workshop's exercise runs without a repository. The IDE workspace of each case study is a self-contained zip that you open in your IDE (Positron, RStudio, VS Code, etc.) and render on your own machine, with nothing to clone and no account to create, and the slides and the webR workspace of each case study run the same exercise in your browser using webR, with nothing installed at all. Neither route asks you to touch git or GitHub at any point.
+This module on git and GitHub is shared by the case studies of AR4DS. The workshop's exercise runs without a repository. The IDE workspace of each case study is a self-contained zip that you open in Positron, RStudio, VS Code or another IDE and render on your own machine, with nothing to clone and no account to create, and the slides and the webR workspace of each case study run the same exercise in your browser using webR, with nothing installed at all. Neither route asks you to touch git or GitHub at any point.
 
 The self-taught format uses git all the same. It ends with a project of your own whose preregistration is the first commit of its repository, and it reads sections 1 to 5 of this module there.
 

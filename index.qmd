@@ -144,7 +144,7 @@ One case study with nothing to install and nothing preregistered, worked on the 
 
 [Four parts, in your IDE]{.home-meta}
 
-One case study in four parts, worked in the IDE workspace in your IDE, while the slides, which run R inside the browser, show each step with its output and stand in for the workspace if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
+One case study in four parts, worked in the IDE workspace, while the slides, which run R inside the browser, show each step with its output and stand in for the workspace if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/day/).
 :::

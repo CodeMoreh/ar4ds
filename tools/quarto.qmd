@@ -600,7 +600,7 @@ greetings <- housing |>
 tinytable::tt(greetings)
 ```
 
-tinytable is not among the packages that the IDE workspaces check, so install it with `pak::pak("tinytable")` before you use it in your IDE.
+tinytable is not among the packages that the IDE workspaces check, so install it with `pak::pak("tinytable")` before you use it.
 
 Sections can be cross-referenced in the same way, with an identifier beginning `sec-` attached to the heading in braces, but numbered references to sections need `number-sections: true` in the header. The pages of the workshop's website are not numbered, so they use those identifiers as plain links instead. This page writes `[section 2](#sec-knit)` to point within itself, and the R module writes `[Quarto module](quarto.qmd)` to point at this page. Both are ordinary Markdown links, and a link to a heading in another file takes no more effort to write than a link to one in the same file.
 
