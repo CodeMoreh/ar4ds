@@ -24,7 +24,7 @@ The processed results of every reanalysis of the robustness study are public as 
 :::
 
 ::: {.src}
-The facts file of each case study; the modules Reproducibility repositories of the Housing and Europeanisation sites.
+The facts file of each case study; the modules Reproducibility repositories of the Housing and Europeanisation websites.
 :::
 
 ::: notes
@@ -57,7 +57,7 @@ Now you read a record yourselves. Open the SCORE project of your workshop's case
 :::
 
 ::: {.src}
-The modules Reproducibility repositories of the case-study sites, last section.
+The modules Reproducibility repositories of the case-study websites, last section.
 :::
 
 ::: notes

@@ -18,7 +18,7 @@ assembled; no card has them at present.
 The page presents the published case studies only, Housing and Europeanisation,
 numbered in that order; the other case studies stay unnamed and unlinked until CM
 has vetted them. The page runs no code, because the data of the case studies live
-on their own sites. Its figures are those of the record of SCORE and its robustness
+on their own websites. Its figures are those of the record of SCORE and its robustness
 study, which do not change with the workshop's data, and each comes from the
 facts file of its case study (D:\ACADEMIC\TEACHING\AR4DS\_planning\housing\housing-facts.md,
 and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation),

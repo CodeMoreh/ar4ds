@@ -1,4 +1,4 @@
-# AR4DS, the umbrella site – site variables, read by the pages through the
+# AR4DS, the umbrella website – site variables, read by the pages through the
 # Quarto shortcode {{< var name.subname >}}.
 
 workshop:

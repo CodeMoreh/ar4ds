@@ -26,7 +26,7 @@ A folder on a laptop, a departmental server and a link in the appendix of a pape
 :::
 
 ::: {.src}
-The modules Reproducibility repositories of the case-study sites, section 1.
+The modules Reproducibility repositories of the case-study websites, section 1.
 :::
 
 ::: notes
@@ -51,7 +51,7 @@ Beside these repositories sit the archives of the disciplines, such as the UK Da
 :::
 
 ::: {.src}
-The modules Reproducibility repositories of the case-study sites, section 2, from the guide of the Center for Open Science on choosing a repository.
+The modules Reproducibility repositories of the case-study websites, section 2, from the guide of the Center for Open Science on choosing a repository.
 :::
 
 ::: notes
@@ -78,7 +78,7 @@ A paper cites the archived release, and the forge keeps the working copy.
 ::::
 
 ::: {.src}
-The modules Reproducibility repositories of the case-study sites, section 3.
+The modules Reproducibility repositories of the case-study websites, section 3.
 :::
 
 ::: notes
@@ -119,7 +119,7 @@ For new work, the OSF holds the plan and the links, and the data and the code go
 :::
 
 ::: {.src}
-The help pages of the OSF on the transition, as quoted in the modules Reproducibility repositories of the case-study sites, section on the OSF after 2026.
+The help pages of the OSF on the transition, as quoted in the modules Reproducibility repositories of the case-study websites, section on the OSF after 2026.
 :::
 
 ::: notes

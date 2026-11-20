@@ -5,7 +5,7 @@ subtitle: "What to install before the workshop, and how to check it"
 
 The workshop is worked in R, inside an IDE, with a ready-made workspace that you download once. An IDE (an integrated development environment, such as Positron, RStudio or VS Code) is the program in which you open files, write and run code and read results. R is the language that does the calculation, and the two are installed separately. The default IDE for the workshop is Positron, because Positron is one of the data-science tools that the workshop teaches, and it is the IDE that the facilitator uses on the shared screen. If you already work in RStudio or in VS Code you can stay there: every task runs in all three, and the module [Positron and other IDEs](tools/ide.qmd) takes you through Positron and says how the tasks are done in the other two.
 
-The workspace and its setup check come from the site of your case study, and that site says how to download the workspace and what its folder holds. Steps 1 to 3 below cover the three tools that every workspace needs, and step 4 runs the check.
+The workspace and its setup check come from your case study's website, and that site says how to download the workspace and what its folder holds. Steps 1 to 3 below cover the three tools that every workspace needs, and step 4 runs the check.
 
 Windows and Linux installations are supported in class. macOS installations are not, because the facilitator does not use a Mac and cannot test one. The Mac steps below follow the official documentation and link to it, and a Mac user who gets stuck should work from those links or from the [help page](help.qmd), since no in-class assistance is available for a Mac.
 

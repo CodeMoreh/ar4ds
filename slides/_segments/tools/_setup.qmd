@@ -6,7 +6,7 @@
 # as a static block, as the class types it in the workspace of the
 # Housing case study, and prints what that step gives from the copy of the
 # analysis file kept with the modules on the tools (byte-identical to the file
-# of the Housing site), read as the workspace reads it. Printouts are narrowed
+# of the Housing website), read as the workspace reads it. Printouts are narrowed
 # to the width of a slide and set without the ## of knitr, as the console
 # prints them.
 options(width = 64)
