@@ -12,7 +12,7 @@ Preregistration of the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyt
 :::
 
 ::: notes
-The robustness study did not choose its claims from scratch. It took them from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim: was it understandable, was it one claim and not several, did it state a direction, and was there a test in the article that corresponded to it? Where a phrase was judged ambiguous or rhetorical, it was replaced by an ellipsis, so that "dramatically increased" became "increased" with three dots before it, and three of this workshop's four claims carry such dots. And the analysts got no research question, because the lead team judged that turning a claim into a question would push the analysts towards its own reading of the claim.
+The robustness study took its claims from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim, keeping those that were understandable, made one claim rather than several, stated a direction and had a corresponding test in the article. A phrase judged ambiguous or rhetorical was replaced by an ellipsis, so that "dramatically increased" would become three dots and "increased", and three of the workshop's four claims carry such dots. The analysts received the claim and no research question, as the preregistration states.
 :::
 
 ## What an analyst received {#what-an-analyst-received}
@@ -33,7 +33,7 @@ And two things that no analyst was told: **who the other analysts were**, and **
 :::
 
 ::: notes
-The robustness study handed a hundred published studies to at least five independent analysts each, and I was one of those analysts, on the paper of the Europeanisation case study. Let me describe what that was like from the inside, because it shapes how you read the results. What arrived was the published paper, the whole thing and not blinded, so the original estimates were in view, and if anything that pulls you towards the original answer. With it came the central claim of the paper in a single sentence, and the data or directions for fetching them. In my case that meant sixteen Eurobarometer waves that I had to fetch from GESIS myself, under licence. What did not arrive was any instruction on method. And two things stayed hidden throughout: who the other analysts were, and what any of them were finding.
+The robustness study gave a hundred published studies to at least five independent analysts each, and I was one of those analysts, on the paper behind the Europeanisation case study, so I can describe what arrived from the inside. We received the whole published paper, not blinded, so the original estimates were in view, which if anything pulls an analyst towards the original answer. With it came the central claim in a single sentence, and the data or directions for fetching them, which in my case meant sixteen Eurobarometer waves that I had to obtain from GESIS myself, under licence. No instruction on method arrived. [advance] Two things stayed hidden throughout, who the other analysts were and what they were finding, an isolation that gives the spread of results at the end its meaning.
 :::
 
 ## The two tasks {#two-tasks-months-apart .smaller}
@@ -55,7 +55,7 @@ Preregistration, osf.io/4ev9t, pp. 7–8; @AczelEtAl2026InvestigatingAnalyticalR
 :::
 
 ::: notes
-The study ran in two stages, and the distinction matters for everything that follows. Task one was complete freedom: reanalyse the claim however you see fit, and record one categorical conclusion out of four, evidence for the claim, evidence for the opposite, no evidence either way, or evidence for the null hypothesis. [advance] Once that was submitted, and it could no longer be changed, task two arrived. It asked for a single main result in the form of a test statistic, and it came with instructions for the claim, on matters such as which data to use and what to exclude. [advance] The two tasks measure different things. Task one asks whether independent analysts reach the same verdict. Task two asks whether they produce the same number, and that question can only be asked once everyone is answering roughly the same question, which is what the instructions were for.
+The study ran in two stages. Task one left the analysis entirely to the analyst, who then recorded one of four conclusions: evidence for the claim, evidence for the opposite, no evidence either way, or evidence for the null hypothesis. [advance] Once that was submitted, task two arrived, asking for a single main result in the form of a test statistic, with instructions for the claim on matters such as which data to use and what to exclude. [advance] The two tasks measure different things. Task one asks whether independent analysts reach the same verdict, and task two whether they produce the same number, a question that can only be asked once everyone answers roughly the same question, which is what the instructions were for.
 :::
 
 ## The instructions in the four case studies {#the-instructions-in-the-four-cases .smaller .deepdive run="instructions"}
@@ -78,7 +78,7 @@ The record of each claim in the robustness study (osf.io/q5h2c); preregistration
 :::
 
 ::: notes
-Here are the four instructions side by side, in my words rather than theirs; on the second day you read the exact wording for your own case study. They differ a good deal. The Cohabitation instruction removes one set of interactions and says nothing else, and the Housing instruction removes the ethnic composition of the communities. The instructions for the Immigration and Europeanisation claims go further and choose measures: the outcome in both, and for the Europeanisation claim the predictor as well. [advance] The preregistration allowed only instructions that it called circumstantial, about data selection and exclusions, and never about the statistical approach or the full model. The published Methods add the choice of measurement to the examples, and the Europeanisation instruction, which I received myself, makes two choices of exactly that kind.
+The four instructions appear here side by side in my words rather than in theirs, and on the second day you read the exact wording for your own case study. The instructions differ a good deal. The Cohabitation instruction removes one set of interactions and says nothing else, and the Housing instruction removes the ethnic composition of the communities, while the instructions for the Immigration and Europeanisation claims go further and choose measures, the outcome in both, and for the Europeanisation claim the predictor as well. [advance] The preregistration allowed only instructions that it called circumstantial, about data selection and exclusions, and never about the statistical approach or the full model. The published Methods add the choice of measurement to the examples, and the Europeanisation instruction, which I received myself, makes two choices of exactly that kind.
 :::
 
 ## Results on a common scale {#how-a-hundred-studies-become-one-number}
@@ -99,7 +99,7 @@ Standardising makes the comparison possible, but it assumes that the analysts ar
 :::
 
 ::: notes
-Even with the question pinned down, the answers arrive in different forms. Everyone reports the test statistic that their model happens to produce, a t, a z, an F or a chi-square, with its degrees of freedom or its sample size. The robustness study converted those onto a common scale, a partial correlation and then a standardised difference, so that a regression fitted in Stata and a test computed in R could be placed on the same axis. A peer panel judged whether each pipeline was an appropriate analysis of the claim at all, so the spread that comes out of the study is a spread among analyses that passed review. [advance] Putting several numbers on one axis takes two things for granted. One is that they estimate the same quantity, the subject of much of the second day. The other is that each conversion counts the units that actually carry the evidence, which the next slides take up.
+Even with the question pinned down, the answers arrive in different forms, since each analyst reports the statistic that their model produces, a t, a z, an F or a chi-square, with its degrees of freedom or its sample size. The robustness study converted these statistics onto a common scale, a partial correlation and then a standardised difference, so that a regression fitted in Stata and a test computed in R could be placed on one axis. A panel of peers judged whether each analysis was appropriate for the claim, so the spread that the study reports is a spread among analyses that passed review. [advance] Putting several numbers on one axis takes two things for granted: that they estimate the same quantity, the subject of much of the second day, and that each conversion counts the units that carry the evidence, the subject of the next slides.
 :::
 
 ## The conversion rules {#the-conversion-rules .smaller .deepdive run="scale"}
@@ -122,7 +122,7 @@ standard_correlation_coefficient.R and cohens_d.R in github.com/marton-balazs-ko
 :::
 
 ::: notes
-For those who want the arithmetic, here are the rules of the code published by the team of the robustness study. Each statistic is first turned into a correlation, and each rule needs a second number besides the statistic: the degrees of freedom for a t or an F, the sample size for a z or a chi-square. A chi-square carries no sign, so the correlation computed from it can never be negative, whatever the direction of the result. The correlation is then turned into a Cohen's d, and the comparison with the original study is made on d, within five hundredths either side. The article itself is candid that these transformations rely on assumptions that may not hold in every setting, and the next slide shows one of them failing.
+These are the rules of the code published by the team of the robustness study. Each statistic is first turned into a correlation, and each rule needs a second number besides the statistic, the degrees of freedom for a t or an F, and the sample size for a z or a chi-square. A chi-square carries no sign, so the correlation computed from it can never be negative, whatever the direction of the result. The correlation is then turned into a Cohen's d, and the comparison with the original study is made on d, within five hundredths either side. The article itself states that these transformations rely on assumptions that may not hold in every setting.
 :::
 
 ## What the conversion assumes {#what-the-conversion-assumes .smaller}
@@ -139,9 +139,9 @@ Almost the same statistic, and correlations about 42 times apart. Neither number
 :::
 
 ::: {.src}
-The processed data of the robustness study (osf.io/q5h2c), as set out on the page The robustness article on the workshop's website.
+The processed data of the robustness study (osf.io/q5h2c), as set out in the section on the robustness study of the page SCORE on the workshop's website.
 :::
 
 ::: notes
-Here is that assumption failing, in the case study that I know best, because one of the two rows is my own analysis. Two analysts of the Europeanisation claim reported almost the same statistic, a z of minus three point five nine and a t of minus three point eight zero. Yet the correlations recorded for them differ by a factor of about forty-two. The z was converted on the three hundred and ninety-four thousand respondents of its analysis, and the t on the two hundred and thirty-three degrees of freedom of my model of country-years. [advance] Neither number is wrong for its own model. The difference comes from the conversion, which here treats every respondent as an independent test of a national unemployment rate, and that may well be too strong an assumption.
+This is one of those assumptions failing, in the case study that I know best, since one of the two rows is my own analysis. Two analysts of the Europeanisation claim reported almost the same statistic, a z of minus three point five nine and a t of minus three point eight zero, yet the correlations recorded for them differ by a factor of about forty-two, because the z was converted on the three hundred and ninety-four thousand respondents of its analysis and the t on the two hundred and thirty-three degrees of freedom of my model of country-years. [advance] Neither number is wrong for its own model. The difference comes from the conversion, which here treats every respondent as an independent test of a national unemployment rate, an assumption that is arguably too strong.
 :::

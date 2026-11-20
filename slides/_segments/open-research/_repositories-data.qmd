@@ -5,7 +5,7 @@ Section 1
 :::
 
 ::: notes
-Section one. Data reach a researcher by one of three routes, and the vocabulary of the archives follows those routes. We take the routes first, then the places that hold most of the quantitative data of sociology, political science and demography, with the access rule of each. Then the workshop's four case studies, which between them use two of the three routes, and the terms of the archive whose rules shape one of the case studies more than any other.
+Data reach a researcher by one of three routes, and the vocabulary of the archives follows those routes. We take the routes first, then the places that hold most of the quantitative data of sociology, political science and demography, each with its rule of access. Then come the workshop's four case studies, which between them use two of the three routes, and the terms of the archive whose rules shape one of the case studies more than any other.
 :::
 
 ## Three routes to data {#three-routes-to-data .smaller}
@@ -27,7 +27,7 @@ The modules Social science data sources of the case-study websites, section 1, f
 :::
 
 ::: notes
-Almost every dataset that you will use comes by one of three routes. The first is open download: a public page or an interface for programs, a licence that permits reuse, and nothing asked of you except the citation. The second asks for an account in your own name and your agreement to conditions, typically no passing the files on and no attempt to identify anyone. That is the standard route for survey microdata. The third is for data too detailed to leave the archive: you apply with a project, may have to become an accredited researcher, and work in a secure setting, and access can take weeks or months. [advance] The line between microdata and aggregates runs across all three routes, and it decides what a reanalysis may share.
+Almost every dataset that you will use comes by one of three routes. The first is open download, from a public page or an interface for programs, under a licence that permits reuse and with nothing asked of you except the citation. The second asks for an account in your own name and your agreement to conditions, typically that you pass no file on and make no attempt to identify anyone, and it is the standard route for survey microdata. The third is for data too detailed to leave the archive: you apply with a project, may have to become an accredited researcher and work in a secure setting, and access can take weeks or months. [advance] The line between microdata and aggregates runs across all three routes, and it decides what a reanalysis may share.
 :::
 
 ## Where the data are held {#where-the-data-are-held .smaller}
@@ -50,7 +50,7 @@ The modules Social science data sources of the case-study websites, section 2, w
 :::
 
 ::: notes
-This is a map rather than a census, drawn from the module that is the reading of this session, which has the full tables with their addresses. Four kinds of source matter most for us. The cross-national survey programmes, the European Social Survey, the Eurobarometer, the ISSP and the values surveys, all ask for a free registration. The national archives, such as the UK Data Service, sort their holdings into tiers, from open download to a secure lab. The official statistical offices publish their aggregates openly and keep the microdata behind applications. And the international organisations publish indicators by country and year that anyone can download. A catalogue such as CESSDA tells you that a dataset exists and where it is held, and you then register with the archive that holds it.
+The table is a map rather than a census, drawn from the module that is the reading of this session, which gives the full tables with their addresses. Four kinds of source matter most for us. The cross-national survey programmes, the European Social Survey, the Eurobarometer, the ISSP and the values surveys, ask for a free registration. The national archives, such as the UK Data Service, sort their holdings into tiers, from open download to a secure lab. The official statistical offices publish their aggregates openly and keep the microdata behind applications, and the international organisations publish indicators by country and year that anyone can download. A catalogue such as CESSDA says that a dataset exists and where it is held, and you then register with the archive that holds it.
 :::
 
 ## The data of the four case studies {#the-data-of-the-four-cases .smaller}
@@ -69,7 +69,7 @@ The facts file of each case study; the modules Social science data sources of th
 :::
 
 ::: notes
-The workshop's four case studies use two of the three routes, and together the case studies make a good tour of the terms. The file of the Housing case study is the easy one: the original authors, the OAs, deposited it on the Harvard Dataverse under CC0, so anyone may copy and redistribute it, and the workshop ships it as it is. The European Social Survey asks for a free registration, and its data are licensed for non-commercial use with attribution and share-alike, so a derived extract can travel under the same licence, marked as adapted. The National Survey of Family Growth is in the public domain and needs no registration at all, under a short list of rules that protect the respondents. And the Europeanisation case study rests on the most restrictive terms of the four, which are on the next slide.
+The workshop's four case studies use two of the three routes, and together they make a good tour of the terms. The file of the Housing case study is the easy one, since the original authors deposited it on the Harvard Dataverse under CC0, so anyone may copy and redistribute it, and the workshop ships it as it is. The European Social Survey asks for a free registration and licenses its data for non-commercial use with attribution and share-alike, so a derived extract can travel under the same licence, marked as adapted. The National Survey of Family Growth is in the public domain and needs no registration at all, under a short list of rules that protect the respondents. The Europeanisation case study rests on the most restrictive terms of the four.
 :::
 
 ## The terms of a licensed archive {#the-terms-of-a-licensed-archive .smaller}
@@ -95,7 +95,7 @@ The terms of use of GESIS, valid since 4 February 2026, as quoted in the module 
 :::
 
 ::: notes
-These are three clauses from the terms of use to which every GESIS download dialog links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the Europeanisation case study is built: no individual cases, while summary presentations of the kind found in papers and lectures are allowed, which is why the workshop can publish its panel of country-years. The third bears on how you work: the respondent files may not be processed with an AI system. The module on AI assistants on the workshop's website sets out what that means in practice, and the Europeanisation IDE workspace switches the AI features of Positron and VS Code off for its whole folder.
+These are three clauses from the terms of use to which every download dialog of GESIS links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the Europeanisation case study is built, allowing no individual cases but the summary presentations found in papers and lectures, which is why the workshop can publish its panel of country-years. The third bears on how you work, since the respondent files may not be processed with an AI system. The module on AI assistants on the workshop's website sets out what that means in practice, and the Europeanisation IDE workspace switches off the AI features of Positron and VS Code for its whole folder.
 :::
 
 ## Fetching data from code {#fetching-data-from-code .deepdive run="fetch"}
@@ -125,5 +125,5 @@ The second page of the module Getting started with R on the workshop's website.
 :::
 
 ::: notes
-When the route is open, the download can be written down in your script instead of clicked through on a website, and that is what makes it repeatable. The first call reads the data file of the Housing case study straight from its record on the Harvard Dataverse, in the Stata format in which the OAs deposited it. The second asks the World Bank for the unemployment rate and the growth of the economy in three countries, from 2004 to 2013. Both calls appear, shown but not run, in the second part of the module on R on the workshop's website. [advance] The Eurobarometer offers no such interface. Registration is a web form with a captcha, and every download asks for a purpose of use in your own name, so those files are clicked, not scripted.
+When the route is open, the download can be written into a script instead of clicked through on a website, which makes it repeatable. The first call reads the data file of the Housing case study straight from its record on the Harvard Dataverse, in the Stata format in which the original authors deposited it. The second asks the World Bank for the unemployment rate and the growth of the economy in three countries from 2004 to 2013. Both calls appear, shown but not run, in the second part of the module on R on the workshop's website. [advance] The Eurobarometer offers no such interface, since registration is a web form with a captcha and every download asks for a purpose of use in your own name, so those files are downloaded by hand.
 :::

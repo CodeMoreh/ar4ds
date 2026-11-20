@@ -5,7 +5,7 @@ Section 3
 :::
 
 ::: notes
-Section three, and the shortest. The vocabulary tells us what each kind of check is, and open research is about whether anybody can carry one out. A reproduction needs your data and your code, a robustness check needs your data, and running the study again needs your materials. We go through the practices one at a time, asking of each what it lets another person do with your work, and then you put them to a paper that you know well.
+The vocabulary tells us what each kind of check is, and open research concerns whether anybody can carry one out. A reproduction needs your data and your code, a robustness check needs your data, and running the study again needs your materials. This short section goes through the practices one at a time, asking of each what it lets another person do with your work, and then you apply them to a paper that you know well.
 :::
 
 ## Open research: the practices {#open-research-the-practices .smaller}
@@ -26,7 +26,7 @@ Each one removes a specific obstacle, and none of them guards against every prob
 :::
 
 ::: notes
-Each of those reviewers needed something from you before they could start – your code, your data, your materials. Open research is a list of practices that supply those things and more, each of which removes a specific, identifiable obstacle. Open data means someone else can re-analyse your evidence rather than taking your word for it. Open code means they can rerun your exact analysis. Open materials means they can run the study again in a new sample. Open access means they can read the thing at all, which sounds trivial until you try to get a paper from outside a wealthy university. Preregistration produces a dated record of the analysis plan, filed in a registry before the results exist. And registered reports go further: the plan is peer-reviewed and the publication decision is made before anyone sees a result, which removes the incentive to find something. Each removes one obstacle, and none of them guards against every problem.
+Each of those reviewers needed something from you before they could start, your code, your data or your materials, and open research is a set of practices that supply such things, each removing a specific obstacle. Open data let someone else reanalyse your evidence, open code lets them rerun your exact analysis, and open materials let them run the study again in a new sample. Open access lets them read the paper at all, which sounds trivial until you try to obtain a paper from outside a wealthy university. A preregistration is a dated record of the analysis plan, filed in a registry before the results exist, and a registered report goes further, since the plan is peer-reviewed and the decision to publish is taken before any result exists. [advance] None of these practices guards against every problem, and Munafò and colleagues set out the whole programme at length.
 :::
 
 ## Discussion – a paper you know {#discussion-a-paper-you-know .questionslide}
@@ -40,5 +40,5 @@ Take a published quantitative paper that you know well, one of your own or one f
 :::
 
 ::: notes
-Now a short discussion, in pairs. Take a quantitative paper that you know well, one of your own or one you have read closely, and put the six practices to it. Then the harder question. If you set out tomorrow to reproduce its main result, what would you need first, and where would you get stuck? If you get stuck on the first step, the data, you are in good company, because the next session shows that this is where most attempts at reproduction stopped when somebody measured it on six hundred papers. Take the time you need. Then I will ask two or three of you which of the three Rs a reader could test from what the authors released, and what was missing for the other two.
+Now a short discussion, in pairs. Take a quantitative paper that you know well, one of your own or one that you have read closely, and put the six practices to it. Then the harder question: if you set out tomorrow to reproduce its main result, what would you need first, and where would you get stuck? If the first step, the data, stops you, you are in good company, because the next session shows that most attempts at reproduction stopped there when somebody measured it on six hundred papers. [state the time] I will then ask two or three of you which of the three Rs a reader could test from what the authors released, and what was missing for the other two.
 :::

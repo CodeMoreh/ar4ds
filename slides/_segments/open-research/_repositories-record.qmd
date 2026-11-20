@@ -5,7 +5,7 @@ Section 4
 :::
 
 ::: notes
-Section four puts the morning together. SCORE kept everything that it did with each paper in one public tree of projects on the OSF, and the robustness study left its records in the same trees and in a public dataset of its own. Reading such a record is a skill in itself, and you practise it on the record of your workshop's case study. We end on the route by which you would deposit a reanalysis of your own, so that it leaves a record of the same kind.
+This section puts the morning together. SCORE kept everything that it did with each paper in one public tree of projects on the OSF, and the robustness study left its records in the same trees and in a public dataset of its own. Reading such a record is a skill in itself, which you practise on the record of your own case study, and we end on the route by which you would deposit a reanalysis of your own, so that it leaves a record of the same kind.
 :::
 
 ## The SCORE dossiers {#the-score-dossiers .smaller}
@@ -28,7 +28,7 @@ The facts file of each case study; the modules Reproducibility repositories of t
 :::
 
 ::: notes
-Each paper that SCORE selected has a project on the OSF, named by a code built from the first author, the journal, the year and a short identifier, with one component for each kind of work done on the paper. These are the workshop's four projects, and they are not alike. The Housing project holds a reproduction that was planned and never carried out, the Immigration project two reproductions and two replications, the Cohabitation project no reproduction at all, and the Europeanisation project two failed reproductions beside its replication. [advance] And the processed results of every reanalysis of the robustness study, the answers to both tasks with the effect sizes converted to the common scale, are public in a repository of their own.
+Each paper selected by SCORE has a project on the OSF, named by a code built from the first author, the journal, the year and a short identifier, with one component for each kind of work done on the paper. The four projects of the workshop's case studies are not alike: the Housing project holds a reproduction that was planned and never carried out, the Immigration project two reproductions and two replications, the Cohabitation project no reproduction at all, and the Europeanisation project two failed reproductions beside its replication. [advance] The processed results of every reanalysis of the robustness study, the answers to both tasks with the effect sizes converted to the common scale, are public in a repository of their own.
 :::
 
 ## Reading a dossier {#reading-a-dossier .questionslide}
@@ -42,7 +42,7 @@ Open the SCORE project of your workshop's case study. No account is needed.
 :::
 
 ::: notes
-Now you read a record yourselves. Open the SCORE project of your workshop's case study, from the addresses on the last slide; everything there is public, and you need no account. Work through the three questions in order. First the map: which components are there, and which of the three Rs each one tests. Then one analyst of the robustness study, in the component with Multi100 in its title: did the analyst leave code, data, a report, or all three? Then the replication: look for its preregistration and its report, and compare their dates. Take the time you need. When we compare what you found, notice how the records differ, because the differences tell you how far each kind of check could go in your case study. [wait]
+Now you read a record yourselves. Open the SCORE project of your case study, from the addresses on the previous slide; everything there is public, and you need no account. Work through the three questions in order: first which components are there and which of the three Rs each one tests, then one analyst of the robustness study, in the component with Multi100 in its title, and whether the analyst left code, data, a report or all three, and last the replication, whose preregistration and report you find and compare by their dates. [state the time] When we compare what you found, the differences between the records show how far each kind of check could go in your case study. [wait]
 :::
 
 ## Depositing a reanalysis of your own {#depositing-a-reanalysis}
@@ -61,5 +61,5 @@ The modules Reproducibility repositories of the case-study websites, last sectio
 :::
 
 ::: notes
-Put together, the session gives a route for depositing a reanalysis like the one that you build in this workshop, and it works after the change at the OSF as well as before it. The code goes on a forge, with a licence and a README. Each version that you want to cite is archived on Zenodo, which gives it a DOI. The data go where their licence allows: the file of the Housing case study can travel with the code, while the Eurobarometer files never leave your machine. The plan is registered before the analysis runs, with links to the archived code and data. The rendered report goes into the release, and the data are cited with their versions. The module on Git and GitHub on the workshop's website takes you through the first two steps.
+The session gives a route for depositing a reanalysis such as the one that you build in this workshop, a route that works after the change at the OSF as well as before it. The code goes on a forge, with a licence and a README, and each version that you want to cite is archived on Zenodo, which gives it a DOI. The data go where their licence allows, so that the file of the Housing case study can travel with the code while the Eurobarometer files never leave your machine. The plan is registered before the analysis runs, with links to the archived code and data, the rendered report goes into the release, and the data are cited with their versions. The module on Git and GitHub on the workshop's website takes you through the first two steps.
 :::

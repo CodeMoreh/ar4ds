@@ -5,7 +5,7 @@ Section 2
 :::
 
 ::: notes
-Section two turns to the other side of the exchange: where a finished piece of work is deposited, so that another person can find it, cite it and run it again. We start with what a repository has to do, which gives a checklist for choosing one, then the repositories that researchers actually use, and the difference between a code forge such as GitHub and an archive. We end on a change that touches all of this workshop's records, since the Open Science Framework is closing its projects to new work.
+This section turns to the other side of the exchange, where a finished piece of work is deposited so that another person can find it, cite it and run it again. We start with what a repository has to do, which gives a checklist for choosing one, then the repositories that researchers actually use, and the difference between a code forge such as GitHub and an archive. We end on a change that touches all of the workshop's records, since the Open Science Framework is closing its projects to new work.
 :::
 
 ## What a repository has to do {#what-a-repository-has-to-do .smaller}
@@ -30,7 +30,7 @@ The modules Reproducibility repositories of the case-study websites, section 1.
 :::
 
 ::: notes
-Here is the checklist, six things that a repository does and a folder on your laptop does not. A persistent identifier, usually a DOI, which a paper can cite and which keeps resolving. Versions, so that the reader who follows the citation gets the version that the paper used. A licence, which tells others what they may do, and which the licence of the data underneath can limit. Metadata, which decides whether anyone who was not sent the link will ever find the deposit. Preservation, a commitment to keep the files readable for decades, which most archives of the social sciences have had certified. And access control, from fully public to an embargo or a private link for a reviewer.
+A repository does six things that a folder on a laptop does not. It gives a persistent identifier, usually a DOI, which a paper can cite and which keeps resolving. It keeps versions, so that the reader who follows the citation gets the version that the paper used. It states a licence, which tells others what they may do, and which the licence of the data underneath can limit. It holds metadata, which decide whether anyone who was not sent the link will ever find the deposit. It commits to preservation, keeping the files readable for decades, a commitment that most archives of the social sciences have had certified. And it controls access, from fully public to an embargo or a private link for a reviewer.
 :::
 
 ## The repositories that researchers use {#the-repositories-that-researchers-use .smaller}
@@ -55,7 +55,7 @@ The modules Reproducibility repositories of the case-study websites, section 2, 
 :::
 
 ::: notes
-These are the generalist repositories that most social scientists meet. Zenodo takes anything and gives every version its own DOI, and it can archive each release of a GitHub repository automatically. The Harvard Dataverse is built for datasets and lets a journal keep a collection of its own, which is how the American Journal of Political Science keeps its replication packages, the package behind the Housing case study among them. Figshare is quick to use, Dryad charges for curation, and ReShare is the route that satisfies the data policy of the ESRC. Which one to use depends on what you deposit: a dataset goes to the archive of its discipline if there is one, and to Dataverse or Zenodo otherwise, while code goes to a forge, which is the next slide.
+These are the general repositories that most social scientists meet. Zenodo takes anything and gives every version its own DOI, and it can archive each release of a GitHub repository automatically. The Harvard Dataverse is built for datasets and lets a journal keep a collection of its own, which is how the American Journal of Political Science keeps its replication packages, the package behind the Housing case study among them. Figshare is quick to use, Dryad charges for curation, and ReShare is the route that satisfies the data policy of the ESRC. The choice depends on what you deposit: a dataset goes to the archive of its discipline if there is one, and to Dataverse or Zenodo otherwise, while code goes to a forge.
 :::
 
 ## Code forges and archives {#code-forges-and-archives .smaller}
@@ -82,7 +82,7 @@ The modules Reproducibility repositories of the case-study websites, section 3.
 :::
 
 ::: notes
-GitHub and its relatives are where most research code is found, which makes them look like repositories in the sense of the checklist, but they lack most of its properties. A GitHub repository has no DOI, it can be renamed, transferred or deleted by its owner in a minute, and nobody has promised to keep it. The remedy is cheap and standard: tag a release on the forge and let Zenodo archive it, which gives that release a DOI that a paper can cite, while the forge keeps the working copy that goes on changing. The module on Git and GitHub on the workshop's website takes you from nothing to a repository of your own, and the third day of the multi-day format puts your own report under Git.
+GitHub and its relatives are where most research code is found, which makes them look like repositories in the sense of the checklist, although they lack most of its properties. A GitHub repository has no DOI, its owner can rename, transfer or delete it in a minute, and nobody has promised to keep it. The remedy is cheap and standard: tag a release on the forge and let Zenodo archive it, which gives that release a DOI that a paper can cite, while the forge keeps the working copy that goes on changing. The module on Git and GitHub on the workshop's website takes you from nothing to a repository of your own, and on the third day you put your own report under Git.
 :::
 
 ## Versions of a record {#versions-of-a-record .deepdive run="versions"}
@@ -102,7 +102,7 @@ The modules Reproducibility repositories of the housing and EU sites, section on
 :::
 
 ::: notes
-A deposit changes after it is made, and a good repository keeps every state of it. The package of the Housing case study shows the pattern on Dataverse: version one point zero went up in February 2016, before the article appeared in print, and version one point one followed in April 2017, only to complete the citation, with every file the same to the byte. The OSF keeps the revisions of each file, which is why the replication of the Europeanisation claim in the SCORE replicability study still shows both of its reports, the first and the one revised in October 2026. Zenodo gives every version a DOI of its own. Whichever repository you use, cite the version, because the reader who follows your citation should get what you used.
+A deposit changes after it is made, and a good repository keeps every state of it. The package of the Housing case study shows the pattern on Dataverse: version one point zero went up in February 2016, before the article appeared in print, and version one point one followed in April 2017 only to complete the citation, with every file unchanged. The OSF keeps the revisions of each file, which is why the replication of the Europeanisation claim in the SCORE replicability study still shows both of its reports, the first and the one revised in October 2026. Zenodo gives every version a DOI of its own. Whichever repository you use, cite the version, so that the reader who follows your citation gets what you used.
 :::
 
 ## The OSF after 2026 {#the-osf-after-2026}
@@ -123,5 +123,5 @@ The help pages of the OSF on the transition, as quoted in the modules Reproducib
 :::
 
 ::: notes
-This change touches all of this workshop's records. On the twenty-seventh of August 2026 the Center for Open Science announced that it is phasing out OSF Projects, the workspaces in which SCORE and its robustness study kept their records, because it cannot sustain what the projects cost to run. From the sixteenth of November 2026 nobody can create a new project, and from the nineteenth of February 2027 every project is read-only. Nothing in this workshop's records is lost, because the SCORE projects of the four case studies are public and stay readable at the same addresses. Registrations and preprints carry on as before. For new work the arrangement changes: the plan is registered on the OSF, and the data and code go to a repository such as Zenodo or Dataverse, linked from the registration.
+This change touches all of the workshop's records. On the twenty-seventh of August 2026 the Center for Open Science announced that it is phasing out OSF Projects, the workspaces in which SCORE and its robustness study kept their records, because it cannot sustain the running costs of the projects. From the sixteenth of November 2026 nobody can create a new project, and from the nineteenth of February 2027 every project is read-only. Nothing in the workshop's records is lost, since the SCORE projects of the four case studies are public and stay readable at the same addresses, and registrations and preprints carry on as before. [advance] For new work, the plan is registered on the OSF, and the data and the code go to a repository such as Zenodo or Dataverse, linked from the registration.
 :::

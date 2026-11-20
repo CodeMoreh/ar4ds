@@ -12,7 +12,7 @@
 :::
 
 ::: notes
-The three papers that we look at next all come from one programme, SCORE, short for Systematizing Confidence in Open Research and Evidence. It was funded, oddly enough, by DARPA, the research agency of the US Department of Defense, and its stated aim was to build automated tools that could score how much confidence a published claim deserves. Reproductions and replications were to serve as the benchmark against which such scores could be judged. So the programme drew a stratified random sample of papers from sixty-two journals, published between 2009 and 2018, and traced the central claim of each from the abstract down to the statistic that supports it. Three studies then took that sampling frame and each asked one of our three questions, so the numbers in this section describe one body of literature, asked three different things.
+The three papers that we look at next come from one programme, SCORE, short for Systematizing Confidence in Open Research and Evidence. It was funded, perhaps surprisingly, by DARPA, the research agency of the US Department of Defense, and its stated aim was to build automated tools that could score how much confidence a published claim deserves, with reproductions and replications as the benchmark against which such scores could be judged. The programme drew a stratified random sample of papers from sixty-two journals, published between 2009 and 2018, and traced the central claim of each from the abstract down to the statistic that supports it. Three studies then each asked one of our three questions of that sample, so the numbers in this section describe one body of literature, asked three different things.
 :::
 
 ## The three SCORE studies {#three-corners-three-studies}
@@ -57,7 +57,7 @@ ggplot2::ggplot(score_cells, ggplot2::aes(sample, analysis)) +
 :::
 
 ::: notes
-This is the grid from the first session, with the SCORE study that sits in each cell. Same data and the same methods, top left, is the SCORE reproducibility study: six hundred papers, of which a hundred and forty-three could be assessed in the end. Same data and different methods, bottom left, is the SCORE robustness study, with a hundred studies and five hundred and four reanalyses. New data and the same methods, top right, is the SCORE replicability study, with two hundred and seventy-four claims tested on data that the original studies did not use. The fourth cell, generalisation, has no SCORE study, and we leave it aside as before. We take the three in turn, starting with reproduction.
+This is the grid from the first session, with the SCORE study that sits in each cell. Same data and the same methods, top left, is the SCORE reproducibility study, six hundred papers, of which a hundred and forty-three could be assessed in the end. Same data and different methods, bottom left, is the SCORE robustness study, with a hundred studies and five hundred and four reanalyses. New data and the same methods, top right, is the SCORE replicability study, with two hundred and seventy-four claims tested on data that the original studies did not use. The fourth cell, generalisation, has no SCORE study, and we leave it aside as before.
 :::
 
 ## Reproducibility – Miske et al.
@@ -73,7 +73,7 @@ This is the grid from the first session, with the SCORE study that sits in each 
 :::
 
 ::: notes
-Reproducibility is the gentlest test of the three. The design in one breath: take six hundred papers, ask the authors for their data and code, and try to recompute the central reported result from the same data with the same analysis. Where the authors did not supply data, the team tried to rebuild the dataset from the source data, which is a much harder job. Before we ask how often a reproduction works, the first finding is about how rarely you can even start.
+Reproducibility is the gentlest of the three tests. The team took six hundred papers, asked the authors for their data and code, and tried to recompute the central reported result from the same data with the same analysis. Where the authors did not supply data, the team tried to rebuild the dataset from the source data, a much harder job. The first finding, before any question of how often a reproduction works, concerns how rarely one can even start.
 :::
 
 ## Reproducibility results – Miske et al. {#most-papers-never-reach-the-starting-line}
@@ -113,7 +113,7 @@ ggplot2::ggplot(mw, ggplot2::aes(stage, n, fill = stage)) +
 :::
 
 ::: notes
-Read it left to right. Six hundred papers sampled. Data were available for twenty-four per cent of them, and for nearly three quarters there was neither data nor code. The team rebuilt thirty-eight more datasets from source data, which made a hundred and eighty-two, and assessed 143 of them. Of those, just over half reproduce precisely, and about three quarters at least approximately. That sounds respectable until you count the papers that nobody could check as failures, and then the rate falls to seventeen point six per cent, a figure that the paper itself reports beside the higher one. Most of the loss happens at the first step, getting hold of the data.
+Six hundred papers were sampled. Data were available for twenty-four per cent of them, and for nearly three quarters there was neither data nor code. The team rebuilt thirty-eight more datasets from source data, which made a hundred and eighty-two, and assessed a hundred and forty-three of them. Of those, just over half reproduced precisely and about three quarters at least approximately. That sounds respectable until the papers that nobody could check are counted as failures, when the rate falls to seventeen point six per cent, a figure that the paper itself reports beside the higher one. Most of the loss happens at the first step, getting hold of the data.
 :::
 
 ## Data availability – Miske et al. {#why-some-fields-do-better}
@@ -135,7 +135,7 @@ Read it left to right. Six hundred papers sampled. Data were available for twent
 :::
 
 ::: notes
-And access follows policy. Where journals have a data-sharing policy, availability runs from about two thirds to one hundred per cent, depending on the policy; without one, it is sixteen. By field, political science and economics are far ahead of the rest, and education comes last. The first quotation opens the discussion of the paper: the biggest barrier was simply that the data were not there. The second is the one to remember: "reproducibility success does not mean that the finding is correct." Reproducing a number tells you that the computation was faithful, and nothing about whether the claim about the world is true.
+Access follows policy. Where journals have a data-sharing policy, availability runs from about two thirds to a hundred per cent, depending on the policy, and without one it is sixteen per cent. By field, political science and economics are far ahead of the rest, and education comes last. The first quotation opens the discussion of the paper, which names the unavailability of author data as the biggest barrier. The second is worth remembering: "[r]eproducibility success does not mean that the finding is correct". A reproduced number shows that the computation was faithful, and says nothing about whether the claim about the world is true.
 :::
 
 ## Robustness – Aczel et al. {#robustness-aczel-et-al.}
@@ -152,7 +152,7 @@ The SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 
 :::
 
 ::: notes
-The middle paper is the one that I took part in, as one of the five analysts of the paper of the Europeanisation case study, one of this workshop's four case studies. One hundred studies, and for each one at least five analysts working independently, everyone handed the same data and the same claim. You were free to analyse it in any way you could justify, and a panel of peers later judged whether each analysis was appropriate. Most of the hundred studies had been through a reproduction check by SCORE before the robustness study began, and for nine of them the reproduction was never attempted. The record of the workshop's four case studies, which closes this session, shows how differently those checks turned out, case by case.
+I took part in the middle paper, as one of the five analysts of the paper behind the Europeanisation case study. A hundred studies each went to at least five analysts, who worked independently with the same data and the same claim, free to analyse it in any way that they could justify, and a panel of peers later judged whether each analysis was appropriate. Most of the hundred studies had been through a reproduction by SCORE before the robustness study began, while for nine of them the reproduction was never attempted. The record of the workshop's four case studies, at the end of this session, shows how differently those checks turned out from one case study to the next.
 :::
 
 ## Robustness results – Aczel et al. {#same-data-five-analysts-different-answers}
@@ -169,7 +169,7 @@ The middle paper is the one that I took part in, as one of the five analysts of 
 :::
 
 ::: notes
-Free, justifiable choices on the same data move the answer a long way. The d here is a standardised effect size, Cohen's d, and how every analysis was converted to it is the subject of the next section. Only about a third of the reanalyses fell within five hundredths of a d of the original, and in just five of the ninety-five studies whose original effect size could be recovered did every analyst come that close. Conclusions held up better than magnitudes, with three quarters of the reanalyses agreeing with the original conclusion. But the effect sizes shrank, from a mean d of point seven three to point four nine. And observational studies came out less robust than experiments, which matters here, because three of this workshop's four case studies are observational studies, all but the Housing and racial bias case study.
+Free and justifiable choices on the same data moved the answer a long way. The d here is a standardised effect size, Cohen's d, and how every analysis was converted to it is the subject of the next section. Only about a third of the reanalyses fell within five hundredths of a d of the original, and in just five of the ninety-five studies whose original effect size could be recovered did every analyst come that close. The conclusions held up better than the magnitudes, with three quarters of the reanalyses agreeing with the original conclusion, but the effect sizes shrank, from a mean d of point seven three to point four nine. Observational studies also came out less robust than experiments, which matters here, because three of the workshop's four case studies are observational, all but the Housing and racial bias case study.
 :::
 
 ## Replicability – Tyner et al.
@@ -185,7 +185,7 @@ Free, justifiable choices on the same data move the answer a long way. The d her
 :::
 
 ::: notes
-The third paper is the strictest test, because each claim is checked against data that the original study did not use, newly collected for 128 claims and existing data for the other 146. Two hundred and seventy-four claims, each replication designed by a team, peer reviewed in advance, with an author of the original study among the reviewers whenever one agreed to take part, and preregistered before it ran. The median statistical power was ninety-nine point six per cent. At that power an effect as large as the original one would be very hard to miss, so a claim that fails here cannot be put down to a study too small to detect it.
+The third paper gives the strictest test, since each claim is checked against data that the original study did not use, newly collected for a hundred and twenty-eight claims and existing data for the other hundred and forty-six. Each of the two hundred and seventy-four replications was designed by a team, peer reviewed in advance, with an author of the original study among the reviewers whenever one agreed to take part, and preregistered before it ran. The median statistical power was ninety-nine point six per cent, so an effect as large as the original one would have been very hard to miss, and a claim that fails here cannot be put down to a study too small to detect it.
 :::
 
 ## Replicability results – Tyner et al. {#even-success-shrinks}
@@ -225,7 +225,7 @@ ggplot2::ggplot(sh, ggplot2::aes(r, y = 1)) +
 :::
 
 ::: notes
-And this is what came back. The median effect size more than halves: point two five in the originals, point one zero in the replications. By the significance criterion, fifty-five per cent of claims replicate. Whether a claim replicated is not a single question, either: the team scored the same studies against thirteen reasonable criteria and got answers from twenty-nine to seventy-five per cent. As the paper puts it, "Strictly speaking, there is no such thing as exact replication." And later: "The problem to solve is not unreplicability per se, it is overconfidence."
+The median effect size more than halved, from point two five in the originals to point one zero in the replications, and by the significance criterion fifty-five per cent of the claims replicated. Whether a claim replicated is not a single question either, since the team scored the same studies against thirteen reasonable criteria and obtained rates from twenty-nine to seventy-five per cent. As the authors put it, "Strictly speaking, there is no such thing as exact replication", and later, "The problem to solve is not unreplicability per se, it is overconfidence."
 :::
 
 ## The three Rs across SCORE {#the-three-rs-do-not-travel-together}
@@ -243,5 +243,5 @@ Knowing that a finding was reproduced tells you next to nothing about whether it
 :::
 
 ::: notes
-You would hope that these three properties go together, that a reproducible finding is more likely to be robust and a robust one more likely to replicate. Across SCORE they do not, or at least not detectably. In the words of the glossary that we met in the first session, the correlations between the three kinds of outcome were not distinguishable from zero. So there is no single trust score for a finding. "Is it reliable?" is an incomplete question until you say which kind of repetition you mean, and for any one paper the useful question is which of the three tests it was put through and how it fared. We put exactly that question to the workshop's four case studies at the end of the session.
+One might hope that the three properties go together, so that a reproducible finding is more likely to be robust and a robust one more likely to replicate. Across SCORE they do not, or at least not detectably: in the words of the glossary from the first session, the correlations between the three kinds of outcome "were not distinguishable from zero". [advance] There is therefore no single score of trust for a finding, and a question about whether a finding is reliable is incomplete until it says which kind of repetition it means. For any one paper, the useful question is which of the three tests it was put through and how it fared, and we put exactly that question to the workshop's four case studies at the end of the session.
 :::

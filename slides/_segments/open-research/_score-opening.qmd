@@ -17,7 +17,7 @@ You leave able to say what SCORE and its robustness study found, and where your 
 :::
 
 ::: notes
-The first session gave us three kinds of repetition. This one is about the programme that measured all three on one body of social-science research, and about the study inside it from which this workshop's case studies come. The first section takes the programme and its three studies in turn. The second goes inside the SCORE robustness study: how it picked its claims, what its analysts were asked to do, and how it put their results on one scale. The third brings the workshop's four case studies into the picture, with the claim of each as the analysts received it and what the record of the programme holds for it. Your own case study is one of the four, and the workshop's second day works on it.
+The first session gave us three kinds of repetition, and this one is about the programme that measured all three on one body of social-science research, and about the study inside it from which the workshop's case studies come. The first section takes the programme and its three studies in turn. The second goes inside the SCORE robustness study, with how it picked its claims, what its analysts were asked to do and how it put their results on one scale. The third brings the workshop's four case studies into the picture, with the claim of each as the analysts received it and what the record of the programme holds for it. Your own case study is one of the four, and the second day works on it.
 :::
 
 # SCORE {#score .darkslide background-color="rgba(0,0,0,0)"}
@@ -27,5 +27,5 @@ Section 1
 :::
 
 ::: notes
-Section one is SCORE. A single programme, with an unlikely sponsor, drew one sample of published papers and put the central claims of those papers through each of the three repetitions on the grid. Three large studies came out of it, published together in Nature in 2026, and we take them in the order of the grid: reproduction first, then robustness, then replication. Keep one question in mind as we go, because it closes the section: whether a paper that passes one of the three tests is any more likely to pass the others.
+A single programme, with an unlikely sponsor, drew one sample of published papers and put their central claims through each of the three repetitions on the grid. Three large studies came out of it, published together in Nature in 2026, and we take them in the order of the grid, reproduction first, then robustness, then replication. One question closes the section, whether a paper that passes one of the three tests is any more likely to pass the others.
 :::

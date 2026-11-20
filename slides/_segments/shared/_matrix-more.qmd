@@ -13,7 +13,7 @@
 :::
 
 ::: notes
-The glossary on this slide is worth reading slowly, because it separates two things we routinely run together. Repeatability is the umbrella: reproducibility, robustness and replicability as a family, all asking whether the answer survives repeating some step of the process. Credibility and trustworthiness are about how much confidence a finding deserves – and note the sentence in the middle. Because scientific claims are tentative, credibility is not the same as truth. A credible finding can be wrong. What credibility is built from is the list at the bottom: declared interests, validated methods, precise evidence, and claims calibrated to the uncertainty behind them. That last one is the one we will keep coming back to.
+The glossary separates two things that we often run together. Repeatability is the umbrella term, covering reproducibility, robustness and replicability as a family, each of which asks whether the answer survives when some step of the research is repeated. Credibility and trustworthiness concern how much confidence a finding deserves, and the sentence in the middle of the slide matters most: because scientific claims are tentative, credibility is not the same as truth, and a credible finding can be wrong. Credibility is built from the practices listed at the bottom, among them declared interests, validated methods and precise evidence, and the last practice on the list, calibrating the strength of a claim to the uncertainty of the evidence, is the one to which the workshop keeps returning.
 :::
 
 ## Quick check – the matrix in peer review {#quick-check-credibility-in-the-wild .questionslide transition="fade-in none-out"}
@@ -27,7 +27,7 @@ You submit your paper and replication package. It goes out to reviewers.
 :::
 
 ::: notes
-Here is the matrix at work on one paper. You submit a paper with its replication package, and three reviewers each check something different. For each one, call out which cell of the matrix that reviewer is in, before the answer appears. Reviewer 1 reruns your own script on your own data. [pause] [advance] Reproduction. Reviewer 2 fits your data with a different function. [pause] [advance] Robustness. Reviewer 3 applies your methods to a dataset that somebody else published. [pause] [advance] Replication.
+Here is the grid at work on one paper. You submit a paper with its replication package, and three reviewers each check something different. For each reviewer, call out the cell of the grid before the answer appears. Reviewer 1 reruns your own script on your own data. [pause] [advance] That is reproduction. Reviewer 2 fits your data with a different function. [pause] [advance] Robustness. Reviewer 3 applies your methods to a dataset that somebody else published. [pause] [advance] Replication.
 :::
 
 ## Quick check – the matrix in peer review {#quick-check-credibility-in-the-wild-1 .questionslide transition="none-in fade-out"}
@@ -41,5 +41,5 @@ You submit your paper and replication package. It goes out to reviewers.
 :::
 
 ::: notes
-Reviewer 2 has not finished. His new method agrees with your results, but it needs more data than you had, so he wants to run it on the dataset that Reviewer 3 published. Which cell is that? [pause] [advance] New data and a new analysis at once put him in the fourth cell, generalisation. Each of these checks asks a different question of the same paper, and passing one of them does not settle the others.
+Reviewer 2 has not finished. His new method agrees with your results, but it needs more data than you had, so he wants to run it on the dataset published by Reviewer 3. Which cell is that? [pause] [advance] New data and a new analysis at once put him in the fourth cell, generalisation. Each of these checks asks a different question of the same paper, and passing one of them settles none of the others.
 :::

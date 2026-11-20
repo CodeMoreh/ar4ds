@@ -5,7 +5,7 @@ Section 3
 :::
 
 ::: notes
-Section three brings the programme down to this workshop's four case studies. Each is a claim that went through the robustness study and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions reached by the five analysts of each claim, side by side, and then the record of each case study across the three Rs. Your own case study is one of the four. You meet it properly on the second day, so for now the aim is only to place it among the others.
+This section brings the programme down to the workshop's four case studies, each a claim that went through the robustness study and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions of the five analysts of each claim side by side, and then the record of each case study across the three Rs. Your own case study is one of the four, and since you meet it properly on the second day, the aim for now is only to place it among the others.
 :::
 
 ## The four claims {#the-four-claims .smaller}
@@ -24,7 +24,7 @@ Section three brings the programme down to this workshop's four case studies. Ea
 :::
 
 ::: notes
-Here are the four claims in the form in which the robustness study handed them to the analysts, with the dots and the square brackets of the lead team left in. The Housing claim is the only one of the four that comes from an experiment: emails to public housing authorities in the United States that differed only in the name that signed them. The Immigration claim comes from the European Social Survey, the Cohabitation claim from the union histories of American women, and the Europeanisation claim from sixteen waves of the Eurobarometer. Read the claims for what they leave out as much as for what they say. The Housing claim, for instance, states a direction and no size, because an ellipsis removed the twenty percentage points of the abstract.
+These are the four claims in the form in which the robustness study handed them to the analysts, with the dots and the square brackets of the lead team left in. The Housing claim is the only one of the four that comes from an experiment, emails to public housing authorities in the United States that differed only in the name that signed them. The Immigration claim comes from the European Social Survey, the Cohabitation claim from the union histories of American women, and the Europeanisation claim from sixteen waves of the Eurobarometer. The claims are worth reading for what they leave out as much as for what they say: the Housing claim, for instance, states a direction and no size, because an ellipsis removed the twenty percentage points of the abstract.
 :::
 
 ## The conclusions of the analysts {#the-conclusions-of-the-analysts}
@@ -82,7 +82,7 @@ The Task 1 conclusions recorded in the robustness study [@AczelEtAl2026Investiga
 :::
 
 ::: notes
-Each row is one case study and each tile one analyst, coloured by the conclusion recorded in the first task. Two of the claims were upheld by all five of their analysts, the Immigration and the Europeanisation claims. The Housing claim split three to two, with the other two analysts finding evidence neither way. The Cohabitation claim split three ways: two for, one neither way and two for the opposite, all of them working on the file that the robustness study gave them. Agreeing on the conclusion is a different matter from agreeing on the number. The Immigration analysts recorded correlations within a narrow band, while those of the Europeanisation analysts span nearly two orders of magnitude, for the reason that we met a few slides ago.
+Each row is one case study and each tile one analyst, coloured by the conclusion recorded in the first task. All five analysts upheld the Immigration and the Europeanisation claims. The Housing claim split three to two, with the other two analysts finding evidence neither way, and the Cohabitation claim split three ways, two for, one neither way and two for the opposite, all of them working on the file that the robustness study gave them. Agreement on the conclusion, however, is a different matter from agreement on the number: the Immigration analysts recorded correlations within a narrow band, while those of the Europeanisation analysts span nearly two orders of magnitude, for the reason shown by the slide on what the conversion assumes.
 :::
 
 ## The four case studies in the record {#the-four-cases-in-the-record .smaller}
@@ -105,5 +105,5 @@ The page SCORE on the workshop's website, from the facts file of each case study
 :::
 
 ::: notes
-And here is the whole record, case by case, across the three Rs. Read down the reproduction column first: one reproduction never attempted although everything needed for it was public, one never recorded, two that came close on fewer respondents, and two that failed. Then read across the rows, which is the point of the slide. [advance] The Europeanisation claim, upheld by every one of its analysts, could be neither reproduced from its original materials nor replicated on later waves of its survey. The Immigration claim, upheld just as consistently, replicated on later rounds of the European Social Survey. Four case studies are far too few for a conclusion about the literature, but they show, case by case, why the workshop keeps the three questions apart.
+This is the whole record across the three Rs. In the reproduction column, one reproduction was never attempted although everything needed for it was public, one was never recorded, two came close on fewer respondents, and two failed. [advance] Read across the rows, the Europeanisation claim, upheld by every one of its analysts, could be neither reproduced from its original materials nor replicated on later waves of its survey, while the Immigration claim, upheld just as consistently, replicated on later rounds of the European Social Survey. Four case studies are far too few for a conclusion about the literature, but they show, one case at a time, why the workshop keeps the three questions apart.
 :::
