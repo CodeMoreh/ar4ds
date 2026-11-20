@@ -3,8 +3,8 @@ title: "SCORE"
 subtitle: "Multi-day, day 1"
 format: revealjs
 # Session 2 of day 1 of the multi-day format, the same for every case study. Three
-# sections: SCORE, the robustness study, the four case studies. Two optional slides stay on the d
-# toggle: the instructions of Task 2 in the four case studies (run "instructions")
+# sections: SCORE, the robustness study, the two case studies. Two optional slides stay on the d
+# toggle: the instructions of Task 2 in the two case studies (run "instructions")
 # and the conversion rules of the robustness study (run "scale").
 core-runs: []
 ---

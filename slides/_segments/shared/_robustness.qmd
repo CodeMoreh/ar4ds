@@ -12,7 +12,7 @@ Preregistration of the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyt
 :::
 
 ::: notes
-The robustness study took its claims from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim, keeping those that were understandable, made one claim rather than several, stated a direction and had a corresponding test in the article. A phrase judged ambiguous or rhetorical was replaced by an ellipsis, so that "dramatically increased" would become three dots and "increased", and three of the workshop's four claims carry such dots. The analysts received the claim and no research question, as the preregistration states.
+The robustness study took its claims from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim, keeping those that were understandable, made one claim rather than several, stated a direction and had a corresponding test in the article. A phrase judged ambiguous or rhetorical was replaced by an ellipsis, so that "dramatically increased" would become three dots and "increased", and both of the workshop's claims carry such dots. The analysts received the claim and no research question, as the preregistration states.
 :::
 
 ## What an analyst received {#what-an-analyst-received}
@@ -58,14 +58,12 @@ Preregistration, osf.io/4ev9t, pp. 7–8; @AczelEtAl2026InvestigatingAnalyticalR
 The study ran in two stages. Task one left the analysis entirely to the analyst, who then recorded one of four conclusions: evidence for the claim, evidence for the opposite, no evidence either way, or evidence for the null hypothesis. [advance] Once that was submitted, task two arrived, asking for a single main result in the form of a test statistic, with instructions for the claim on matters such as which data to use and what to exclude. [advance] The two tasks measure different things. Task one asks whether independent analysts reach the same verdict, and task two whether they produce the same number, a question that can only be asked once everyone answers roughly the same question, which is what the instructions were for.
 :::
 
-## The instructions in the four case studies {#the-instructions-in-the-four-cases .smaller .deepdive run="instructions"}
+## The instructions in the two case studies {#the-instructions-in-the-four-cases .smaller .deepdive run="instructions"}
 
 ::: {.fs-75}
 | Case study | What the instruction of Task 2 asked |
 |:----|:--------------|
 | Housing | to leave the ethnic composition of the communities out of the model |
-| Immigration | to include unhappiness among the controls, to measure trust in politics by trust in parliament, and to leave out two interactions with concern about immigration |
-| Cohabitation | to leave out the interactions between education and period |
 | Europeanisation | to leave out the contextual variables on EU policies and on the positions of parties, to use the positive non-materialist form of EU framing, and to measure poor economic performance by the unemployment rate |
 :::
 
@@ -78,7 +76,7 @@ The record of each claim in the robustness study (osf.io/q5h2c); preregistration
 :::
 
 ::: notes
-The four instructions appear here side by side in my words rather than in theirs, and on the second day you read the exact wording for your own case study. The instructions differ a good deal. The Cohabitation instruction removes one set of interactions and says nothing else, and the Housing instruction removes the ethnic composition of the communities, while the instructions for the Immigration and Europeanisation claims go further and choose measures, the outcome in both, and for the Europeanisation claim the predictor as well. [advance] The preregistration allowed only instructions that it called circumstantial, about data selection and exclusions, and never about the statistical approach or the full model. The published Methods add the choice of measurement to the examples, and the Europeanisation instruction, which I received myself, makes two choices of exactly that kind.
+The two instructions appear here side by side in my words rather than in theirs, and on the second day you read the exact wording for your own case study. The instructions differ a good deal. The Housing instruction removes the ethnic composition of the communities and says nothing else, while the Europeanisation instruction goes further, leaving out two sets of contextual variables and choosing the measures of both the outcome and the predictor. [advance] The preregistration allowed only instructions that it called circumstantial, about data selection and exclusions, and never about the statistical approach or the full model. The published Methods add the choice of measurement to the examples, and the Europeanisation instruction, which I received myself, makes two choices of exactly that kind.
 :::
 
 ## Results on a common scale {#how-a-hundred-studies-become-one-number}

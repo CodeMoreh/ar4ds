@@ -6,10 +6,10 @@ Session 3 of 6 on day 1, the same for every case study
 
 :::: {.todaybox}
 ::: {.nonincremental .fs-85}
-1. Data sources – the three routes by which data reach a researcher, the archives, surveys and statistics of social science, and the routes of the four case studies
+1. Data sources – the three routes by which data reach a researcher, the archives, surveys and statistics of social science, and the routes of the two case studies
 2. Repositories – what a repository has to do, and the repositories that researchers use
 3. Registrations – frozen plans, the preregistration of the robustness study and two templates
-4. The public record – the SCORE dossiers of the four case studies, and the deposit of a reanalysis
+4. The public record – the SCORE dossiers of the two case studies, and the deposit of a reanalysis
 :::
 ::::
 
@@ -18,5 +18,5 @@ You leave knowing where the materials of a published study are kept, and on what
 :::
 
 ::: notes
-The last session of the morning is about infrastructure, the places in which the evidence of social science is kept. Every record that we used in the last session had to be kept somewhere, under some terms, and the point is more than a technicality, since in SCORE the most common reason why a reproduction could not even start was that the data were not available. We go in four steps: where data come from and on what terms, with the workshop's four case studies as the examples; where finished work goes so that others can find it and cite it; registrations, which freeze a plan before the result; and the public record of the four case studies, which you open yourselves.
+The last session of the morning is about infrastructure, the places in which the evidence of social science is kept. Every record that we used in the last session had to be kept somewhere, under some terms, and the point is more than a technicality, since in SCORE the most common reason why a reproduction could not even start was that the data were not available. We go in four steps: where data come from and on what terms, with the workshop's two case studies as the examples; where finished work goes so that others can find it and cite it; registrations, which freeze a plan before the result; and the public record of the two case studies, which you open yourselves.
 :::

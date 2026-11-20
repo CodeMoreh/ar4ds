@@ -1,7 +1,7 @@
 ## The next session and the reading {#next-session}
 
 ::: {.small .nonincremental}
-- **The next session** takes up SCORE and its robustness study: the programme that put published claims through all three Rs, the many-analysts study inside it, and what the workshop's four case studies recorded
+- **The next session** takes up SCORE and its robustness study: the programme that put published claims through all three Rs, the many-analysts study inside it, and what the workshop's two case studies recorded
 - **The reading of this session** is the glossary on the Resources page of your case study's website, which sets out the four terms of repetition with the place of each in the case study
 - The glossary follows the four-page paper by Nosek and colleagues, which is open at the address below [@NosekEtAl2025BriefGlossaryTerms]
 :::

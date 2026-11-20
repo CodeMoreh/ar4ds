@@ -14,8 +14,6 @@ This section puts the morning together. SCORE kept everything that it did with e
 | Case study | SCORE project on the OSF | What it holds |
 |:----|:-------|:---------------|
 | Housing | [osf.io/3a8bg](https://osf.io/3a8bg/) | the original materials, a power analysis, a reproduction template never filled in, the replication with its preregistration and report, and the component of the robustness study, with Multi100 in its title and one component for each analyst |
-| Immigration | [osf.io/3ajr9](https://osf.io/3ajr9/) | the original materials, a power analysis, two reproductions from source data, two replications on later rounds of the survey, and the robustness study |
-| Cohabitation | [osf.io/kv38j](https://osf.io/kv38j/) | the original materials, a power analysis, the replication and the robustness study, with no reproduction |
 | Europeanisation | [osf.io/h7432](https://osf.io/h7432/) | the original materials and the code of the original author (OA), a power analysis, a push-button and a source-data reproduction, the robustness study and the replication |
 :::
 
@@ -28,7 +26,7 @@ The facts file of each case study; the modules Reproducibility repositories of t
 :::
 
 ::: notes
-Each paper selected by SCORE has a project on the OSF, named by a code built from the first author, the journal, the year and a short identifier, with one component for each kind of work done on the paper. The four projects of the workshop's case studies are not alike: the Housing project holds a reproduction that was planned and never carried out, the Immigration project two reproductions and two replications, the Cohabitation project no reproduction at all, and the Europeanisation project two failed reproductions beside its replication. [advance] The processed results of every reanalysis of the robustness study, the answers to both tasks with the effect sizes converted to the common scale, are public in a repository of their own.
+Each paper selected by SCORE has a project on the OSF, named by a code built from the first author, the journal, the year and a short identifier, with one component for each kind of work done on the paper. The projects of the workshop's two case studies are not alike: the Housing project holds a reproduction that was planned and never carried out, and the Europeanisation project two failed reproductions beside its replication. [advance] The processed results of every reanalysis of the robustness study, the answers to both tasks with the effect sizes converted to the common scale, are public in a repository of their own.
 :::
 
 ## Reading a dossier {#reading-a-dossier .questionslide}
