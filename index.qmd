@@ -19,7 +19,7 @@ The page presents the published case studies only, Housing and Europeanisation,
 numbered in that order; the other case studies stay unnamed and unlinked until CM
 has vetted them. The page runs no code, because the data of the case studies live
 on their own sites. Its figures are those of the record of SCORE and its robustness
-study, which do not change with the data of the workshop, and each comes from the
+study, which do not change with the workshop's data, and each comes from the
 facts file of its case study (D:\ACADEMIC\TEACHING\AR4DS\_planning\housing\housing-facts.md,
 and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation),
 apart from the 270 country-years and the 864 specifications of the Europeanisation
@@ -82,7 +82,7 @@ What a first course in quantitative methods teaches: a proportion, a regression 
 
 </details>
 
-[Go to the site of the case study](https://codemoreh.github.io/ar4ds-housing/){.home-go}
+[Go to the case study](https://codemoreh.github.io/ar4ds-housing/){.home-go}
 :::
 
 ::: {.home-casecard .home-reveal}
@@ -110,7 +110,7 @@ What a first course in quantitative methods teaches, including linear regression
 
 </details>
 
-[Go to the site of the case study](https://codemoreh.github.io/ar4ds-eu/){.home-go}
+[Go to the case study](https://codemoreh.github.io/ar4ds-eu/){.home-go}
 :::
 
 ::::
@@ -124,7 +124,7 @@ What a first course in quantitative methods teaches, including linear regression
 ## Formats {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The workshop is taught in three formats, and the facilitator of each workshop chooses its format and its case study. Each format is an ordered route through the pages of the site of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a workshop leads straight to its route.
+The workshop is taught in three formats, and the facilitator of each workshop chooses its format and its case study. Each format is an ordered route through the pages of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a workshop leads straight to its route.
 :::
 
 :::: {.home-grid}
@@ -154,7 +154,7 @@ One case study in four parts, worked in the downloadable workspace in your IDE, 
 
 [At your own pace, in R]{.home-meta}
 
-The site of each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own.
+Each case study holds a route for a reader who works alone, which takes the case study through the five tasks with the modules of its companion between them and ends on a project of your own.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/independent/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/independent/).
 :::
@@ -170,7 +170,7 @@ The site of each case study holds a route for a reader who works alone, which ta
 ## Methods and tools {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the help page, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
+The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught in every case study, because every exercise rests on them. The tools serve every case study and are taught once, on these pages, with the file of the Housing case study as their running example: the installation and the help page, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
 :::
 
 ::: {.home-map .home-reveal}
@@ -191,7 +191,7 @@ The companion of each site holds the methods that arise from its case study, fro
 ## SCORE {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The claims of the case studies come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. In the robustness study, 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the exercise of the workshop follows its design on a smaller scale.
+The claims of the case studies come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. In the robustness study, 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the workshop's exercise follows its design on a smaller scale.
 :::
 
 :::: {.home-cases .home-reveal}
