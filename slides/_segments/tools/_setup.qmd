@@ -1,7 +1,7 @@
 ```{r}
 #| label: setup-tools
 #| include: false
-# The setup of the three decks on the tools (r.qmd, ide.qmd, quarto.qmd),
+# The setup of the three slide decks on the tools (r.qmd, ide.qmd, quarto.qmd),
 # after the shared and the day-1 setup chunks. A slide shows the code of a step
 # as a static block, as the class types it in the workspace of the
 # Housing case study, and prints what that step gives from the copy of the
@@ -107,11 +107,11 @@ by_name_sorted <- by_name |>
   )
 fewest <- datawizard::data_arrange(by_name, "share")
 
-# The emails signed Santiago, which the Data Explorer filters in the
-# Positron deck
+# The emails signed Santiago, which the Data Explorer filters on the
+# slides on Positron
 santiago <- datawizard::data_filter(housing, name == "Santiago")
 
-# The statistic of 8PTRZ, which the Quarto deck computes inline: the 2 x 2
+# The statistic of 8PTRZ, which the slides on Quarto compute inline: the 2 x 2
 # table of the Hispanic names against all other names among the coded
 # replies, from the course file, which gives the same table as the public file
 # of the original authors

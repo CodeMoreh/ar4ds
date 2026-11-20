@@ -95,7 +95,7 @@ A record of `references.bib`, shortened. The word after the opening brace is the
 :::
 
 ::: {.small}
-The list of references is built from what the text cites, at the place of `::: {#refs}`. The right-hand column of the table cites the paper of the original authors (OAs), and the last slide of this deck lists it.
+The list of references is built from what the text cites, at the place of `::: {#refs}`. The right-hand column of the table cites the paper of the original authors (OAs), and the last of these slides lists it.
 :::
 :::
 ::::

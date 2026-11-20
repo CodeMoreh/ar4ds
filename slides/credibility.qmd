@@ -3,7 +3,7 @@ title: "Credibility and the three Rs"
 subtitle: "Multi-day, day 1"
 format: revealjs
 # Session 1 of day 1 of the multi-day format, the same for every case study. Three
-# sections: the credibility debate, the three Rs, open research. The deck has
+# sections: the credibility debate, the three Rs, open research. These slides have
 # no optional runs.
 core-runs: []
 ---
