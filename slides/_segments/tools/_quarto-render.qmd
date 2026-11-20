@@ -86,7 +86,7 @@ format:
 ::::
 
 ::: notes
-Put a file called underscore quarto dot yml beside a document and the folder becomes a project: a set of documents that share settings, render together and can be published as one thing. This is the configuration of the workspace, without its comments and its title. output dir sends the rendered site to the folder underscore site, which is why the report becomes underscore site slash index dot html, and render limits the project to the report, so that the Markdown codebooks in the data folder stay as they are. freeze auto tells Quarto, when it renders the whole project, to run a document again only when its source file has changed, and to keep the results in a folder called underscore freeze. A render of a single file always runs its code, whatever the setting says. The format block sets the defaults of every page at once.
+Put a file called underscore quarto dot yml beside a document and the folder becomes a project: a set of documents that share settings, render together and can be published as one thing. This is the configuration of the IDE workspace, without its comments and its title. output dir sends the rendered site to the folder underscore site, which is why the report becomes underscore site slash index dot html, and render limits the project to the report, so that the Markdown codebooks in the data folder stay as they are. freeze auto tells Quarto, when it renders the whole project, to run a document again only when its source file has changed, and to keep the results in a folder called underscore freeze. A render of a single file always runs its code, whatever the setting says. The format block sets the defaults of every page at once.
 :::
 
 ## From the folder to the record {#from-the-folder-to-the-record .smaller}
@@ -94,7 +94,7 @@ Put a file called underscore quarto dot yml beside a document and the folder bec
 ::: {.small}
 - **Render.** The rendered report carries the date of its run, from `date: today` in its header
 - **Version control.** The folder becomes a git repository, and every commit is a dated snapshot with a reason attached
-- **Publish.** Pushed to GitHub, the workspace renders the report and publishes it as a web page, through the workflow that it carries in `.github/`
+- **Publish.** Pushed to GitHub, the IDE workspace renders the report and publishes it as a web page, through the workflow that it carries in `.github/`
 - **Archive.** A release deposited on Zenodo or the OSF gets a DOI and a version that does not change
 :::
 
@@ -103,7 +103,7 @@ Today stops at the first step. The module Git and GitHub takes the next two on t
 :::
 
 ::: notes
-Once the report renders, there are four steps between your folder and a public record, and today we take only the first. Rendering gives you a document that carries the date of its run. Version control turns the folder into a git repository, and every commit is then a dated snapshot of everything in it, with a sentence saying why it changed. Publishing pushes that repository to GitHub, and the workspace already carries a small workflow that renders the report there and publishes it as a web page every time that you push. And archiving deposits a release with Zenodo or the OSF, which gives it a DOI and a version that will not change, so that a paper can cite it, as the session on repositories set out this morning. [advance] The module Git and GitHub walks through the next two steps, click by click, on the folder that you have open now.
+Once the report renders, there are four steps between your folder and a public record, and today we take only the first. Rendering gives you a document that carries the date of its run. Version control turns the folder into a git repository, and every commit is then a dated snapshot of everything in it, with a sentence saying why it changed. Publishing pushes that repository to GitHub, and the IDE workspace already carries a small workflow that renders the report there and publishes it as a web page every time that you push. And archiving deposits a release with Zenodo or the OSF, which gives it a DOI and a version that will not change, so that a paper can cite it, as the session on repositories set out this morning. [advance] The module Git and GitHub walks through the next two steps, click by click, on the folder that you have open now.
 :::
 
 ## Hands-on 4 – A clean render {#hands-on-4-a-clean-render .smaller}

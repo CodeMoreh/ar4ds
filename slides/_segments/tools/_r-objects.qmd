@@ -1,7 +1,7 @@
-## The workspace {#the-workspace .smaller}
+## The IDE workspace {#the-workspace .smaller}
 
 ::: {.small}
-- Every step of the afternoon runs in the **workspace of the Housing case study**, the folder `ar4ds-housing-workspace-main`, whatever your workshop's case study
+- Every step of the afternoon runs in the **IDE workspace of the Housing case study**, the folder `ar4ds-housing-workspace-main`, whatever your workshop's case study
 - Open the folder itself, not a file inside it: **File → Open Folder…** in Positron and VS Code, or the file `ar4ds-housing-workspace.Rproj` in RStudio
 - Then open a new R script, save it in that folder, and type each step of this session into it
 :::
@@ -15,7 +15,7 @@ If the folder is not on your machine yet, its zip is on the setup page, in step 
 :::
 
 ::: notes
-Before anybody types, the folder. Every step this afternoon runs in the workspace of the Housing case study, because the modules on the tools use it as their running example, whatever your workshop's case study. If your workshop works on that case study, you installed the folder before the workshop and ran its check script. If it works on another case study, the folder that you installed belongs to that case study, and the Housing folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
+Before anybody types, the folder. Every step this afternoon runs in the IDE workspace of the Housing case study, because the modules on the tools use it as their running example, whatever your workshop's case study. If your workshop works on that case study, you installed the folder before the workshop and ran its check script. If it works on another case study, the folder that you installed belongs to that case study, and the Housing folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
 :::
 
 # Objects and data frames {#objects-and-data-frames .darkslide background-color="rgba(0,0,0,0)"}

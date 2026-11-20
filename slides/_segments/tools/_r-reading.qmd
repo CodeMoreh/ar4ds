@@ -15,11 +15,11 @@ housing <- readr::read_csv("../tools/data/housing_emails.csv")
 ```
 
 ::: {.fragment .small}
-The path is relative to the folder of the workspace, so the line runs on any machine on which the folder is open. The scripts of the workspace add `show_col_types = FALSE`, which keeps the report on the columns quiet.
+The path is relative to the folder of the IDE workspace, so the line runs on any machine on which the folder is open. The scripts of the workspace add `show_col_types = FALSE`, which keeps the report on the columns quiet.
 :::
 
 ::: notes
-Now the data: one row for each email of the field experiment run by the original authors, the OAs, in which emails signed with names meant to indicate a white, a Black or a Hispanic applicant went to public housing authorities in the United States. The file is a CSV, short for comma-separated values, a plain-text table with one line for each row and commas between the columns, which any program can open. In the module, in your browser, you read it with read dot csv, which comes with R. In your IDE the workshop reads it with read underscore csv from readr, which treats an empty cell as missing without being told, and reports what it read: a thousand and fourteen rows, sixteen columns, and the type of each. [advance] The path is relative, so R looks for the file in the folder in which it works, which is the folder of the workspace once you have opened it.
+Now the data: one row for each email of the field experiment run by the original authors, the OAs, in which emails signed with names meant to indicate a white, a Black or a Hispanic applicant went to public housing authorities in the United States. The file is a CSV, short for comma-separated values, a plain-text table with one line for each row and commas between the columns, which any program can open. In the module, in your browser, you read it with read dot csv, which comes with R. In your IDE the workshop reads it with read underscore csv from readr, which treats an empty cell as missing without being told, and reports what it read: a thousand and fourteen rows, sixteen columns, and the type of each. [advance] The path is relative, so R looks for the file in the folder in which it works, which is the folder of the IDE workspace once you have opened it.
 :::
 
 ## A first look {#a-first-look .smaller}
@@ -53,7 +53,7 @@ print(datawizard::data_peek(housing))
 ::::
 
 ::: notes
-Before any analysis, look at what you have, and the first question to ask of any dataset is what a row is. Here a row is one email. nrow counts the rows, a thousand and fourteen. data peek, from datawizard, turns the table on its side, with one line for each column, its type and its first values, so that all sixteen columns fit on the screen. Notice that reply already shows an NA among its first values: that email bounced and never reached an official. Every column is described in the codebook that sits beside the file in the data folder of the workspace, and a codebook is the second thing to read after any import. Your IDE can also show the data as a spreadsheet, with View of housing, and the next session spends some time in that viewer.
+Before any analysis, look at what you have, and the first question to ask of any dataset is what a row is. Here a row is one email. nrow counts the rows, a thousand and fourteen. data peek, from datawizard, turns the table on its side, with one line for each column, its type and its first values, so that all sixteen columns fit on the screen. Notice that reply already shows an NA among its first values: that email bounced and never reached an official. Every column is described in the codebook that sits beside the file in the data folder of the IDE workspace, and a codebook is the second thing to read after any import. Your IDE can also show the data as a spreadsheet, with View of housing, and the next session spends some time in that viewer.
 :::
 
 ## Counting values {#counting-values .smaller}

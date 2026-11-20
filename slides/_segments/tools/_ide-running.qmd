@@ -5,7 +5,7 @@ Section 2
 :::
 
 ::: notes
-Section two is about running code, which is most of what you do in an IDE. A script can run as a whole, a statement at a time, or in part, and we take each of the three on the files of the workspace. Then we look at the console, where the code runs, and at the Variables pane, which shows what the session holds once it has run. The task at the end finishes with a restart of R, which is the quickest test of whether a script recreates everything that it uses.
+Section two is about running code, which is most of what you do in an IDE. A script can run as a whole, a statement at a time, or in part, and we take each of the three on the files of the IDE workspace. Then we look at the console, where the code runs, and at the Variables pane, which shows what the session holds once it has run. The task at the end finishes with a restart of R, which is the quickest test of whether a script recreates everything that it uses.
 :::
 
 ## A script as a whole {#a-script-as-a-whole .smaller}
@@ -24,7 +24,7 @@ Section two is about running code, which is most of what you do in an IDE. A scr
 ::::
 
 ::: notes
-The whole file runs from the run button at the top left of the editor. The button itself runs Source R File with Echo, which prints every line of code in the console before its result, and the small arrow beside it opens a menu that also offers Source R File, which runs the file with source and prints the results only. The second suits the check script, whose code you do not need to read in the console, and it does the same as typing source R slash check setup dot R there. The check prints an OK line for each thing that the workshop needs, and its last check fits the reference specification of the Housing case study, which must come out at minus nineteen point nine seven percentage points. The check script of every workspace works in the same way.
+The whole file runs from the run button at the top left of the editor. The button itself runs Source R File with Echo, which prints every line of code in the console before its result, and the small arrow beside it opens a menu that also offers Source R File, which runs the file with source and prints the results only. The second suits the check script, whose code you do not need to read in the console, and it does the same as typing source R slash check setup dot R there. The check prints an OK line for each thing that the workshop needs, and its last check fits the reference specification of the Housing case study, which must come out at minus nineteen point nine seven percentage points. The check script of every IDE workspace works in the same way.
 :::
 
 ## A statement at a time {#a-statement-at-a-time .smaller}
@@ -87,7 +87,7 @@ With a selection, Control and Enter sends exactly the text that you selected, wh
 
 ## The console {#the-console .smaller}
 
-![](../tools/images/ide/15-console.png){fig-alt="The console of Positron. Its header bar shows the path of the workspace folder and buttons to restart R, clear the console and show information. nrow(housing) prints 1014, names(housing) prints the sixteen column names, and getwd() prints the path of the folder ar4ds-housing-workspace-main." width="92%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+![](../tools/images/ide/15-console.png){fig-alt="The console of Positron. Its header bar shows the path of the IDE workspace folder and buttons to restart R, clear the console and show information. nrow(housing) prints 1014, names(housing) prints the sixteen column names, and getwd() prints the path of the folder ar4ds-housing-workspace-main." width="92%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 
 ::: {.small}
 - `>` means that R is waiting, `+` that a statement is not finished. The Up arrow brings back earlier commands, and Ctrl+L clears the screen and keeps every object
@@ -95,7 +95,7 @@ With a selection, Control and Enter sends exactly the text that you selected, wh
 :::
 
 ::: notes
-The console shows a greater-than sign when R is waiting for you and a plus sign at the start of each further line of a statement that runs over several lines. You can type into it directly, and the Up arrow brings back the commands that you ran before, so that a line can be run again or changed without being retyped. Control and L clears what the console shows and leaves every object in place. The bar at the top shows the working directory of the session, which should be the folder of the workspace, as getwd confirms here. The circular arrow restarts R, which ends the session, and every object goes with it. Positron does not save the objects of a session when it closes, and that suits the workshop: a result is reproducible only when the script recreates every object that it uses.
+The console shows a greater-than sign when R is waiting for you and a plus sign at the start of each further line of a statement that runs over several lines. You can type into it directly, and the Up arrow brings back the commands that you ran before, so that a line can be run again or changed without being retyped. Control and L clears what the console shows and leaves every object in place. The bar at the top shows the working directory of the session, which should be the folder of the IDE workspace, as getwd confirms here. The circular arrow restarts R, which ends the session, and every object goes with it. Positron does not save the objects of a session when it closes, and that suits the workshop: a result is reproducible only when the script recreates every object that it uses.
 :::
 
 ## The Variables pane {#the-variables-pane .smaller}
@@ -114,10 +114,10 @@ The console shows a greater-than sign when R is waiting for you and a plus sign 
 ::::
 
 ::: notes
-The Variables pane, in the Session tab on the right, lists the objects of the session in three groups, data frames under data, other values under values, and functions under functions. Each line gives the name of an object and a short preview of what it holds, and a data frame unfolds into its columns, each with its type and its length, so that the sixteen columns of housing appear with numbers marked dbl, text marked str, and every column a thousand and fourteen long. The Filter box at the top narrows the list, which helps once the helpers of the workspace have added their functions to it. And the small grid icon beside each data frame opens it in the Data Explorer, which the next section takes up. In RStudio the same list is the Environment pane.
+The Variables pane, in the Session tab on the right, lists the objects of the session in three groups, data frames under data, other values under values, and functions under functions. Each line gives the name of an object and a short preview of what it holds, and a data frame unfolds into its columns, each with its type and its length, so that the sixteen columns of housing appear with numbers marked dbl, text marked str, and every column a thousand and fourteen long. The Filter box at the top narrows the list, which helps once the helpers of the IDE workspace have added their functions to it. And the small grid icon beside each data frame opens it in the Data Explorer, which the next section takes up. In RStudio the same list is the Environment pane.
 :::
 
-## Hands-on 2 – Running the workspace {#hands-on-2-running-the-workspace .smaller}
+## Hands-on 2 – Running the IDE workspace {#hands-on-2-running-the-workspace .smaller}
 
 ::: {.small}
 1. Open `R/check_setup.R` and run it with **Source R File**, from the arrow beside the run button

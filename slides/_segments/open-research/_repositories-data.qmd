@@ -95,7 +95,7 @@ The terms of use of GESIS, valid since 4 February 2026, as quoted in the module 
 :::
 
 ::: notes
-These are three clauses from the terms of use to which every GESIS download dialog links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the Europeanisation case study is built: no individual cases, while summary presentations of the kind found in papers and lectures are allowed, which is why the workshop can publish its panel of country-years. The third bears on how you work: the respondent files may not be processed with an AI system. The module on AI assistants on the workshop's website sets out what that means in practice, and the Europeanisation workspace switches the AI features of Positron and VS Code off for its whole folder.
+These are three clauses from the terms of use to which every GESIS download dialog links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the Europeanisation case study is built: no individual cases, while summary presentations of the kind found in papers and lectures are allowed, which is why the workshop can publish its panel of country-years. The third bears on how you work: the respondent files may not be processed with an AI system. The module on AI assistants on the workshop's website sets out what that means in practice, and the Europeanisation IDE workspace switches the AI features of Positron and VS Code off for its whole folder.
 :::
 
 ## Fetching data from code {#fetching-data-from-code .deepdive run="fetch"}

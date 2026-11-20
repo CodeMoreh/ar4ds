@@ -147,13 +147,13 @@ report_table |> tinytable::tt()
 :::
 
 ::: {.small}
-tinytable is not among the packages that the workspaces check. In your IDE the table opens in the Viewer, and one call draws it as a web page, a PDF or a Word document.
+tinytable is not among the packages that the IDE workspaces check. In your IDE the table opens in the Viewer, and one call draws it as a web page, a PDF or a Word document.
 :::
 :::
 ::::
 
 ::: notes
-tinytable is the workshop's table package, the one to use in your IDE and in a Quarto document, because one call draws the same table as a web page, a PDF or a Word document. It is not among the packages that the workspaces check, so install it once with pak. The chain gives the groups the labels that a reader should read, rounds the two percentages, and keeps five columns under new names, using a named vector as a lookup table for the labels; a name with spaces or symbols in it goes inside backticks. Then tt draws the table. In Positron it opens in the Viewer, on the right of the window, and in a Quarto document it becomes a table of the report, which the last session of the day gives a caption and a number.
+tinytable is the workshop's table package, the one to use in your IDE and in a Quarto document, because one call draws the same table as a web page, a PDF or a Word document. It is not among the packages that the IDE workspaces check, so install it once with pak. The chain gives the groups the labels that a reader should read, rounds the two percentages, and keeps five columns under new names, using a named vector as a lookup table for the labels; a name with spaces or symbols in it goes inside backticks. Then tt draws the table. In Positron it opens in the Viewer, on the right of the window, and in a Quarto document it becomes a table of the report, which the last session of the day gives a caption and a number.
 :::
 
 ## A first figure {#a-first-figure .smaller}
@@ -246,7 +246,7 @@ Three changes make the figure readable. The vertical bar in the formula, share b
 | `object 'housing' not found` | The line that makes the object has not run in this session: run the script from the top |
 | `could not find function "data_filter"` | The function was written without its package: write `datawizard::data_filter()` |
 | `there is no package called 'tinytable'` | The package is not installed on this machine: `pak::pak("tinytable")` |
-| `'data/housing_emails.csv' does not exist in current working directory` | R works in another folder: open the folder of the workspace |
+| `'data/housing_emails.csv' does not exist in current working directory` | R works in another folder: open the folder of the IDE workspace |
 | `+` in the console, and nothing happens | An unclosed bracket or quote: press Esc and look for it |
 :::
 
@@ -255,5 +255,5 @@ Read the first error first, since the later ones often follow from it. R error m
 :::
 
 ::: notes
-These five messages will be most of what you meet in the workshop. Object not found means that the line which makes the object has not run in this session, so go back up and run the script from the top. Could not find function means that the function was written without its package, or that the package is missing. No package called means that the package was never installed on this machine. File does not exist in the current working directory means that R is working in another folder, usually because a single file was opened rather than the folder of the workspace. And a plus sign in the console with nothing happening means that R is waiting for the end of a statement: an unclosed bracket or quote. Press Escape and look for it. [advance] The habit that I would most like you to keep is to read the error, starting with the first one.
+These five messages will be most of what you meet in the workshop. Object not found means that the line which makes the object has not run in this session, so go back up and run the script from the top. Could not find function means that the function was written without its package, or that the package is missing. No package called means that the package was never installed on this machine. File does not exist in the current working directory means that R is working in another folder, usually because a single file was opened rather than the folder of the IDE workspace. And a plus sign in the console with nothing happening means that R is waiting for the end of a statement: an unclosed bracket or quote. Press Escape and look for it. [advance] The habit that I would most like you to keep is to read the error, starting with the first one.
 :::

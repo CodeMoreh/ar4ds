@@ -1,9 +1,9 @@
-## The report of the workspace {#the-report-of-the-workspace .smaller}
+## The report of the IDE workspace {#the-report-of-the-workspace .smaller}
 
 ::: {.small}
 - `index.qmd` is the report: the five tasks of the exercise of the case study and the preregistration block, with the reasoning written around the code and each result printed beside the sentences that discuss it
 - `working_script.R` holds the same analysis as a plain script, which is quicker to experiment with
-- A render writes the report to `_site/index.html`, because the workspace is a Quarto project whose output goes to `_site`
+- A render writes the report to `_site/index.html`, because the IDE workspace is a Quarto project whose output goes to `_site`
 :::
 
 ::: {.fragment .small}
@@ -11,7 +11,7 @@ Never edit the rendered output. Every render writes it afresh from the source, a
 :::
 
 ::: notes
-Your workspace holds the same analysis twice. The working script takes the tasks as a plain R script that you step through in the console, as we did in the last session. index dot qmd is the same work as a report, with the reasoning written around the code and the results printed beside the sentences that discuss them. The script is quicker to experiment with. The report is the thing that you can hand to somebody, and its results cannot go stale, because they are computed again from the data every time that the file is rendered. The workspace is a Quarto project whose output goes to a folder called underscore site, so the report becomes underscore site slash index dot html. [advance] That file is disposable, since every render writes it afresh, so never edit it: the source is what you keep.
+Your IDE workspace holds the same analysis twice. The working script takes the tasks as a plain R script that you step through in the console, as we did in the last session. index dot qmd is the same work as a report, with the reasoning written around the code and the results printed beside the sentences that discuss them. The script is quicker to experiment with. The report is the thing that you can hand to somebody, and its results cannot go stale, because they are computed again from the data every time that the file is rendered. The workspace is a Quarto project whose output goes to a folder called underscore site, so the report becomes underscore site slash index dot html. [advance] That file is disposable, since every render writes it afresh, so never edit it: the source is what you keep.
 :::
 
 ## Chunks in the console {#chunks-in-the-console .smaller}

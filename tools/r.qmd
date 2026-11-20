@@ -126,7 +126,7 @@ The **console** is the interactive prompt. You type one line, press Enter, and R
 
 A **script** is a plain text file with the extension `.R`, which holds a sequence of commands that you want to keep. You write the commands in the script and send them to the console from there, all at once or line by line, and the console prints the output as if you had typed each command there. A script runs the same way tomorrow and on someone else's machine, and it records step by step how a result was produced. The workshop therefore follows a simple rule: try things in the console, and move anything that matters into a script.
 
-A **Quarto document**, with the extension `.qmd`, holds a script and a written report in one file, with ordinary prose and blocks of R code, called chunks, between the paragraphs. When the document is rendered, R runs every chunk and places the results, whether tables, figures or single numbers, into the finished report at the point where each belongs. The workspace of every case study holds its report as a Quarto document, `index.qmd`, which you fill in and render, and the [Quarto module](quarto.qmd) shows how such a document is written. This page is itself a Quarto document, rendered into the web page that you are reading, with the difference that its blocks wait for you to run them.
+A **Quarto document**, with the extension `.qmd`, holds a script and a written report in one file, with ordinary prose and blocks of R code, called chunks, between the paragraphs. When the document is rendered, R runs every chunk and places the results, whether tables, figures or single numbers, into the finished report at the point where each belongs. The IDE workspace of every case study holds its report as a Quarto document, `index.qmd`, which you fill in and render, and the [Quarto module](quarto.qmd) shows how such a document is written. This page is itself a Quarto document, rendered into the web page that you are reading, with the difference that its blocks wait for you to run them.
 
 ## 3. Objects and vectors {#sec-objects}
 
@@ -300,7 +300,7 @@ library(conflicted)
 conflicts_prefer(dplyr::filter)   # stats::filter(), which R attaches at start-up, has the same name
 ```
 
-The workshop writes `pkg::fun()` in all of its own code because that code is read a block at a time, by people who did not write it, and each block has to say where its functions come from without an import script beside it. The workspace of every case study holds a check script, `R/check_setup.R`, which checks the packages that its exercise needs and prints the line that installs whichever are missing, as step 4 of the [setup page](../setup.qmd#check-that-it-works) describes.
+The workshop writes `pkg::fun()` in all of its own code because that code is read a block at a time, by people who did not write it, and each block has to say where its functions come from without an import script beside it. The IDE workspace of every case study holds a check script, `R/check_setup.R`, which checks the packages that its exercise needs and prints the line that installs whichever are missing, as step 4 of the [setup page](../setup.qmd#check-that-it-works) describes.
 
 ## 6. Reading the data {#sec-reading}
 
@@ -318,7 +318,7 @@ housing <- read.csv("data/housing_emails.csv", na.strings = c("", "NA"))
 
 The file thus marks a missing value in two ways, as an empty cell and as the letters `NA`. `read.csv()` treats the letters as missing, while an empty cell in a column of text becomes a piece of text with nothing in it, unless the function is told otherwise, and `na.strings = c("", "NA")` tells it that both forms mean 'missing'. Without that argument, the `r n_no_third` emails whose community has no poverty third in the file would form an empty category in every count of that column. In your IDE, the workshop reads CSV files with `readr::read_csv()`, which treats both forms as missing without being told, reports the type of each column as it reads, and returns a **tibble**, a data frame that prints only its first ten rows. This page uses `read.csv()` to spare the browser a download, and the data frame that it returns holds the same values.
 
-The path `"data/housing_emails.csv"` is a relative path, which R reads from the folder in which it is working, and on this page the copy of R in your browser keeps the file in a folder called `data` inside that working folder. In the workspace of a case study the same kind of path is relative to the folder of the workspace, so it works as written once you open that folder in your IDE, whereas an absolute path such as `C:/Users/yourname/Desktop/...` breaks as soon as the work moves to another machine.
+The path `"data/housing_emails.csv"` is a relative path, which R reads from the folder in which it is working, and on this page the copy of R in your browser keeps the file in a folder called `data` inside that working folder. In the IDE workspace of a case study the same kind of path is relative to the folder of the workspace, so it works as written once you open that folder in your IDE, whereas an absolute path such as `C:/Users/yourname/Desktop/...` breaks as soon as the work moves to another machine.
 
 Three functions give a first view of what was read. `nrow()` counts the rows, one for each email.
 
@@ -745,11 +745,11 @@ report_table <- housing |>
 report_table |> tinytable::tt()
 ```
 
-tinytable is not among the packages that the workspaces check, so install it with `pak::pak("tinytable")` before you use it in your IDE.
+tinytable is not among the packages that the IDE workspaces check, so install it with `pak::pak("tinytable")` before you use it in your IDE.
 
 ## 12. A first figure {#sec-figure}
 
-tinyplot draws every figure that you make yourself in the workspaces and in the browser labs, and it runs on this page because it extends the graphics system that comes with R itself and needs no other package [@McDermottEtAl2026TinyplotLightweightExtension]. A plot is one call with two parts: a **formula** with the data, which says what goes on which axis, and a **type**, which says what to draw. The figures below show the share of replies that greeted the sender by name for each of the six names, so the first step computes the six shares, one row for each name, in per cent, and stores the result as `by_name`.
+tinyplot draws every figure that you make yourself in the IDE workspaces and in the webR workspaces, and it runs on this page because it extends the graphics system that comes with R itself and needs no other package [@McDermottEtAl2026TinyplotLightweightExtension]. A plot is one call with two parts: a **formula** with the data, which says what goes on which axis, and a **type**, which says what to draw. The figures below show the share of replies that greeted the sender by name for each of the six names, so the first step computes the six shares, one row for each name, in per cent, and stores the result as `by_name`.
 
 ```{webr}
 by_name <- housing |>

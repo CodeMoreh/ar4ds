@@ -5,7 +5,7 @@ Section 1
 :::
 
 ::: notes
-Section one is about the shape of the window. Positron works on a folder, so we start by opening the folder of the workspace and letting R start inside it. Then the seven parts of the window, under the names by which the documentation of Positron describes each part, so that you can find a pane when I name it. Then the files of the workspace, what each file is for and which files you can leave alone, and a first task in which you do all of this on your own machine.
+Section one is about the shape of the window. Positron works on a folder, so we start by opening the folder of the IDE workspace and letting R start inside it. Then the seven parts of the window, under the names by which the documentation of Positron describes each part, so that you can find a pane when I name it. Then the files of the workspace, what each file is for and which files you can leave alone, and a first task in which you do all of this on your own machine.
 :::
 
 ## Opening the folder {#opening-the-folder .smaller}
@@ -24,7 +24,7 @@ Section one is about the shape of the window. Positron works on a folder, so we 
 ::::
 
 ::: notes
-Positron works on a folder, and the workshop works in one folder, the unzipped workspace. File, Open Folder, or Control and K followed by Control and O, then choose the folder itself rather than a file inside it, and press Select Folder. Two things happen at once. The files of the folder appear in the Explorer on the left, and R starts in a console whose working directory is that folder, so that a path such as data slash housing emails dot csv finds its file without further ado. Positron starts R by itself when the folder holds R files, and the workspace does. The button at the top right of the window, the interpreter picker, names the version of R that runs your code, which is the first thing to check when a result differs from the one in the workshop. RStudio users open the dot Rproj file instead, which does the same.
+Positron works on a folder, and the workshop works in one folder, the unzipped IDE workspace. File, Open Folder, or Control and K followed by Control and O, then choose the folder itself rather than a file inside it, and press Select Folder. Two things happen at once. The files of the folder appear in the Explorer on the left, and R starts in a console whose working directory is that folder, so that a path such as data slash housing emails dot csv finds its file without further ado. Positron starts R by itself when the folder holds R files, and the workspace does. The button at the top right of the window, the interpreter picker, names the version of R that runs your code, which is the first thing to check when a result differs from the one in the workshop. RStudio users open the dot Rproj file instead, which does the same.
 :::
 
 ## The parts of the window {#the-parts-of-the-window .smaller}
@@ -47,10 +47,10 @@ Positron works on a folder, and the workshop works in one folder, the unzipped w
 ::::
 
 ::: notes
-This is the whole window with the workspace open, as it looks after the steps of the next section, with its seven parts numbered as the documentation of Positron names them. The strip of icons down the far left, the Activity Bar, switches what the side bar beside it shows, most of the time the Explorer with your files. The editor fills the middle, with a tab for each open file. Under it, the Panel holds the Console, in which R runs, beside the Terminal. On the right, the Secondary Side Bar holds the views of the R session: the Variables and Plots panes, and the Help and Viewer tabs. Along the top run the search box and the interpreter picker, and along the bottom the Status Bar. RStudio users will recognise their four panes: the editor does the work of the Source pane, and the Variables pane that of the Environment tab.
+This is the whole window with the IDE workspace open, as it looks after the steps of the next section, with its seven parts numbered as the documentation of Positron names them. The strip of icons down the far left, the Activity Bar, switches what the side bar beside it shows, most of the time the Explorer with your files. The editor fills the middle, with a tab for each open file. Under it, the Panel holds the Console, in which R runs, beside the Terminal. On the right, the Secondary Side Bar holds the views of the R session: the Variables and Plots panes, and the Help and Viewer tabs. Along the top run the search box and the interpreter picker, and along the bottom the Status Bar. RStudio users will recognise their four panes: the editor does the work of the Source pane, and the Variables pane that of the Environment tab.
 :::
 
-## The files of the workspace {#the-files-of-the-workspace .smaller}
+## The files of the IDE workspace {#the-files-of-the-workspace .smaller}
 
 ::: {.small}
 - `index.qmd` – the report, with Tasks 1 to 5 of the exercise and the preregistration block
@@ -66,13 +66,13 @@ Every part of the window can be resized by dragging its edge, and hidden and sho
 :::
 
 ::: notes
-The Explorer shows the workspace as you received it. index dot qmd is the report, with the five tasks of the exercise of the case study and the preregistration block, and the last session of today takes it apart. working script dot R holds the same steps as a plain script, for working in the console. The R folder holds the check script, the starter file for the causal graph and the helpers of the later tasks, and the data folder holds the data files of the case study, each beside its codebook. The prep folder holds a script that runs all five reanalyses of Task 3 at once. The rest serves the route from the workspace to a repository of your own, and can be left alone. [advance] Sooner or later you will hide a part of the window by accident, so it is worth knowing the three keys that bring the parts back.
+The Explorer shows the IDE workspace as you received it. index dot qmd is the report, with the five tasks of the exercise of the case study and the preregistration block, and the last session of today takes it apart. working script dot R holds the same steps as a plain script, for working in the console. The R folder holds the check script, the starter file for the causal graph and the helpers of the later tasks, and the data folder holds the data files of the case study, each beside its codebook. The prep folder holds a script that runs all five reanalyses of Task 3 at once. The rest serves the route from the workspace to a repository of your own, and can be left alone. [advance] Sooner or later you will hide a part of the window by accident, so it is worth knowing the three keys that bring the parts back.
 :::
 
 ## Hands-on 1 – The folder and the window {#hands-on-1-the-folder-and-the-window .smaller}
 
 ::: {.small}
-1. Open the folder of the workspace, and wait for the console to report that R has started
+1. Open the folder of the IDE workspace, and wait for the console to report that R has started
 2. In the Explorer, unfold `data` and `R`. Click `working_script.R` once, and then double-click it, so that it stays open
 3. Press Ctrl+J twice, to hide the Panel and bring it back
 4. Click the interpreter picker at the top right, read which R runs your code, and press Esc

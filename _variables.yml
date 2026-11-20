@@ -10,7 +10,7 @@ workshop:
 site-url: "https://codemoreh.github.io/ar4ds/"
 org: "https://github.com/CodeMoreh"
 
-# The sites and workspaces of the published case studies.
+# The sites and IDE workspaces of the published case studies.
 cases:
   housing:
     name: "the Housing and racial bias case study"

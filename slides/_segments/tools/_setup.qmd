@@ -3,10 +3,10 @@
 #| include: false
 # The setup of the three slide decks on the tools (r.qmd, ide.qmd, quarto.qmd),
 # after the shared and the day-1 setup chunks. A slide shows the code of a step
-# as a static block, as the class types it in the workspace of the
+# as a static block, as the class types it in the IDE workspace of the
 # Housing case study, and prints what that step gives from the copy of the
 # analysis file kept with the modules on the tools (byte-identical to the file
-# of the Housing website), read as the workspace reads it. Printouts are narrowed
+# of the Housing website), read as the IDE workspace reads it. Printouts are narrowed
 # to the width of a slide and set without the ## of knitr, as the console
 # prints them.
 options(width = 64)

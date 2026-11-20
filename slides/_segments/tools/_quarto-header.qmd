@@ -145,11 +145,11 @@ Two chunks of the report show what the options are for. The first is the step th
 :::
 
 ::: {.fragment .small}
-The setting nearest to the chunk wins. The report hides messages and warnings in its header, the project file of the workspace sets `freeze: auto`, and this workshop's slides share their theme and their bibliography through the `_metadata.yml` of their folder.
+The setting nearest to the chunk wins. The report hides messages and warnings in its header, the project file of the IDE workspace sets `freeze: auto`, and this workshop's slides share their theme and their bibliography through the `_metadata.yml` of their folder.
 :::
 
 ::: notes
-The same options can be written at four levels: on a chunk, in the header of a document under execute, in a file called underscore metadata dot yml that governs every document of a folder, and in the configuration of the whole project. Where an option is set at more than one level, the setting nearest to the chunk wins, so an option on a chunk beats the header, which beats the file of the folder, which beats the configuration of the project. The report suppresses messages and warnings for the whole document in its header, and the project file of the workspace sets freeze auto for every document, which the last section comes back to. These slides are built the same way: the theme, the bibliography and the options shared by every slide deck are written once, in the metadata file of the folder that holds the slides.
+The same options can be written at four levels: on a chunk, in the header of a document under execute, in a file called underscore metadata dot yml that governs every document of a folder, and in the configuration of the whole project. Where an option is set at more than one level, the setting nearest to the chunk wins, so an option on a chunk beats the header, which beats the file of the folder, which beats the configuration of the project. The report suppresses messages and warnings for the whole document in its header, and the project file of the IDE workspace sets freeze auto for every document, which the last section comes back to. These slides are built the same way: the theme, the bibliography and the options shared by every slide deck are written once, in the metadata file of the folder that holds the slides.
 :::
 
 ## Hands-on 2 – Options and the header {#hands-on-2-options-and-the-header .smaller}

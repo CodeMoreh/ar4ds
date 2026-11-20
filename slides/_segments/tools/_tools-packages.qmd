@@ -8,7 +8,7 @@
 :::
 
 ::: {.fragment .small .fs-80}
-The workshop's figures come from **`tinyplot`**, its tables from **`tinytable`**, and the causal graphs of the second day from **`dagitty`**. The setup page lists the packages of each workspace, and the check script of the workspace reports any that are missing.
+The workshop's figures come from **`tinyplot`**, its tables from **`tinytable`**, and the causal graphs of the second day from **`dagitty`**. The setup page lists the packages of each IDE workspace, and the check script of the workspace reports any that are missing.
 :::
 
 ::: notes

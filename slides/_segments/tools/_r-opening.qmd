@@ -18,7 +18,7 @@ You leave able to read a data file into R, reshape it with a handful of verbs, a
 :::
 
 ::: {.todaymeta}
-Type along in your IDE (Positron, RStudio, VS Code, etc.), in the workspace of the Housing and racial bias case study
+Type along in your IDE (Positron, RStudio, VS Code, etc.), in the IDE workspace of the Housing and racial bias case study
 :::
 
 ::: notes
