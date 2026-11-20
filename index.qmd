@@ -164,7 +164,7 @@ The site of each case study holds a route for a reader who works alone, which ta
 ## Methods and tools {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the setup help, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
+The companion of each site holds the methods that arise from its case study, from what its original authors or its five analysts did or from the shape of its data. The estimand and the causal graph, the multiverse and the common scale of the five analysts are taught on every site, because every exercise rests on them. The tools serve every case study and are taught once, on this site, with the file of the Housing case study as their running example: the installation and the help page, and the modules on R, the IDE, Quarto, and Git and GitHub, all in the Tools menu. The table maps each case study onto its formats and onto these modules and those of its companion, and each name in the table links to the module that teaches it.
 :::
 
 ::: {.home-map .home-reveal}

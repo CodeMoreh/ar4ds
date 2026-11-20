@@ -1,5 +1,5 @@
 ---
-title: "Setup help"
+title: "Help"
 subtitle: "Known problems, their fixes, and how to ask for more"
 ---
 

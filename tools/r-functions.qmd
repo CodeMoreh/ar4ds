@@ -531,7 +531,7 @@ Two parts of the body do what no function of sections 16 and 17 does. The two ca
 
 ### `r_robustness()` {#sec-r-robustness}
 
-`r_robustness()` converts the test of a specification into a correlation r, the common scale on which the robustness study set the results of its analysts, as the [page on the robustness article](../robustness-article.qmd#sec-scale) explains with the assumptions of the conversion. The function and the comment above it read as follows in `R/_tools.R`.
+`r_robustness()` converts the test of a specification into a correlation r, the common scale on which the robustness study set the results of its analysts, as the [section on the common scale](../score.qmd#sec-scale) of the SCORE page explains with the assumptions of the conversion. The function and the comment above it read as follows in `R/_tools.R`.
 
 ``` r
 # The conversion rules of the robustness study (standard_correlation_coefficient.R in

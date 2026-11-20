@@ -10,7 +10,7 @@
 :::
 
 ::: {.urlbox}
-[[codemoreh.github.io/ar4ds/robustness-article.html](https://codemoreh.github.io/ar4ds/robustness-article.html)]{.fs-70}
+[[codemoreh.github.io/ar4ds/score.html#sec-robustness](https://codemoreh.github.io/ar4ds/score.html#sec-robustness)]{.fs-70}
 :::
 
 ::: notes
