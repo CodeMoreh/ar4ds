@@ -19,7 +19,7 @@ The page presents the published case studies only, Housing and Europeanisation,
 numbered in that order; the other case studies stay unnamed and unlinked until CM
 has vetted them. The page runs no code, because the data of the case studies live
 on their own sites. Its figures are those of the record of SCORE and its robustness
-study, which do not change with the data of the course, and each comes from the
+study, which do not change with the data of the workshop, and each comes from the
 facts file of its case study (D:\ACADEMIC\TEACHING\AR4DS\_planning\housing\housing-facts.md,
 and D:\ACADEMIC\TEACHING\AR4DS\_planning\score-teney-outcomes.md for Europeanisation),
 apart from the 270 country-years and the 864 specifications of the Europeanisation
@@ -36,7 +36,7 @@ Hands-on training in {{< var workshop.format >}}
 # {{< var workshop.name >}} {.unnumbered .unlisted}
 
 ::: {.home-lead}
-Applied Replication for Data Skills (AR4DS) is a hands-on course that introduces social data science tools and statistical methods through the reanalysis of a published finding. The focal published finding comes from an article reanalysed as part of [SCORE (Systematizing Confidence in Open Research and Evidence)](https://www.cos.io/score), a large-scale, multi-method research initiative designed to improve the assessment of scientific credibility in the social and behavioural sciences. Operationalising scientific credibility as the 'repeatability' of research findings, SCORE subjected an initial selection of 600 academic publications to three tests: whether published results can be *reproduced* with the original data and code; to what extent a central finding is *robust* to alternative analytical choices; and whether the finding can be *replicated* using new data.
+Applied Replication for Data Skills (AR4DS) is a hands-on workshop that introduces social data science tools and statistical methods through the reanalysis of a published finding. The focal published finding comes from an article reanalysed as part of [SCORE (Systematizing Confidence in Open Research and Evidence)](https://www.cos.io/score), a large-scale, multi-method research initiative designed to improve the assessment of scientific credibility in the social and behavioural sciences. Operationalising scientific credibility as the 'repeatability' of research findings, SCORE subjected an initial selection of 600 academic publications to three tests: whether published results can be *reproduced* with the original data and code; to what extent a central finding is *robust* to alternative analytical choices; and whether the finding can be *replicated* using new data.
 :::
 
 ::: {.home-cta}
@@ -118,7 +118,7 @@ An article published in the *European Sociological Review* in 2016 drew on Eurob
 ## Formats {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The course is taught in three formats, and the facilitator of each course chooses its format and its case study. Each format is an ordered route through the pages of the site of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a course leads straight to its route.
+The workshop is taught in three formats, and the facilitator of each workshop chooses its format and its case study. Each format is an ordered route through the pages of the site of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a workshop leads straight to its route.
 :::
 
 :::: {.home-grid}
@@ -185,7 +185,7 @@ The companion of each site holds the methods that arise from its case study, fro
 ## SCORE {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The claims of the case studies come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. In the robustness study, 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the exercise of the course follows its design on a smaller scale.
+The claims of the case studies come from the work of SCORE, short for Systematizing Confidence in Open Research and Evidence, a programme that put claims from published social and behavioural research through three kinds of repetition [@AlipourfardEtAl2021SystematizingConfidenceOpen]. A reproduction repeats the original analysis on the original data, a robustness check applies different but defensible analyses to the same data, and a replication asks the same question of new data. In the robustness study, 457 analysts produced 504 reanalyses of 100 claims, at least five for each, from the data of the original studies [@AczelEtAl2026InvestigatingAnalyticalRobustness, p. 136], and the exercise of the workshop follows its design on a smaller scale.
 :::
 
 :::: {.home-cases .home-reveal}
@@ -247,9 +247,9 @@ Find me at: [chrismoreh.com](https://chrismoreh.com)
 
 ## AI disclosure {.unnumbered}
 
-The course grew out of a short session written for an open research conference at Newcastle University, which was built on my own reanalysis of one claim in the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness]. Its extension into the present course, with several case studies from SCORE and formats of different lengths, was carried out with the help of Claude models developed by Anthropic, used through Claude Code. The models were used to improve the websites and to design the formats, to check the R code and to find errors and inconsistencies across the materials, and to draft sections of the text of the pages, the slides and the workspaces. Everything that the models produced is being checked by me for its accuracy and its language.
+The workshop grew out of a short session written for an open research conference at Newcastle University, which was built on my own reanalysis of one claim in the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness]. Its extension into the present workshop, with several case studies from SCORE and formats of different lengths, was carried out with the help of Claude models developed by Anthropic, used through Claude Code. The models were used to improve the websites and to design the formats, to check the R code and to find errors and inconsistencies across the materials, and to draft sections of the text of the pages, the slides and the workspaces. Everything that the models produced is being checked by me for its accuracy and its language.
 
-AI assistants can also help participants during the course, with a piece of code that fails or as a partner in generating and testing ideas, used in a way that supports the work of the participant rather than replacing it, which means keeping the judgement of the analysis one's own and saying where the help came from. The module on [AI assistants](tools/ai.qmd) sets out how to use one in the IDE, and its section on [licensed data](tools/ai.qmd#sec-licensed) explains why the files of some case studies, such as the Eurobarometer surveys distributed by GESIS, may not be processed with an AI system at all.
+AI assistants can also help participants during the workshop, with a piece of code that fails or as a partner in generating and testing ideas, used in a way that supports the work of the participant rather than replacing it, which means keeping the judgement of the analysis one's own and saying where the help came from. The module on [AI assistants](tools/ai.qmd) sets out how to use one in the IDE, and its section on [licensed data](tools/ai.qmd#sec-licensed) explains why the files of some case studies, such as the Eurobarometer surveys distributed by GESIS, may not be processed with an AI system at all.
 
 ::::
 
