@@ -4,7 +4,7 @@
 <div class="tool"><img src="pics/tools/terminal.png" alt="R script"><span class="name">.R</span><span class="what">Code only, with prose in comments.</span></div>
 <div class="tool"><img src="pics/tools/markdown.png" alt="Markdown"><span class="name">.md</span><span class="what">Prose only: headings, lists, links, and no code.</span></div>
 <div class="tool"><img src="pics/tools/rmarkdown.png" alt="R Markdown"><span class="name">.Rmd</span><span class="what">Prose and R, rendered together. R only.</span></div>
-<div class="tool ours"><img src="pics/tools/quarto.png" alt="Quarto"><span class="name">.qmd</span><span class="what">Prose and R, Python or Julia. The format of the workshop.</span></div>
+<div class="tool ours"><img src="pics/tools/quarto.png" alt="Quarto"><span class="name">.qmd</span><span class="what">Prose and R, Python or Julia. The workshop's format.</span></div>
 :::
 
 ::: {.fragment .small .fs-80}

@@ -1,7 +1,7 @@
 ## Editors and IDEs {#where-you-write-it}
 
 ::: {.toolgrid style="--cols: 5"}
-<div class="tool ours"><img src="pics/tools/positron.png" alt="Positron"><span class="name">Positron</span><span class="what">The IDE of the workshop, from Posit, built on the open-source core of VS Code. R and Python as equals.</span></div>
+<div class="tool ours"><img src="pics/tools/positron.png" alt="Positron"><span class="name">Positron</span><span class="what">The workshop's IDE, from Posit, built on the open-source core of VS Code. R and Python as equals.</span></div>
 <div class="tool"><img src="pics/tools/rstudio.svg" alt="RStudio"><span class="name">RStudio</span><span class="what">Still excellent, still supported. If it is what you know, use it.</span></div>
 <div class="tool"><img src="pics/tools/vscode.png" alt="VS Code"><span class="name">VS Code</span><span class="what">Does anything, once configured. Many extensions.</span></div>
 <div class="tool"><img src="pics/tools/jupyter.png" alt="Jupyter"><span class="name">Jupyter</span><span class="what">Notebook-first. Cells can run out of order.</span></div>

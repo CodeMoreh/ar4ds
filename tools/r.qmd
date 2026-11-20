@@ -94,7 +94,7 @@ Nothing has to be installed for this page. Every block of code on it runs in you
 
 The examples work on one file, whichever case study your workshop takes. The data of the Housing and racial bias case study hold one row for each of the `r n_emails` emails that the original authors (OAs) of a field experiment sent in 2014 to public housing authorities in the United States, each email signed with one of six names meant to indicate a white, a Black or a Hispanic applicant [@EinsteinGlick2017DoesRaceAffect]. The OAs recorded, among other things, whether each email drew a reply and whether the reply greeted the sender by name. The [background page of the Housing case study](https://codemoreh.github.io/ar4ds-housing/background.html) tells the story of the experiment, while here the file serves as a dataset small enough to look at whole, with an outcome that is either yes or no, which makes it a good place to learn.
 
-By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the tasks of the workshop ask of you. A [second part](r-further.qmd) reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
+By the end of the page you will be able to read the file into R, look at it, reshape it with a handful of verbs, compute the share of replies that greeted the sender by name and the difference between two such shares, and set the result out as a table and as a figure. That is the R which the workshop's tasks ask of you. A [second part](r-further.qmd) reads the same data in other formats, fetches a file from a repository, sets out the three dialects in which R is written, and fits a first model.
 
 ::: {#code-blocks .callout-important icon="false"}
 ## The code blocks on this page
@@ -108,7 +108,7 @@ Some blocks, headed **Exercise**, are exercises. Each has a blank, written as `_
 
 ## 1. R and the IDE {#sec-what}
 
-**R** is a programming language built for working with data: reading it, reshaping it, fitting statistical models to it and drawing figures from it. It is free and open source, and it is one of the common languages of quantitative social science, which is why the analysis of the workshop is written in it. On its own, R is a program that reads instructions and returns answers. The block below holds one instruction, which subtracts the `r n_bounced` emails that bounced from the `r n_emails` that were sent. Press Run Code.
+**R** is a programming language built for working with data: reading it, reshaping it, fitting statistical models to it and drawing figures from it. It is free and open source, and it is one of the common languages of quantitative social science, which is why the workshop's analysis is written in it. On its own, R is a program that reads instructions and returns answers. The block below holds one instruction, which subtracts the `r n_bounced` emails that bounced from the `r n_emails` that were sent. Press Run Code.
 
 ```{webr}
 1014 - 23
@@ -211,7 +211,7 @@ The answer, 0.568113, is the share of the `r n_delivered` delivered emails that 
 :::
 ::::
 
-One small fact carries most of the arithmetic of the workshop. When a vector holds only 1s and 0s, its **mean is the share of 1s**, because the mean adds the values, which counts the 1s, and divides the sum by the number of values. The outcome of the claim of the Housing case study, whether a reply opened with the name of the sender, is stored in exactly this way, with 1 for a greeting by name and 0 for none, so the share of replies that greeted the sender by name is the mean of that column. The block below makes the codes of five replies and takes the mean of the five codes.
+One small fact carries most of the workshop's arithmetic. When a vector holds only 1s and 0s, its **mean is the share of 1s**, because the mean adds the values, which counts the 1s, and divides the sum by the number of values. The outcome of the claim of the Housing case study, whether a reply opened with the name of the sender, is stored in exactly this way, with 1 for a greeting by name and 0 for none, so the share of replies that greeted the sender by name is the mean of that column. The block below makes the codes of five replies and takes the mean of the five codes.
 
 ```{webr}
 greeted <- c(1, 0, 1, 1, 0)   # five replies, 1 = opened with the name of the sender
@@ -235,7 +235,7 @@ The Housing data have missing values of three kinds, and each means something di
 
 ## 4. Data frames {#sec-dataframes}
 
-A **data frame** is how R stores a table: a set of vectors of equal length standing side by side as columns, with one row for each observation. Almost everything in the workshop is a data frame. The block below builds a small one by hand with `tibble()` from the tibble package, holding three emails with the name that signed each, whether a reply came and whether the reply greeted the sender by name, and then prints the table.
+A **data frame** is how R stores a table: a set of vectors of equal length standing side by side as columns, with one row for each observation. Almost everything in the workshop materials is a data frame. The block below builds a small one by hand with `tibble()` from the tibble package, holding three emails with the name that signed each, whether a reply came and whether the reply greeted the sender by name, and then prints the table.
 
 ```{webr}
 emails <- tibble::tibble(
@@ -289,7 +289,7 @@ read_csv("data/housing_emails.csv")
 
 The message `could not find function "read_csv"` means that R looked for a function of that name in the packages attached to the session and found none. You will also meet the older habit of attaching a package to the session with `library(readr)` at the top of a script, after which the functions of the package can be called by name alone, and the same message then means that the `library()` line was never run. When a block or a script prints several errors, read the first one first, since the later ones often follow from it.
 
-Research code that only its authors run, such as the scripts of a paper, is often written the other way, with every function called by its name alone, and the facilitator of the workshop writes it so. What keeps such code readable is a single import script, run at the top of every other script of the project, which attaches each package with `library()` and lists in `include.only` the functions that the project takes from it, so that anyone who wants to know where a function comes from has one place to look. Two attached packages can offer functions of the same name, and the conflicted package stops with an error when such a name is called, until `conflicts_prefer()` has said which of the two is meant.
+Research code that only its authors run, such as the scripts of a paper, is often written the other way, with every function called by its name alone, and the workshop's facilitator writes it so. What keeps such code readable is a single import script, run at the top of every other script of the project, which attaches each package with `library()` and lists in `include.only` the functions that the project takes from it, so that anyone who wants to know where a function comes from has one place to look. Two attached packages can offer functions of the same name, and the conflicted package stops with an error when such a name is called, until `conflicts_prefer()` has said which of the two is meant.
 
 ``` r
 # R/00_packages.R: the packages of a project and the functions taken from each
@@ -428,7 +428,7 @@ The same calculation with the pipe reads from left to right, in the order of the
 housing$reply |> mean(na.rm = TRUE) |> round(3)
 ```
 
-Both lines give 0.568, the share of the delivered emails that drew a reply, which the table of section 7 gave as a percentage. On one short line the gain is small, but it grows with every step of the chains in the next section, which is why nearly all modern R is written this way. You will also meet an older pipe, `%>%`, from a package called magrittr, in code written before 2021, when the native `|>` became part of R. Read the two in the same way, and write `|>`, as all the materials of the workshop do.
+Both lines give 0.568, the share of the delivered emails that drew a reply, which the table of section 7 gave as a percentage. On one short line the gain is small, but it grows with every step of the chains in the next section, which is why nearly all modern R is written this way. You will also meet an older pipe, `%>%`, from a package called magrittr, in code written before 2021, when the native `|>` became part of R. Read the two in the same way, and write `|>`, as all the workshop materials do.
 
 ## 9. The datawizard verbs {#sec-verbs}
 
@@ -482,7 +482,7 @@ housing |>
   )
 ```
 
-Read the chain aloud and it is almost English: take the emails, keep the delivered ones, and for each group of names report three numbers. A reviewer who can read the code can check it, which is why the scripts of the workshop are written in these verbs. `data_summary()` sorts the groups alphabetically, and it prints the reply rates to two decimals while keeping every digit in the table that it returns, so a rate is rounded only when you round it, as section 11 does.
+Read the chain aloud and it is almost English: take the emails, keep the delivered ones, and for each group of names report three numbers. A reviewer who can read the code can check it, which is why the workshop's scripts are written in these verbs. `data_summary()` sorts the groups alphabetically, and it prints the reply rates to two decimals while keeping every digit in the table that it returns, so a rate is rounded only when you round it, as section 11 does.
 
 ::: {.callout-tip}
 ## Try it
@@ -704,7 +704,7 @@ report_table <- by_group |>
 report_table |> gt::gt()
 ```
 
-tinytable is the table package of the workshop, the one to use in your IDE and in a Quarto document, because one call draws the same table as HTML, as a PDF or as a Word document. It cannot yet show its tables in the copy of R that runs on this page, so the chunk below ran when the page was built, as a chunk of a report runs when the report is rendered, and the table under it is the one drawn by `tinytable::tt()` from the same `report_table`. The caption and the label beginning `tbl-` are chunk options, which the [Quarto module](quarto.qmd) explains, and the two options give the table a number to which the prose can refer, as in @tbl-groups.
+tinytable is the workshop's table package, the one to use in your IDE and in a Quarto document, because one call draws the same table as HTML, as a PDF or as a Word document. It cannot yet show its tables in the copy of R that runs on this page, so the chunk below ran when the page was built, as a chunk of a report runs when the report is rendered, and the table under it is the one drawn by `tinytable::tt()` from the same `report_table`. The caption and the label beginning `tbl-` are chunk options, which the [Quarto module](quarto.qmd) explains, and the two options give the table a number to which the prose can refer, as in @tbl-groups.
 
 ```{r}
 #| label: report-table-page
@@ -749,7 +749,7 @@ tinytable is not among the packages that the workspaces check, so install it wit
 
 ## 12. A first figure {#sec-figure}
 
-tinyplot draws every figure that you make yourself in the workshop, in the workspaces and in the browser labs, and it runs on this page because it extends the graphics system that comes with R itself and needs no other package [@McDermottEtAl2026TinyplotLightweightExtension]. A plot is one call with two parts: a **formula** with the data, which says what goes on which axis, and a **type**, which says what to draw. The figures below show the share of replies that greeted the sender by name for each of the six names, so the first step computes the six shares, one row for each name, in per cent, and stores the result as `by_name`.
+tinyplot draws every figure that you make yourself in the workspaces and in the browser labs, and it runs on this page because it extends the graphics system that comes with R itself and needs no other package [@McDermottEtAl2026TinyplotLightweightExtension]. A plot is one call with two parts: a **formula** with the data, which says what goes on which axis, and a **type**, which says what to draw. The figures below show the share of replies that greeted the sender by name for each of the six names, so the first step computes the six shares, one row for each name, in per cent, and stores the result as `by_name`.
 
 ```{webr}
 by_name <- housing |>
@@ -869,7 +869,7 @@ The `r nrow(waits)` waits divide into three small panels, too few in each to com
 
 ### ggplot2 {#sec-ggplot2}
 
-The figures on the pages and the slides of the workshop sites are drawn with another package, ggplot2, whose name abbreviates 'the grammar of graphics', the idea that any chart can be described as a combination of a few standard parts. A ggplot2 figure names the data, a mapping from columns to visual properties such as position and colour, and the shapes that are drawn, which are called geoms, while scales, labels and a theme finish the figure. ggplot2 is not among the packages of this page, so the chunk below ran when the page was built, and it draws the bar chart of the six names again, from the same `by_name`.
+The figures on the pages and the slides of the workshop's websites are drawn with another package, ggplot2, whose name abbreviates 'the grammar of graphics', the idea that any chart can be described as a combination of a few standard parts. A ggplot2 figure names the data, a mapping from columns to visual properties such as position and colour, and the shapes that are drawn, which are called geoms, while scales, labels and a theme finish the figure. ggplot2 is not among the packages of this page, so the chunk below ran when the page was built, and it draws the bar chart of the six names again, from the same `by_name`.
 
 ```{r}
 #| label: by-name-page
@@ -901,9 +901,9 @@ ggplot2::ggplot(by_name, ggplot2::aes(x = share, y = reorder(name, share), fill 
 
 ## Further study {#sec-sources}
 
-The [second part](r-further.qmd) of the module fetches the file deposited by the OAs from the repository that holds it, reads the file in the format of Stata with its labels, sets the same task in the three dialects of R, and fits a first model while naming the quantity that it estimates. The rest of the workshop repeats on a larger scale the sequence practised on this page: read the data, look at it, reshape it with a few verbs, compute and draw, then fit a model and read what the fit says.
+The [second part](r-further.qmd) of the module fetches the file deposited by the OAs from the repository that holds it, reads the file in the format of Stata with its labels, sets the same task in the three dialects of R, and fits a first model while naming the quantity that it estimates. The rest of the workshop materials repeat on a larger scale the sequence practised on this page: read the data, look at it, reshape it with a few verbs, compute and draw, then fit a model and read what the fit says.
 
-This module was written for the workshop and adapts no existing lesson. It teaches only the part of R that the materials of the workshop use, in the order in which the workshop needs it. For a fuller, self-paced grounding in R, these open resources are recommended:
+This module was written for the workshop and adapts no existing lesson. It teaches only the part of R that the workshop materials use, in the order in which the workshop needs it. For a fuller, self-paced grounding in R, these open resources are recommended:
 
 - **The Carpentries, "R for Reproducible Scientific Analysis" and "Programming with R"**, at <https://swcarpentry.github.io/r-novice-gapminder/> and <https://swcarpentry.github.io/r-novice-inflammation/>. Licensed CC BY 4.0, and the standard hands-on introductions to R for researchers, covering objects, vectors and data frames in far more depth than this page.
 - **The Turing Way, "Guide for Reproducible Research"**, at <https://book.the-turing-way.org/>. Licensed CC BY 4.0. A guide to reproducible research in general, which sets out why the habits that this module practises, scripts over console history, relative paths and one file for analysis and report, are worth building from the first day.

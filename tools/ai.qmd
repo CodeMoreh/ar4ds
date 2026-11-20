@@ -81,7 +81,7 @@ If the Activity Bar has no Posit Assistant icon and a bar across the top of the 
 
 ![The same dialog once Copilot is connected, with GitHub Copilot listed under Connected providers.](images/ai/04-copilot-connected.png){#fig-copilot-connected fig-alt="The dialog Configure LLM Providers. A section headed Connected providers lists GitHub Copilot, marked Preview, with an Edit button. Below it the Model providers section lists Posit AI Pass, Amazon Bedrock, Anthropic, Microsoft Foundry and OpenAI, each with a Connect button."}
 
-The dialog lists other providers too. Posit AI Pass is a service run by Posit, and the others need an account or a key with the company named on the row. The workshop describes none of them, since none comes free with student status.
+The dialog lists other providers too. Posit AI Pass is a service run by Posit, and the others need an account or a key with the company named on the row. The workshop materials describe none of them, since none comes free with student status.
 
 ### 3.2 Asking a question {#sec-chat}
 

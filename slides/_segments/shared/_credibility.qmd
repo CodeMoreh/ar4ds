@@ -79,7 +79,7 @@ This is not mostly a story about fraud, and I want to be emphatic about that. Fr
 :::
 
 ::: {.fragment .small}
-The SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness], from which the case studies of this workshop come, applied the same approach to a hundred published studies.
+The SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness], from which this workshop's case studies come, applied the same approach to a hundred published studies.
 :::
 
 ::: {.src}
@@ -145,5 +145,5 @@ ggplot2::ggplot(szf, ggplot2::aes(or, lab, colour = significant)) +
 :::
 
 ::: notes
-And here is what came back. Read it as a list of twenty-nine analyses of one dataset. The odds ratios run from nought point eight nine to two point nine three – the lowest implies that dark-skinned players were red-carded slightly *less* often – and the median is one point three one. Twenty of the twenty-nine intervals exclude one; nine do not. So about two thirds found an effect and a third did not, on identical data. [pause] Now look at the left column. The teams are grouped by the response distribution they assumed – linear, logistic, Poisson, and two that fit none of the three. Each team made that decision for itself, and each choice was defensible. On the second day of the workshop you face the same kind of decision yourselves, in the specification menu of your case study, where the model is one of the groups of decisions.
+And here is what came back. Read it as a list of twenty-nine analyses of one dataset. The odds ratios run from nought point eight nine to two point nine three – the lowest implies that dark-skinned players were red-carded slightly *less* often – and the median is one point three one. Twenty of the twenty-nine intervals exclude one; nine do not. So about two thirds found an effect and a third did not, on identical data. [pause] Now look at the left column. The teams are grouped by the response distribution they assumed – linear, logistic, Poisson, and two that fit none of the three. Each team made that decision for itself, and each choice was defensible. On the workshop's second day you face the same kind of decision yourselves, in the specification menu of your case study, where the model is one of the groups of decisions.
 :::

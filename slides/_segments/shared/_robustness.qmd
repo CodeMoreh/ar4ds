@@ -12,7 +12,7 @@ Preregistration of the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyt
 :::
 
 ::: notes
-The robustness study did not choose its claims from scratch. It took them from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim: was it understandable, was it one claim and not several, did it state a direction, and was there a test in the article that corresponded to it? Where a phrase was judged ambiguous or rhetorical, it was replaced by an ellipsis, so that "dramatically increased" became "increased" with three dots before it, and three of the four claims of this workshop carry such dots. And the analysts got no research question, because the lead team judged that turning a claim into a question would push the analysts towards its own reading of the claim.
+The robustness study did not choose its claims from scratch. It took them from the first phase of SCORE, in which a single claim had been traced in the abstract of each paper, ideally one that matched a single significant test. The lead team then checked each claim: was it understandable, was it one claim and not several, did it state a direction, and was there a test in the article that corresponded to it? Where a phrase was judged ambiguous or rhetorical, it was replaced by an ellipsis, so that "dramatically increased" became "increased" with three dots before it, and three of this workshop's four claims carry such dots. And the analysts got no research question, because the lead team judged that turning a claim into a question would push the analysts towards its own reading of the claim.
 :::
 
 ## What an analyst received {#what-an-analyst-received}
@@ -139,7 +139,7 @@ Almost the same statistic, and correlations about 42 times apart. Neither number
 :::
 
 ::: {.src}
-The processed data of the robustness study (osf.io/q5h2c), as set out on the page The robustness article on this site.
+The processed data of the robustness study (osf.io/q5h2c), as set out on the page The robustness article on the workshop's website.
 :::
 
 ::: notes

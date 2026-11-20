@@ -145,7 +145,7 @@ Two chunks of the report show what the options are for. The first is the step th
 :::
 
 ::: {.fragment .small}
-The setting nearest to the chunk wins. The report hides messages and warnings in its header, the project file of the workspace sets `freeze: auto`, and the slides of this workshop share their theme and their bibliography through the `_metadata.yml` of their folder.
+The setting nearest to the chunk wins. The report hides messages and warnings in its header, the project file of the workspace sets `freeze: auto`, and this workshop's slides share their theme and their bibliography through the `_metadata.yml` of their folder.
 :::
 
 ::: notes

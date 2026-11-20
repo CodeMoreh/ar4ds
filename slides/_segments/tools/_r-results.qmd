@@ -5,7 +5,7 @@ Section 4
 :::
 
 ::: notes
-Section four puts the pieces together on the claim of the case study. The claim compares two shares, so we compute both and the difference between them, the number that the Housing case study calls its reference specification, against which every other analysis of the claim is compared. Then the two forms in which a result leaves R for a reader: a table, formatted with tinytable, the table package of the workshop, and a figure, drawn with tinyplot. The last slide of the section gathers the error messages that you are most likely to meet.
+Section four puts the pieces together on the claim of the case study. The claim compares two shares, so we compute both and the difference between them, the number that the Housing case study calls its reference specification, against which every other analysis of the claim is compared. Then the two forms in which a result leaves R for a reader: a table, formatted with tinytable, the workshop's table package, and a figure, drawn with tinyplot. The last slide of the section gathers the error messages that you are most likely to meet.
 :::
 
 ## A difference in shares {#a-difference-in-shares .smaller}
@@ -153,7 +153,7 @@ tinytable is not among the packages that the workspaces check. In your IDE the t
 ::::
 
 ::: notes
-tinytable is the table package of the workshop, the one to use in your IDE and in a Quarto document, because one call draws the same table as a web page, a PDF or a Word document. It is not among the packages that the workspaces check, so install it once with pak. The chain gives the groups the labels that a reader should read, rounds the two percentages, and keeps five columns under new names, using a named vector as a lookup table for the labels; a name with spaces or symbols in it goes inside backticks. Then tt draws the table. In Positron it opens in the Viewer, on the right of the window, and in a Quarto document it becomes a table of the report, which the last session of the day gives a caption and a number.
+tinytable is the workshop's table package, the one to use in your IDE and in a Quarto document, because one call draws the same table as a web page, a PDF or a Word document. It is not among the packages that the workspaces check, so install it once with pak. The chain gives the groups the labels that a reader should read, rounds the two percentages, and keeps five columns under new names, using a named vector as a lookup table for the labels; a name with spaces or symbols in it goes inside backticks. Then tt draws the table. In Positron it opens in the Viewer, on the right of the window, and in a Quarto document it becomes a table of the report, which the last session of the day gives a caption and a number.
 :::
 
 ## A first figure {#a-first-figure .smaller}

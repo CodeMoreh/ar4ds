@@ -1,7 +1,7 @@
 ## The next session and the reading {#next-session}
 
 ::: {.small .nonincremental}
-- **The next session** takes up Positron, the IDE of the workshop: opening the folder, the panes of the window, running code from the editor, the console and the Variables pane, the Data Explorer, plots and help, and the terminal. Its reading is the module Positron and other IDEs
+- **The next session** takes up Positron, the workshop's IDE: opening the folder, the panes of the window, running code from the editor, the console and the Variables pane, the Data Explorer, plots and help, and the terminal. Its reading is the module Positron and other IDEs
 - **The reading of this session** is the module Getting started with R, whose blocks run in your browser. Its second part reads the same data in other formats, fetches the public file of the OAs from the Harvard Dataverse and fits a first model
 :::
 

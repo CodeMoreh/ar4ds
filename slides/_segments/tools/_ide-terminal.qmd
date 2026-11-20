@@ -38,7 +38,7 @@ The Terminal tab of the Panel is a command line that starts in the folder of the
 ::::
 
 ::: notes
-Everything that Positron can do is a command, and the Command Palette is a search box for all of them. You type a few letters of what you want, such as interpreter, restart or render, and the matching commands appear, each with its keyboard shortcut beside it, so that the palette also teaches you the shortcuts as you go. Commands are grouped by a prefix: Interpreter for the R sessions, View for the layout, Git for version control, among others. Control and P opens the same box for files instead, and a few letters of a file name are enough to find it. When I name a command on the slides of this workshop, such as Interpreter: Restart Active Interpreter Session, this is where you type it.
+Everything that Positron can do is a command, and the Command Palette is a search box for all of them. You type a few letters of what you want, such as interpreter, restart or render, and the matching commands appear, each with its keyboard shortcut beside it, so that the palette also teaches you the shortcuts as you go. Commands are grouped by a prefix: Interpreter for the R sessions, View for the layout, Git for version control, among others. Control and P opens the same box for files instead, and a few letters of a file name are enough to find it. When I name a command on this workshop's slides, such as Interpreter: Restart Active Interpreter Session, this is where you type it.
 :::
 
 ## RStudio and VS Code {#rstudio-and-vs-code .smaller}

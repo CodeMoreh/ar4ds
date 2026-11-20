@@ -5,7 +5,7 @@ Section 1
 :::
 
 ::: notes
-Section one. Data reach a researcher by one of three routes, and the vocabulary of the archives follows those routes. We take the routes first, then the places that hold most of the quantitative data of sociology, political science and demography, with the access rule of each. Then the four case studies of the workshop, which between them use two of the three routes, and the terms of the archive whose rules shape one of the case studies more than any other.
+Section one. Data reach a researcher by one of three routes, and the vocabulary of the archives follows those routes. We take the routes first, then the places that hold most of the quantitative data of sociology, political science and demography, with the access rule of each. Then the workshop's four case studies, which between them use two of the three routes, and the terms of the archive whose rules shape one of the case studies more than any other.
 :::
 
 ## Three routes to data {#three-routes-to-data .smaller}
@@ -69,7 +69,7 @@ The facts file of each case study; the modules Social science data sources of th
 :::
 
 ::: notes
-The four case studies of the workshop use two of the three routes, and together the case studies make a good tour of the terms. The file of the Housing case study is the easy one: the original authors, the OAs, deposited it on the Harvard Dataverse under CC0, so anyone may copy and redistribute it, and the workshop ships it as it is. The European Social Survey asks for a free registration, and its data are licensed for non-commercial use with attribution and share-alike, so a derived extract can travel under the same licence, marked as adapted. The National Survey of Family Growth is in the public domain and needs no registration at all, under a short list of rules that protect the respondents. And the Europeanisation case study rests on the most restrictive terms of the four, which are on the next slide.
+The workshop's four case studies use two of the three routes, and together the case studies make a good tour of the terms. The file of the Housing case study is the easy one: the original authors, the OAs, deposited it on the Harvard Dataverse under CC0, so anyone may copy and redistribute it, and the workshop ships it as it is. The European Social Survey asks for a free registration, and its data are licensed for non-commercial use with attribution and share-alike, so a derived extract can travel under the same licence, marked as adapted. The National Survey of Family Growth is in the public domain and needs no registration at all, under a short list of rules that protect the respondents. And the Europeanisation case study rests on the most restrictive terms of the four, which are on the next slide.
 :::
 
 ## The terms of a licensed archive {#the-terms-of-a-licensed-archive .smaller}
@@ -95,7 +95,7 @@ The terms of use of GESIS, valid since 4 February 2026, as quoted in the module 
 :::
 
 ::: notes
-These are three clauses from the terms of use to which every GESIS download dialog links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the Europeanisation case study is built: no individual cases, while summary presentations of the kind found in papers and lectures are allowed, which is why the workshop can publish its panel of country-years. The third bears on how you work: the respondent files may not be processed with an AI system. The module on AI assistants on this site sets out what that means in practice, and the Europeanisation workspace switches the AI features of Positron and VS Code off for its whole folder.
+These are three clauses from the terms of use to which every GESIS download dialog links, in the version valid since February 2026. The first forbids passing the files on to anyone, and the terms name repositories and archives among the third parties. The second draws the line along which the Europeanisation case study is built: no individual cases, while summary presentations of the kind found in papers and lectures are allowed, which is why the workshop can publish its panel of country-years. The third bears on how you work: the respondent files may not be processed with an AI system. The module on AI assistants on the workshop's website sets out what that means in practice, and the Europeanisation workspace switches the AI features of Positron and VS Code off for its whole folder.
 :::
 
 ## Fetching data from code {#fetching-data-from-code .deepdive run="fetch"}
@@ -121,9 +121,9 @@ No call of this kind reaches the Eurobarometer: GESIS registers each user throug
 :::
 
 ::: {.src}
-The second page of the module Getting started with R on this site.
+The second page of the module Getting started with R on the workshop's website.
 :::
 
 ::: notes
-When the route is open, the download can be written down in your script instead of clicked through on a website, and that is what makes it repeatable. The first call reads the data file of the Housing case study straight from its record on the Harvard Dataverse, in the Stata format in which the OAs deposited it. The second asks the World Bank for the unemployment rate and the growth of the economy in three countries, from 2004 to 2013. Both calls appear, shown but not run, in the second part of the module on R on this site. [advance] The Eurobarometer offers no such interface. Registration is a web form with a captcha, and every download asks for a purpose of use in your own name, so those files are clicked, not scripted.
+When the route is open, the download can be written down in your script instead of clicked through on a website, and that is what makes it repeatable. The first call reads the data file of the Housing case study straight from its record on the Harvard Dataverse, in the Stata format in which the OAs deposited it. The second asks the World Bank for the unemployment rate and the growth of the economy in three countries, from 2004 to 2013. Both calls appear, shown but not run, in the second part of the module on R on the workshop's website. [advance] The Eurobarometer offers no such interface. Registration is a web form with a captcha, and every download asks for a purpose of use in your own name, so those files are clicked, not scripted.
 :::

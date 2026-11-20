@@ -5,7 +5,7 @@ Section 3
 :::
 
 ::: notes
-Section three brings the programme down to the four case studies of this workshop. Each is a claim that went through the robustness study and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions reached by the five analysts of each claim, side by side, and then the record of each case study across the three Rs. Your own case study is one of the four. You meet it properly on the second day, so for now the aim is only to place it among the others.
+Section three brings the programme down to this workshop's four case studies. Each is a claim that went through the robustness study and, to different degrees, through the rest of SCORE. We read the four claims as the analysts received them, then the conclusions reached by the five analysts of each claim, side by side, and then the record of each case study across the three Rs. Your own case study is one of the four. You meet it properly on the second day, so for now the aim is only to place it among the others.
 :::
 
 ## The four claims {#the-four-claims .smaller}
@@ -78,7 +78,7 @@ Every analyst upheld the Immigration and the Europeanisation claims, while the p
 :::
 
 ::: {.src}
-The Task 1 conclusions recorded in the robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness], as the page SCORE and the opening page of this site state them.
+The Task 1 conclusions recorded in the robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness], as the page SCORE and the opening page of the workshop's website state them.
 :::
 
 ::: notes
@@ -101,7 +101,7 @@ Read across the rows. The Europeanisation claim, upheld by every analyst, could 
 :::
 
 ::: {.src}
-The page SCORE on this site, from the facts file of each case study.
+The page SCORE on the workshop's website, from the facts file of each case study.
 :::
 
 ::: notes

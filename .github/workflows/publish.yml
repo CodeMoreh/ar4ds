@@ -18,7 +18,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-24.04
     env:
-      # The copy of CRAN of the package date of the workshop, as binaries for
+      # The copy of CRAN of the workshop's package date, as binaries for
       # this version of Ubuntu. The R setup hands the first address to renv as
       # its repository, so the versions of renv.lock install as binaries.
       RSPM: https://packagemanager.posit.co/cran/__linux__/noble/2026-11-17
@@ -41,7 +41,7 @@ jobs:
       # Live, whose blocks pass through the knitr engine at render time, so R,
       # knitr and rmarkdown are needed here. R is the version recorded in
       # renv.lock, and the packages come from the lockfile, at the versions of
-      # the package date of the workshop. The packages that a page calls in its
+      # the workshop's package date. The packages that a page calls in its
       # own R chunks are not restored: such pages are rendered locally and
       # served from the committed _freeze/ cache, so a change to one of them is
       # rendered locally before it is committed.

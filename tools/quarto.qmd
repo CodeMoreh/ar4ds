@@ -44,7 +44,7 @@ reply_pct   <- sprintf("%.1f", 100 * n_replies / n_delivered)
 
 This module teaches the part of Quarto that the workshop uses, from what a `.qmd` file holds to a report rendered from a clean session, and it is written for someone who has worked through [getting started with R](r.qmd) and has never written a document with code in it. The module can be broken off at any section heading and taken up again later.
 
-Quarto is the program that turns a document holding prose and code into a finished report, web page, slide deck or PDF, running the code on the way, so that every table, figure and number in the result is computed from the data at the moment of rendering. The workshop uses it mainly for the report of the workspace, in which you set out what you did and what came out, and which anyone can render again on their own machine to obtain the same numbers. Most of the materials of the workshop are Quarto documents as well, this page among them, and the two habits that the page practises, computing every number from the data and rendering from a clean session, are among the habits on which the reproduction of a published result depends.
+Quarto is the program that turns a document holding prose and code into a finished report, web page, slide deck or PDF, running the code on the way, so that every table, figure and number in the result is computed from the data at the moment of rendering. The workshop uses it mainly for the report of the workspace, in which you set out what you did and what came out, and which anyone can render again on their own machine to obtain the same numbers. Most of the workshop materials are Quarto documents as well, this page among them, and the two habits that the page practises, computing every number from the data and rendering from a clean session, are among the habits on which the reproduction of a published result depends.
 
 The page alternates between two kinds of work. [Section 2](#sec-knit) and the exercises after it run R in your browser, on a copy of R that the page downloads when it opens, so that you can change a small document and knit it without installing anything. [Section 3](#sec-positron) and the [tasks](#sec-tasks) at the end take you into your IDE (Positron, RStudio, VS Code, etc.), with the steps written for Positron, the IDE that the workshop uses on the shared screen, and both need R, your IDE and the workspace on your own machine, as the [setup page](../setup.qmd) describes. The rest of the page explains the parts of a Quarto document, with examples that you can read without installing anything.
 
@@ -318,7 +318,7 @@ Take it key by key. `title` and `author` print at the top of the finished docume
 
 The header is read by Quarto, which passes the settings for the code on to knitr and the rest on to Pandoc, and knitr on its own does not read it at all. That is why the header of the document in [section 2](#sec-knit) came through knitting untouched.
 
-`format:` is the one key that changes what kind of document comes out, and the same source can serve several. The pages of this site are `html`, apart from the modules with blocks that run in the browser, such as this one, which are `live-html`, a format added by an extension that lets R run inside the browser tab of the reader. Adding `pdf` or `docx` under `format:` gives you those formats as well, from the same file, without changing a line of the content.
+`format:` is the one key that changes what kind of document comes out, and the same source can serve several. The pages of the workshop's website are `html`, apart from the modules with blocks that run in the browser, such as this one, which are `live-html`, a format added by an extension that lets R run inside the browser tab of the reader. Adding `pdf` or `docx` under `format:` gives you those formats as well, from the same file, without changing a line of the content.
 
 YAML is fussy in a small number of ways, and a malformed header is probably the most common reason why a document that rendered yesterday will not render today. Indentation is by spaces, never tabs, and two spaces for each level is the convention. Every entry is `key: value` with a space after the colon. A string that contains a colon has to be quoted, which is why the title above sits inside quotation marks. Booleans are lower-case `true` and `false`. If a render fails with a message about the YAML, read the header before you read anything else, and [Task 5](#sec-tasks) in section 11 shows you what such a message looks like.
 
@@ -339,7 +339,7 @@ housing |>
 ```
 ````
 
-It runs, its code is shown, and its result appears underneath: `r n_emails` emails, of which `r n_bounced` bounced, `r n_delivered` were delivered, `r n_replies` drew a reply, and `r n_coded` replies carry a greeting code. That is the default behaviour, and chunk options are the way to change it. Seven of them cover almost everything that the report and this site need:
+It runs, its code is shown, and its result appears underneath: `r n_emails` emails, of which `r n_bounced` bounced, `r n_delivered` were delivered, `r n_replies` drew a reply, and `r n_coded` replies carry a greeting code. That is the default behaviour, and chunk options are the way to change it. Seven of them cover almost everything that the report and the workshop's website need:
 
 | Option | What it does |
 |---|---|
@@ -506,7 +506,7 @@ knitted <- knitr::knit(text = report, quiet = TRUE)
 markdown::mark(text = knitted) |> htmltools::HTML()
 ```
 
-Two further options appear in the documents of the workshop. `results: asis` tells Quarto that what the chunk prints is Markdown to be interpreted rather than console text to be shown in a grey box, which is how a chunk can write a callout or a table that Pandoc then formats. And `fig-width` and `fig-height`, set on a single chunk, override whatever the header set for the document as a whole.
+Two further options appear in the workshop's documents. `results: asis` tells Quarto that what the chunk prints is Markdown to be interpreted rather than console text to be shown in a grey box, which is how a chunk can write a callout or a table that Pandoc then formats. And `fig-width` and `fig-height`, set on a single chunk, override whatever the header set for the document as a whole.
 
 ### Where options are set
 
@@ -587,7 +587,7 @@ greeted <- housing |>
 
 The excerpt stops after the summary, before the lines that order the names and the call to `tinyplot::tinyplot()` that draws the bars, their colours and their labels, and the size option overrides the height of five inches set by the header, since six bars need less room. With the prefix in place, Quarto numbers the figure and lets you point at it from the prose. Write `@fig-names` in a sentence and the rendered text reads "Figure 1", as a link that takes the reader to the figure. The report already has three labelled figures, `fig-names`, `fig-dag` and `fig-curve`, and nothing yet refers to them, so adding a reference is the one-word edit of [Task 4](#sec-tasks) in section 11, which shows the whole mechanism working.
 
-Tables work in the same way, with a `tbl-cap` and a label beginning `tbl-`. tinytable is the table package of the workshop, the one to use in a report, because one call draws the same table as HTML, as a PDF or as a Word document. It cannot yet display its tables in the copy of R that runs in the browser, so the chunk below ran when this page was built, as a chunk of a report runs when the report is rendered, and its two options give the table a number to which this sentence refers as @tbl-greetings.
+Tables work in the same way, with a `tbl-cap` and a label beginning `tbl-`. tinytable is the workshop's table package, the one to use in a report, because one call draws the same table as HTML, as a PDF or as a Word document. It cannot yet display its tables in the copy of R that runs in the browser, so the chunk below ran when this page was built, as a chunk of a report runs when the report is rendered, and its two options give the table a number to which this sentence refers as @tbl-greetings.
 
 ```{r}
 #| label: tbl-greetings
@@ -602,7 +602,7 @@ tinytable::tt(greetings)
 
 tinytable is not among the packages that the workspaces check, so install it with `pak::pak("tinytable")` before you use it in your IDE.
 
-Sections can be cross-referenced in the same way, with an identifier beginning `sec-` attached to the heading in braces, but numbered references to sections need `number-sections: true` in the header. The pages of this site are not numbered, so they use those identifiers as plain links instead. This page writes `[section 2](#sec-knit)` to point within itself, and the R module writes `[Quarto module](quarto.qmd)` to point at this page. Both are ordinary Markdown links, and a link to a heading in another file takes no more effort to write than a link to one in the same file.
+Sections can be cross-referenced in the same way, with an identifier beginning `sec-` attached to the heading in braces, but numbered references to sections need `number-sections: true` in the header. The pages of the workshop's website are not numbered, so they use those identifiers as plain links instead. This page writes `[section 2](#sec-knit)` to point within itself, and the R module writes `[Quarto module](quarto.qmd)` to point at this page. Both are ordinary Markdown links, and a link to a heading in another file takes no more effort to write than a link to one in the same file.
 
 A figure that comes from an image file uses the image syntax of Markdown, `![A caption](path/to/image.png){#fig-example}`, and it is numbered and referred to in the same way. The screenshots of this page are figures of that kind, which is why @fig-preview could be cited by its number in section 3. The figures of the report, by contrast, are drawn by its chunks from the data, so that a figure is corrected and drawn again whenever the data change.
 
@@ -696,7 +696,7 @@ Divs nest, and when they do, the outer one takes more colons than the inner. The
 
 ## 8. Citations {#sec-citations}
 
-Add a `bibliography:` key to the header, pointing at a BibTeX file, and citations start working. The pages of this site write `bibliography: [../references.bib, ../references-new.bib]`, a list of two files, because the workshop keeps a second file for entries that are not yet in the reference library of the facilitator. A single file is written without the brackets, and both forms are ordinary YAML.
+Add a `bibliography:` key to the header, pointing at a BibTeX file, and citations start working. The pages of the workshop's website write `bibliography: [../references.bib, ../references-new.bib]`, a list of two files, because the workshop keeps a second file for entries that are not yet in the reference library of the facilitator. A single file is written without the brackets, and both forms are ordinary YAML.
 
 A BibTeX file is a plain-text database with one record for each work. This is the record for the paper behind the Housing case study, as it stands in `references.bib`, shortened to the fields that a citation needs:
 
@@ -724,13 +724,13 @@ Four forms of citation cover ordinary writing:
 | `[@EinsteinGlick2017DoesRaceAffect, p. 100]` | a parenthetical citation with a page locator |
 | `[@EinsteinGlick2017DoesRaceAffect; @AczelEtAl2026InvestigatingAnalyticalRobustness]` | two works in one set of brackets |
 
-The list of references is assembled from whatever you actually cited, and it goes at the end of the document unless you say otherwise. Putting `::: {#refs}` somewhere places the list at that point. The pages of this site keep the list but hide it with one rule in the stylesheet of the site, so that resting the pointer on a citation still shows its entry. The two works named in the table above are cited live here, so you can try the pop-up on them [@EinsteinGlick2017DoesRaceAffect; @AczelEtAl2026InvestigatingAnalyticalRobustness].
+The list of references is assembled from whatever you actually cited, and it goes at the end of the document unless you say otherwise. Putting `::: {#refs}` somewhere places the list at that point. The pages of the workshop's website keep the list but hide it with one rule in its stylesheet, so that resting the pointer on a citation still shows its entry. The two works named in the table above are cited live here, so you can try the pop-up on them [@EinsteinGlick2017DoesRaceAffect; @AczelEtAl2026InvestigatingAnalyticalRobustness].
 
-Formatting is controlled by a citation style file, written in the Citation Style Language (CSL). No `csl:` key is set on any page of this site, so every page renders in the default that Pandoc supplies, the Chicago author-date style. Pointing `csl:` at a style file from the repository of CSL styles, which Zotero hosts, switches the whole document to APA or to the house style of a particular journal, without touching a single citation.
+Formatting is controlled by a citation style file, written in the Citation Style Language (CSL). No `csl:` key is set on any page of the workshop's website, so every page renders in the default that Pandoc supplies, the Chicago author-date style. Pointing `csl:` at a style file from the repository of CSL styles, which Zotero hosts, switches the whole document to APA or to the house style of a particular journal, without touching a single citation.
 
-A bare `@Key` at the very start of a block is also the syntax by which Pandoc writes an example list, and Pandoc reads it that way in preference: the citation disappears and a list number takes its place, with no warning. Start such a sentence with a word, or turn the syntax off with `from: markdown-example_lists` in the header, as the slide decks of the workshop do.
+A bare `@Key` at the very start of a block is also the syntax by which Pandoc writes an example list, and Pandoc reads it that way in preference: the citation disappears and a list number takes its place, with no warning. Start such a sentence with a word, or turn the syntax off with `from: markdown-example_lists` in the header, as the workshop's slide decks do.
 
-The report of the workspace lists its five references by hand at the end, as ordinary prose. Converting that list into a `references.bib` beside the report, with a `bibliography:` key in the header, a citation at each point where a work is discussed and an empty `::: {#refs}` div under the heading, is a good exercise for after the workshop, and the rendered report should then list all five works, each of them once.
+The report of the workspace lists its five references by hand at the end, as ordinary prose. Converting that list into a `references.bib` beside the report, with a `bibliography:` key in the header, a citation at each point where a work is discussed and an empty `::: {#refs}` div under the heading, is a good further exercise, and the rendered report should then list all five works, each of them once.
 
 ## 9. Projects {#sec-project}
 
@@ -741,7 +741,7 @@ project:
   type: website
   output-dir: _site
   # The report is the only page. The codebooks in data/ stay Markdown files,
-  # read as they are; some of them link to codebooks of the workshop site.
+  # read as they are; some of them link to codebooks on the workshop's website.
   render:
     - index.qmd
 
@@ -763,17 +763,17 @@ format:
     code-tools: true
 ```
 
-`output-dir: _site` sends the rendered site to the folder `_site`, which is why the report becomes `_site/index.html`, and `render:` limits the project to the report, so that the Markdown codebooks in `data/` stay as they are. The `format:` block sets the defaults for every page at once, here the table of contents, the visual theme called cosmo, and `code-tools: true`, which puts a **Code** control at the top of the rendered report, through which a reader can view the source behind it. This site is a much larger project of the same type, whose configuration also defines the menus at the top of this page.
+`output-dir: _site` sends the rendered site to the folder `_site`, which is why the report becomes `_site/index.html`, and `render:` limits the project to the report, so that the Markdown codebooks in `data/` stay as they are. The `format:` block sets the defaults for every page at once, here the table of contents, the visual theme called cosmo, and `code-tools: true`, which puts a **Code** control at the top of the rendered report, through which a reader can view the source behind it. The workshop's website is a much larger project of the same type, whose configuration also defines the menus at the top of this page.
 
 Settings can also be attached to a single folder by putting a `_metadata.yml` inside it, and every `.qmd` in that folder inherits them. The slide decks of the case-study sites are built this way, with the theme, the bibliography and the options that every slide deck shares written once, in the `_metadata.yml` of the folder that holds the slides, and only a title and a few keys left in the header of each slide deck. Four levels are therefore available, and the nearest one wins: an option on a chunk beats the header of the document, which beats the file of the folder, which beats the configuration of the project.
 
-`freeze: auto`, the setting in the middle of that configuration, tells Quarto, when it renders the whole project, to execute a document again only when its source file has changed, and then to run every chunk in it. The results are stored in a folder called `_freeze/`, one record for each document, and a render of a single file always executes its code, whatever the setting says. The workspace and this site both commit that folder to version control, so that the machine that publishes the site can render it without running the analyses again. This site, for one, installs only R, knitr, rmarkdown and yaml on that machine, the packages through which the blocks that run in the browser pass when a page is rendered, and serves the results of every chunk that a page runs at build time, such as the table of section 6, from `_freeze/`.
+`freeze: auto`, the setting in the middle of that configuration, tells Quarto, when it renders the whole project, to execute a document again only when its source file has changed, and then to run every chunk in it. The results are stored in a folder called `_freeze/`, one record for each document, and a render of a single file always executes its code, whatever the setting says. The workspace and the workshop's website both commit that folder to version control, so that the machine that publishes the website can render it without running the analyses again. The workshop's website, for one, installs only R, knitr, rmarkdown and yaml on that machine, the packages through which the blocks that run in the browser pass when a page is rendered, and serves the results of every chunk that a page runs at build time, such as the table of section 6, from `_freeze/`.
 
 ## 10. Publishing the document {#sec-publish}
 
 Rendering a project writes the finished site to the folder named by `output-dir`, here `_site`. Rendering a single document writes the output beside the source. Either way the result is a set of ordinary files, and publishing means putting them somewhere that other people can reach.
 
-Three routes are common. You can render locally and commit the output, which is the simplest and suits a small document that changes rarely. You can run `quarto publish gh-pages`, a single command that creates a branch for the rendered output and pushes to it. Or you can have a build machine do the work on every change, which is what this site does: its workflow file checks out the repository, installs Quarto and R, renders and deploys the contents of `_site`. The workspace has a workflow of its own, `.github/workflows/publish.yml`, which works differently. It installs R together with the packages of the exercise and runs the chunks again, so that a participant who edits the report and pushes it is shown their own results on the published page instead of the ones that shipped.
+Three routes are common. You can render locally and commit the output, which is the simplest and suits a small document that changes rarely. You can run `quarto publish gh-pages`, a single command that creates a branch for the rendered output and pushes to it. Or you can have a build machine do the work on every change, which is what the workshop's website does: its workflow file checks out the repository, installs Quarto and R, renders and deploys the contents of `_site`. The workspace has a workflow of its own, `.github/workflows/publish.yml`, which works differently. It installs R together with the packages of the exercise and runs the chunks again, so that a participant who edits the report and pushes it is shown their own results on the published page instead of the ones that shipped.
 
 A document meant to be emailed needs a different setting. `embed-resources: true`, under the format in the header, places every image, stylesheet and script inside the HTML file itself, giving one self-contained file that works with no folder of assets beside it. Rendering to PDF is a change to the header, `format: pdf`, together with a typesetting engine. If you have no LaTeX installation, `quarto install tinytex` fetches a small one that Quarto manages itself.
 
@@ -825,4 +825,4 @@ The official documentation is the reference to keep open beside your own documen
 - **GitHub Pages**, <https://quarto.org/docs/publishing/github-pages.html>, sets out the three publishing routes of [section 10](#sec-publish) with worked examples of each.
 - The documentation of **knitr**, <https://yihui.org/knitr/>, explains the step that the blocks of [section 2](#sec-knit) take, and the **markdown** package, <https://github.com/rstudio/markdown>, whose function `mark()` the blocks use, has been superseded by **litedown**, <https://yihui.org/litedown/>, written by the same author.
 
-Within the workshop, the natural neighbours are [getting started with R](r.qmd), which this module assumes, the [module on the IDE](ide.qmd), which tours the rest of Positron, and the [Git and GitHub module](../git-github.qmd), which takes the reproducible document into version control. Every other page of the site is also a worked example: open any page in the [repository of the site](https://github.com/CodeMoreh/ar4ds) and you are reading the source of something that you have already read rendered.
+Within the workshop, the natural neighbours are [getting started with R](r.qmd), which this module assumes, the [module on the IDE](ide.qmd), which tours the rest of Positron, and the [Git and GitHub module](../git-github.qmd), which takes the reproducible document into version control. Every other page of the workshop's website is also a worked example: open any page in the [workshop's GitHub repository](https://github.com/CodeMoreh/ar4ds) and you are reading the source of something that you have already read rendered.
