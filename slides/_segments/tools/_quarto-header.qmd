@@ -5,7 +5,7 @@ Section 2
 :::
 
 ::: notes
-Section two reads the two parts of the report that tell Quarto what to do. The header at the top sets the title, the date and the format of the whole document, and it is written in YAML, which is fussy in a few ways that are worth learning before they bite. Then the chunks of code, and the options on their first lines that decide what a chunk shows: its code, its results, both or neither, and what happens when it fails. The task at the end changes an option and breaks the header on purpose.
+Section two reads the two parts of the report that tell Quarto what to do. The header at the top sets the title, the date and the format of the whole document, in YAML, which is fussy in a few ways that are worth learning before they cause trouble. Then come the chunks of code, and the options on their first lines that decide what a chunk shows, its code, its results, both or neither, and what happens when it fails. The task at the end changes an option and breaks the header on purpose.
 :::
 
 ## The YAML header {#the-yaml-header .smaller}
@@ -46,7 +46,7 @@ knitr:
 ::::
 
 ::: notes
-The header of the report uses most of the keys that ordinary work needs. Title and author print at the top of the document. date colon today is a keyword of Quarto that fills in the date at render time, so a report rendered next month carries the date of next month without anybody remembering to change it. Everything under format configures the web page: a table of contents built from the first two levels of headings, the code shown open, and data frames printed as small paged tables. The execute block sets options for every chunk at once, here hiding the start-up messages of packages and the warnings that would clutter a report meant for a reader. And the knitr block fixes the size of every figure unless a chunk asks for another. Adding pdf or docx under format would give those formats as well, from the same file.
+The header of the report uses most of the keys that ordinary work needs. Title and author print at the top of the document, and date colon today is a keyword of Quarto that fills in the date at render time, so a report rendered next month carries the date of next month without anybody changing it. Everything under format configures the web page: a table of contents built from the first two levels of headings, the code shown open, and data frames printed as small paged tables. The execute block sets options for every chunk at once, here hiding the start-up messages of packages and the warnings that would clutter a report meant for a reader, and the knitr block fixes the size of every figure unless a chunk asks for another. Adding pdf or docx under format would give those formats as well, from the same file.
 :::
 
 ## The rules of YAML {#the-rules-of-yaml .smaller}
@@ -70,7 +70,7 @@ Without the space in `toc: true`, the render stops before any chunk runs. The ca
 ::::
 
 ::: notes
-YAML is fussy in a small number of ways, and a malformed header is probably the most common reason why a document that rendered yesterday will not render today. Indentation is by spaces, never tabs, and two spaces for each level is the convention. Every entry is a key, a colon, a space and a value. A string that contains a colon has to be quoted, which is why the title of the report sits inside quotation marks. And true and false are written in lower case. [advance] This is what a broken header looks like: the space after the colon in toc true was deleted, and the render stops before any chunk runs. YAML reads toc colon true as one plain word and notices that something is wrong only on the next line, which is why the caret points one line too low.
+YAML is fussy in a small number of ways, and a malformed header is probably the most common reason why a document that rendered yesterday will not render today. Indentation is by spaces, never tabs, with two spaces for each level by convention, and every entry is a key, a colon, a space and a value. A string that contains a colon has to be quoted, which is why the title of the report sits inside quotation marks, and true and false are written in lower case. [advance] This is what a broken header looks like: the space after the colon in toc true was deleted, and the render stops before any chunk runs. YAML reads toc colon true as one plain word and notices that something is wrong only on the next line, which is why the caret points one line too low.
 :::
 
 ## Chunks and their options {#chunks-and-their-options .smaller}
@@ -97,7 +97,7 @@ source("R/spec_tools.R")
 :::
 
 ::: notes
-A chunk opens with three backticks and the name of the engine in braces, and its options follow as comment lines that begin with a hash and a vertical bar. The option lines are YAML again, so the same rules about colons and spaces apply. On the slide is the setup chunk of the report, without its comments, which reads the data and loads the helpers. Seven options cover almost everything that the report needs. The label names the chunk, and Quarto prints it when the chunk fails. echo, output and include are the three that are most easily confused: echo governs the code, output governs the results, and include turns both off while still running the chunk. The setup chunk of the report is marked include false, because it has to run first and no reader needs to see it. Of the seven, output is the only one that Quarto adds to the options of knitr.
+A chunk opens with three backticks and the name of the engine in braces, and its options follow as comment lines that begin with a hash and a vertical bar. The option lines are YAML again, so the same rules about colons and spaces apply. The slide shows the setup chunk of the report, without its comments, which reads the data and loads the helpers. Seven options cover almost everything that the report needs. The label names the chunk, and Quarto prints it when the chunk fails. Echo, output and include are the three most easily confused: echo governs the code, output the results, and include turns both off while still running the chunk, which is why the setup chunk of the report is marked include false, since it has to run first and no reader needs to see it. Of the seven, output is the only one that Quarto adds to the options of knitr.
 :::
 
 ## Two options in the report {#two-options-in-the-report .smaller}
@@ -132,7 +132,7 @@ try_spec(model = "three_group")
 ::::
 
 ::: notes
-Two chunks of the report show what the options are for. The first is the step that sends your exploratory result to the class chart on the second day. It is marked eval false, so the reader sees what to run, and rendering the report never sends a submission. The second does the opposite job. In Task 4 the report deliberately asks for an option of the menu that is not on the curve, so that you can read the reason why the helper refuses it. Without error true, the refusal would stop the render. With it, the message is printed in the report and the render carries on to the next chunk. In every other chunk an error should stop the render, because a report that carries on past a broken chunk prints results that nobody checked.
+Two chunks of the report show what the options are for. The first is the step that sends your exploratory result to the class chart on the second day, and it is marked eval false, so the reader sees what to run and rendering the report never sends a submission. The second does the opposite job. In Task 4 the report deliberately asks for an option of the menu that is not on the curve, so that you can read why the helper refuses it, and without error true the refusal would stop the render, while with it the message is printed in the report and the render carries on to the next chunk. In every other chunk an error should stop the render, because a report that carries on past a broken chunk prints results that nobody checked.
 :::
 
 ## Where options are set {#where-options-are-set .smaller .deepdive run="quarto"}
@@ -149,7 +149,7 @@ The setting nearest to the chunk wins. The report hides messages and warnings in
 :::
 
 ::: notes
-The same options can be written at four levels: on a chunk, in the header of a document under execute, in a file called underscore metadata dot yml that governs every document of a folder, and in the configuration of the whole project. Where an option is set at more than one level, the setting nearest to the chunk wins, so an option on a chunk beats the header, which beats the file of the folder, which beats the configuration of the project. The report suppresses messages and warnings for the whole document in its header, and the project file of the IDE workspace sets freeze auto for every document, which the last section comes back to. These slides are built the same way: the theme, the bibliography and the options shared by every slide deck are written once, in the metadata file of the folder that holds the slides.
+The same options can be written at four levels: on a chunk, in the header of a document under execute, in a file called underscore metadata dot yml that governs every document of a folder, and in the configuration of the whole project. Where an option is set at more than one level, the setting nearest to the chunk wins, so an option on a chunk beats the header, which beats the file of the folder, which beats the configuration of the project. The report suppresses messages and warnings for the whole document in its header, and the project file of the IDE workspace sets freeze auto for every document, to which the last section returns. These slides are built in the same way, with the theme, the bibliography and the shared options written once, in the metadata file of the folder that holds the slides.
 :::
 
 ## Hands-on 2 – Options and the header {#hands-on-2-options-and-the-header .smaller}
@@ -161,5 +161,5 @@ The same options can be written at four levels: on a chunk, in the header of a d
 :::
 
 ::: notes
-Your turn, with two small edits and one deliberate mistake. In the chunk that counts the emails, add an option line under the label. Positron starts the new line with the hash and the bar for you, so type echo colon false, save and preview: in the Viewer, the box of Task 2 shows the table of counts with no code above it. Then change echo to eval and preview again, and the code comes back while the counts disappear, because the chunk no longer runs. Delete the line so that the chunk is as it was. Then break the header: delete the space after the colon in toc true, save and preview, and read the message from the top. A broken header also stops the preview itself, so restore the space and press Control, Shift and K to start it again. Take the time you need.
+Your turn, with two small edits and one deliberate mistake. In the chunk that counts the emails, add an option line under the label; Positron starts the new line with the hash and the bar for you, so type echo colon false, save and preview, and in the Viewer the box of Task 2 shows the table of counts with no code above it. Then change echo to eval and preview again, and the code comes back while the counts disappear, because the chunk no longer runs, and delete the line so that the chunk is as it was. Then break the header by deleting the space after the colon in toc true, save, preview and read the message from the top. A broken header also stops the preview itself, so restore the space and press Control, Shift and K to start it again.
 :::

@@ -5,7 +5,7 @@ Section 4
 :::
 
 ::: notes
-Section four is about the render itself. A render can fail, and the message that it prints says where and why, if you read it from the top. Then the habit that the whole day leads up to: a render from a clean session, which shows whether the report makes everything that it uses or leans on an object that only your console holds. We end with the steps that lead from a folder that renders to a public record, and with a last task.
+Section four is about the render itself. A render can fail, and the message that it prints says where and why, if you read it from the top. Then comes the habit to which the afternoon leads, a render from a clean session, which shows whether the report makes everything that it uses or leans on an object that only your console holds. We end with the steps that lead from a folder that renders to a public record, and with a last task.
 :::
 
 ## A failed render {#a-failed-render .smaller}
@@ -25,7 +25,7 @@ Section four is about the render itself. A render can fail, and the message that
 ::::
 
 ::: notes
-A render can fail for many reasons, but in the first weeks most failures come from three places: a chunk that stops with an error, a header that is not valid YAML, and an object that exists in the console but is made by no chunk. Whatever the cause, the render stops, the Viewer keeps the last version that rendered, and the terminal says what went wrong. This one comes from a render in which the name of a function in the chunk that counts the emails was misspelt. Read it in three steps. The error line repeats what R itself said. The line beginning Quitting from names the file, the lines that hold the failing chunk and its label, which takes you straight to it. And the counter above the error shows how far knitr had got. The last two lines only confirm that the render stopped.
+A render can fail for many reasons, but in the first weeks most failures come from three places: a chunk that stops with an error, a header that is not valid YAML, and an object that exists in the console but is made by no chunk. Whatever the cause, the render stops, the Viewer keeps the last version that rendered, and the terminal says what went wrong. This failure comes from a render in which the name of a function in the chunk that counts the emails was misspelt, and it reads in three steps. The error line repeats what R itself said, the line beginning Quitting from names the file, the lines that hold the failing chunk and its label, which takes you straight to the chunk, and the counter above the error shows how far knitr had got. The last two lines only confirm that the render stopped.
 :::
 
 ## A render from a clean session {#a-render-from-a-clean-session .smaller}
@@ -49,7 +49,7 @@ A render that fails at a chunk which ran in the console has found an object that
 ::::
 
 ::: notes
-The last step of every working session on a report is a render that starts from nothing, which shows whether the report makes everything that it uses. Quarto renders in a fresh R process of its own, whatever the state of your console, and the restart that comes first empties the console as well, so that the checks that you make afterwards start from the same blank state as the render. So restart R and watch the Variables pane empty. Then open a terminal and type quarto render: every chunk of the report runs from the top, and the render ends by naming the file that it wrote. Preview the report once more and check the numbers. [advance] If the render fails at a chunk that ran happily in the console, that chunk uses an object made by a line that you typed outside the chunks. Find the line and move it into the chunk where it belongs.
+The last step of every working session on a report is a render that starts from nothing, which shows whether the report makes everything that it uses. Quarto renders in a fresh R process of its own, whatever the state of your console, and a restart first empties the console as well, so that the checks that you make afterwards start from the same blank state as the render. So restart R, open a terminal and type quarto render, and every chunk of the report runs from the top, the render ending by naming the file that it wrote. Preview the report once more and check the numbers. [advance] A render that fails at a chunk which ran without trouble in the console has found an object made by a line that you typed outside the chunks, and that line belongs in the chunk.
 :::
 
 ## The project {#the-project .smaller .deepdive run="quarto"}
@@ -86,7 +86,7 @@ format:
 ::::
 
 ::: notes
-Put a file called underscore quarto dot yml beside a document and the folder becomes a project: a set of documents that share settings, render together and can be published as one thing. This is the configuration of the IDE workspace, without its comments and its title. output dir sends the rendered site to the folder underscore site, which is why the report becomes underscore site slash index dot html, and render limits the project to the report, so that the Markdown codebooks in the data folder stay as they are. freeze auto tells Quarto, when it renders the whole project, to run a document again only when its source file has changed, and to keep the results in a folder called underscore freeze. A render of a single file always runs its code, whatever the setting says. The format block sets the defaults of every page at once.
+A file called underscore quarto dot yml beside a document makes the folder a project, a set of documents that share settings, render together and can be published as one thing. This is the configuration of the IDE workspace, without its comments and its title. Output dir sends the rendered site to the folder underscore site, which is why the report becomes underscore site slash index dot html, and render limits the project to the report, so that the Markdown codebooks in the data folder stay as they are. Freeze auto tells Quarto, when it renders the whole project, to run a document again only when its source file has changed, keeping the results in a folder called underscore freeze, while a render of a single file always runs its code, whatever the setting says. The format block sets the defaults of every page at once.
 :::
 
 ## From the folder to the record {#from-the-folder-to-the-record .smaller}
@@ -103,7 +103,7 @@ Today stops at the first step. The module Git and GitHub takes the next two on t
 :::
 
 ::: notes
-Once the report renders, there are four steps between your folder and a public record, and today we take only the first. Rendering gives you a document that carries the date of its run. Version control turns the folder into a git repository, and every commit is then a dated snapshot of everything in it, with a sentence saying why it changed. Publishing pushes that repository to GitHub, and the IDE workspace already carries a small workflow that renders the report there and publishes it as a web page every time that you push. And archiving deposits a release with Zenodo or the OSF, which gives it a DOI and a version that will not change, so that a paper can cite it, as the session on repositories set out this morning. [advance] The module Git and GitHub walks through the next two steps, click by click, on the folder that you have open now.
+Once the report renders, four steps separate your folder from a public record, and today we take only the first. Rendering gives a document that carries the date of its run. Version control turns the folder into a git repository, in which every commit is a dated snapshot of everything in it, with a sentence saying why it changed. Publishing pushes that repository to GitHub, where the small workflow carried by the IDE workspace renders the report and publishes it as a web page at every push. Archiving deposits a release with Zenodo or the OSF, which gives it a DOI and a version that will not change, so that a paper can cite it, as the session on repositories set out this morning. [advance] The module Git and GitHub walks through the next two steps, click by click, on the folder that you have open now.
 :::
 
 ## Hands-on 4 – A clean render {#hands-on-4-a-clean-render .smaller}
@@ -120,5 +120,5 @@ RStudio: restart R, then **Render**. VS Code: restart the R terminal, then `quar
 :::
 
 ::: notes
-The last task of the day, and the one that I would most like you to make a habit. Save the report with all your edits of today, restart R, render the report from a terminal, and then preview it and check that everything is still there: the counts, the figure, the sentence whose number is now computed, and the reference to the figure. If the render fails, read the message from the top, as we did a few slides ago, and fix the chunk that it names. A report that renders from a clean session is a report that someone else can render on their own machine and get the same numbers, which is the first of the three Rs of this morning. [advance] In RStudio and VS Code the steps have the same shape. Take the time you need.
+The last task of the afternoon, and a habit that I would like you to keep. Save the report with all your edits, restart R, render the report from a terminal, and then preview it and check that everything is still there: the counts, the figure, the sentence whose number is now computed, and the reference to the figure. If the render fails, read the message from the top, as we did a few slides ago, and fix the chunk that it names. A report that renders from a clean session can be rendered by someone else on another machine with the same numbers, which is the first of the three Rs of this morning. [advance] In RStudio and VS Code the steps have the same shape.
 :::

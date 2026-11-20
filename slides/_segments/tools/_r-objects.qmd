@@ -7,15 +7,15 @@
 :::
 
 ::: {.fragment .small}
-If the folder is not on your machine yet, its zip is on the setup page, in step 4, under the tab Housing.
+If the folder is not on your machine yet, its zip is on the Before page of the full-day format of the Housing website, in step 2.
 :::
 
 ::: {.urlbox .fragment}
-[[codemoreh.github.io/ar4ds/setup.html#the-workspace](https://codemoreh.github.io/ar4ds/setup.html#the-workspace)]{.fs-70}
+[[codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace](https://codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace)]{.fs-70}
 :::
 
 ::: notes
-Before anybody types, the folder. Every step this afternoon runs in the IDE workspace of the Housing case study, because the modules on the tools use it as their running example, whatever your workshop's case study. If your workshop works on that case study, you installed the folder before the workshop and ran its check script. If it works on another case study, the folder that you installed belongs to that case study, and the Housing folder is one more zip from the same page. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the setup page is on the screen.
+Before anybody types, the folder. Every step this afternoon runs in the IDE workspace of the Housing case study, because the modules on the tools use it as their running example, whatever your own case study. If your workshop works on that case study, you installed the folder before the workshop and ran its check script, and if it works on another one, the Housing folder is one more zip, from the Before page of the full-day format on the Housing website. Open the folder itself rather than a file inside it, because R then works in that folder, and the path to the data in the second section finds the file. Then open a new script, save it in the folder under a name of your choice, and type into it as I type into mine. [advance] The address of the page with the zip is on the screen.
 :::
 
 # Objects and data frames {#objects-and-data-frames .darkslide background-color="rgba(0,0,0,0)"}
@@ -25,7 +25,7 @@ Section 1
 :::
 
 ::: notes
-Section one starts at the very bottom, with the places where you type R and the way in which R answers. Then come the two pieces from which everything else is built: objects, which give a value a name, and vectors, which hold a run of values. One small fact about vectors carries most of the workshop's arithmetic, that the mean of a run of ones and zeros is a share. We end with the data frame, the table in which R keeps a dataset, and with a first task of your own.
+Section one starts at the very bottom, with the places where you type R and the way in which R answers. Then come the two pieces from which everything else is built, objects, which give a value a name, and vectors, which hold a run of values. One small fact about vectors carries most of the workshop's arithmetic, that the mean of a run of ones and zeros is a share. We end with the data frame, the table in which R keeps a dataset, and with a first task of your own.
 :::
 
 ## The console and the script {#the-console-and-the-script .smaller}
@@ -46,7 +46,7 @@ Section one starts at the very bottom, with the places where you type R and the 
 :::
 
 ::: notes
-In your IDE there are two places to type R. The console runs a line the moment you press Enter. Type one thousand and fourteen minus twenty-three, and R answers nine hundred and ninety-one, the emails that reached a housing authority out of the thousand and fourteen that were sent. The one in square brackets is not part of the answer, because R numbers the values that it prints. [advance] A script keeps what you type. Put the same line in your new script, leave the cursor on it, and press Control and Enter: the line goes to the console and runs there. [advance] The workshop's rule is to try things in the console and to move anything that matters into the script, because the script records how a result was reached, and the console forgets it when the session ends.
+Your IDE has two places in which to type R. The console runs a line the moment you press Enter: type one thousand and fourteen minus twenty-three, and R answers nine hundred and ninety-one, the emails that reached a housing authority out of the thousand and fourteen that were sent. The one in square brackets is not part of the answer, since R numbers the values that it prints. [advance] A script keeps what you type. Put the same line in your new script, leave the cursor on it and press Control and Enter, and the line goes to the console and runs there. [advance] Try things in the console, and move anything that matters into the script, because the script records how a result was reached, while the console forgets it when the session ends.
 :::
 
 ## Objects and vectors {#objects-and-vectors .smaller}
@@ -75,7 +75,7 @@ replies / delivered
 :::
 
 ::: notes
-R works by putting values into named objects. The arrow, typed as a less-than sign and a hyphen, assigns: emails sent gets one thousand and fourteen, and from then on the name stands in for the number, so emails sent minus twenty-three gives nine hundred and ninety-one again. Names are case-sensitive, and asking for a name that was never assigned gives the message "object not found", which you will meet whenever a line uses an object that an earlier line was meant to make. A vector is a run of values of one type, made with c, for combine. These two hold, for the white, the Black and the Hispanic names in turn, the emails that reached an official and the replies that came back, and one division gives the three reply rates. The six numbers were typed by hand, and the third section computes them from the file.
+R works by putting values into named objects. The arrow, typed as a less-than sign and a hyphen, assigns: emails sent gets one thousand and fourteen, and from then on the name stands in for the number, so emails sent minus twenty-three gives nine hundred and ninety-one again. Names are case-sensitive, and a name that was never assigned gives the message "object not found", which you will meet whenever a line uses an object that an earlier line was meant to make. A vector is a run of values of one type, made with c, for combine. These two vectors hold, for the white, the Black and the Hispanic names in turn, the emails that reached an official and the replies that came back, and one division gives the three reply rates. The six numbers were typed by hand, and the third section computes them from the file.
 :::
 
 ## Means and missing values {#means-and-missing-values .smaller}
@@ -103,7 +103,7 @@ The file has missing values of three kinds: the `r n_bounced` emails that bounce
 :::
 
 ::: notes
-One small fact carries most of the workshop's arithmetic. When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the claim of the Housing case study, whether a reply opened with the name of the sender, is stored in exactly this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known. The argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
+When a vector holds only ones and zeros, its mean is the share of ones, because the mean adds the values, which counts the ones, and divides the sum by the number of values. The outcome of the Housing claim, whether a reply opened with the name of the sender, is stored in this way, so the share of replies that greeted the sender by name is a mean. Real data have gaps, which R marks NA, for not available, and any calculation that meets one returns NA, because the answer cannot be known, while the argument na dot rm removes the missing values first. [advance] In our file a missing value can mean three different things, and deciding what to do with each kind is part of the analysis.
 :::
 
 ## Data frames {#data-frames .smaller}
@@ -134,7 +134,7 @@ A **data frame** is a table: vectors of equal length standing side by side as co
 :::
 
 ::: notes
-A data frame is how R stores a table: vectors of the same length standing side by side as columns, with one row for each observation, and almost everything in the workshop is a data frame. This one is built by hand, with three emails, the name that signed each, whether a reply came and whether the reply greeted the sender by name. The third email shows why a greeting can be missing: no reply came, so there was no greeting to code. The part before the two colons names the package from which the function comes, which the next section explains. A tibble prints its size on the first line and the type of each column under its name. The dollar sign pulls one column out as a vector, which is often the quickest way to look at a single column, and for reshaping a table the workshop uses the verbs of the third section.
+A data frame is how R stores a table, with vectors of the same length standing side by side as columns and one row for each observation, and almost everything in the workshop is a data frame. This one is built by hand, with three emails, the name that signed each, whether a reply came and whether the reply greeted the sender by name. The third email shows why a greeting can be missing: no reply came, so there was no greeting to code. The part before the two colons names the package from which the function comes, which the next section explains. A tibble prints its size on the first line and the type of each column under its name. The dollar sign pulls one column out as a vector, the quickest way to look at a single column, and the verbs of the third section reshape whole tables.
 :::
 
 ## Hands-on 1 – The reply rate {#hands-on-1-the-reply-rate .smaller}
@@ -160,5 +160,5 @@ The share is `r sprintf("%.6f", n_replies / n_delivered)`, the reply rate of the
 :::
 
 ::: notes
-Your turn, on your own machine, with three short lines in your script. First, fill the blank so that the line divides all the replies by all the delivered emails, which gives the share of the delivered emails that drew a reply, whatever the name that signed each email. Second, pick out the third value of the replies with square brackets, the replies to the Hispanic names. Third, type the name of the first object with a capital E and read what R says, because you will meet that message many times, and it always means that R has no object of that name in the session. Take the time you need, and if a line stops with an error that you cannot read, tell me. [advance] The share is a little under fifty-seven per cent, and we will reach it again from the file.
+Your turn, with three short lines in your script. First, fill the blank so that the line divides all the replies by all the delivered emails, which gives the share of the delivered emails that drew a reply, whatever the name that signed each email. Second, pick out the third value of the replies with square brackets, the replies to the Hispanic names. Third, type the name of the first object with a capital E and read what R says, a message that you will meet many times and that always means that the session holds no object of that name. If a line stops with an error that you cannot read, raise your hand. [advance] The share is a little under fifty-seven per cent, and the second section reaches it again from the file.
 :::

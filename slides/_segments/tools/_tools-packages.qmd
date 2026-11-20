@@ -8,9 +8,9 @@
 :::
 
 ::: {.fragment .small .fs-80}
-The workshop's figures come from **`tinyplot`**, its tables from **`tinytable`**, and the causal graphs of the second day from **`dagitty`**. The setup page lists the packages of each IDE workspace, and the check script of the workspace reports any that are missing.
+The workshop's figures come from **`tinyplot`**, its tables from **`tinytable`**, and the causal graphs of the second day from **`dagitty`**. The check script of each IDE workspace lists the packages that the workspace uses and reports any that are missing.
 :::
 
 ::: notes
-A word about packages, because this is where the advantage of R lies. Easystats comes first in this workshop. Its datawizard package does the data work, filtering, selecting and summarising, and the rest of the family turns the output of a model back into tidy data, coefficients, fit statistics and effect sizes, instead of the block of printed text that summary gives you. The tidyverse reads the files and covers the few verbs that datawizard lacks. Modelsummary builds regression tables ready for a journal straight from the fitted models, so the table cannot disagree with the model. And marginaleffects computes predictions, contrasts and marginal effects from almost any model, which is how you get from a coefficient to a statement in the units in which your reader thinks. The workshop's figures come from tinyplot, the tables from tinytable and the causal graphs from dagitty.
+Packages are where the advantage of R lies, and easystats comes first in this workshop. Its datawizard package does the data work, filtering, selecting and summarising, and the rest of the family turns the output of a model back into tidy data, coefficients, fit statistics and effect sizes, in place of the block of printed text that summary gives. The tidyverse reads the files and covers the few verbs that datawizard lacks. Modelsummary builds regression tables ready for a journal straight from the fitted models, so a table cannot disagree with its model, and marginaleffects computes predictions, contrasts and marginal effects from almost any model, which turns a coefficient into a statement in the units in which your reader thinks. [advance] The workshop's figures come from tinyplot, the tables from tinytable and the causal graphs from dagitty.
 :::

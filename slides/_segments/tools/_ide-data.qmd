@@ -5,7 +5,7 @@ Section 3
 :::
 
 ::: notes
-Section three is about the places in which you look at things. The Data Explorer shows a data frame as a grid, with a summary of every column beside it, and it is the part of Positron that most changes how it feels to look at data. Then the Plots pane, where every figure lands, the Viewer, which shows tables and web pages, and the help pages of R, which are better reading than most people expect. The task at the end is a look at the data of the case study, of the kind that should come before any model.
+Section three is about the places in which you look at things. The Data Explorer shows a data frame as a grid, with a summary of every column beside it, and in my experience it is the part of Positron that most changes how it feels to look at data. Then come the Plots pane, where every figure lands, the Viewer, which shows tables and web pages, and the help pages of R, which are better reading than most people expect. The task at the end is a look at the data of the case study, of the kind that should come before any model.
 :::
 
 ## The Data Explorer {#the-data-explorer .smaller}
@@ -17,7 +17,7 @@ It opens from the grid icon in the Variables pane, from `View(housing)` in the c
 :::
 
 ::: notes
-The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet, with summary statistics for every column beside it. It opens from the grid icon in the Variables pane, from View of housing in the console, the call that RStudio users know, and from a CSV file clicked in the Explorer, which it reads without loading the file into R. Three parts make it up. The grid shows the cells, with the name and type of each column at its head. The summary panel on the left lists the columns, each with a small chart of its values and the share of missing values. And the filter bar above the grid and the summary panel holds filters on the rows. The default layout gives it little room, so I hide the other parts of the window while I look, as in this screenshot.
+The Data Explorer shows a data frame as a grid of cells, much like a spreadsheet, with summary statistics for every column beside it. It opens from the grid icon in the Variables pane, from View of housing in the console, the call that RStudio users know, and from a CSV file clicked in the Explorer, which it reads without loading the file into R. It has three parts: the grid, with the name and type of each column at its head; the summary panel on the left, which lists the columns, each with a small chart of its values and the share of missing values; and the filter bar above the grid and the summary panel, which holds filters on the rows. The default layout gives it little room, so I hide the other parts of the window while I look, as in this screenshot.
 :::
 
 ## Summaries and filters {#summaries-and-filters .smaller}
@@ -45,7 +45,7 @@ housing |>
 ::::
 
 ::: notes
-A column in the summary panel unfolds into a fuller summary. The column of names has six unique values and none missing, and reply has twenty-three missing values, the bounced emails, with a mean of point five six eight, which is the share of the delivered emails that received a reply. The plus sign in the filter bar adds a filter on the rows, and the menu at the head of each column sorts it. Filtered to the emails signed Santiago and sorted by reply, the status line at the bottom says that two hundred and seven rows are on display out of a thousand and fourteen. Filters and sorts change only what you look at, while the object in the session stays as it was. Convert to Code writes the code that reproduces the view, in dplyr, and the workshop writes the same steps with datawizard.
+A column in the summary panel unfolds into a fuller summary. The column of names has six unique values and none missing, and reply has twenty-three missing values, the bounced emails, with a mean of point five six eight, the share of the delivered emails that received a reply. The plus sign in the filter bar adds a filter on the rows, and the menu at the head of each column sorts it, so that filtered to the emails signed Santiago and sorted by reply, the status line at the bottom shows two hundred and seven rows out of a thousand and fourteen. Filters and sorts change only what you look at, and the object in the session stays as it was. Convert to Code writes the code that reproduces the view, in dplyr, and the workshop writes the same steps with datawizard.
 :::
 
 ## Plots and the Viewer {#plots-and-the-viewer .smaller}
@@ -76,7 +76,7 @@ housing |>
 ::::
 
 ::: notes
-Every figure that R draws in the session appears in the Plots pane, under the Variables pane, labelled with the version of R that drew it and its number in the history of the session. The arrows at the top move back and forth through that history, and the other buttons save the plot to a file, copy it, zoom it, and open it in a window of its own. In the default sizing the figure is drawn to fit the pane, so widening the pane by dragging its edge gives a larger and clearer plot. The Viewer shows output that is a web page rather than text or a plot, such as a table made with tinytable, an interactive figure or the preview of a Quarto document, which the next session uses. RStudio has the same two tabs, in the pane at the bottom right.
+Every figure that R draws in the session appears in the Plots pane, under the Variables pane, labelled with the version of R that drew it and its number in the history of the session. The arrows at the top move through that history, and the other buttons save the plot to a file, copy it, zoom it and open it in a window of its own. By default the figure is drawn to fit the pane, so widening the pane by dragging its edge gives a larger and clearer plot. The Viewer shows output that is a web page rather than text or a plot, such as a table made with tinytable, an interactive figure or the preview of a Quarto document, which the next session uses. RStudio has the same two tabs, in the pane at the bottom right.
 :::
 
 ## Help pages {#help-pages .smaller}
@@ -93,7 +93,7 @@ Every figure that R draws in the session appears in the Plots pane, under the Va
 :::
 
 ::: notes
-The help pages of R are better than their reputation. A question mark followed by the name of a function opens its page in the Help tab, as a formatted page with working links, and the back and forward buttons return to the pages that you read before. F1, with the cursor on the name of a function in the editor, does the same without typing anything, and because every function in the workshop is written with its package, its page opens even when the package is not loaded. The page for data filter documents data match and data filter together, because datawizard describes the two functions on one page. Read the description and the arguments first, and then look for the examples near the end of the page, which you can copy into the console and run.
+The help pages of R are better than their reputation. A question mark followed by the name of a function opens its page in the Help tab, as a formatted page with working links, and the back and forward buttons return to the pages read before. F1, with the cursor on the name of a function in the editor, does the same without typing anything, and because every function in the workshop is written with its package, its page opens even when the package is not loaded. The page for data filter documents data match and data filter together, because datawizard describes the two functions on one page. Read the description and the arguments first, and then the examples near the end of the page, which you can copy into the console and run.
 :::
 
 ## Hands-on 3 – Looking at the data {#hands-on-3-looking-at-the-data .smaller}
@@ -102,7 +102,7 @@ The help pages of R are better than their reputation. A question mark followed b
 1. Open `housing` in the Data Explorer, from the grid icon in the Variables pane, and unfold `name` and `reply` in the summary panel
 2. Filter the view to the emails signed Santiago, sort it by `reply`, descending, and then run `nrow(housing)` in the console
 3. Draw the bar chart of the emails by name, and find **Save Plot** in the Plots pane
-4. Run `?datawizard::data_filter`, then put the cursor on `read_csv` in line 30 of the script and press F1
+4. Run `?datawizard::data_filter`, then put the cursor on `read_csv` in line 31 of the script and press F1
 :::
 
 ::: {.fragment .small}
@@ -110,5 +110,5 @@ The filtered view shows `r nrow(santiago)` rows, and `nrow(housing)` still print
 :::
 
 ::: notes
-Your turn, and the habit behind it, the most useful one that you will learn today, is to look at the data before any model is fitted. Open housing in the Data Explorer and unfold the two columns. Filter the view to Santiago, sort it by reply, and then check in the console that the data frame itself has not changed. Draw the bar chart of the emails by name, and find the button that saves a plot, which you will need when a figure goes into a document of your own. And open two help pages, one with the question mark and one with F1 from the script. If you work in RStudio or VS Code, use the data viewer, the plots and the help of your own IDE. Take the time you need. [advance] The view shows two hundred and seven rows, and the data frame is unchanged.
+Your turn, with a habit that I would like you to keep, looking at the data before any model is fitted. Open housing in the Data Explorer and unfold the two columns. Filter the view to Santiago, sort it by reply, and then check in the console that the data frame itself has not changed. Draw the bar chart of the emails by name, and find the button that saves a plot, which you will need when a figure goes into a document of your own. Then open two help pages, one with the question mark and one with F1 from the script. In RStudio or VS Code, use the data viewer, the plots and the help of your own IDE. [advance] The view shows two hundred and seven rows, and the data frame is unchanged.
 :::
