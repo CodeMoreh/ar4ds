@@ -36,7 +36,7 @@ Hands-on training in {{< var workshop.format >}}
 # {{< var workshop.name >}} {.unnumbered .unlisted}
 
 ::: {.home-lead}
-The course takes published claims, the reanalyses that each of them received in a many-analyst study and the replications that tested them with new data, and teaches reproduction, robustness and replication in R, from the data and code of real studies. One exercise runs through every case study, and each case study has a site of its own.
+Applied Replication for Data Skills (AR4DS) is a hands-on course that introduces social data science tools and statistical methods through the reanalysis of a published finding. The focal published finding comes from an article reanalysed as part of [SCORE (Systematizing Confidence in Open Research and Evidence)](https://www.cos.io/score), a large-scale, multi-method research initiative designed to improve the assessment of scientific credibility in the social and behavioural sciences. Operationalising scientific credibility as the 'repeatability' of research findings, SCORE subjected an initial selection of 600 academic publications to three tests: whether published results can be *reproduced* with the original data and code; to what extent a central finding is *robust* to alternative analytical choices; and whether the finding can be *replicated* using new data.
 :::
 
 ::: {.home-cta}
@@ -191,55 +191,15 @@ The claims of the case studies come from the work of SCORE, short for Systematiz
 :::: {.home-cases .home-reveal}
 
 ::: {.home-r}
-### [SCORE](score.qmd) {.unnumbered .unlisted}
+### [The programme](score.qmd#sec-score) {#score-programme .unnumbered .unlisted}
 
-The programme and its three studies, how the robustness study chose its claims and set its two tasks, and what the record holds for each case study.
+SCORE and its three studies, of reproducibility, robustness and replicability, and what the record of the programme holds for each case study.
 :::
 
 ::: {.home-r}
-### [The robustness article](robustness-article.qmd) {#the-robustness-article .unnumbered .unlisted}
+### [The robustness study](score.qmd#sec-robustness) {#the-robustness-article .unnumbered .unlisted}
 
-How the robustness study placed 504 reanalyses on one scale, what that scale assumes, what the article found, and what to ask of an effect size converted for comparison.
-:::
-
-::::
-
-:::::
-::::::
-
-:::::: {.home-section #start}
-::::: {.home-wrap}
-
-## Getting started {.unnumbered .home-reveal}
-
-::: {.home-intro .home-reveal}
-The part-day format needs only a browser, because its tasks are done on the slides, which run R inside the browser. The full-day and self-taught formats are worked in the workspace of the case study, with R, Quarto and an IDE installed beforehand.
-:::
-
-:::: {.home-steps .home-reveal}
-
-::: {.home-step}
-### R and an IDE {.unnumbered .unlisted}
-
-Install R, Quarto and an IDE (Positron, RStudio, VS Code, etc.), following the steps for your operating system. [Install and check](setup.qmd)
-:::
-
-::: {.home-step}
-### The workspace {.unnumbered .unlisted}
-
-Download the workspace from the site of your case study, open it in your IDE and run the check script. [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/day/before.html#the-workspace), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/day/before.html#the-workspace)
-:::
-
-::: {.home-step}
-### Setup help {.unnumbered .unlisted}
-
-The checks to run first, the problems that participants have met, and what to ask an AI assistant or a person when something fails. [Setup help](help.qmd)
-:::
-
-::: {.home-step}
-### Git and GitHub {.unnumbered .unlisted}
-
-Putting your own reanalysis under version control and publishing the rendered report, once the course is over. [Git and GitHub](git-github.qmd)
+How the robustness study chose its claims and set its two tasks, how it placed 504 reanalyses on one scale, what that scale assumes, and what its article found.
 :::
 
 ::::
@@ -261,17 +221,35 @@ Putting your own reanalysis under version control and publishing the rendered re
 Lecturer in Sociology, Newcastle University
 :::
 
-<!-- The biography is quoted from chrismoreh.com (source: D:/GitHub/chrismoreh-source/index.qmd), as CM asked on 2026-10-25, and copied verbatim from the opening page of the Europeanisation site. -->
+<!-- The biography is shortened from chrismoreh.com (source: D:/GitHub/chrismoreh-source/index.qmd); CM cut its second paragraph on 2026-11-20. -->
 
 A social scientist interested in the political sociology of migration, mobility, ethnicity and nationalism.
-
-Hailing from Transylvania, trained in anthropology and sociology at [Eötvös Loránd University of Budapest](https://tatk.elte.hu/en/) and [Central European University](https://sociology.ceu.edu/), and with a PhD from [Northumbria University](https://www.northumbria.ac.uk/), I currently work as a Lecturer (Assistant Professor) in Sociology at [Newcastle University (UK)](https://www.ncl.ac.uk/gps/staff/profile/chrismoreh.html).
 
 I approach social research as a comparative, interdisciplinary and multimethodological endeavour. My work has combined ethnographic observation, document analysis, survey methods and statistical modelling.
 
 I'm enthusiastic about transparency and reproducibility in the social sciences, and my [pedagogical approach](https://www.ncl.ac.uk/mediav8/library/file-downloads/research-services/open-research/moreh.pdf) seeks to develop skills that facilitate open and credible research practices.
 
-[chrismoreh.com](https://chrismoreh.com)
+Find me at: [chrismoreh.com](https://chrismoreh.com)
+
+::::
+
+:::::
+::::::
+
+
+:::::: {.home-section #ai}
+::::: {.home-wrap .home-about .home-ai}
+
+::: {.home-ai-icon .home-reveal role="img" aria-label="The icon of Claude Code"}
+:::
+
+:::: {.home-reveal}
+
+## AI disclosure {.unnumbered}
+
+The course grew out of a short session written for an open research conference at Newcastle University, which was built on my own reanalysis of one claim in the SCORE robustness study [@AczelEtAl2026InvestigatingAnalyticalRobustness]. Its extension into the present course, with several case studies from SCORE and formats of different lengths, was carried out with the help of Claude models developed by Anthropic, used through Claude Code. The models were used to improve the websites and to design the formats, to check the R code and to find errors and inconsistencies across the materials, and to draft sections of the text of the pages, the slides and the workspaces. Everything that the models produced is being checked by me for its accuracy and its language.
+
+AI assistants can also help participants during the course, with a piece of code that fails or as a partner in generating and testing ideas, used in a way that supports the work of the participant rather than replacing it, which means keeping the judgement of the analysis one's own and saying where the help came from. The module on [AI assistants](tools/ai.qmd) sets out how to use one in the IDE, and its section on [licensed data](tools/ai.qmd#sec-licensed) explains why the files of some case studies, such as the Eurobarometer surveys distributed by GESIS, may not be processed with an AI system at all.
 
 ::::
 
