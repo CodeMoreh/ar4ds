@@ -123,13 +123,13 @@ The whole file runs from the run button at the top left of the editor. The butto
 ::: {.callout-tip}
 ## Try it
 
-1. Open `working_script.R` and click at the start of line 30, the line that begins `housing <- readr::read_csv(`.
+1. Open `working_script.R` and click at the start of line 31, the line that begins `housing <- readr::read_csv(`.
 
-2. Press Ctrl+Enter. The line appears in the console, R reads the data into an object called `housing`, and the cursor moves to line 31 (@fig-run-line).
+2. Press Ctrl+Enter. The line appears in the console, R reads the data into an object called `housing`, and the cursor moves to line 32 (@fig-run-line).
 
 ![Line 30 run with Ctrl+Enter. The console shows the line that ran, and the cursor in the editor has moved on to line 31.](images/ide/12-run-line.png){#fig-run-line fig-alt="The editor shows working_script.R from line 21 to line 37, with the cursor at the start of line 31, source(\"R/spec_tools.R\"). The console below shows the line that ran, housing <- readr::read_csv(\"data/housing_emails.csv\", show_col_types = FALSE), and a new prompt."}
 
-3. Press Ctrl+Enter twice more. The first press sources `R/spec_tools.R`, the helpers of the exercise, and the cursor jumps over the comments to line 38. The second runs the whole statement of lines 38 to 43 and prints the counts of the emails, 1,014 sent, 23 bounced, 991 delivered, 563 replies and 558 replies with a greeting code (@fig-run-statement).
+3. Press Ctrl+Enter twice more. The first press sources `R/spec_tools.R`, the helpers of the exercise, and the cursor jumps over the comments to line 39. The second runs the whole statement of lines 39 to 44 and prints the counts of the emails, 1,014 sent, 23 bounced, 991 delivered, 563 replies and 558 replies with a greeting code (@fig-run-statement).
 
 ![A statement of six lines run with one press of Ctrl+Enter. The console shows the statement, each further line marked with a plus sign, and the table of counts.](images/ide/13-run-statement.png){#fig-run-statement fig-alt="The editor shows working_script.R from line 33 to line 48, with the six-line statement of lines 38 to 43, housing piped into datawizard::data_summary(), and the cursor now at line 47. The console shows the same statement, its continuation lines starting with a plus sign, and a table reading emails 1014, bounced 23, delivered 991, replies 563, coded 558."}
 :::
@@ -137,7 +137,7 @@ The whole file runs from the run button at the top left of the editor. The butto
 ::: {.callout-tip}
 ## Try it
 
-1. Select the text from `housing` at the start of line 47 to the closing bracket of `datawizard::data_filter(!is.na(reply))` on line 48, leaving out the `|>` that follows it.
+1. Select the text from `housing` at the start of line 48 to the closing bracket of `datawizard::data_filter(!is.na(reply))` on line 49, leaving out the `|>` that follows it.
 
 2. Press Ctrl+Enter. The console runs only the selected part of the pipe and prints the 991 delivered emails as a tibble, the kind of data frame that readr creates, showing ten rows of it and a note of how many more rows and columns there are (@fig-run-selection).
 
@@ -239,7 +239,7 @@ The Help pane shows the documentation of R functions and packages as a formatted
 
 1. Run `?datawizard::data_filter` in the console (@fig-help). The page that opens documents `data_match()` and `data_filter()` together, because datawizard describes the two functions on one page.
 
-2. In `working_script.R`, put the cursor on `read_csv` in line 30 and press F1. The pane shows the page on which readr documents `read_csv()` together with its relatives.
+2. In `working_script.R`, put the cursor on `read_csv` in line 31 and press F1. The pane shows the page on which readr documents `read_csv()` together with its relatives.
 
 ![The Help pane showing the datawizard page that documents data_filter.](images/ide/21-help-pane.png){#fig-help fig-alt="The Help tab of the right-hand side bar, with back, forward and home buttons, a search box reading Search R Help, and a title reading 'R: Return filtered or sliced data frame, or row indices'. The page is headed data_match {datawizard}, R Documentation, and shows the sections Description, Usage, with data_match(x, to, match = \"and\", return_indices = FALSE, ...) and data_filter(x, ...), and Arguments, beginning with x, to, match and return_indices."}
 :::
@@ -417,7 +417,7 @@ Work through these six steps in the IDE workspace of the Housing case study, in 
 
 1. Open the folder of the IDE workspace, with **File → Open Folder…** in Positron and VS Code, or with `ar4ds-housing-workspace.Rproj` in RStudio. The files appear in the side bar, among them the report `index.qmd`, the script `working_script.R` and the folders `R/`, `data/` and `prep/`.
 2. Run `R/check_setup.R` as a whole, with **Source R File** in Positron, the **Source** button in RStudio or **R: Run Source** in VS Code, or with `source("R/check_setup.R")` in the console. The OK lines end with the workshop's reference specification at −19.97 percentage points.
-3. Run line 30 of `working_script.R`, which reads the data into `housing`, and open the data in the data viewer of your IDE, from the Variables or Environment pane or with `View(housing)`. You should find 1,014 rows, and 23 emails without a value in `reply`, the ones that bounced.
+3. Run line 31 of `working_script.R`, which reads the data into `housing`, and open the data in the data viewer of your IDE, from the Variables or Environment pane or with `View(housing)`. You should find 1,014 rows, and 23 emails without a value in `reply`, the ones that bounced.
 4. Filter the view to a single name, Santiago, and sort it by `reply`, which in Positron leaves 207 rows on display. Then run `nrow(housing)` in the console to confirm that the object in the session is unchanged.
 5. Draw one figure, `tinyplot::tinyplot(~ name, data = housing, type = "barplot")`, which counts the emails sent under each name, and find it in the plots pane, then export it once, so that you know where the button is.
 6. Open `index.qmd` and render it, with **Preview** in Positron and VS Code or **Render** in RStudio. Find the finished document in the viewer, and the file written by the render, `index.html`, in the folder `_site`.

@@ -163,7 +163,7 @@ After staging, `git diff --staged` shows what you are about to commit. Reading t
 ::: {.callout-tip}
 ## In Positron
 
-1. Open `index.qmd`, press Ctrl+G, type 408 and press Enter to go to the line of `my_population` in the preregistration block of Task 5, and set it to `"all"` in place of `"replies"`. Then set `my_adjust`, on line 418, to `"email"` in place of `"none"`, and save the file with Ctrl+S. The two changes stand for two decisions of the specification menu taken in one sitting, and the tasks of the next subsection commit the first and discard the second.
+1. Open `index.qmd`, press Ctrl+G, type 374 and press Enter to go to the line of `my_population` in the preregistration block of Task 5, and set it to `"all"` in place of `"replies"`. Then set `my_adjust`, on line 384, to `"email"` in place of `"none"`, and save the file with Ctrl+S. The two changes stand for two decisions of the specification menu taken in one sitting, and the tasks of the next subsection commit the first and discard the second.
 
 2. In the Source Control view, `index.qmd` is back under **Changes**, marked M for modified. Click it, and the diff editor opens with the last committed version on the left and yours on the right, each changed line shaded, in red on the left and in green on the right, with the changed words picked out within it (@fig-scm-diff). This is `git diff`. A file clicked under **Staged Changes** opens instead what `git diff --staged` shows, the comparison of the last commit with the staged version, and in a narrow window both comparisons appear in a single column, each old line above its new one.
 
@@ -183,7 +183,7 @@ Two decisions are often made in one sitting and end up in one file, as the two c
 ::: {.callout-tip}
 ## Try it
 
-1. Click `index.qmd` under **Changes** to open its diff. Beside the change on line 408, in the narrow strip between the two sides, are two small buttons, an arrow for **Revert Block** and a plus sign for **Stage Block** (@fig-scm-diff).
+1. Click `index.qmd` under **Changes** to open its diff. Beside the change on line 374, in the narrow strip between the two sides, are two small buttons, an arrow for **Revert Block** and a plus sign for **Stage Block** (@fig-scm-diff).
 
 2. Click the plus sign. Only that change is staged, so `index.qmd` is now listed twice, under **Staged Changes** for the population and under **Changes** for the adjustment, and clicking the first entry shows the staged change alone (@fig-scm-partial). To stage less than a whole change, select the lines on the right-hand side of the diff, right-click the selection and choose **Stage Selected Ranges**.
 
@@ -194,7 +194,7 @@ Two decisions are often made in one sitting and end up in one file, as the two c
 
 #### Discarding a change
 
-An exploratory change that you decide not to keep, such as the adjustment set tried on line 418, is best discarded rather than undone by hand. Discarding returns the file to its staged version, or to its last committed version when nothing in it is staged, and in the terminal the same step takes `git restore`. Git never recorded the discarded edit, so Positron asks before it discards, although the local history described under the timeline below may still hold the version that you last saved. For a file that git does not track yet, discarding removes the file itself, which Positron moves to the Recycle Bin (the Trash on a Mac).
+An exploratory change that you decide not to keep, such as the adjustment set tried on line 384, is best discarded rather than undone by hand. Discarding returns the file to its staged version, or to its last committed version when nothing in it is staged, and in the terminal the same step takes `git restore`. Git never recorded the discarded edit, so Positron asks before it discards, although the local history described under the timeline below may still hold the version that you last saved. For a file that git does not track yet, discarding removes the file itself, which Positron moves to the Recycle Bin (the Trash on a Mac).
 
 ::: {.callout-tip}
 ## Try it
@@ -203,7 +203,7 @@ An exploratory change that you decide not to keep, such as the adjustment set tr
 
 ![The menu that opens on a right-click on a file in the list of changes, with Discard Changes highlighted.](tools/images/git/discard-changes-menu.png){#fig-scm-discard fig-alt="The Source Control view with index.qmd under Changes and a menu opened from it, listing Open Changes, Open File, Open File (HEAD), Discard Changes, which is highlighted, Stage Changes, Add to .gitignore, Reveal in File Explorer and Reveal in Explorer View."}
 
-2. Positron asks "Are you sure you want to discard changes in 'index.qmd'?", with the buttons **Discard File** and **Cancel**. Press **Discard File**. The file leaves the list, and line 418 reads `"none"` again.
+2. Positron asks "Are you sure you want to discard changes in 'index.qmd'?", with the buttons **Discard File** and **Cancel**. Press **Discard File**. The file leaves the list, and line 384 reads `"none"` again.
 :::
 
 #### The timeline of a file
@@ -213,7 +213,7 @@ The Graph lists every commit of the repository, whereas a question about one fil
 ::: {.callout-tip}
 ## Try it
 
-1. Make the second decision of section 5 a commit of its own. Set `my_model`, on line 417 of `index.qmd`, to `"logit"` in place of `"lpm"`, save the file, stage it and commit it with the message `Fit the logistic regression of the paper, reported as an average marginal effect`.
+1. Make the second decision of section 5 a commit of its own. Set `my_model`, on line 383 of `index.qmd`, to `"logit"` in place of `"lpm"`, save the file, stage it and commit it with the message `Fit the logistic regression of the paper, reported as an average marginal effect`.
 
 2. With `index.qmd` open in the editor, click the Explorer icon in the Activity Bar and unfold **Timeline** at the foot of the Explorer. The entries run newest first, each commit with its message and its author (@fig-scm-timeline), and clicking a commit opens the diff of the file in that commit.
 
