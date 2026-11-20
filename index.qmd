@@ -124,7 +124,7 @@ What a first course in quantitative methods teaches, including linear regression
 ## Formats {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The workshop is taught in three formats, and the facilitator of each workshop chooses its format and its case study. Each format is an ordered route through the pages of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a workshop leads straight to its route.
+The workshop is taught in three formats, and each workshop's facilitator chooses its format and its case study. Each format is an ordered route through the pages of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a workshop leads straight to its route.
 :::
 
 :::: {.home-grid}
