@@ -104,7 +104,24 @@ main .quarto-figure img[src*="images/"] {
 }
 
 /* The reference list of a page stays in the page, where the pop-up of each citation
-   reads its entry, but is not shown; references.qmd lists every work cited on the
-   site. The second rule hides the appendix when the list is all that it holds. */
+   reads its entry, but is not shown. The second rule hides the appendix when the list is all
+   that it holds. */
 #quarto-bibliography { display: none; }
 #quarto-appendix:not(:has(> :not(#quarto-bibliography))) { display: none; }
+
+/* The footer on one line. Quarto keeps room for three blocks, of which only the
+   first holds text; on a narrow screen the link that reports an issue sits
+   beside the licence instead of below it. */
+.nav-footer { min-height: 0; padding-top: .55rem; padding-bottom: .55rem; align-items: center; }
+.nav-footer-center, .nav-footer-right { min-height: 0; }
+.nav-footer-right { display: none; }
+.nav-footer .nav-footer-left, .nav-footer .nav-footer-center { margin-bottom: 0; }
+/* the centre block opens with a non-breaking space, which would take a line of its own */
+.nav-footer .nav-footer-center { font-size: 0; }
+.nav-footer .nav-footer-center > * { font-size: .825rem; }
+.nav-footer .toc-actions { padding-top: 0; padding-bottom: 0; }
+.nav-footer .toc-actions ul { margin: 0; padding: 0; }
+@media (max-width: 767.98px) {
+  .nav-footer { flex-wrap: nowrap; gap: 1rem; }
+  .nav-footer .nav-footer-left, .nav-footer .nav-footer-center { flex: 0 1 auto; text-align: left; }
+}

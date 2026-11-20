@@ -18,7 +18,10 @@ execute:
   freeze: auto
 
 website:
-  title: "Applied Replication for Data Skills"
+  title: "AR4DS"
+  # No search box: the pages are read in the order of a workflow, and search
+  # would surface pages that are not meant to be found on their own
+  search: false
   site-url: "https://codemoreh.github.io/ar4ds/"
   repo-url: "https://github.com/CodeMoreh/ar4ds"
   repo-actions: [issue]
@@ -36,9 +39,7 @@ website:
   navbar:
     logo: assets/logo.png
     logo-alt: "CM logo"
-    left:
-      - href: index.qmd
-        text: Home
+    right:
       # The sites of the published case studies
       - text: Case studies
         menu:
@@ -46,19 +47,15 @@ website:
             text: "Housing and racial bias"
           - href: "https://codemoreh.github.io/ar4ds-eu/"
             text: "Europeanisation and the economy"
-      - text: SCORE
-        menu:
-          - href: score.qmd
-            text: "SCORE"
-          - href: robustness-article.qmd
-            text: "The robustness article"
+      - href: score.qmd
+        text: SCORE
       # Installation first, then the self-study modules on the tools
       - text: Tools
         menu:
           - href: setup.qmd
-            text: "Install and check"
+            text: "Setup"
           - href: help.qmd
-            text: "Setup help"
+            text: "Help"
           - text: "---"
           - href: tools/r.qmd
             text: "Getting started with R"
@@ -76,8 +73,6 @@ website:
             text: "Package versions"
           - href: tools/ai.qmd
             text: "AI assistants"
-      - href: references.qmd
-        text: References
 
   page-footer:
     left: |
