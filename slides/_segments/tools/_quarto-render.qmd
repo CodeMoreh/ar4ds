@@ -18,7 +18,7 @@ Section four is about the render itself. A render can fail, and the message that
 ::: {.small .fs-90}
 1. **The error** repeats what R said: datawizard has no function `data_sumary`
 2. **`Quitting from`** names the file, the lines of the chunk and its label
-3. **The counter** `4/53 [count-emails]` shows how far knitr got
+3. **The counter** above the error shows how far knitr got
 4. Correct the chunk, run it in the console, and render again
 :::
 :::
