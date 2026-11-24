@@ -12,13 +12,13 @@ Section four is about the render itself. A render can fail, and the message that
 
 :::: {.columns}
 ::: {.column width="65%"}
-![](../tools/images/quarto/positron-render-error.png){fig-alt="The Quarto Preview terminal after a failed render: the counters 1/49 to 4/49 [count-emails], then Error: 'data_sumary' is not an exported object from 'namespace:datawizard', then Quitting from index.qmd:80-89 [count-emails], Execution halted and WARN: Error encountered when rendering files." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
+![](../tools/images/quarto/positron-render-error.png){fig-alt="The Quarto Preview terminal after a failed render: the counters of knitr up to the chunk count-emails, then Error: 'data_sumary' is not an exported object from 'namespace:datawizard', then the line Quitting from with the lines and the label of that chunk, Execution halted and WARN: Error encountered when rendering files." width="100%" style="border: 1px solid #c9ced4; box-shadow: 1px 1px 6px rgba(0,0,0,0.15);"}
 :::
 ::: {.column width="35%"}
 ::: {.small .fs-90}
 1. **The error** repeats what R said: datawizard has no function `data_sumary`
 2. **`Quitting from`** names the file, the lines of the chunk and its label
-3. **The counter** `4/49 [count-emails]` shows how far knitr got
+3. **The counter** `4/53 [count-emails]` shows how far knitr got
 4. Correct the chunk, run it in the console, and render again
 :::
 :::

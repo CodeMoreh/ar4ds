@@ -91,7 +91,7 @@ Every part of the window can be resized by dragging its edge, and hidden and sho
 
 1. In the Explorer, click the folders `data` and `R` to unfold both (@fig-explorer).
 
-![The Explorer with the folders data and R unfolded.](images/ide/08-explorer.png){#fig-explorer fig-alt="The Explorer of Positron listing the IDE workspace ar4ds-housing-workspace-main. The folder data is unfolded and shows analysts5.csv, housing_emails.csv, housing_original.csv, menu_options.csv, reference_marks.csv and spec_curve.csv, each with a codebook ending in _codebook.md. The folder R is unfolded and shows check_setup.R, dag_starter.R and spec_tools.R. Below them are _quarto.yml, .gitignore, ar4ds-housing-workspace.Rproj, index.qmd, LICENSE, README.md and working_script.R."}
+![The Explorer with the folders data and R unfolded.](images/ide/08-explorer.png){#fig-explorer fig-alt="The Explorer of Positron listing the IDE workspace ar4ds-housing-workspace-main. The folder data is unfolded and shows the CSV files of the case study, each with a codebook ending in _codebook.md. The folder R is unfolded and shows check_setup.R, dag_starter.R and spec_tools.R. Below them are _quarto.yml, .gitignore, ar4ds-housing-workspace.Rproj, index.qmd, LICENSE, README.md and working_script.R."}
 
 2. Click `working_script.R` once. The file opens in a tab whose name is in italics, which marks a preview to be replaced by the next file that you click, so double-click the file, or start typing in it, to keep it open.
 
@@ -307,7 +307,7 @@ The report of the exercise, `index.qmd`, is a Quarto document, and Positron come
 
 2. Click **Preview**. A terminal called Quarto Preview opens in the Panel and reports the progress of the render, which took about half a minute on the machine used for these screenshots, since every chunk of the report runs. The finished report then appears in the Viewer, and the command **View: Maximize Secondary Side Bar** gives it the whole window for reading (@fig-quarto-preview).
 
-![The rendered report in the Viewer, with the side bar maximised.](images/ide/25-quarto-preview.png){#fig-quarto-preview fig-alt="The Viewer, maximised, with a red button that stops the preview above the address http://localhost:7143/, and the rendered report, headed by its title, with the author 'Pair: [names]', the date November 16, 2026, the section The claim with its quotation from the paper, and a table of contents on the right."}
+![The rendered report in the Viewer, with the side bar maximised.](images/ide/25-quarto-preview.png){#fig-quarto-preview fig-alt="The Viewer, maximised, with a red button that stops the preview above the local address of the page, and the rendered report, headed by its title, with the author 'Pair: [names]', the date of the render, the section The claim with its quotation from the paper, and a table of contents on the right."}
 :::
 
 ### 7.2 Git {#sec-git}
