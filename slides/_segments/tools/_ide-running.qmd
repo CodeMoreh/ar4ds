@@ -15,7 +15,7 @@ Section two is about running code, which is most of what you do in an IDE. A scr
 ::: {.small}
 - The run button at the top left of the editor runs **Source R File with Echo** (Ctrl+Shift+Enter), which prints each line before its result
 - The small arrow beside it offers **Source R File**, which runs the file with `source()` and prints the results only
-- On `R/check_setup.R`, Source R File prints an `[OK]` line for each check, the verdict 14 OK and 0 FAIL, and "You are ready"
+- On `R/check_setup.R`, Source R File prints an `[OK]` line for each check, a verdict with no FAIL, and "You are ready"
 :::
 :::
 ::: {.column width="45%"}
