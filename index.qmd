@@ -52,7 +52,7 @@ Applied Replication for Data Skills (AR4DS) is a hands-on workshop that introduc
 ## Case studies {#the-cases .unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The case studies differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case study allows, with slide decks of its own and a companion of the methods that the case study can teach. Further case studies are in preparation.
+The case studies differ in the statistics and the data handling that they ask for, from a comparison of proportions in one public file of emails to a panel of country-years built from sixteen licensed surveys, and each site offers the formats that its case study allows, with a companion of the methods that the case study can teach. Further case studies are in preparation.
 :::
 
 :::: {.home-cases}
@@ -124,7 +124,7 @@ What a first course in quantitative methods teaches, including linear regression
 ## Formats {.unnumbered .home-reveal}
 
 ::: {.home-intro .home-reveal}
-The workshop is taught in three formats, and each workshop's facilitator chooses its format and its case study. Each format is an ordered route through the pages of its case study, with a sidebar of its own and the slide deck that it uses, so that the link that you receive for a workshop leads straight to its route.
+The workshop is taught in three formats, and each workshop's facilitator chooses its format and its case study. Each format is an ordered route through the pages of its case study, with a sidebar of its own, so that the link that you receive for a workshop leads straight to its route.
 :::
 
 :::: {.home-grid}
@@ -134,7 +134,7 @@ The workshop is taught in three formats, and each workshop's facilitator chooses
 
 [Two halves, in the browser]{.home-meta}
 
-One case study with nothing to install and nothing preregistered, worked on the slides themselves, which run R inside the browser: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
+One case study with nothing to install and nothing preregistered, worked in the webR workspace, which runs R inside the browser: the claim and the five reanalyses, the estimand statement, the reproduction of one reanalysis of your choice, the menu of analyses and the curve of the claim, and the replication with new data.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/short/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/short/).
 :::
@@ -144,7 +144,7 @@ One case study with nothing to install and nothing preregistered, worked on the 
 
 [Four parts, in your IDE]{.home-meta}
 
-One case study in four parts, worked in the IDE workspace, while the slides, which run R inside the browser, show each step with its output and stand in for the workspace if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
+One case study in four parts, worked in the IDE workspace, with the webR workspace, which runs R inside the browser, standing in if an installation fails: the claim and the credibility of social science, the estimand and the causal graph, the reproduction of one reanalysis chosen by each participant, and robustness, with the menu of defensible analyses, the class chart, the curve of the claim and one analysis declared before it runs.
 
 [Housing](https://codemoreh.github.io/ar4ds-housing/tracks/day/), [Europeanisation](https://codemoreh.github.io/ar4ds-eu/tracks/day/).
 :::

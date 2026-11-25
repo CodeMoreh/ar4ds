@@ -73,7 +73,7 @@ Do not run a command you do not understand, and ask the assistant to explain wha
 
 ## Where to ask people
 
-- **The workshop's GitHub repository**: open an issue on [GitHub]({{< var org >}}/ar4ds) with the same evidence listed above, or bring it to the session. If your machine fails on the day, work on the session slides, which run R inside the browser, or in the webR workspace of your case study.
+- **The workshop's GitHub repository**: open an issue on [GitHub]({{< var org >}}/ar4ds) with the same evidence listed above, or bring it to the session. If your machine fails on the day, work in the webR workspace of your case study, which runs R inside the browser.
 - **Positron**: the [discussions](https://github.com/posit-dev/positron/discussions) and [issues](https://github.com/posit-dev/positron/issues) on GitHub, which the Positron team reads.
 - **RStudio and R packages**: the [Posit Community forum](https://forum.posit.co/).
 - **R in VS Code**: the [vscode-R issues](https://github.com/REditorSupport/vscode-R/issues).
