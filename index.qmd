@@ -213,7 +213,7 @@ How the robustness study chose its claims and set its two tasks, how it placed 5
 :::::
 ::::::
 
-:::::: {.home-section .home-alt #facilitator}
+:::::: {.home-section #facilitator}
 ::::: {.home-wrap .home-about}
 
 ::: {.home-portrait .home-reveal role="img" aria-label="Portrait of Chris Moreh"}
@@ -221,15 +221,19 @@ How the robustness study chose its claims and set its two tasks, how it placed 5
 
 :::: {.home-reveal}
 
+::: {.home-label}
+The facilitator
+:::
+
 ## Chris Moreh {.unnumbered}
 
 ::: {.home-role}
 Lecturer in Sociology, Newcastle University
 :::
 
-<!-- The biography is shortened from chrismoreh.com (source: D:/GitHub/chrismoreh-source/index.qmd); CM cut its second paragraph on 2026-11-20. -->
+<!-- The biography is shortened from chrismoreh.com (source: D:/GitHub/chrismoreh-source/index.qmd), without its second paragraph (CM, 2026-11-20), and opens with a sentence on CM's role in AR4DS (CM, 2026-11-25). -->
 
-A social scientist interested in the political sociology of migration, mobility, ethnicity and nationalism.
+I developed AR4DS, maintain its websites and facilitate its workshops. I am a social scientist interested in the political sociology of migration, mobility, ethnicity and nationalism.
 
 I approach social research as a comparative, interdisciplinary and multimethodological endeavour. My work has combined ethnographic observation, document analysis, survey methods and statistical modelling.
 
@@ -243,7 +247,7 @@ Find me at: [chrismoreh.com](https://chrismoreh.com)
 ::::::
 
 
-:::::: {.home-section #ai}
+:::::: {.home-section .home-alt #ai}
 ::::: {.home-wrap .home-about .home-ai}
 
 ```{=html}
